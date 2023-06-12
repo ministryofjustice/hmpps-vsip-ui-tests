@@ -1,0 +1,29 @@
+version: 2.1
+jobs:
+  build:
+    machine: true
+
+    steps:
+      - checkout
+
+      - run:
+          name: Set up Java
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y openjdk-11-jdk
+
+      - run:
+          name: Set up ChromeDriver
+          command: |
+            wget -q -O /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/LATEST_RELEASE
+            LATEST_CHROME_DRIVER=$(cat /tmp/chromedriver.zip)
+            wget -q -O /tmp/chromedriver_linux64.zip https://chromedriver.storage.googleapis.com/$LATEST_CHROME_DRIVER/chromedriver_linux64.zip
+            unzip /tmp/chromedriver_linux64.zip -d /tmp
+            sudo mv /tmp/chromedriver /usr/local/bin/chromedriver
+            sudo chmod +x /usr/local/bin/chromedriver
+
+      - run:
+          name: Build and test project
+          command: |
+            export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+            mvn clean test
