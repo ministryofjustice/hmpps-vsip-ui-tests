@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
 import stepDefinitions.WebDriverInstance;
@@ -14,17 +15,29 @@ import java.time.Duration;
  public class commonMethods implements WebDriverInstance {
 
     public Wait<WebDriver> wait = new FluentWait<>(driver)
-            .withTimeout(Duration.ofSeconds(10));
+            .withTimeout(Duration.ofSeconds(20));
+
+    private WebElement element=null;
 
     public void navigateToPage(Configuration configuration) {
         driver.get(configuration.getBaseUrl());
 
     }
 
-    public void isPageTitleDisplayed(String pageTitle){
+    public void isPageTitleDisplayed(String pageTitle) {
         String currentTitle = driver.getTitle();
         Assert.assertEquals(currentTitle, pageTitle);
 
+    }
+
+    /** method to get element status - displayed?
+     @param accessType : String : Locator type (id, name, class, xpath, css)
+     @param accessName : String : Locator value
+     @return Boolean
+     */
+    public boolean isElementDisplayed(String accessType,String accessName) {
+        element = wait.until(ExpectedConditions.presenceOfElementLocated(getelementbytype(accessType, accessName)));
+        return element.isDisplayed();
     }
 
     /**Method to select element 'by' type
@@ -62,7 +75,7 @@ import java.time.Duration;
      */
 
     public void enterValInTextField(String accessType, String value, String accessName) {
-//        wait.until(ExpectedConditions.presenceOfElementLocated(getelementbytype(accessType,accessName)));
+        wait.until(ExpectedConditions.presenceOfElementLocated(getelementbytype(accessType,accessName)));
         driver.findElement(getelementbytype(accessType,accessName)).sendKeys(value);
 
     }
@@ -90,8 +103,8 @@ import java.time.Duration;
      @param accessName : String : Locator value
      */
 
-    public void clickOnButton(String accessType, String accessName){
-//        wait.until(ExpectedConditions.elementToBeClickable(getelementbytype(accessType,accessName)));
+    public void clickOnButton(String accessType, String accessName) {
+        wait.until(ExpectedConditions.elementToBeClickable(getelementbytype(accessType,accessName)));
         driver.findElement(getelementbytype(accessType,accessName)).click();
     }
 

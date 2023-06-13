@@ -8,18 +8,18 @@ import utils.Configuration;
  */
 public class commonPage extends commonMethods {
 
-    By continueBtnOnAllPages = By.id("submit");
+//    By continueBtnOnAllPages = By.id("submit");
 
     public void loginVSIPService() {
-        navigateToPage(Configuration.getConfiguration(Configuration.Environment.STAGING));
+        navigateToPage(Configuration.getConfiguration(Configuration.Environment.valueOf(System.getProperty("environment"))));
     }
 
-    public void deleteBrowserCookies(){
+    public void deleteBrowserCookies() {
         driver.manage().deleteAllCookies();
     }
 
-    public void clickOnContinueBtn(){
-        clickOnButton("id","submit");
+    public void clickOnContinueBtn() throws InterruptedException {
+        clickOnButton("xpath","//*[@id='submit']");
     }
 
 }

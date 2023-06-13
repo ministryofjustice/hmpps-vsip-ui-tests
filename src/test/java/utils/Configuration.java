@@ -1,29 +1,23 @@
 package utils;
 
-import java.util.Optional;
-
 /**
  * Created by Anusha Nagula on 15/05/23.
  */
 
 public class Configuration {
     private String baseUrl;
-    private int timeout;
+    private double timeout;
 
-    public String getBaseUrl()
-    {
+    public String getBaseUrl() {
         return baseUrl;
     }
 
-    public int getTimeout()
-    {
+    public double getTimeout() {
         return timeout;
     }
     public enum Environment {
         LOCAL, DEV, QA, STAGING
     }
-//
-//    public static Configuration settings = create();
 
     public static Configuration getConfiguration(Environment environment) {
         switch (environment) {
@@ -54,7 +48,7 @@ public class Configuration {
         }
     }
 
-    public Configuration(String baseUrl, int timeout) {
+    public Configuration(String baseUrl, double timeout) {
         this.baseUrl = baseUrl;
         this.timeout = timeout;
     }
