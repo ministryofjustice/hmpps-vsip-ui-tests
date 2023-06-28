@@ -14,7 +14,7 @@ public class CommonSteps {
     pages.commonMethods commonMethods = new commonMethods();
 
     @Given("click on submit button")
-    public void click_on_submit_button() {
+    public void click_on_submit_button() throws InterruptedException {
         commonPage.clickOnContinueBtn();
 
     }

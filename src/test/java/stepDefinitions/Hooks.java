@@ -14,6 +14,7 @@ public class Hooks implements WebDriverInstance {
     @Before
     public void initialise(){
         driver.manage().deleteAllCookies();
+
     }
 
     @After
