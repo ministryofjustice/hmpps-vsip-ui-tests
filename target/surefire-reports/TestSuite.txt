@@ -1,4 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.259 s - in TestSuite
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 12.173 s <<< FAILURE! - in TestSuite
+suites.RunSuite.runScenario["Access VSIP homepage", "Login"](2)  Time elapsed: 0.652 s  <<< FAILURE!
+java.lang.AssertionError: expected [HMPPS Digital Services - Sign in] but found [Manage prison visits - Manage prison visits]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1577)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:149)
+	at org.testng.Assert.assertEquals(Assert.java:131)
+	at org.testng.Assert.assertEquals(Assert.java:655)
+	at org.testng.Assert.assertEquals(Assert.java:665)
+	at pages.commonMethods.isPageTitleDisplayed(commonMethods.java:29)
+	at stepDefinitions.CommonSteps.im_on_vsip_page(CommonSteps.java:24)
+	at ✽.Im on "HMPPS Digital Services - Sign in" page(file:///Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/resources/features/Login.feature:6)
+

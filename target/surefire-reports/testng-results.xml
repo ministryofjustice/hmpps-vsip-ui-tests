@@ -1,27 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-06-28T09:53:33 BST" name="Suite" finished-at="2023-06-28T09:53:38 BST" duration-ms="4953">
+  <suite started-at="2023-07-17T12:53:37 BST" name="Suite" finished-at="2023-07-17T12:53:44 BST" duration-ms="6986">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:suites.RunSuite@1184ab05]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2023-06-28T09:53:33 BST" name="Run" finished-at="2023-06-28T09:53:38 BST" duration-ms="4953">
+    <test started-at="2023-07-17T12:53:37 BST" name="Run" finished-at="2023-07-17T12:53:44 BST" duration-ms="6986">
       <class name="suites.RunSuite">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:suites.RunSuite@1184ab05]" started-at="2023-06-28T09:53:33 BST" name="setUpClass" finished-at="2023-06-28T09:53:33 BST" duration-ms="214" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:suites.RunSuite@1184ab05]" started-at="2023-07-17T12:53:37 BST" name="setUpClass" finished-at="2023-07-17T12:53:37 BST" duration-ms="232" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@43d3aba5]]>
+                <![CDATA[org.testng.TestRunner@74606204]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:suites.RunSuite@1184ab05]" started-at="2023-06-28T09:53:33 BST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-06-28T09:53:37 BST" duration-ms="4112" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:suites.RunSuite@1184ab05]" started-at="2023-07-17T12:53:37 BST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-07-17T12:53:42 BST" duration-ms="4931" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Cancel a visit with Administrative error option"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Cancel a Visit"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:suites.RunSuite@1184ab05]" started-at="2023-07-17T12:53:42 BST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-07-17T12:53:43 BST" duration-ms="651" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -34,10 +50,28 @@
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [HMPPS Digital Services - Sign in] but found [Manage prison visits - Manage prison visits]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [HMPPS Digital Services - Sign in] but found [Manage prison visits - Manage prison visits]
+at org.testng.Assert.fail(Assert.java:110)
+at org.testng.Assert.failNotEquals(Assert.java:1577)
+at org.testng.Assert.assertEqualsImpl(Assert.java:149)
+at org.testng.Assert.assertEquals(Assert.java:131)
+at org.testng.Assert.assertEquals(Assert.java:655)
+at org.testng.Assert.assertEquals(Assert.java:665)
+at pages.commonMethods.isPageTitleDisplayed(commonMethods.java:29)
+at stepDefinitions.CommonSteps.im_on_vsip_page(CommonSteps.java:24)
+at ✽.Im on "HMPPS Digital Services - Sign in" page(file:///Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/resources/features/Login.feature:6)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:suites.RunSuite@1184ab05]" started-at="2023-06-28T09:53:38 BST" name="tearDownClass" finished-at="2023-06-28T09:53:38 BST" duration-ms="607" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:suites.RunSuite@1184ab05]" started-at="2023-07-17T12:53:43 BST" name="tearDownClass" finished-at="2023-07-17T12:53:44 BST" duration-ms="1150" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

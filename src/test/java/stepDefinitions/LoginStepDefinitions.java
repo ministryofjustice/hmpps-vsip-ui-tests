@@ -11,7 +11,7 @@ public class LoginStepDefinitions extends LoginPage {
     pages.commonPage commonPage = new commonPage();
 
     @Given("I navigate to VSIP service")
-    public void i_navigate_to_vsip_service() throws InterruptedException {
+    public void i_navigate_to_vsip_service() {
         commonPage.loginVSIPService();
 
     }

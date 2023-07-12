@@ -2,6 +2,8 @@ package pages;
 
 import org.openqa.selenium.By;
 import utils.Configuration;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.*;
 
 /**
  * Created by Anusha Nagula on 15/05/23.
@@ -18,8 +20,40 @@ public class commonPage extends commonMethods {
         driver.manage().deleteAllCookies();
     }
 
-    public void clickOnContinueBtn() throws InterruptedException {
+    public void clickOnSubmitBtn() {
         clickOnButton("xpath","//*[@id='submit']");
+    }
+
+    public void clickOnBookAVisitOption() {
+        click("xpath","//*[@id=\"main-content\"]/div/div/ul/li[1]/div/h2/a");
+    }
+
+    public void clickOnChangeAVisitOption() {
+        click("xpath","//*[@id=\"main-content\"]/div/div/ul/li[2]/div/h2/a");
+    }
+
+    public void selectPrisoner() {
+        click("xpath","//*[@id=\"search-results-true\"]/tbody/tr/td[1]/a");
+    }
+
+    public void clickOnBtn() {
+        click("xpath", "//button[contains(@class, 'govuk-button')]");
+    }
+
+    public void clickOnBookAVisitBtn() {
+        click("xpath","//*[@id=\"main-content\"]/div[1]/div/form/button");
+    }
+
+    public void clickOnCancelAVisitBtn(){
+        click("xpath","//*[@id=\"main-content\"]/div/div/div/form/a");
+    }
+
+    public void chooseAPrisoner() {
+        click("xpath","//*[@id=\"visitor-220914\"]");
+    }
+
+    public void clickOnContinueBtn() {
+        clickOnButton("xpath","//*[@id=\"main-content\"]/div/div/form/button");
     }
 
 }
