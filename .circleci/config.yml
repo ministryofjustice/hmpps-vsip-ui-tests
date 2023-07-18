@@ -10,10 +10,6 @@ jobs:
 
     steps:
       - checkout
-      - run:
-          name: Create target folder
-          command:
-            mkdir target
 
       - run:
           name: Build and Run tests
