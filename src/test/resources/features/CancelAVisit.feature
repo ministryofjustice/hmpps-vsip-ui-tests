@@ -113,7 +113,7 @@ Feature: Cancel a Visit
       | userName                    | password               | value1 | value2 | value3 | value4 | reason           |
       | ANAGULA_GEN                 | Mounteverest10         |   rl   |  fy    |   lp   |   al   | Health issues    |
 
-  Scenario Outline: Cancel a visit with Administrative error option
+  Scenario Outline: Confirm Cancel a visit
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
@@ -130,7 +130,6 @@ Feature: Cancel a Visit
     Then I choose prison from search results
     Then Im on "Manage prison visits - Booking details - ql-iv-or-jm" page
     And I see "Booking details" message displayed
-
 
     Examples:
       | userName                    | password               | value1 | value2 | value3 | value4 |

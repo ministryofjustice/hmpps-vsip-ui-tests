@@ -2,10 +2,11 @@ package stepDefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import pages.CYAPage;
+import pages.CheckYourAnswersPage;
 import pages.commonPage;
 
-public class CYAStepDefinitions extends CYAPage{
+public class CheckYourAnswersStepDefinitions extends CheckYourAnswersPage {
+
     pages.commonPage commonPage = new commonPage();
 
     @And("click on submit booking button")
@@ -13,4 +14,5 @@ public class CYAStepDefinitions extends CYAPage{
         clickOnSubmitBookingBtn();
 
     }
+
 }
