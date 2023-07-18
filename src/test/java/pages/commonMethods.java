@@ -108,12 +108,44 @@ import java.time.Duration;
         driver.findElement(getelementbytype(accessType,accessName)).click();
     }
 
+    /** Method to click on an element
+    @param accessType : String : Locator type (id, name, class, xpath, css)
+    @param accessName : String : Locator value
+	*/
+    public void click(String accessType, String accessName)
+    {
+        element = wait.until(ExpectedConditions.presenceOfElementLocated(getelementbytype(accessType, accessName)));
+        element.click();
+    }
+
     public void verifyHeading(String text){
-        driver.findElement(By.cssSelector("h2")).getText().equals(text);
+        driver.findElement(By.cssSelector("h1")).getText().equals(text);
     }
 
     public void isElementVisible(String accessType, String value, String accessName){
         driver.findElement(getelementbytype(accessType,accessName)).isDisplayed();
+    }
+
+    /** Method to select radio button
+     @param accessType : String : Locator type (id, name, class, xpath, css)
+     @param accessName : String : Locator value
+     */
+    public void selectRadioButton(String accessType, String accessName)
+    {
+        WebElement radioButton = wait.until(ExpectedConditions.presenceOfElementLocated(getelementbytype(accessType, accessName)));
+        if(!radioButton.isSelected())
+            radioButton.click();
+    }
+
+    /** Method to check check-box
+     @param accessType : String : Locator type (id, name, class, xpath, css)
+     @param accessName : String : Locator value
+     */
+    public void checkCheckbox(String accessType, String accessName)
+    {
+        WebElement checkbox= wait.until(ExpectedConditions.presenceOfElementLocated(getelementbytype(accessType, accessName)));
+        if (!checkbox.isSelected())
+            checkbox.click();
     }
 
 }

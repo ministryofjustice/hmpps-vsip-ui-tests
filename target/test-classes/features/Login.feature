@@ -1,6 +1,6 @@
 Feature: Login
 As a user, I should be able to login to VSIP service
-@suite
+  @suite
 Scenario Outline: Access VSIP homepage
 Given I navigate to VSIP service
 And Im on "HMPPS Digital Services - Sign in" page
@@ -11,4 +11,4 @@ Then Im on "Manage prison visits - Manage prison visits" page
 
   Examples:
   | userName                    | password               |
-  | ANAGULA_GEN                 | Christchurch10         |
+  | ANAGULA_GEN                 | Mounteverest10         |

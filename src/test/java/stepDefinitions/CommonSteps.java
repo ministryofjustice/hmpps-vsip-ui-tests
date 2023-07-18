@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import pages.commonPage;
@@ -14,8 +15,8 @@ public class CommonSteps {
     pages.commonMethods commonMethods = new commonMethods();
 
     @Given("click on submit button")
-    public void click_on_submit_button() throws InterruptedException {
-        commonPage.clickOnContinueBtn();
+    public void i_click_on_submit_button() throws InterruptedException {
+        commonPage.clickOnSubmitBtn();
 
     }
     @Then("Im on {string} page")
@@ -23,4 +24,11 @@ public class CommonSteps {
         commonMethods.isPageTitleDisplayed(pageTitle);
 
     }
+
+    @Then("click on continue button")
+    public void click_on_continue_button() {
+        commonPage.clickOnContinueBtn();
+
+    }
+
 }
