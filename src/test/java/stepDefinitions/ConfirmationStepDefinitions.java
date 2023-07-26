@@ -15,5 +15,4 @@ public class ConfirmationStepDefinitions extends ConfirmationPage {
     public void iSeeMessageDisplayed(String confirmationMsg) {
         checkBookingCancelHeading(confirmationMsg);
     }
-
 }

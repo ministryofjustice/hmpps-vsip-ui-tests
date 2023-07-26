@@ -16,9 +16,13 @@ public class PrisonerDetailsStepDefinitions extends PrisonerDetailsPage {
         commonPage.clickOnBookAVisitBtn();
     }
 
-
     @And("I click on Cancel a visit button")
     public void iClickOnCancelAVisitButton() {
         commonPage.clickOnCancelAVisitBtn();
+    }
+
+    @And("I select latest visit reference")
+    public void iSelectLatestVisitReference() {
+        selectLatestPrisonVisit();
     }
 }

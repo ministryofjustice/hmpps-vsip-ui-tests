@@ -25,5 +25,4 @@ public class LoginStepDefinitions extends LoginPage {
         enterPassword(password);
 
     }
-
 }

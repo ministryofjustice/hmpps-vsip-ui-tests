@@ -12,7 +12,5 @@ public class CheckYourAnswersStepDefinitions extends CheckYourAnswersPage {
     @And("click on submit booking button")
     public void clickOnSubmitBookingButton() {
         clickOnSubmitBookingBtn();
-
     }
-
 }

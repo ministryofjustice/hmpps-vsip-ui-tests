@@ -7,7 +7,6 @@ package utils;
 public class Configuration {
     private String baseUrl;
     private double timeout;
-
     public String getBaseUrl() {
         return baseUrl;
     }
@@ -18,7 +17,6 @@ public class Configuration {
     public enum Environment {
         LOCAL, DEV, QA, STAGING
     }
-
     public static Configuration getConfiguration(Environment environment) {
         switch (environment) {
             case DEV:
@@ -52,5 +50,4 @@ public class Configuration {
         this.baseUrl = baseUrl;
         this.timeout = timeout;
     }
-
 }

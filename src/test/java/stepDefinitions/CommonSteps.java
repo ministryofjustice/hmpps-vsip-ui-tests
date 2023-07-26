@@ -15,7 +15,7 @@ public class CommonSteps {
     pages.commonMethods commonMethods = new commonMethods();
 
     @Given("click on submit button")
-    public void i_click_on_submit_button() throws InterruptedException {
+    public void i_click_on_submit_button() {
         commonPage.clickOnSubmitBtn();
 
     }
@@ -24,11 +24,18 @@ public class CommonSteps {
         commonMethods.isPageTitleDisplayed(pageTitle);
 
     }
-
     @Then("click on continue button")
     public void click_on_continue_button() {
-        commonPage.clickOnContinueBtn();
+        commonPage.clickOnBtn();
 
     }
+    @And("I click on Manage a Prison option")
+    public void iClickOnManageAPrisonOption() {
+        commonPage.clickOnManagePrisonOptn();
 
+    }
+    @And("I sign out of the service")
+    public void iSignOutOfTheService() {
+        commonPage.clickOnSignOut();
+    }
 }
