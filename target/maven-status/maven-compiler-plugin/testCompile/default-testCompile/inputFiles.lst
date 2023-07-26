@@ -1,9 +1,9 @@
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/pages/MainContactPage.java
+/Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/pages/CheckYourAnswersPage.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/stepDefinitions/PrisonerDetailsStepDefinitions.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/pages/SearchPage.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/pages/commonPage.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/pages/PrisonerDetailsPage.java
-/Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/pages/CYAPage.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/pages/SelectTimeSlotPage.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/stepDefinitions/AdditionalSupportStepDefinitions.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/suites/RunSuite.java
@@ -18,13 +18,14 @@
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/pages/HomePage.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/stepDefinitions/CommonSteps.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/stepDefinitions/Hooks.java
-/Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/stepDefinitions/CYAStepDefinitions.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/pages/SelectVisitorsPage.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/stepDefinitions/LoginStepDefinitions.java
+/Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/stepDefinitions/CheckYourAnswersStepDefinitions.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/driver/Driver.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/stepDefinitions/SelectVisitorsStepDefinitions.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/pages/ConfirmationPage.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/stepDefinitions/HomeStepDefinitions.java
+/Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/utils/CustomTestListener.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/stepDefinitions/WebDriverInstance.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/pages/LoginPage.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/utils/Configuration.java

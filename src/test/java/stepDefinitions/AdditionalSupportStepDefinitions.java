@@ -16,7 +16,6 @@ public class AdditionalSupportStepDefinitions extends AdditionalSupportPage {
         selectNoForAddAssistance();
     }
 
-
     @And("I select Yes for additional support needed")
     public void iSelectYesForAdditionalSupportNeeded() {
         selectYesForAddAssistance();
@@ -35,7 +34,5 @@ public class AdditionalSupportStepDefinitions extends AdditionalSupportPage {
     @And("I enter {string} in the section")
     public void iEnterInTheSection(String disability) {
         enterDisability(disability);
-
     }
-
 }

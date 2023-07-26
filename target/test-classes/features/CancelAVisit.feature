@@ -27,7 +27,7 @@ Feature: Cancel a Visit
 
     Examples:
       | userName                    | password               | value1 | value2 | value3 | value4 | reason           |
-      | ANAGULA_GEN                 | Mounteverest10         |   ol   |  fn    |   me   |   ml   | Health issues    |
+      | ANAGULA_GEN                 | Ministryofjustice10    |   ol   |  fn    |   me   |   ml   | Health issues    |
 
   Scenario Outline: Cancel a visit with Establishment cancelled option
     Given I navigate to VSIP service
@@ -55,7 +55,7 @@ Feature: Cancel a Visit
 
     Examples:
       | userName                    | password               | value1 | value2 | value3 | value4 | reason           |
-      | ANAGULA_GEN                 | Mounteverest10         |   rl   |  fy    |   lp   |   al   | Health issues    |
+      | ANAGULA_GEN                 | Ministryofjustice10    |   rl   |  fy    |   lp   |   al   | Health issues    |
 
   Scenario Outline: Cancel a visit with Prisoner cancelled option
     Given I navigate to VSIP service
@@ -83,7 +83,7 @@ Feature: Cancel a Visit
 
     Examples:
       | userName                    | password               | value1 | value2 | value3 | value4 | reason           |
-      | ANAGULA_GEN                 | Mounteverest10         |   rl   |  fy    |   lp   |   al   | Health issues    |
+      | ANAGULA_GEN                 | Ministryofjustice10    |   rl   |  fy    |   lp   |   al   | Health issues    |
 
   Scenario Outline: Cancel a visit with Administrative error option
     Given I navigate to VSIP service
@@ -111,8 +111,8 @@ Feature: Cancel a Visit
 
     Examples:
       | userName                    | password               | value1 | value2 | value3 | value4 | reason           |
-      | ANAGULA_GEN                 | Mounteverest10         |   rl   |  fy    |   lp   |   al   | Health issues    |
-
+      | ANAGULA_GEN                 | Ministryofjustice10    |   rl   |  fy    |   lp   |   al   | Health issues    |
+  @suite
   Scenario Outline: Confirm Cancel a visit
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -130,7 +130,8 @@ Feature: Cancel a Visit
     Then I choose prison from search results
     Then Im on "Manage prison visits - Booking details - ql-iv-or-jm" page
     And I see "Booking details" message displayed
+    And I sign out of the service
 
     Examples:
       | userName                    | password               | value1 | value2 | value3 | value4 |
-      | ANAGULA_GEN                 | Mounteverest10         |   ql   |  iv    |   or   |   jm   |
+      | ANAGULA_GEN                 | Ministryofjustice10    |   ql   |  iv    |   or   |   jm   |

@@ -11,4 +11,4 @@ Then Im on "Manage prison visits - Manage prison visits" page
 
   Examples:
   | userName                    | password               |
-  | ANAGULA_GEN                 | Mounteverest10         |
+  | ANAGULA_GEN                 | Ministryofjustice10    |

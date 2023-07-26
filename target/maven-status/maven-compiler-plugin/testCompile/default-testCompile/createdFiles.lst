@@ -1,5 +1,6 @@
 pages/HomePage.class
 pages/commonPage.class
+utils/CustomTestListener.class
 pages/MainContactPage.class
 pages/PrisonerDetailsPage.class
 pages/SelectTimeSlotPage.class

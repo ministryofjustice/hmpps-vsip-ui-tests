@@ -15,7 +15,6 @@ public class MainContact extends MainContactPage {
     public void i_select_the_main_contact_option() {
         selectMainContact();
     }
-
     @And("I enter {string} to get text message")
     public void iEnterToGetTextMessage(String phoneNo) {
         enterPhoneNo(phoneNo);

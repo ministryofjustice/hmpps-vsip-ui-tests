@@ -25,15 +25,15 @@ public class commonPage extends commonMethods {
     }
 
     public void clickOnBookAVisitOption() {
-        click("xpath","//*[@id=\"main-content\"]/div/div/ul/li[1]/div/h2/a");
+        click("xpath","//*[@id='main-content']/div/div/ul/li[1]/div/h2/a");
     }
 
     public void clickOnChangeAVisitOption() {
-        click("xpath","//*[@id=\"main-content\"]/div/div/ul/li[2]/div/h2/a");
+        click("xpath","//*[@id='main-content']/div/div/ul/li[2]/div/h2/a");
     }
 
     public void selectPrisoner() {
-        click("xpath","//*[@id=\"search-results-true\"]/tbody/tr/td[1]/a");
+        click("xpath","//*[@id='search-results-true']/tbody/tr/td[1]/a");
     }
 
     public void clickOnBtn() {
@@ -41,19 +41,21 @@ public class commonPage extends commonMethods {
     }
 
     public void clickOnBookAVisitBtn() {
-        click("xpath","//*[@id=\"main-content\"]/div[1]/div/form/button");
+        click("xpath","//*[@id='main-content']/div[1]/div/form/button");
     }
 
     public void clickOnCancelAVisitBtn(){
-        click("xpath","//*[@id=\"main-content\"]/div/div/div/form/a");
+        click("xpath","//*[@id='main-content']/div/div/div/form/a");
+    }
+
+    public void clickOnManagePrisonOptn() {
+        click("xpath","//a[contains(@class, 'hmpps-header__link hmpps-header__title__service-name')]");
     }
 
     public void chooseAPrisoner() {
-        click("xpath","//*[@id=\"visitor-220914\"]");
+        click("xpath","//input[@id='visitor-220914']");
     }
-
-    public void clickOnContinueBtn() {
-        clickOnButton("xpath","//*[@id=\"main-content\"]/div/div/form/button");
+    public void clickOnSignOut() {
+        click("xpath","/html/body/header/div/nav/ul/li[2]/a");
     }
-
 }

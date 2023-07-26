@@ -147,5 +147,4 @@ import java.time.Duration;
         if (!checkbox.isSelected())
             checkbox.click();
     }
-
 }

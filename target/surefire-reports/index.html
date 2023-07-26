@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -101,6 +101,11 @@
                       <a href="#" panel-name="suite-Suite" class="show-methods passed suite-Suite"> (show)</a> <!-- show-methods passed suite-Suite -->
                     </span>
                     <div class="method-list-content passed suite-Suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="suites.RunSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Confirm Cancel a visit&quot;, &quot;Cancel a Visit&quot;)">runScenario("Confirm Cancel a visit", "Cancel a Visit")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="suites.RunSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Access VSIP homepage&quot;, &quot;Login&quot;)">runScenario("Access VSIP homepage", "Login")</a> <!-- method navigator-link -->
@@ -126,6 +131,16 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+                  <a name="runScenario(&quot;Confirm Cancel a visit&quot;, &quot;Cancel a Visit&quot;)">
+                  </a> <!-- runScenario("Confirm Cancel a visit", "Cancel a Visit") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Confirm Cancel a visit","Cancel a Visit")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="runScenario(&quot;Access VSIP homepage&quot;, &quot;Login&quot;)">
                   </a> <!-- runScenario("Access VSIP homepage", "Login") -->
                   <span class="method-name">runScenario</span>
@@ -146,6 +161,9 @@
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;Suite&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot;&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;utils.CustomTestListener&quot;/&gt;
+  &lt;/listeners&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Run&quot; verbose=&quot;0&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;suites.RunSuite&quot;/&gt;
@@ -196,11 +214,15 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'suites.RunSuite')
-data.setCell(0, 3, 5834);
+data.setCell(0, 3, 4555);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'runScenario')
+data.setCell(1, 2, 'suites.RunSuite')
+data.setCell(1, 3, 980);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
@@ -233,16 +255,20 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">suites.RunSuite</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@1acb74ad)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@58a2d9f9)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
+                <span class="method-name">runScenario("Confirm Cancel a visit", "Cancel a Visit")</span>
+                <span class="method-start">228 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
                 <span class="method-name">runScenario("Access VSIP homepage", "Login")</span>
-                <span class="method-start">243 ms</span>
+                <span class="method-start">4784 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">6079 ms</span>
+                <span class="method-start">5766 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
