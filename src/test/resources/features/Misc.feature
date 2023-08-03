@@ -43,7 +43,7 @@ Feature: Book/Cancel/Amend a Visit
     Then I choose prison from search results
     Then Im on "Manage prison visits - Booking details - rx-um-sy-en" page
     And I see "Booking details" message displayed
-    And I see "Tuesday 1 August 2023 at 11:44am by Anusha Nagula (in person request)" displayed on Booking details page
+    And I see "Wednesday 2 August 2023 at 11:43am by Anusha Nagula (in person request)" displayed on Booking details page
     And I sign out of the service
 
     Examples:

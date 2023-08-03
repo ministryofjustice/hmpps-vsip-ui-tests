@@ -1,6 +1,6 @@
 Feature: Cancel a Visit
   As a user, I should be able to cancel a visit using VSIP service
-  @suite
+  @suites
   Scenario Outline: Cancel a visit with Visitor Cancelled option
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -16,7 +16,7 @@ Feature: Cancel a Visit
     And I enter "<value4>" in fourth block
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Booking details - ol-fn-me-ml" page
+    Then Im on "Manage prison visits - Booking details - nx-io-xn-py" page
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
     And I select Visitor Cancelled option
@@ -29,7 +29,7 @@ Feature: Cancel a Visit
 
     Examples:
       | userName                    | password               | value1 | value2 | value3 | value4 | reason           |
-      | ANAGULA_GEN                 | Ministryofjustice10    |   ol   |  fn    |   me   |   ml   | Health issues    |
+      | ANAGULA_GEN                 | Ministryofjustice10    |   nx   |  io    |   xn   |   py   | Health issues    |
 
   Scenario Outline: Cancel a visit with Establishment cancelled option
     Given I navigate to VSIP service

@@ -7,22 +7,22 @@ public class CancelAVisitPage extends commonMethods {
     }
 
     public void selectCancelByPhone() {
-        selectRadioButton("xpath","//input[@id='conditional-cancel']/div/fieldset/div/div[1]/label/text()");
+        selectRadioButton("xpath","//input[@id='method']");
     }
 
     public void selectCancelByGov(){
-        selectRadioButton("xpath","//input[@id='conditional-cancel']/div/fieldset/div/div[2]/label/text()");
+        selectRadioButton("xpath","//input[@id='method-2']");
     }
 
     public void selectCancelByEmail(){
-        selectRadioButton("xpath","//input[@id='conditional-cancel']/div/fieldset/div/div[3]/label/text()");
+        selectRadioButton("xpath","//input[@id='method-3']");
     }
 
     public void selectCancelByInperson(){
-        selectRadioButton("xpath","//input[@id='conditional-cancel']/div/fieldset/div/div[4]/label/text()");
+        selectRadioButton("xpath","//input[@id='method-4']");
     }
     public void enterReasonForCancellation(String reason) {
-        enterValInTextField("xpath", reason, "//input[@id='reason_visitor_cancelled']");
+        enterValInTextField("xpath", reason, "//input[@id='reason']");
     }
 
     public void selectCancelByEstablishment() {

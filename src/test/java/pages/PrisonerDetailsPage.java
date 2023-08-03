@@ -3,6 +3,6 @@ package pages;
 public class PrisonerDetailsPage extends commonMethods {
 
     public void selectLatestPrisonVisit() {
-        click("xpath","//*[@id=\"visits\"]/table/tbody/tr[1]/td[1]/a");
+        click("xpath","//*[@id='visits']/table[1]/tbody/tr/td[1]/a");
     }
 }

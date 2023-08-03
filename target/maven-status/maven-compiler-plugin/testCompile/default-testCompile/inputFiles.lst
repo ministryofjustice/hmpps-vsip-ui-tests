@@ -9,6 +9,7 @@
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/suites/RunSuite.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/stepDefinitions/CancelAVisitStepDefinitions.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/stepDefinitions/MainContact.java
+/Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/pages/BookingDetailsPage.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/stepDefinitions/ConfirmationStepDefinitions.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/pages/AdditionalSupportPage.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/pages/CancelAVisitPage.java
@@ -29,3 +30,4 @@
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/stepDefinitions/WebDriverInstance.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/pages/LoginPage.java
 /Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/utils/Configuration.java
+/Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/java/stepDefinitions/BookingDetailsStepDefinitions.java
