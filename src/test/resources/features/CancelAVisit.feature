@@ -26,6 +26,7 @@ Feature: Cancel a Visit
     And click on cancel button
     Then Im on "Manage prison visits - Booking cancelled" page
     And I see "Booking cancelled" message displayed
+    And I sign out of the service
 
     Examples:
       | userName                    | password               | value1 | value2 | value3 | value4 | reason           |
@@ -54,6 +55,7 @@ Feature: Cancel a Visit
     And click on cancel button
     Then Im on "Manage prison visits - Booking cancelled" page
     And I see "Booking cancelled" message displayed
+    And I sign out of the service
 
     Examples:
       | userName                    | password               | value1 | value2 | value3 | value4 | reason           |
@@ -82,6 +84,7 @@ Feature: Cancel a Visit
     And click on cancel button
     Then Im on "Manage prison visits - Booking cancelled" page
     And I see "Booking cancelled" message displayed
+    And I sign out of the service
 
     Examples:
       | userName                    | password               | value1 | value2 | value3 | value4 | reason           |
@@ -110,6 +113,7 @@ Feature: Cancel a Visit
     And click on cancel button
     Then Im on "Manage prison visits - Booking cancelled" page
     And I see "Booking cancelled" message displayed
+    And I sign out of the service
 
     Examples:
       | userName                    | password               | value1 | value2 | value3 | value4 | reason           |

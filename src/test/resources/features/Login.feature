@@ -22,6 +22,7 @@ As a user, I should be able to login to VSIP service
     And I enter the "<password>"
     And click on submit button
     Then I see "Enter a valid username and password. You will be locked out if you enter the wrong details 10 times." page
+    And I sign out of the service
 
     Examples:
       | userName                    | password               |
