@@ -14,7 +14,6 @@ public class SelectTimeSlotStepDefinitions extends SelectTimeSlotPage {
     @Then("I select a time slot")
     public void i_select_a_time_slot() {
         selectTimeSlot();
-
     }
     @And("I select next time slot")
     public void iSelectNextTimeSlot() {

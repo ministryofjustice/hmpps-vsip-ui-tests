@@ -1,6 +1,6 @@
 Feature: Book a Visit
   As a user, I should be able to book a visit using VSIP service
-
+  @suite
   Scenario Outline: Book a visit search via prison number
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page

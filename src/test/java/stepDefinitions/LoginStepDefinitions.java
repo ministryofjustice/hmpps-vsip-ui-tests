@@ -13,16 +13,13 @@ public class LoginStepDefinitions extends LoginPage {
     @Given("I navigate to VSIP service")
     public void i_navigate_to_vsip_service() {
         commonPage.loginVSIPService();
-
     }
     @Given("I enter {string}")
-    public void i_enter(String uName) throws InterruptedException {
+    public void i_enter(String uName) {
         enterUserName(uName);
-
     }
     @Given("I enter the {string}")
-    public void i_enter_the(String password) throws InterruptedException {
+    public void i_enter_the(String password) {
         enterPassword(password);
-
     }
 }

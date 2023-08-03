@@ -42,4 +42,9 @@ public class SearchStepDefinitions extends SearchPage {
     public void iEnterInFourthBlock(String value4) {
         enterConfimationInBlock4(value4);
     }
+
+    @Then("I see {string} on search page")
+    public void iSeeOnSearchPage(String errMsg) {
+        searchErrorDisplayed(errMsg);
+    }
 }

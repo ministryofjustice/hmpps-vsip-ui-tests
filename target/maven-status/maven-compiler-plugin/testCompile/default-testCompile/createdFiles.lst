@@ -1,3 +1,4 @@
+stepDefinitions/BookingDetailsStepDefinitions.class
 pages/HomePage.class
 pages/commonPage.class
 utils/CustomTestListener.class
@@ -20,6 +21,7 @@ stepDefinitions/CheckYourAnswersStepDefinitions.class
 suites/RunSuite.class
 stepDefinitions/AdditionalSupportStepDefinitions.class
 stepDefinitions/CancelAVisitStepDefinitions.class
+pages/BookingDetailsPage.class
 pages/SelectVisitorsPage.class
 stepDefinitions/HomeStepDefinitions.class
 pages/CheckYourAnswersPage.class

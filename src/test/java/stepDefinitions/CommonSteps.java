@@ -38,4 +38,10 @@ public class CommonSteps {
     public void iSignOutOfTheService() {
         commonPage.clickOnSignOut();
     }
+
+    @Then("I see {string} page")
+    public void iSeePage(String errorMsg) {
+        commonPage.errorMsgDisplayed(errorMsg);
+    }
+
 }

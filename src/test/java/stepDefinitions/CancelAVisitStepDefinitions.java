@@ -37,4 +37,10 @@ public class CancelAVisitStepDefinitions extends CancelAVisitPage {
     public void iSelectAdministrativeErrorOption() {
         selectCancelByAdmin();
     }
+
+//The below method can be written for multiple options Gov.uk,Email,In person
+    @And("I select Phone call option")
+    public void iSelectPhoneCallOption() {
+        selectCancelByPhone();
+    }
 }
