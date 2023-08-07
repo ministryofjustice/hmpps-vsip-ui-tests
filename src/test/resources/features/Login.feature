@@ -14,7 +14,6 @@ As a user, I should be able to login to VSIP service
   | userName                    | password               |
   | ANAGULA_GEN                 | Ministryofjustice10    |
 
-  @suite
   Scenario Outline: Error message - access VSIP homepage
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page

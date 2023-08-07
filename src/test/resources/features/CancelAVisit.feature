@@ -1,6 +1,6 @@
 Feature: Cancel a Visit
   As a user, I should be able to cancel a visit using VSIP service
-  @suite
+
   Scenario Outline: Cancel a visit with Visitor Cancelled option
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -31,7 +31,7 @@ Feature: Cancel a Visit
     Examples:
       | userName                    | password               | value1 | value2 | value3 | value4 | reason           |
       | ANAGULA_GEN                 | Ministryofjustice10    |   vx   |  fb    |   oy   |   jj   | Health issues    |
-  @suite
+
   Scenario Outline: Cancel a visit with Establishment cancelled option
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -60,7 +60,7 @@ Feature: Cancel a Visit
     Examples:
       | userName                    | password               | value1 | value2 | value3 | value4 | reason           |
       | ANAGULA_GEN                 | Ministryofjustice10    |   wx   |  hx    |   xj   |   gx   | Health issues    |
-  @suite
+
   Scenario Outline: Cancel a visit with Prisoner cancelled option
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -89,7 +89,7 @@ Feature: Cancel a Visit
     Examples:
       | userName                    | password               | value1 | value2 | value3 | value4 | reason           |
       | ANAGULA_GEN                 | Ministryofjustice10    |   kx   |  ur    |   xx   |   qd   | Health issues    |
-  @suite
+
   Scenario Outline: Cancel a visit with Administrative error option
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
