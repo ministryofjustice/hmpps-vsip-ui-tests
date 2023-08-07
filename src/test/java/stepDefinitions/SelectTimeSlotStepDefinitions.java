@@ -19,4 +19,10 @@ public class SelectTimeSlotStepDefinitions extends SelectTimeSlotPage {
     public void iSelectNextTimeSlot() {
         selectNextTimeSlot();
     }
+
+    @Then("I see {string} on select timeslot page")
+    public void iSeeOnSelectTimeslotPage(String errMsg) {
+        selectTimeslotErrorDisplayed();
+
+    }
 }

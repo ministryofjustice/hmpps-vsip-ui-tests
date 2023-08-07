@@ -26,7 +26,7 @@ public class CommonSteps {
     }
     @Then("click on continue button")
     public void click_on_continue_button() {
-        commonPage.clickOnBtn();
+        commonPage.clickOnContinueBtn();
 
     }
     @And("I click on Manage a Prison option")

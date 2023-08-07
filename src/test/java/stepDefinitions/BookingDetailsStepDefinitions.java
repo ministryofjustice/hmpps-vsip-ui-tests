@@ -9,7 +9,7 @@ public class BookingDetailsStepDefinitions extends BookingDetailsPage {
 
     @And("I see {string} message displayed on Booking details page")
     public void iSeeMessageDisplayedOnBookingDetailsPage(String cancelMsg) {
-        checkCancelMessageDisplayed(cancelMsg);
+        checkCancelMessageDisplayed();
 
     }
 

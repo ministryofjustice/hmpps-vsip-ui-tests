@@ -21,7 +21,7 @@ public class CancelAVisitStepDefinitions extends CancelAVisitPage {
     }
     @And("click on cancel button")
     public void clickOnCancelButton() {
-        commonPage.clickOnBtn();
+        commonPage.clickOnCancelBtn();
     }
     @And("I select Establishment cancelled option")
     public void iSelectEstablishmentCancelledOption() {

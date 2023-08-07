@@ -10,4 +10,8 @@ public class SelectTimeSlotPage extends commonMethods {
         click("xpath","//*[@id='slots-month-August2023']/div[3]/div[1]/h3/button/span[5]/span/span[1]");
         selectRadioButton("xpath","//*[@id='2']");
     }
+
+    public void selectTimeslotErrorDisplayed() {
+        isElementDisplayed("xpath","//a[text() = 'No time slot selected']");
+    }
 }

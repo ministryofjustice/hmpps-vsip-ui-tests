@@ -16,12 +16,13 @@ public class SelectVisitorsStepDefinitions extends SelectVisitorsPage {
         commonPage.chooseAPrisoner();
     }
     @Then("I see {string} on select visitors page")
-    public void iSeeOnSelectVisitorsPage(String errorMsg) {
-        selectVisitorErrorDisplayed(errorMsg);
+    public void iSeeOnSelectVisitorsPage(String errMsg) {
+        selectVisitorErrorDisplayed();
     }
 
     @And("I select another visitor form the list")
     public void iSelectAnotherVisitorFormTheList() {
         commonPage.chooseAnotherPrisoner();
     }
+
 }

@@ -2,7 +2,7 @@ package pages;
 
 public class SelectVisitorsPage extends commonMethods {
 
-    public void selectVisitorErrorDisplayed(String errMsg) {
-        isElementDisplayed("xpath","//a[contains(@href, 'No time slot selected')]");
+    public void selectVisitorErrorDisplayed() {
+        isElementDisplayed("xpath","//a[text() = 'No visitors selected']");
     }
 }

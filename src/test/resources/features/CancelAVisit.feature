@@ -16,7 +16,7 @@ Feature: Cancel a Visit
     And I enter "<value4>" in fourth block
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Booking details - nx-io-xn-py" page
+    Then Im on "Manage prison visits - Booking details - vx-fb-oy-jj" page
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
     And I select Visitor Cancelled option
@@ -30,8 +30,8 @@ Feature: Cancel a Visit
 
     Examples:
       | userName                    | password               | value1 | value2 | value3 | value4 | reason           |
-      | ANAGULA_GEN                 | Ministryofjustice10    |   nx   |  io    |   xn   |   py   | Health issues    |
-
+      | ANAGULA_GEN                 | Ministryofjustice10    |   vx   |  fb    |   oy   |   jj   | Health issues    |
+  @suite
   Scenario Outline: Cancel a visit with Establishment cancelled option
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -47,7 +47,7 @@ Feature: Cancel a Visit
     And I enter "<value4>" in fourth block
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Booking details - rl-fy-lp-al" page
+    Then Im on "Manage prison visits - Booking details - wx-hx-xj-gx" page
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
     And I select Establishment cancelled option
@@ -59,8 +59,8 @@ Feature: Cancel a Visit
 
     Examples:
       | userName                    | password               | value1 | value2 | value3 | value4 | reason           |
-      | ANAGULA_GEN                 | Ministryofjustice10    |   rl   |  fy    |   lp   |   al   | Health issues    |
-
+      | ANAGULA_GEN                 | Ministryofjustice10    |   wx   |  hx    |   xj   |   gx   | Health issues    |
+  @suite
   Scenario Outline: Cancel a visit with Prisoner cancelled option
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -76,7 +76,7 @@ Feature: Cancel a Visit
     And I enter "<value4>" in fourth block
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Booking details - rl-fy-lp-al" page
+    Then Im on "Manage prison visits - Booking details - kx-ur-xx-qd" page
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
     And I select Prisoner cancelled option
@@ -88,8 +88,8 @@ Feature: Cancel a Visit
 
     Examples:
       | userName                    | password               | value1 | value2 | value3 | value4 | reason           |
-      | ANAGULA_GEN                 | Ministryofjustice10    |   rl   |  fy    |   lp   |   al   | Health issues    |
-
+      | ANAGULA_GEN                 | Ministryofjustice10    |   kx   |  ur    |   xx   |   qd   | Health issues    |
+  @suite
   Scenario Outline: Cancel a visit with Administrative error option
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -105,7 +105,7 @@ Feature: Cancel a Visit
     And I enter "<value4>" in fourth block
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Booking details - rl-fy-lp-al" page
+    Then Im on "Manage prison visits - Booking details - zm-he-vd-bj" page
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
     And I select Administrative error option
@@ -117,7 +117,7 @@ Feature: Cancel a Visit
 
     Examples:
       | userName                    | password               | value1 | value2 | value3 | value4 | reason           |
-      | ANAGULA_GEN                 | Ministryofjustice10    |   rl   |  fy    |   lp   |   al   | Health issues    |
+      | ANAGULA_GEN                 | Ministryofjustice10    |   zm   |  he    |   vd   |   bj   | Health issues    |
   @suite
   Scenario Outline: Confirm Cancel a visit by a visitor
     Given I navigate to VSIP service
@@ -135,7 +135,7 @@ Feature: Cancel a Visit
     And click on search button
     Then I choose prison from search results
     Then Im on "Manage prison visits - Booking details - ql-iv-or-jm" page
-    And I see "This visit was cancelled by the visitor." message displayed on Booking details page
+    And I see "Visit cancelled" message displayed on Booking details page
     And I sign out of the service
 
     Examples:

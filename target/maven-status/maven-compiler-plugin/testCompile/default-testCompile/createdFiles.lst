@@ -19,11 +19,13 @@ pages/CancelAVisitPage.class
 stepDefinitions/SelectVisitorsStepDefinitions.class
 stepDefinitions/CheckYourAnswersStepDefinitions.class
 suites/RunSuite.class
+pages/WhatMethodPage.class
 stepDefinitions/AdditionalSupportStepDefinitions.class
 stepDefinitions/CancelAVisitStepDefinitions.class
 pages/BookingDetailsPage.class
 pages/SelectVisitorsPage.class
 stepDefinitions/HomeStepDefinitions.class
+stepDefinitions/WhatMethodStepDefinitions.class
 pages/CheckYourAnswersPage.class
 stepDefinitions/Hooks.class
 pages/AdditionalSupportPage.class

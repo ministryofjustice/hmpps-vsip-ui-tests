@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-08-03T11:22:35 BST" name="Suite" finished-at="2023-08-03T11:23:01 BST" duration-ms="25580">
+  <suite started-at="2023-08-07T11:43:21 BST" name="Suite" finished-at="2023-08-07T11:43:26 BST" duration-ms="4650">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:suites.RunSuite@1059754c]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2023-08-03T11:22:35 BST" name="Run" finished-at="2023-08-03T11:23:01 BST" duration-ms="25580">
+    <test started-at="2023-08-07T11:43:21 BST" name="Run" finished-at="2023-08-07T11:43:26 BST" duration-ms="4650">
       <class name="suites.RunSuite">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:suites.RunSuite@1059754c]" started-at="2023-08-03T11:22:35 BST" name="setUpClass" finished-at="2023-08-03T11:22:36 BST" duration-ms="210" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:suites.RunSuite@1059754c]" started-at="2023-08-07T11:43:21 BST" name="setUpClass" finished-at="2023-08-07T11:43:21 BST" duration-ms="214" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@2d119405]]>
+                <![CDATA[org.testng.TestRunner@53c99b09]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:suites.RunSuite@1059754c]" started-at="2023-08-03T11:22:36 BST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-08-03T11:22:59 BST" duration-ms="23862" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:suites.RunSuite@1059754c]" started-at="2023-08-07T11:43:21 BST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-08-07T11:43:25 BST" duration-ms="3348" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Cancel a visit with Visitor Cancelled option"]]>
+                <![CDATA["Confirm Cancel a visit by a visitor"]]>
               </value>
             </param>
             <param index="1">
@@ -34,56 +34,10 @@
               </value>
             </param>
           </params>
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//input[@id='reason_visitor_cancelled']"}
-  (Session info: chrome=115.0.5790.114)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.9.1', revision: 'eb2032df7f'
-System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '13.3.1', java.version: '20.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [d10fc8cd0c77e3185e94b7e9a48c0ba9, findElement {using=xpath, value=//input[@id='reason_visitor_cancelled']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 115.0.5790.114, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: /var/folders/42/tg1qk0y13d5...}, goog:chromeOptions: {debuggerAddress: localhost:49369}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:49369/devtoo..., se:cdpVersion: 115.0.5790.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: d10fc8cd0c77e3185e94b7e9a48c0ba9]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@id='reason_visitor_cancelled']"}
-  (Session info: chrome=115.0.5790.114)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.9.1', revision: 'eb2032df7f'
-System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '13.3.1', java.version: '20.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [d10fc8cd0c77e3185e94b7e9a48c0ba9, findElement {using=xpath, value=//input[@id='reason_visitor_cancelled']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 115.0.5790.114, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: /var/folders/42/tg1qk0y13d5...}, goog:chromeOptions: {debuggerAddress: localhost:49369}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:49369/devtoo..., se:cdpVersion: 115.0.5790.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: d10fc8cd0c77e3185e94b7e9a48c0ba9
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:193)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:183)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:158)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
-at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:174)
-at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:171)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
-at pages.commonMethods.enterValInTextField(commonMethods.java:78)
-at pages.CancelAVisitPage.enterReasonForCancellation(CancelAVisitPage.java:25)
-at stepDefinitions.CancelAVisitStepDefinitions.iEnterCancellationForTheVisit(CancelAVisitStepDefinitions.java:20)
-at ✽.I enter cancellation "Health issues" for the visit(file:///Users/anu.nagula/Projects/hmpps-vsip-ui-tests/src/test/resources/features/CancelAVisit.feature:25)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:suites.RunSuite@1059754c]" started-at="2023-08-03T11:23:00 BST" name="tearDownClass" finished-at="2023-08-03T11:23:01 BST" duration-ms="1172" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:suites.RunSuite@1059754c]" started-at="2023-08-07T11:43:25 BST" name="tearDownClass" finished-at="2023-08-07T11:43:26 BST" duration-ms="1075" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

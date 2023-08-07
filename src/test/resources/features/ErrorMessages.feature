@@ -64,7 +64,7 @@ Feature: Book a Visit Error messages
      And click on continue button
      Then Im on "Manage prison visits - Select date and time of visit" page
      And click on continue button
-     Then I see "No time slot selected" on select visitors page
+     Then I see "No time slot selected" on select timeslot page
      And I sign out of the service
 
    Examples:
