@@ -17,4 +17,7 @@ public class SearchPage extends commonMethods {
     public void enterConfimationInBlock4(String value4){
         enterValInTextField("xpath",value4,"//input[@id='searchBlock4']");
     }
+    public void searchErrorDisplayed(String errMsg) {
+        isElementDisplayed("xpath","//a[contains(@href, 'search-error')]");
+    }
 }

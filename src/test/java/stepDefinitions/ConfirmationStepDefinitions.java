@@ -13,6 +13,8 @@ public class ConfirmationStepDefinitions extends ConfirmationPage {
 
     @And("I see {string} message displayed")
     public void iSeeMessageDisplayed(String confirmationMsg) {
-        checkBookingCancelHeading(confirmationMsg);
+        checkBookingHeading(confirmationMsg);
     }
+
+
 }

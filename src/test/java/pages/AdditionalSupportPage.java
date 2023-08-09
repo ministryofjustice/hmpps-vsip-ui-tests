@@ -16,6 +16,6 @@ public class AdditionalSupportPage extends commonMethods {
     }
 
     public void enterDisability(String disability) {
-        enterValInTextField("xpath", disability, "//*[@id=\"otherSupportDetails\"]");
+        enterValInTextField("xpath", disability, "//*[@id='otherSupportDetails']");
     }
 }

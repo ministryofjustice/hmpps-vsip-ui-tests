@@ -21,7 +21,7 @@ public class CancelAVisitStepDefinitions extends CancelAVisitPage {
     }
     @And("click on cancel button")
     public void clickOnCancelButton() {
-        commonPage.clickOnBtn();
+        commonPage.clickOnCancelBtn();
     }
     @And("I select Establishment cancelled option")
     public void iSelectEstablishmentCancelledOption() {
@@ -36,5 +36,11 @@ public class CancelAVisitStepDefinitions extends CancelAVisitPage {
     @And("I select Administrative error option")
     public void iSelectAdministrativeErrorOption() {
         selectCancelByAdmin();
+    }
+
+//The below method can be written for multiple options Gov.uk,Email,In person
+    @And("I select Phone call option")
+    public void iSelectPhoneCallOption() {
+        selectCancelByPhone();
     }
 }

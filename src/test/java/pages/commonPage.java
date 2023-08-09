@@ -37,7 +37,15 @@ public class commonPage extends commonMethods {
     }
 
     public void clickOnBtn() {
-        click("xpath", "//button[contains(@class, 'govuk-button')]");
+        click("xpath", "//button[contains(@data-test, 'search')]");
+    }
+
+    public void clickOnContinueBtn() {
+        click("xpath", "//button[contains(@data-test, 'submit')]");
+    }
+
+    public void clickOnCancelBtn() {
+        click("xpath","//button[contains(@data-test, 'cancel-booking')]");
     }
 
     public void clickOnBookAVisitBtn() {
@@ -45,7 +53,7 @@ public class commonPage extends commonMethods {
     }
 
     public void clickOnCancelAVisitBtn(){
-        click("xpath","//*[@id='main-content']/div/div/div/form/a");
+        click("xpath","//a[contains(@data-test, 'cancel-visit')]");
     }
 
     public void clickOnManagePrisonOptn() {
@@ -55,7 +63,14 @@ public class commonPage extends commonMethods {
     public void chooseAPrisoner() {
         click("xpath","//input[@id='visitor-220914']");
     }
+    public void chooseAnotherPrisoner() {
+        click("xpath","//input[@id='visitor-3719071']");
+    }
     public void clickOnSignOut() {
         click("xpath","/html/body/header/div/nav/ul/li[2]/a");
     }
+    public void errorMsgDisplayed(String errorMsg) {
+        isElementDisplayed("xpath","//*[@id='error-detail']");
+    }
+
 }

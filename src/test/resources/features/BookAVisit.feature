@@ -28,8 +28,12 @@ Feature: Book a Visit
     And I select the main contact option
     And I enter "<phoneNumber>" to get text message
     And click on continue button
+    Then Im on "Manage prison visits - What method was used to make this request?" page
+    And I select a phone call option on method used to make the reqest
+    And click on continue button
     Then Im on "Manage prison visits - Check the visit details before booking" page
-    And click on submit booking button
+    And click on continue button
+    #And click on submit booking button
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
     #Reverting the Booking for consistent Test execution
@@ -82,8 +86,12 @@ Feature: Book a Visit
     And I select the main contact option
     And I enter "<phoneNumber>" to get text message
     And click on continue button
+    Then Im on "Manage prison visits - What method was used to make this request?" page
+    And I select a phone call option on method used to make the reqest
+    And click on continue button
     Then Im on "Manage prison visits - Check the visit details before booking" page
-    And click on submit booking button
+    And click on continue button
+#    And click on submit booking button
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
     #Reverting the Booking for consistent Test execution
@@ -139,8 +147,12 @@ Feature: Book a Visit
     And I select the main contact option
     And I enter "<phoneNumber>" to get text message
     And click on continue button
+    Then Im on "Manage prison visits - What method was used to make this request?" page
+    And I select a phone call option on method used to make the reqest
+    And click on continue button
     Then Im on "Manage prison visits - Check the visit details before booking" page
-    And click on submit booking button
+    And click on continue button
+#    And click on submit booking button
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
     #Reverting the Booking for consistent Test execution
@@ -197,8 +209,12 @@ Feature: Book a Visit
     And I enter "<contactName>" in the someone else option
     And I enter "<phoneNumber>" to get text message
     And click on continue button
+    Then Im on "Manage prison visits - What method was used to make this request?" page
+    And I select a phone call option on method used to make the reqest
+    And click on continue button
     Then Im on "Manage prison visits - Check the visit details before booking" page
-    And click on submit booking button
+    And click on continue button
+#    And click on submit booking button
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
     #Reverting the Booking for consistent Test execution
