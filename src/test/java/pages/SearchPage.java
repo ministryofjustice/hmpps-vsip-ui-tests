@@ -20,4 +20,8 @@ public class SearchPage extends commonMethods {
     public void searchErrorDisplayed(String errMsg) {
         isElementDisplayed("xpath","//a[contains(@href, 'search-error')]");
     }
+
+    public void visitStatusDisplayed(String status) {
+        isElementDisplayed("xpath","//td[text()='Booked']");
+    }
 }

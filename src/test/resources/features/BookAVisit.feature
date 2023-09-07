@@ -57,7 +57,7 @@ Feature: Book a Visit
 
     Examples:
       | userName                    | password                    | prisonNumber     | phoneNumber   | reason        |
-      | ANAGULA_GEN                 | Ministryofjustice10         | G6570GW          | 07805123900   | Health issues |
+      | VSIP1_TST                   | Unitedstatesofamerica10     | G6570GW          | 07805123900   | Health issues |
 
   Scenario Outline: Book a visit search via prisoner name
     Given I navigate to VSIP service
@@ -114,8 +114,8 @@ Feature: Book a Visit
     And I sign out of the service
 
     Examples:
-      | userName                    | password               | prisonerName     | phoneNumber   | reason              |
-      | ANAGULA_GEN                 | Ministryofjustice10    | Jo               | 07805123900   | Health issues       |
+      | userName                    | password                 | prisonerName     | phoneNumber   | reason              |
+      | VSIP1_TST                   | Unitedstatesofamerica10  | Jo               | 07805123900   | Health issues       |
 
   Scenario Outline: Book a visit - Additional support needed
     Given I navigate to VSIP service
@@ -175,8 +175,8 @@ Feature: Book a Visit
     And I sign out of the service
 
     Examples:
-      | userName                    | password               | prisonerName     | disability           | phoneNumber   | reason              |
-      | ANAGULA_GEN                 | Ministryofjustice10    | Ash              | hearing support      | 07806789076   | family member sick  |
+      | userName                    | password                   | prisonerName     | disability           | phoneNumber   | reason              |
+      | VSIP1_TST                   | Unitedstatesofamerica10    | Ash              | hearing support      | 07806789076   | family member sick  |
 
   Scenario Outline: Book a visit - Someone else main contact
     Given I navigate to VSIP service
@@ -237,5 +237,5 @@ Feature: Book a Visit
     And I sign out of the service
 
     Examples:
-      | userName                    | password               | prisonerName     | disability           | contactName | phoneNumber  | reason        |
-      | ANAGULA_GEN                 | Ministryofjustice10    | Ashlard          | hearing support      | John        | 07806432054  | health issues |
+      | userName                    | password                   | prisonerName     | disability           | contactName | phoneNumber  | reason        |
+      | VSIP1_TST                   | Unitedstatesofamerica10    | Ashlard          | hearing support      | John        | 07806432054  | health issues |
