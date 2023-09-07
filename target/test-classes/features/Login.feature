@@ -10,11 +10,10 @@ As a user, I should be able to login to VSIP service
     Then Im on "Manage prison visits - Manage prison visits" page
     And I sign out of the service
 
-  Examples:
-  | userName                    | password               |
-  | ANAGULA_GEN                 | Ministryofjustice10    |
+    Examples:
+      | userName                    | password                   |
+      | VSIP1_TST                   | Unitedstatesofamerica10    |
 
-  @suite
   Scenario Outline: Error message - access VSIP homepage
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -25,5 +24,5 @@ As a user, I should be able to login to VSIP service
     And I sign out of the service
 
     Examples:
-      | userName                    | password               |
-      | ANAGULA_GE                  | Ministryofjustice10    |
+      | userName                    | password                   |
+      | VSIP1_TST                   | Unitedstatesofamerica10    |

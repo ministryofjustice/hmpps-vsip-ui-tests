@@ -2,7 +2,7 @@ Feature: Book a Visit Error messages
   As a user, I should be able to direct to enter correct details to Book a visit using VSIP service
 
 #Error message Scenarios
-  @suite
+
   Scenario Outline: Error message on search page
      Given I navigate to VSIP service
      And Im on "HMPPS Digital Services - Sign in" page
@@ -18,9 +18,9 @@ Feature: Book a Visit Error messages
 
   Examples:
      | userName                    | password                    |
-     | ANAGULA_GEN                 | Ministryofjustice10         |
+     | VSIP1_TST                   | Unitedstatesofamerica10     |
 
-  @suite
+
   Scenario Outline: Error message on select visitors page
      Given I navigate to VSIP service
      And Im on "HMPPS Digital Services - Sign in" page
@@ -42,9 +42,9 @@ Feature: Book a Visit Error messages
 
    Examples:
      | userName                    | password                    | prisonNumber  |
-     | ANAGULA_GEN                 | Ministryofjustice10         | G3432VF       |
+     | VSIP1_TST                   | Unitedstatesofamerica10     | G3432VF       |
 
-  @suite
+
   Scenario Outline: Error message on time slot page
      Given I navigate to VSIP service
      And Im on "HMPPS Digital Services - Sign in" page
@@ -69,4 +69,4 @@ Feature: Book a Visit Error messages
 
    Examples:
      | userName                    | password                    | prisonNumber  |
-     | ANAGULA_GEN                 | Ministryofjustice10         | G3432VF       |
+     | VSIP1_TST                   | Unitedstatesofamerica10     | G3432VF       |

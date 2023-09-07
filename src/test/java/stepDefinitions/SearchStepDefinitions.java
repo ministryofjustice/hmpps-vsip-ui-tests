@@ -47,4 +47,8 @@ public class SearchStepDefinitions extends SearchPage {
     public void iSeeOnSearchPage(String errMsg) {
         searchErrorDisplayed(errMsg);
     }
+    @And("I check the visit status {string}")
+    public void iCheckTheVisitStatus(String status) {
+        visitStatusDisplayed(status);
+    }
 }
