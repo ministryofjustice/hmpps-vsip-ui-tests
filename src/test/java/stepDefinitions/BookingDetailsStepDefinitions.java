@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import pages.commonPage;
 import pages.BookingDetailsPage;
 
@@ -18,4 +19,10 @@ public class BookingDetailsStepDefinitions extends BookingDetailsPage {
         checkMethodofBooking(message);
 
     }
+
+    @Then("I choose Booking history tab")
+    public void iChooseBookingHistoryTab() {
+
+    }
+
 }

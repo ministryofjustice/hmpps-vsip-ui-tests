@@ -1,6 +1,6 @@
 Feature: Book a Visit
   As a user, I should be able to book a visit using VSIP service
-
+  @suite
   Scenario Outline: Book a visit search via prison number
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -13,7 +13,7 @@ Feature: Book a Visit
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Johnustine, Aichisa" page
+    Then Im on "Manage prison visits - Vsip_prisoner01, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
     And I select a visitor form the list
@@ -44,11 +44,12 @@ Feature: Book a Visit
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Johnustine, Aichisa" page
+    Then Im on "Manage prison visits - Vsip_prisoner01, Do Not Use" page
     And I select latest visit reference
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
     And I select Visitor Cancelled option
+    And I select Phone call option
     And I enter cancellation "<reason>" for the visit
     And click on cancel button
     Then Im on "Manage prison visits - Booking cancelled" page
@@ -57,7 +58,7 @@ Feature: Book a Visit
 
     Examples:
       | userName                    | password                    | prisonNumber     | phoneNumber   | reason        |
-      | VSIP1_TST                   | Unitedstatesofamerica10     | G6570GW          | 07805123900   | Health issues |
+      | VSIP1_TST                   | Unitedstatesofamerica10     | A6036DZ          | 07805123900   | Health issues |
 
   Scenario Outline: Book a visit search via prisoner name
     Given I navigate to VSIP service
@@ -67,11 +68,11 @@ Feature: Book a Visit
     And click on submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
-    And Im on "Manage prison visits - Search for a prisoner" page
+    And Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
     When I enter "<prisonerName>" to search for a prison
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Joannamin, Dizfmonios" page
+    Then Im on "Manage prison visits - Vsip_prisoner01, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
     And I select a visitor form the list
@@ -99,14 +100,15 @@ Feature: Book a Visit
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
-    When I enter "<prisonNumber>" to search for a prison
+    When I enter "<prisonerName>" to search for a prison
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Joannamin, Dizfmonios" page
+    Then Im on "Manage prison visits - Vsip_prisoner01, Do Not Use" page
     And I select latest visit reference
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
     And I select Visitor Cancelled option
+    And I select Phone call option
     And I enter cancellation "<reason>" for the visit
     And click on cancel button
     Then Im on "Manage prison visits - Booking cancelled" page
@@ -115,7 +117,7 @@ Feature: Book a Visit
 
     Examples:
       | userName                    | password                 | prisonerName     | phoneNumber   | reason              |
-      | VSIP1_TST                   | Unitedstatesofamerica10  | Jo               | 07805123900   | Health issues       |
+      | VSIP1_TST                   | Unitedstatesofamerica10  | Vsip_prisoner01  | 07805123900   | Health issues       |
 
   Scenario Outline: Book a visit - Additional support needed
     Given I navigate to VSIP service
@@ -125,7 +127,7 @@ Feature: Book a Visit
     And click on submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
-    And Im on "Manage prison visits - Search for a prisoner" page
+    And Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
     When I enter "<prisonerName>" to search for a prison
     And click on search button
     Then I choose prison from search results
@@ -160,7 +162,7 @@ Feature: Book a Visit
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
-    When I enter "<prisonNumber>" to search for a prison
+    When I enter "<prisonerName>" to search for a prison
     And click on search button
     Then I choose prison from search results
     Then Im on "Manage prison visits - Ashlinda, Ezfhinou" page
@@ -168,6 +170,7 @@ Feature: Book a Visit
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
     And I select Visitor Cancelled option
+    And I select Phone call option
     And I enter cancellation "<reason>" for the visit
     And click on cancel button
     Then Im on "Manage prison visits - Booking cancelled" page
@@ -184,9 +187,9 @@ Feature: Book a Visit
     And I enter "<userName>"
     And I enter the "<password>"
     And click on submit button
-    Then Im on "Manage prison visits - Manage prison visits" page
+    Then Im on "Manage prison visits - Search for a prisoner" page
     And I click on Book a visit option
-    And Im on "Manage prison visits - Search for a prisoner" page
+    And Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
     When I enter "<prisonerName>" to search for a prison
     And click on search button
     Then I choose prison from search results
@@ -230,6 +233,7 @@ Feature: Book a Visit
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
     And I select Visitor Cancelled option
+    And I select Phone call option
     And I enter cancellation "<reason>" for the visit
     And click on cancel button
     Then Im on "Manage prison visits - Booking cancelled" page

@@ -1,6 +1,6 @@
 Feature: View a Visit
   As a user, I should be able to view a visit using VSIP service
-
+  @suite
   Scenario Outline: User able to view the Visit status
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -16,6 +16,7 @@ Feature: View a Visit
     And I enter "<value4>" in fourth block
     And click on search button
     And I check the visit status "Booked"
+    And I sign out of the service
 
     Examples:
       | userName                    | password                 | value1 | value2 | value3 | value4 |

@@ -1,8 +1,7 @@
 Feature: Book a Visit Error messages
   As a user, I should be able to direct to enter correct details to Book a visit using VSIP service
-
 #Error message Scenarios
-
+   @suite
   Scenario Outline: Error message on search page
      Given I navigate to VSIP service
      And Im on "HMPPS Digital Services - Sign in" page
@@ -20,7 +19,7 @@ Feature: Book a Visit Error messages
      | userName                    | password                    |
      | VSIP1_TST                   | Unitedstatesofamerica10     |
 
-
+   @suite
   Scenario Outline: Error message on select visitors page
      Given I navigate to VSIP service
      And Im on "HMPPS Digital Services - Sign in" page
@@ -33,7 +32,7 @@ Feature: Book a Visit Error messages
      When I enter "<prisonNumber>" to search for a prison
      And click on search button
      Then I choose prison from search results
-     Then Im on "Manage prison visits - Benison, Aianilan" page
+     Then Im on "Manage prison visits - Vsip_prisoner02, Do Not Use" page
      And I click on Book a visit button
      Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
      And click on continue button
@@ -42,9 +41,9 @@ Feature: Book a Visit Error messages
 
    Examples:
      | userName                    | password                    | prisonNumber  |
-     | VSIP1_TST                   | Unitedstatesofamerica10     | G3432VF       |
+     | VSIP1_TST                   | Unitedstatesofamerica10     | A6037DZ       |
 
-
+   @suite
   Scenario Outline: Error message on time slot page
      Given I navigate to VSIP service
      And Im on "HMPPS Digital Services - Sign in" page
@@ -57,7 +56,7 @@ Feature: Book a Visit Error messages
      When I enter "<prisonNumber>" to search for a prison
      And click on search button
      Then I choose prison from search results
-     Then Im on "Manage prison visits - Benison, Aianilan" page
+     Then Im on "Manage prison visits - Vsip_prisoner02, Do Not Use" page
      And I click on Book a visit button
      Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
      And I select another visitor form the list
@@ -69,4 +68,4 @@ Feature: Book a Visit Error messages
 
    Examples:
      | userName                    | password                    | prisonNumber  |
-     | VSIP1_TST                   | Unitedstatesofamerica10     | G3432VF       |
+     | VSIP1_TST                   | Unitedstatesofamerica10     | A6037DZ       |

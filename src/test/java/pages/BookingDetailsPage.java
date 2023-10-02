@@ -2,13 +2,18 @@ package pages;
 
 public class BookingDetailsPage extends commonMethods {
 
+    public void clickOnBookingHistory() {
+        clickOnButton("xpath","//*[@id='tab_history']");
+
+    }
+
     public void checkCancelMessageDisplayed() {
-        isElementDisplayed("xpath","//*[@id='main-content']/div/div/ul[3]/li[2]/strong");
+        isElementDisplayed("xpath","//p[text() = 'GOV.UK request']");
 
     }
 
     public void checkMethodofBooking(String msg) {
-        isElementDisplayed("xpath","//*[@id='main-content']/div/div/ul[3]/li[2]/span");
+        isElementDisplayed("xpath","//p[text() = 'Email request']");
 
     }
 }
