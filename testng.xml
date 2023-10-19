@@ -9,4 +9,9 @@
             <class name="suites.RunSuite"/>
         </classes>
     </test>
+    <test name="Run">
+        <classes>
+            <class name="suites.RunSmokeTest"/>
+        </classes>
+    </test>
 </suite>

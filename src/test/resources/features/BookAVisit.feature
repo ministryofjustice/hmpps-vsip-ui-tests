@@ -60,6 +60,7 @@ Feature: Book a Visit
       | userName                    | password                    | prisonNumber     | phoneNumber   | reason        |
       | VSIP1_TST                   | Unitedstatesofamerica10     | A6036DZ          | 07805123900   | Health issues |
 
+  @smoke_tests
   Scenario Outline: Book a visit search via prisoner name
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -103,7 +104,7 @@ Feature: Book a Visit
     When I enter "<prisonerName>" to search for a prison
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Vsip_prisoner01, Do Not Use" page
+    Then Im on "Manage prison visits - Vsip_prisoner05, Do Not Use" page
     And I select latest visit reference
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
@@ -117,7 +118,7 @@ Feature: Book a Visit
 
     Examples:
       | userName                    | password                 | prisonerName     | phoneNumber   | reason              |
-      | VSIP1_TST                   | Unitedstatesofamerica10  | Vsip_prisoner01  | 07805123900   | Health issues       |
+      | VSIP2_TST                   | Unitedstatesofamerica10  | VSIP_PRISONER05  | 07805123900   | Health issues       |
 
   Scenario Outline: Book a visit - Additional support needed
     Given I navigate to VSIP service
