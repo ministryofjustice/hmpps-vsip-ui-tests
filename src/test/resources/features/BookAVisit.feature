@@ -128,7 +128,7 @@ Feature: Book a Visit
     And click on submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
-    And Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
+    And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonerName>" to search for a prison
     And click on search button
     Then I choose prison from search results
@@ -190,7 +190,7 @@ Feature: Book a Visit
     And click on submit button
     Then Im on "Manage prison visits - Search for a prisoner" page
     And I click on Book a visit option
-    And Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
+    And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonerName>" to search for a prison
     And click on search button
     Then I choose prison from search results
