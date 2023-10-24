@@ -63,6 +63,10 @@ public class commonPage extends commonMethods {
     public void chooseAPrisoner() {
         click("xpath","//*[@id='visitor-4729775']");
     }
+
+    public void choosePrisoners() {
+        click("xpath","//*[@id='visitor-4729778']");
+    }
     public void chooseAnotherPrisoner() {
         click("xpath","//*[@id='visitor-4729773']");
     }

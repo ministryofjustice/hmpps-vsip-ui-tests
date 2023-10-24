@@ -15,6 +15,11 @@ public class SelectVisitorsStepDefinitions extends SelectVisitorsPage {
     public void i_select_a_visitor_form_the_list() {
         commonPage.chooseAPrisoner();
     }
+
+    @Then("I select a visitor form the lists")
+    public void i_select_a_visitor_form_the_lists() {
+        commonPage.choosePrisoners();
+    }
     @Then("I see {string} on select visitors page")
     public void iSeeOnSelectVisitorsPage(String errMsg) {
         selectVisitorErrorDisplayed();

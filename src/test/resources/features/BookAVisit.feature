@@ -76,7 +76,7 @@ Feature: Book a Visit
     Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
-    And I select a visitor form the list
+    And I select a visitor form the lists
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
     And I select a time slot
