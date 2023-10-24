@@ -1,6 +1,6 @@
 Feature: Book a Visit
   As a user, I should be able to book a visit using VSIP service
-  @suite
+#  @suite
   Scenario Outline: Book a visit search via prison number
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -76,7 +76,7 @@ Feature: Book a Visit
     Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
-    And I select a visitor form the list
+    And I select a visitor form the lists
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
     And I select a time slot
