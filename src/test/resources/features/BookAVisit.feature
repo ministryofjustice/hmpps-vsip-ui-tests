@@ -169,7 +169,7 @@ Feature: Book a Visit
     When I enter "<prisonerName>" to search for a prison
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Ashlinda, Ezfhinou" page
+    Then Im on "Manage prison visits - Vsip_prisoner07, Do Not Use" page
     And I select latest visit reference
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
