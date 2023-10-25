@@ -9,9 +9,9 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "stepDefinitions",
-        tags = "@smoke_tests",
+        tags = "@smoke_tests_vs",
         plugin = {"pretty", "html:target/cucumber-reports"}
 )
-public class RunSmokeTest extends AbstractTestNGCucumberTests {
+public class RunVSSmokeTest extends AbstractTestNGCucumberTests {
 
 }

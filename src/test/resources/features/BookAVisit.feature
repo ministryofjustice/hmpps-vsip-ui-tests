@@ -60,7 +60,7 @@ Feature: Book a Visit
       | userName                    | password                    | prisonNumber     | phoneNumber   | reason        |
       | VSIP1_TST                   | Unitedstatesofamerica10     | A6036DZ          | 07805123900   | Health issues |
 
-  @smoke_tests
+  @smoke_tests_vs
   Scenario Outline: Book a visit search via prisoner name
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -120,6 +120,7 @@ Feature: Book a Visit
       | userName                    | password                 | prisonerName     | phoneNumber   | reason              |
       | VSIP2_TST                   | Unitedstatesofamerica10  | VSIP_PRISONER06  | 07805123900   | Health issues       |
 
+  @smoke_tests_os
   Scenario Outline: Book a visit - Additional support needed
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -127,15 +128,17 @@ Feature: Book a Visit
     And I enter the "<password>"
     And click on submit button
     Then Im on "Manage prison visits - Manage prison visits" page
+    And I change the establishmnet to Bristol
+    And click on continue button
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonerName>" to search for a prison
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Ashlinda, Ezfhinou" page
+    Then Im on "Manage prison visits - Vsip_prisoner07, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
-    And I select a visitor form the list
+    And I select a visitor form the list for a prisoner
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
     And I select a time slot
@@ -179,8 +182,8 @@ Feature: Book a Visit
     And I sign out of the service
 
     Examples:
-      | userName                    | password                   | prisonerName     | disability           | phoneNumber   | reason              |
-      | VSIP1_TST                   | Unitedstatesofamerica10    | Ash              | hearing support      | 07806789076   | family member sick  |
+      | userName                    | password                   | prisonerName       | disability           | phoneNumber   | reason              |
+      | VSIP1_TST                   | Unitedstatesofamerica10    | Vsip_prisoner07    | hearing support      | 07806789076   | family member sick  |
 
   Scenario Outline: Book a visit - Someone else main contact
     Given I navigate to VSIP service
