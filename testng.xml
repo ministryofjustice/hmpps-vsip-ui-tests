@@ -11,7 +11,12 @@
     </test>
     <test name="Run">
         <classes>
-            <class name="suites.RunSmokeTest"/>
+            <class name="suites.RunVSSmokeTest"/>
+        </classes>
+    </test>
+    <test name="Run">
+        <classes>
+            <class name="suites.RunOSSmokeTest"/>
         </classes>
     </test>
 </suite>

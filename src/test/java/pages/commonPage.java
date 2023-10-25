@@ -70,6 +70,15 @@ public class commonPage extends commonMethods {
     public void chooseAnotherPrisoner() {
         click("xpath","//*[@id='visitor-4729773']");
     }
+
+    public void chooseVisitorFromBristol(){
+        click("xpath","//*[@id='visitor-4729777']");
+    }
+
+    public void choosePrisonerB() {
+        click("xpath","//*[@id='visitor-4729791']");
+
+    }
     public void clickOnSignOut() {
         click("xpath","/html/body/header/div/nav/ul/li[2]/a");
     }
@@ -77,4 +86,9 @@ public class commonPage extends commonMethods {
         isElementDisplayed("xpath","//*[@id='error-detail']");
     }
 
+    public void chooseBristol(){
+        click("xpath","//a[contains(@data-test, 'change-establishment')]");
+        selectRadioButton("xpath","//*[@id='BLI']");
+
+    }
 }

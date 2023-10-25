@@ -30,4 +30,13 @@ public class SelectVisitorsStepDefinitions extends SelectVisitorsPage {
         commonPage.chooseAnotherPrisoner();
     }
 
+    @And("I select a visitor form the list from Bristol establishment")
+    public void iSelectAVisitorFormTheListFromBristolEstablishment() {
+        commonPage.chooseVisitorFromBristol();
+    }
+
+    @And("I select a visitor form the list for a prisoner")
+    public void iSelectAVisitorFormTheListForAPrisoner() {
+        commonPage.choosePrisonerB();
+    }
 }

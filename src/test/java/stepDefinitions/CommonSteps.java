@@ -44,4 +44,9 @@ public class CommonSteps {
         commonPage.errorMsgDisplayed(errorMsg);
     }
 
+    @And("I change the establishmnet to Bristol")
+    public void iChangeTheEstablishmnetToBristol() {
+        commonPage.chooseBristol();
+
+    }
 }

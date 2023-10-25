@@ -1,3 +1,3 @@
 #!/bin/bash
 
-mvn test -Dbrowser=chrome -Denvironment="STAGING" -Dtest=suites.RunSmokeTest
+mvn test -Dbrowser=chrome -Denvironment="STAGING" -Dtest=suites.RunVSSmokeTest

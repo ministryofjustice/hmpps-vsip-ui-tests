@@ -23,6 +23,10 @@ public class SelectTimeSlotStepDefinitions extends SelectTimeSlotPage {
     @Then("I see {string} on select timeslot page")
     public void iSeeOnSelectTimeslotPage(String errMsg) {
         selectTimeslotErrorDisplayed();
+    }
 
+    @And("I shouldn't be able to select a timeslot")
+    public void iShouldnTBeAbleToSelectATimeslot() {
+        selectTimeSlot();
     }
 }
