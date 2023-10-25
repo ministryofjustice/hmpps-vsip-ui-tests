@@ -91,6 +91,4 @@ public class commonPage extends commonMethods {
         selectRadioButton("xpath","//*[@id='BLI']");
 
     }
-
-
 }
