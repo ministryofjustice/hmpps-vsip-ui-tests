@@ -61,7 +61,8 @@ public class commonPage extends commonMethods {
     }
 
     public void chooseAPrisoner() {
-        click("xpath","//*[@id='visitor-4729775']");
+//        click("xpath","//*[@id='visitor-4729775']");
+        click("xpath","(//input[@name='visitors'])[1]");
     }
 
     public void choosePrisoners() {
@@ -87,8 +88,13 @@ public class commonPage extends commonMethods {
     }
 
     public void chooseBristol(){
-        click("xpath","//a[contains(@data-test, 'change-establishment')]");
         selectRadioButton("xpath","//*[@id='BLI']");
+    }
+    public void chooseNoBristol() {
+        isElementNotVisible("xpath","//*[@id='BLI']");
+    }
 
+    public void changeEstablishment() {
+        click("xpath","//a[contains(@data-test, 'change-establishment')]");
     }
 }

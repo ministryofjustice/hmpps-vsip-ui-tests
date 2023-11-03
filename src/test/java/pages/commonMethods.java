@@ -126,6 +126,14 @@ import java.time.Duration;
         driver.findElement(getelementbytype(accessType,accessName)).isDisplayed();
     }
 
+    public void isElementNotVisible(String accessType, String accessName){
+        WebElement element = driver.findElement(getelementbytype(accessType,accessName));
+        // Verify if the element is not displayed
+        boolean isElementNotDisplayed = !element.isDisplayed();
+        // Assert the result
+        Assert.assertTrue(isElementNotDisplayed, "Element is not displayed");
+    }
+
     /** Method to select radio button
      @param accessType : String : Locator type (id, name, class, xpath, css)
      @param accessName : String : Locator value

@@ -1,6 +1,6 @@
 Feature: Book a Visit
   As a user, I should be able to book a visit using VSIP service
-#  @suite
+  @suite
   Scenario Outline: Book a visit search via prison number
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -128,8 +128,6 @@ Feature: Book a Visit
     And I enter the "<password>"
     And click on submit button
     Then Im on "Manage prison visits - Manage prison visits" page
-    And I change the establishmnet to Bristol
-    And click on continue button
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonerName>" to search for a prison
@@ -183,7 +181,7 @@ Feature: Book a Visit
 
     Examples:
       | userName                    | password                   | prisonerName       | disability           | phoneNumber   | reason              |
-      | VSIP1_TST                   | Unitedstatesofamerica10    | Vsip_prisoner07    | hearing support      | 07806789076   | family member sick  |
+      | VSIP3_TST                   | Unitedstatesofamerica10    | Vsip_prisoner07    | hearing support      | 07806789076   | family member sick  |
 
   Scenario Outline: Book a visit - Someone else main contact
     Given I navigate to VSIP service

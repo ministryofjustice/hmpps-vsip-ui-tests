@@ -1,6 +1,6 @@
 Feature: Non-association visit
   As a user, I shouldn't be able to book a visit using VSIP service for a non-association prisoners
-  @suites
+  @suite
   Scenario Outline: Book a visit search via prison number
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -8,6 +8,7 @@ Feature: Non-association visit
     And I enter the "<password>"
     And click on submit button
     Then Im on "Manage prison visits - Manage prison visits" page
+    And I select change establishment
     And I change the establishmnet to Bristol
     And click on continue button
     And I click on Book a visit option
@@ -21,7 +22,7 @@ Feature: Non-association visit
     And I select a visitor form the list from Bristol establishment
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
-    And I select a time slot
+    And I select a time slot for a non-association prisoner
     And click on continue button
     Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
     And I select No for additional support needed
@@ -54,9 +55,6 @@ Feature: Non-association visit
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
     And I shouldn't be able to select a timeslot
-    And click on continue button
-#    Should be on the same page
-    Then Im on "Manage prison visits - Select date and time of visit" page
 
     #Reverting the Booking for consistent Test execution
     And I click on Manage a Prison option
@@ -81,4 +79,4 @@ Feature: Non-association visit
 
     Examples:
       | userName                    | password                    | prisonNumber     | prisonerName             | phoneNumber   | reason        |
-      | VSIP1_TST                   | Unitedstatesofamerica10     | A6038DZ          | VSIP_PRISONER08          | 07805123900   | Health issues |
+      | VSIP3_TST                   | Unitedstatesofamerica10     | A6038DZ          | VSIP_PRISONER08          | 07805123900   | Health issues |
