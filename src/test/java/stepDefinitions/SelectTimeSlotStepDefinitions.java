@@ -27,6 +27,12 @@ public class SelectTimeSlotStepDefinitions extends SelectTimeSlotPage {
 
     @And("I shouldn't be able to select a timeslot")
     public void iShouldnTBeAbleToSelectATimeslot() {
-        selectTimeSlot();
+        noTimeslotAvailable();
+
+    }
+
+    @And("I select a time slot for a non-association prisoner")
+    public void iSelectATimeSlotForANonAssociationPrisoner() {
+        selectNonAssTimeSlot();
     }
 }

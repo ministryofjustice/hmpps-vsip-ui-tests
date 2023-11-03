@@ -49,4 +49,12 @@ public class CommonSteps {
         commonPage.chooseBristol();
 
     }
+    @And("I should not be able to select Bristol establishment")
+    public void iShouldNotBeAbleToSelectBristolEstablishment() {
+        commonPage.chooseNoBristol();
+    }
+    @And("I select change establishment")
+    public void iSelectChangeEstablishment() {
+        commonPage.changeEstablishment();
+    }
 }
