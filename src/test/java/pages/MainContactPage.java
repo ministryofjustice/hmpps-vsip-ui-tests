@@ -14,4 +14,10 @@ public class MainContactPage extends commonMethods {
     public void enterContactName(String contactName) {
         enterValInTextField("xpath", contactName, "//input[@id='someoneElseName']");
     }
+    public void selectMainConErrorDisplayed(){
+        isElementDisplayed("xpath","//a[text() = 'No main contact selected']");
+    }
+    public void checkPhoneNoErrorMsg(){
+        isElementDisplayed("xpath","//a[text() = 'Enter a phone number']");
+    }
 }

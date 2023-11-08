@@ -35,4 +35,9 @@ public class AdditionalSupportStepDefinitions extends AdditionalSupportPage {
     public void iEnterInTheSection(String disability) {
         enterDisability(disability);
     }
+
+    @Then("I see {string} on support needed page")
+    public void iSeeOnSupportNeededPage(String errorMsg) {
+        selectAdditionalSupprtOptErrorDisplayed();
+    }
 }

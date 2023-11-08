@@ -10,7 +10,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "stepDefinitions",
-        tags = "@suite",
+        tags = "@suit",
         plugin = {"pretty", "html:target/cucumber-reports"}
 )
 public class RunSuite extends AbstractTestNGCucumberTests {

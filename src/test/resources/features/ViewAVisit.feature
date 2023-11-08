@@ -22,3 +22,43 @@ Feature: View a Visit
       | userName                    | password                 | value1 | value2 | value3 | value4 |
       | VSIP1_TST                   | Unitedstatesofamerica10  |   dm   |  he    |   lj   |   zj   |
 
+  @suite
+  Scenario Outline: User able to view Visits by date
+    Given I navigate to VSIP service
+    And Im on "HMPPS Digital Services - Sign in" page
+    And I enter "<userName>"
+    And I enter the "<password>"
+    And click on submit button
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I click on View visits by date option
+    And Im on "Manage prison visits - View visits by date" page
+    When I select Date picker option
+    And I enter "<date>" to view the visits
+    Then I click on view button
+    Then I see tabs changed to the date
+    And I sign out of the service
+
+    Examples:
+      | userName                    | password                 | date           |
+      | VSIP1_TST                   | Unitedstatesofamerica10  | 20/11/2023     |
+
+  @suite
+  Scenario Outline: User able to view Visits by date
+    Given I navigate to VSIP service
+    And Im on "HMPPS Digital Services - Sign in" page
+    And I enter "<userName>"
+    And I enter the "<password>"
+    And click on submit button
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I click on View visits by date option
+    And Im on "Manage prison visits - View visits by date" page
+    When I select Date picker option
+    And I enter "<date>" to view the visits
+    Then I click on view button
+    Then I see a visit and click on view option
+    Then I see "Visit booking details" of the visit of that date
+    And I sign out of the service
+
+    Examples:
+      | userName                    | password                 | date           |
+      | VSIP1_TST                   | Unitedstatesofamerica10  | 03/12/2023     |

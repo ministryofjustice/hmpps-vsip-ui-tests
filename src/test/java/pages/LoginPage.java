@@ -7,6 +7,7 @@ public class LoginPage extends commonMethods {
 
     //Enter userName in textbox
     public void enterUserName(String user_Name) {
+
         enterValInTextField("xpath",user_Name,"//input[@id='username']");
     }
     //Enter password in password textbox

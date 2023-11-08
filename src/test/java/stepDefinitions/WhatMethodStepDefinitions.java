@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import pages.WhatMethodPage;
 import pages.commonPage;
 
@@ -10,5 +11,10 @@ public class WhatMethodStepDefinitions extends WhatMethodPage {
     @And("I select a phone call option on method used to make the reqest")
     public void iSelectAPhoneCallOptionOnMethodUsedToMakeTheReqest() {
         selectPhoneCall();
+    }
+
+    @Then("I see {string} on method used to request page")
+    public void iSeeOnMethodUsedToRequestPage(String errMsg) {
+        checkErrorMsg();
     }
 }
