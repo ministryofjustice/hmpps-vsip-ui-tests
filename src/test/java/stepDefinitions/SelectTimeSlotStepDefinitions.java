@@ -35,4 +35,9 @@ public class SelectTimeSlotStepDefinitions extends SelectTimeSlotPage {
     public void iSelectATimeSlotForANonAssociationPrisoner() {
         selectNonAssTimeSlot();
     }
+
+    @And("I selecttime slot")
+    public void iSelecttimeSlot() {
+        selectTimeslt();
+    }
 }
