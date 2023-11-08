@@ -14,19 +14,15 @@ public class SearchStepDefinitions extends SearchPage {
     @When("I enter {string} to search for a prison")
     public void i_enter_to_search_for_a_prison(String prisonNo) {
         enterPrisonDetails(prisonNo);
-
     }
     @And("click on search button")
     public void clickOnSearchButton() {
         commonPage.clickOnBtn();
-
     }
     @Then("I choose prison from search results")
     public void i_choose_prison_from_search_results() {
         commonPage.selectPrisoner();
-
     }
-
     @And("I enter {string} in first block")
     public void iEnterInFirstBlock(String value1) {
         enterConfimationInBlock1(value1);
@@ -45,5 +41,14 @@ public class SearchStepDefinitions extends SearchPage {
     @And("I enter {string} in fourth block")
     public void iEnterInFourthBlock(String value4) {
         enterConfimationInBlock4(value4);
+    }
+
+    @Then("I see {string} on search page")
+    public void iSeeOnSearchPage(String errMsg) {
+        searchErrorDisplayed(errMsg);
+    }
+    @And("I check the visit status {string}")
+    public void iCheckTheVisitStatus(String status) {
+        visitStatusDisplayed(status);
     }
 }

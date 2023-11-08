@@ -16,18 +16,21 @@ Feature: Cancel a Visit
     And I enter "<value4>" in fourth block
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Booking details - ol-fn-me-ml" page
+    Then Im on "Manage prison visits - Booking details - vx-fb-oy-jj" page
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
     And I select Visitor Cancelled option
+#   The below step can run in multiple options Gov.uk, Email, In person
+    And I select Phone call option
     And I enter cancellation "<reason>" for the visit
     And click on cancel button
     Then Im on "Manage prison visits - Booking cancelled" page
     And I see "Booking cancelled" message displayed
+    And I sign out of the service
 
     Examples:
-      | userName                    | password               | value1 | value2 | value3 | value4 | reason           |
-      | ANAGULA_GEN                 | Mounteverest10         |   ol   |  fn    |   me   |   ml   | Health issues    |
+      | userName                    | password                  | value1 | value2 | value3 | value4 | reason           |
+      | VSIP1_TST                   | Unitedstatesofamerica10   |   vx   |  fb    |   oy   |   jj   | Health issues    |
 
   Scenario Outline: Cancel a visit with Establishment cancelled option
     Given I navigate to VSIP service
@@ -44,7 +47,7 @@ Feature: Cancel a Visit
     And I enter "<value4>" in fourth block
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Booking details - rl-fy-lp-al" page
+    Then Im on "Manage prison visits - Booking details - wx-hx-xj-gx" page
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
     And I select Establishment cancelled option
@@ -52,10 +55,11 @@ Feature: Cancel a Visit
     And click on cancel button
     Then Im on "Manage prison visits - Booking cancelled" page
     And I see "Booking cancelled" message displayed
+    And I sign out of the service
 
     Examples:
-      | userName                    | password               | value1 | value2 | value3 | value4 | reason           |
-      | ANAGULA_GEN                 | Mounteverest10         |   rl   |  fy    |   lp   |   al   | Health issues    |
+      | userName                    | password                   | value1 | value2 | value3 | value4 | reason           |
+      | VSIP1_TST                   | Unitedstatesofamerica10    |   wx   |  hx    |   xj   |   gx   | Health issues    |
 
   Scenario Outline: Cancel a visit with Prisoner cancelled option
     Given I navigate to VSIP service
@@ -72,7 +76,7 @@ Feature: Cancel a Visit
     And I enter "<value4>" in fourth block
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Booking details - rl-fy-lp-al" page
+    Then Im on "Manage prison visits - Booking details - kx-ur-xx-qd" page
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
     And I select Prisoner cancelled option
@@ -80,10 +84,11 @@ Feature: Cancel a Visit
     And click on cancel button
     Then Im on "Manage prison visits - Booking cancelled" page
     And I see "Booking cancelled" message displayed
+    And I sign out of the service
 
     Examples:
-      | userName                    | password               | value1 | value2 | value3 | value4 | reason           |
-      | ANAGULA_GEN                 | Mounteverest10         |   rl   |  fy    |   lp   |   al   | Health issues    |
+      | userName                    | password                   | value1 | value2 | value3 | value4 | reason           |
+      | VSIP1_TST                   | Unitedstatesofamerica10    |   kx   |  ur    |   xx   |   qd   | Health issues    |
 
   Scenario Outline: Cancel a visit with Administrative error option
     Given I navigate to VSIP service
@@ -100,7 +105,7 @@ Feature: Cancel a Visit
     And I enter "<value4>" in fourth block
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Booking details - rl-fy-lp-al" page
+    Then Im on "Manage prison visits - Booking details - zm-he-vd-bj" page
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
     And I select Administrative error option
@@ -108,12 +113,13 @@ Feature: Cancel a Visit
     And click on cancel button
     Then Im on "Manage prison visits - Booking cancelled" page
     And I see "Booking cancelled" message displayed
+    And I sign out of the service
 
     Examples:
-      | userName                    | password               | value1 | value2 | value3 | value4 | reason           |
-      | ANAGULA_GEN                 | Mounteverest10         |   rl   |  fy    |   lp   |   al   | Health issues    |
+      | userName                    | password                   | value1 | value2 | value3 | value4 | reason           |
+      | VSIP1_TST                   | Unitedstatesofamerica10    |   zm   |  he    |   vd   |   bj   | Health issues    |
 
-  Scenario Outline: Confirm Cancel a visit
+  Scenario Outline: Confirm Cancel a visit by a visitor
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
@@ -129,8 +135,9 @@ Feature: Cancel a Visit
     And click on search button
     Then I choose prison from search results
     Then Im on "Manage prison visits - Booking details - ql-iv-or-jm" page
-    And I see "Booking details" message displayed
+    And I see "Visit cancelled" message displayed on Booking details page
+    And I sign out of the service
 
     Examples:
-      | userName                    | password               | value1 | value2 | value3 | value4 |
-      | ANAGULA_GEN                 | Mounteverest10         |   ql   |  iv    |   or   |   jm   |
+      | userName                    | password                   | value1 | value2 | value3 | value4 |
+      | VSIP1_TST                   | Unitedstatesofamerica10    |   ql   |  iv    |   or   |   jm   |

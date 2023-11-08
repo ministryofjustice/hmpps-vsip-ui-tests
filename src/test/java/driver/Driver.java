@@ -23,7 +23,6 @@ public class Driver implements WebDriverInstance {
     public static String targetBrowser = System.getProperty("browser").toLowerCase();
     //private String pwd = System.getProperty("user.dir");
     //System.setProperty("webdriver.chrome.driver", pwd + "/drivers/chromedriver");
-
     private static WebDriver webDriver;
 
     public static WebDriver GetWebDriver() {
@@ -66,7 +65,6 @@ public class Driver implements WebDriverInstance {
 
         return webDriver;
     }
-
     private static WebDriver createRemoteDriver() {
         try {
             ChromeOptions options = new ChromeOptions();

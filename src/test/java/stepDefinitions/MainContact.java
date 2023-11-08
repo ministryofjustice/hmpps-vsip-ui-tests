@@ -15,7 +15,6 @@ public class MainContact extends MainContactPage {
     public void i_select_the_main_contact_option() {
         selectMainContact();
     }
-
     @And("I enter {string} to get text message")
     public void iEnterToGetTextMessage(String phoneNo) {
         enterPhoneNo(phoneNo);
@@ -29,5 +28,15 @@ public class MainContact extends MainContactPage {
     @And("I enter {string} in the someone else option")
     public void iEnterInTheSomeoneElseOption(String contactName) {
         enterContactName(contactName);
+    }
+
+    @Then("I see {string} on select main contact page")
+    public void iSeeOnSelectMainContactPage(String errorMg) {
+        selectMainConErrorDisplayed();
+    }
+
+    @Then("I see {string} select main contact page")
+    public void iSeeSelectMainContactPage(String errMsg) {
+        checkPhoneNoErrorMsg();
     }
 }

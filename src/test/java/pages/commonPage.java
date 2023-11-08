@@ -25,35 +25,80 @@ public class commonPage extends commonMethods {
     }
 
     public void clickOnBookAVisitOption() {
-        click("xpath","//*[@id=\"main-content\"]/div/div/ul/li[1]/div/h2/a");
+        click("xpath","//a[@href='/search/prisoner']");
     }
 
     public void clickOnChangeAVisitOption() {
-        click("xpath","//*[@id=\"main-content\"]/div/div/ul/li[2]/div/h2/a");
+        click("xpath","//a[@href='/search/visit']");
+    }
+
+    public void clickOnViewVisitsByDateOption(){
+        click("xpath","//a[@href='/visits']");
     }
 
     public void selectPrisoner() {
-        click("xpath","//*[@id=\"search-results-true\"]/tbody/tr/td[1]/a");
+        click("xpath","//*[@id='search-results-true']/tbody/tr/td[1]/a");
     }
 
     public void clickOnBtn() {
-        click("xpath", "//button[contains(@class, 'govuk-button')]");
-    }
-
-    public void clickOnBookAVisitBtn() {
-        click("xpath","//*[@id=\"main-content\"]/div[1]/div/form/button");
-    }
-
-    public void clickOnCancelAVisitBtn(){
-        click("xpath","//*[@id=\"main-content\"]/div/div/div/form/a");
-    }
-
-    public void chooseAPrisoner() {
-        click("xpath","//*[@id=\"visitor-220914\"]");
+        click("xpath", "//button[contains(@data-test, 'search')]");
     }
 
     public void clickOnContinueBtn() {
-        clickOnButton("xpath","//*[@id=\"main-content\"]/div/div/form/button");
+        click("xpath", "//button[contains(@data-test, 'submit')]");
     }
 
+    public void clickOnCancelBtn() {
+        click("xpath","//button[contains(@data-test, 'cancel-booking')]");
+    }
+
+    public void clickOnBookAVisitBtn() {
+        click("xpath","//*[@id='main-content']/div[1]/div/form/button");
+    }
+
+    public void clickOnCancelAVisitBtn(){
+        click("xpath","//a[contains(@data-test, 'cancel-visit')]");
+    }
+
+    public void clickOnManagePrisonOptn() {
+        click("xpath","//a[contains(@class, 'hmpps-header__link hmpps-header__title__service-name')]");
+    }
+
+    public void chooseAPrisoner() {
+//        click("xpath","//*[@id='visitor-4729775']");
+        click("xpath","(//input[@name='visitors'])[1]");
+    }
+
+    public void choosePrisoners() {
+        click("xpath","//*[@id='visitor-4729778']");
+    }
+    public void chooseAnotherPrisoner() {
+        click("xpath","//*[@id='visitor-4729773']");
+    }
+
+    public void chooseVisitorFromBristol(){
+        click("xpath","//*[@id='visitor-4729777']");
+    }
+
+    public void choosePrisonerB() {
+        click("xpath","//*[@id='visitor-4729791']");
+
+    }
+    public void clickOnSignOut() {
+        click("xpath","/html/body/header/div/nav/ul/li[2]/a");
+    }
+    public void errorMsgDisplayed(String errorMsg) {
+        isElementDisplayed("xpath","//*[@id='error-detail']");
+    }
+
+    public void chooseBristol(){
+        selectRadioButton("xpath","//*[@id='BLI']");
+    }
+    public void chooseNoBristol() {
+        isElementNotVisible("xpath","//*[@id='BLI']");
+    }
+
+    public void changeEstablishment() {
+        click("xpath","//a[contains(@data-test, 'change-establishment')]");
+    }
 }
