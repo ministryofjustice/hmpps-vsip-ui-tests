@@ -29,4 +29,14 @@ public class MainContact extends MainContactPage {
     public void iEnterInTheSomeoneElseOption(String contactName) {
         enterContactName(contactName);
     }
+
+    @Then("I see {string} on select main contact page")
+    public void iSeeOnSelectMainContactPage(String errorMg) {
+        selectMainConErrorDisplayed();
+    }
+
+    @Then("I see {string} select main contact page")
+    public void iSeeSelectMainContactPage(String errMsg) {
+        checkPhoneNoErrorMsg();
+    }
 }

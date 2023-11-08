@@ -25,11 +25,15 @@ public class commonPage extends commonMethods {
     }
 
     public void clickOnBookAVisitOption() {
-        click("xpath","//*[@id='main-content']/div/div/ul/li[1]/div/h2/a");
+        click("xpath","//a[@href='/search/prisoner']");
     }
 
     public void clickOnChangeAVisitOption() {
-        click("xpath","//*[@id='main-content']/div/div/ul/li[2]/div/h2/a");
+        click("xpath","//a[@href='/search/visit']");
+    }
+
+    public void clickOnViewVisitsByDateOption(){
+        click("xpath","//a[@href='/visits']");
     }
 
     public void selectPrisoner() {

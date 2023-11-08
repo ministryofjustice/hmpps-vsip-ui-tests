@@ -3,6 +3,7 @@ package stepDefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import pages.HomePage;
 import pages.commonPage;
 
@@ -19,6 +20,11 @@ public class HomeStepDefinitions extends HomePage {
     @And("I click on Change a visit option")
     public void iClickOnChangeAVisitOption() {
         commonPage.clickOnChangeAVisitOption();
+    }
+
+    @And("I click on View visits by date option")
+    public void iClickOnViewVisitsByDateOption() {
+        commonPage.clickOnViewVisitsByDateOption();
     }
 
 }
