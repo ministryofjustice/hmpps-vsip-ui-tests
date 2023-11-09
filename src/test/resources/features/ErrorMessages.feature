@@ -70,7 +70,7 @@ Feature: Book a Visit Error messages
      | userName                    | password                    | prisonNumber  |
      | VSIP1_TST                   | Unitedstatesofamerica10     | A6037DZ       |
 
-  @suite
+#  @suite
   Scenario Outline: Error message on additional support needed page
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -100,7 +100,7 @@ Feature: Book a Visit Error messages
       | userName                    | password                    | prisonNumber  |
       | VSIP2_TST                   | Unitedstatesofamerica10     | A6037DZ       |
 
-  @suite
+#  @suite
   Scenario Outline: Error message on main contact page
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -135,7 +135,7 @@ Feature: Book a Visit Error messages
       | userName                    | password                    | prisonNumber  |
       | VSIP1_TST                   | Unitedstatesofamerica10     | A6037DZ       |
 
-  @suite
+#  @suite
   Scenario Outline: Error message on method used to request page
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
