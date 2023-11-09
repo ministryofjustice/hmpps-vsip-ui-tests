@@ -11,6 +11,11 @@ public class SelectTimeSlotPage extends commonMethods {
         selectRadioButton("xpath","//*[@id='2']");
     }
 
+    public void selectTimeslt() {
+        click("xpath","//button[contains(@class, 'govuk-accordion__show-all')]");
+        selectRadioButton("xpath","//*[@id='5']");
+    }
+
     public void selectTimeslotErrorDisplayed() {
         isElementDisplayed("xpath","//a[text() = 'No time slot selected']");
     }
