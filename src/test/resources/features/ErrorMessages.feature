@@ -83,13 +83,13 @@ Feature: Book a Visit Error messages
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Vsip_prisoner04, Do Not Use" page
+    Then Im on "Manage prison visits - Vsip_prisoner02, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
     And I select another visitor form the list
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
-    And I select next time slot
+    And I selecttime slot
     And click on continue button
     Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
     And click on continue button
@@ -98,7 +98,7 @@ Feature: Book a Visit Error messages
 
     Examples:
       | userName                    | password                    | prisonNumber  |
-      | VSIP2_TST                   | Unitedstatesofamerica10     | A6445DZ       |
+      | VSIP2_TST                   | Unitedstatesofamerica10     | A6037DZ       |
 
   @suite
   Scenario Outline: Error message on main contact page
