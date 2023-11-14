@@ -36,6 +36,7 @@ Feature: Book a Visit
     #And click on submit booking button
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
+    And I see a booking reference
     #Reverting the Booking for consistent Test execution
     And I click on Manage a Prison option
     Then Im on "Manage prison visits - Manage prison visits" page
@@ -45,7 +46,7 @@ Feature: Book a Visit
     And click on search button
     Then I choose prison from search results
     Then Im on "Manage prison visits - Vsip_prisoner01, Do Not Use" page
-    And I select latest visit reference
+    And I select last booked visit reference
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
     And I select Visitor Cancelled option
@@ -96,6 +97,7 @@ Feature: Book a Visit
 #    And click on submit booking button
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
+    And I see a booking reference
     #Reverting the Booking for consistent Test execution
     And I click on Manage a Prison option
     Then Im on "Manage prison visits - Manage prison visits" page
@@ -105,7 +107,7 @@ Feature: Book a Visit
     And click on search button
     Then I choose prison from search results
     Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
-    And I select latest visit reference
+    And I select last booked visit reference
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
     And I select Visitor Cancelled option
@@ -159,6 +161,7 @@ Feature: Book a Visit
 #    And click on submit booking button
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
+    And I see a booking reference
     #Reverting the Booking for consistent Test execution
     And I click on Manage a Prison option
     Then Im on "Manage prison visits - Manage prison visits" page
@@ -168,7 +171,7 @@ Feature: Book a Visit
     And click on search button
     Then I choose prison from search results
     Then Im on "Manage prison visits - Vsip_prisoner07, Do Not Use" page
-    And I select latest visit reference
+    And I select last booked visit reference
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
     And I select Visitor Cancelled option
@@ -222,6 +225,7 @@ Feature: Book a Visit
 #    And click on submit booking button
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
+    And I see a booking reference
     #Reverting the Booking for consistent Test execution
     And I click on Manage a Prison option
     Then Im on "Manage prison visits - Manage prison visits" page
@@ -231,7 +235,7 @@ Feature: Book a Visit
     And click on search button
     Then I choose prison from search results
     Then Im on "Manage prison visits - Ashlard, Dehicey" page
-    And I select latest visit reference
+    And I select last booked visit reference
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
     And I select Visitor Cancelled option

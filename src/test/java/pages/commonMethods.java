@@ -122,6 +122,11 @@ import java.time.Duration;
         driver.findElement(By.cssSelector("h1")).getText().equals(text);
     }
 
+    public String verifyAndGetBookingReference(){
+        By by = getelementbytype("class","test-booking-reference");
+        return driver.findElement(by).getText();
+    }
+
     public void isElementVisible(String accessType, String value, String accessName){
         driver.findElement(getelementbytype(accessType,accessName)).isDisplayed();
     }
