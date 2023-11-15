@@ -40,4 +40,14 @@ public class SelectTimeSlotStepDefinitions extends SelectTimeSlotPage {
     public void iSelecttimeSlot() {
         selectTimeslt();
     }
+
+    @And("I select atime slot")
+    public void iSelectAtimeSlot() {
+        selectATimeSlot();
+    }
+
+    @And("I select time slot")
+    public void iSelectTimeSlot() {
+        selectTimeSlt();
+    }
 }

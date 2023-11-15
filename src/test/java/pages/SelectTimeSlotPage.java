@@ -11,6 +11,16 @@ public class SelectTimeSlotPage extends commonMethods {
         selectRadioButton("xpath","//*[@id='2']");
     }
 
+    public void selectATimeSlot() {
+        click("xpath","//button[contains(@class, 'govuk-accordion__show-all')]");
+        selectRadioButton("xpath","//*[@id='4']");
+    }
+
+    public void selectTimeSlt() {
+        click("xpath","//button[contains(@class, 'govuk-accordion__show-all')]");
+        selectRadioButton("xpath","//*[@id='6']");
+    }
+
     public void selectTimeslt() {
         click("xpath","//button[contains(@class, 'govuk-accordion__show-all')]");
         selectRadioButton("xpath","//*[@id='5']");
