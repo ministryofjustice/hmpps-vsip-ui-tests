@@ -89,7 +89,7 @@ Feature: Book a Visit Error messages
     And I select another visitor form the list
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
-    And I selecttime slot
+    And I select time slot
     And click on continue button
     Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
     And click on continue button
@@ -119,12 +119,13 @@ Feature: Book a Visit Error messages
     And I select another visitor form the list
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
-    And I select next time slot
+    And I select time slot
     And click on continue button
     Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
     And I select No for additional support needed
     And click on continue button
     Then Im on "Manage prison visits - Who is the main contact for this booking?" page
+    And click on continue button
     Then I see "No main contact selected" on select main contact page
     And I select the main contact option
     And click on continue button
@@ -154,7 +155,7 @@ Feature: Book a Visit Error messages
     And I select another visitor form the list
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
-    And I select a time slot
+    And I select time slot
     And click on continue button
     Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
     And I select No for additional support needed
@@ -169,8 +170,8 @@ Feature: Book a Visit Error messages
     And I sign out of the service
 
     Examples:
-      | userName                    | password                    | prisonNumber  |
-      | VSIP1_TST                   | Unitedstatesofamerica10     | A6037DZ       |
+      | userName                    | password                    | prisonNumber  | phoneNumber  |
+      | VSIP1_TST                   | Unitedstatesofamerica10     | A6037DZ       | 07806234561  |
 
   @suite
   Scenario Outline: Error message on view Visits by date page
