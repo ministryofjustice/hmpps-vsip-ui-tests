@@ -8,6 +8,8 @@ import org.testng.Assert;
 import stepDefinitions.WebDriverInstance;
 import utils.Configuration;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Anusha Nagula on 15/05/23.
@@ -159,5 +161,36 @@ import java.time.Duration;
         WebElement checkbox= wait.until(ExpectedConditions.presenceOfElementLocated(getelementbytype(accessType, accessName)));
         if (!checkbox.isSelected())
             checkbox.click();
+    }
+    public void clickNextEnabledElement() {
+        click("xpath","//button[contains(@class, 'govuk-accordion__show-all')]");
+
+        // List of different XPaths for time slots elements
+        List<String> xpaths = new ArrayList<>();
+        xpaths.add("//*[@id='1']");
+        xpaths.add("//*[@id='2']");
+        xpaths.add("//*[@id='3']");
+        xpaths.add("//*[@id='4']");
+        xpaths.add("//*[@id='5']");
+        xpaths.add("//*[@id='6']");
+        xpaths.add("//*[@id='7']");
+        xpaths.add("//*[@id='8']");
+        xpaths.add("//*[@id='9']");
+        xpaths.add("//*[@id='10']");
+
+        // Iterate through the XPaths
+        for (String xpath : xpaths) {
+            // Find elements using the current XPath
+            List<WebElement> elements = driver.findElements(By.xpath(xpath));
+
+            // Iterate through the elements to find the first enabled one
+            for (WebElement element : elements) {
+                if (element.isEnabled()) {
+                    // Click the first enabled element
+                    element.click();
+                    return; // Exit the method once the first enabled element is clicked
+                }
+            }
+        }
     }
 }

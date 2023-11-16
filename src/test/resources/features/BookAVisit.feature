@@ -19,7 +19,7 @@ Feature: Book a Visit
     And I select a visitor form the list
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
-    And I select a time slot
+    And I select time slot
     And click on continue button
     Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
     And I select No for additional support needed
@@ -80,7 +80,7 @@ Feature: Book a Visit
     And I select a visitor form the lists
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
-    And I select a time slot
+    And I select time slot
     And click on continue button
     Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
     And I select No for additional support needed
@@ -141,7 +141,7 @@ Feature: Book a Visit
     And I select a visitor form the list for a prisoner
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
-    And I select a time slot
+    And I select time slot
     And click on continue button
     Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
     And I select Yes for additional support needed
@@ -204,7 +204,7 @@ Feature: Book a Visit
     And I select a visitor form the list
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
-    And I select next time slot
+    And I select time slot
     And click on continue button
     Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
     And I select Yes for additional support needed
