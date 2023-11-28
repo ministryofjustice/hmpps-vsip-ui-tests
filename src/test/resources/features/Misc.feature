@@ -24,7 +24,7 @@ Feature: Book/Cancel/Amend a Visit
 
     Examples:
       | userName                    | password                   | value1 | value2 | value3 | value4 |
-      | VSIP1_TST                   | Unitedstatesofamerica10    |  em    |  il    |   ov   |   wq   |
+      | VSIP1_TST                   | DigitalServices10          |  em    |  il    |   ov   |   wq   |
 
   @suite
   Scenario Outline: Visit details captured by a method of Cancellation
@@ -50,4 +50,4 @@ Feature: Book/Cancel/Amend a Visit
 
     Examples:
       | userName                    | password                   | value1 | value2 | value3 | value4 |
-      | VSIP1_TST                   | Unitedstatesofamerica10    |  gm    |  iv    |   rv   |   br   |
+      | VSIP1_TST                   | DigitalServices10          |  gm    |  iv    |   rv   |   br   |

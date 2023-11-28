@@ -79,4 +79,4 @@ Feature: Non-association visit
 
     Examples:
       | userName                    | password                    | prisonNumber     | prisonerName             | phoneNumber   | reason        |
-      | VSIP3_TST                   | Unitedstatesofamerica10     | A6038DZ          | VSIP_PRISONER08          | 07805123900   | Health issues |
+      | VSIP3_TST                   | DigitalServices10           | A6038DZ          | VSIP_PRISONER08          | 07805123900   | Health issues |

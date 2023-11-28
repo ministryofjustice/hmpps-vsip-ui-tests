@@ -17,7 +17,7 @@ Feature: Book a Visit Error messages
 
   Examples:
      | userName                    | password                    |
-     | VSIP1_TST                   | Unitedstatesofamerica10     |
+     | VSIP1_TST                   | DigitalServices10           |
 
    @suite
   Scenario Outline: Error message on select visitors page
@@ -41,7 +41,7 @@ Feature: Book a Visit Error messages
 
    Examples:
      | userName                    | password                    | prisonNumber  |
-     | VSIP1_TST                   | Unitedstatesofamerica10     | A6037DZ       |
+     | VSIP1_TST                   | DigitalServices10           | A6037DZ       |
 
    @suite
   Scenario Outline: Error message on time slot page
@@ -68,7 +68,7 @@ Feature: Book a Visit Error messages
 
    Examples:
      | userName                    | password                    | prisonNumber  |
-     | VSIP1_TST                   | Unitedstatesofamerica10     | A6037DZ       |
+     | VSIP1_TST                   | DigitalServices10           | A6037DZ       |
 
   @suite
   Scenario Outline: Error message on additional support needed page
@@ -98,7 +98,7 @@ Feature: Book a Visit Error messages
 
     Examples:
       | userName                    | password                    | prisonNumber  |
-      | VSIP2_TST                   | Unitedstatesofamerica10     | A6037DZ       |
+      | VSIP2_TST                   | DigitalServices10           | A6037DZ       |
 
   @suite
   Scenario Outline: Error message on main contact page
@@ -134,7 +134,7 @@ Feature: Book a Visit Error messages
 
     Examples:
       | userName                    | password                    | prisonNumber  |
-      | VSIP1_TST                   | Unitedstatesofamerica10     | A6037DZ       |
+      | VSIP1_TST                   | DigitalServices10           | A6037DZ       |
 
   @suite
   Scenario Outline: Error message on method used to request page
@@ -171,7 +171,7 @@ Feature: Book a Visit Error messages
 
     Examples:
       | userName                    | password                    | prisonNumber  | phoneNumber  |
-      | VSIP1_TST                   | Unitedstatesofamerica10     | A6037DZ       | 07806234561  |
+      | VSIP1_TST                   | DigitalServices10           | A6037DZ       | 07806234561  |
 
   @suite
   Scenario Outline: Error message on view Visits by date page
@@ -190,4 +190,4 @@ Feature: Book a Visit Error messages
 
     Examples:
       | userName                    | password                 |
-      | VSIP1_TST                   | Unitedstatesofamerica10  |
+      | VSIP1_TST                   | DigitalServices10        |
