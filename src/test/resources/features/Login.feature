@@ -12,7 +12,7 @@ As a user, I should be able to login to VSIP service
 
     Examples:
       | userName                    | password                   |
-      | VSIP1_TST                   | Unitedstatesofamerica10    |
+      | VSIP1_TST                   | DigitalServices10          |
 
   Scenario Outline: Error message - access VSIP homepage
     Given I navigate to VSIP service
@@ -25,4 +25,4 @@ As a user, I should be able to login to VSIP service
 
     Examples:
       | userName                    | password                   |
-      | VSIP1_TST                   | Unitedstatesofamerica10    |
+      | VSIP1_TST                   | DigitalServices10          |
