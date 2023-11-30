@@ -31,7 +31,7 @@ Feature: Non-association visit
     And I select the main contact option
     And I enter "<phoneNumber>" to get text message
     And click on continue button
-    Then Im on "Manage prison visits - What method was used to make this request?" page
+    Then Im on "Manage prison visits - How was this booking requested?" page
     And I select a phone call option on method used to make the reqest
     And click on continue button
     Then Im on "Manage prison visits - Check the visit details before booking" page

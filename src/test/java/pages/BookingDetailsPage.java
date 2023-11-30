@@ -16,4 +16,7 @@ public class BookingDetailsPage extends commonMethods {
         isElementDisplayed("xpath","//p[text() = 'Email request']");
 
     }
+    public void checkMethodofNewBooking(String msg) {
+        isElementDisplayed("xpath","//p[text() = 'By the prisoner']");
+    }
 }

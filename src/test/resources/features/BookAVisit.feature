@@ -28,7 +28,7 @@ Feature: Book a Visit
     And I select the main contact option
     And I enter "<phoneNumber>" to get text message
     And click on continue button
-    Then Im on "Manage prison visits - What method was used to make this request?" page
+    Then Im on "Manage prison visits - How was this booking requested?" page
     And I select a phone call option on method used to make the reqest
     And click on continue button
     Then Im on "Manage prison visits - Check the visit details before booking" page
@@ -89,7 +89,7 @@ Feature: Book a Visit
     And I select the main contact option
     And I enter "<phoneNumber>" to get text message
     And click on continue button
-    Then Im on "Manage prison visits - What method was used to make this request?" page
+    Then Im on "Manage prison visits - How was this booking requested?" page
     And I select a phone call option on method used to make the reqest
     And click on continue button
     Then Im on "Manage prison visits - Check the visit details before booking" page
@@ -153,7 +153,7 @@ Feature: Book a Visit
     And I select the main contact option
     And I enter "<phoneNumber>" to get text message
     And click on continue button
-    Then Im on "Manage prison visits - What method was used to make this request?" page
+    Then Im on "Manage prison visits - How was this booking requested?" page
     And I select a phone call option on method used to make the reqest
     And click on continue button
     Then Im on "Manage prison visits - Check the visit details before booking" page
@@ -186,19 +186,20 @@ Feature: Book a Visit
       | userName                    | password                   | prisonerName       | disability           | phoneNumber   | reason              |
       | VSIP3_TST                   | DigitalServices10          | Vsip_prisoner07    | hearing support      | 07806789076   | family member sick  |
 
+  @suite
   Scenario Outline: Book a visit - Someone else main contact
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
     And I enter the "<password>"
     And click on submit button
-    Then Im on "Manage prison visits - Search for a prisoner" page
+    Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonerName>" to search for a prison
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Ashlard, Dehicey" page
+    Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
     And I select a visitor form the list
@@ -217,8 +218,8 @@ Feature: Book a Visit
     And I enter "<contactName>" in the someone else option
     And I enter "<phoneNumber>" to get text message
     And click on continue button
-    Then Im on "Manage prison visits - What method was used to make this request?" page
-    And I select a phone call option on method used to make the reqest
+    Then Im on "Manage prison visits - How was this booking requested?" page
+    And I select by the prisoner option on method used to make the reqest
     And click on continue button
     Then Im on "Manage prison visits - Check the visit details before booking" page
     And click on continue button
@@ -234,7 +235,7 @@ Feature: Book a Visit
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Ashlard, Dehicey" page
+    Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
     And I select last booked visit reference
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
@@ -244,8 +245,20 @@ Feature: Book a Visit
     And click on cancel button
     Then Im on "Manage prison visits - Booking cancelled" page
     And I see "Booking cancelled" message displayed
+# Checking the method used to make this Booking
+    And I click on Manage a Prison option
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I click on Book a visit option
+    And Im on "Manage prison visits - Search for a prisoner" page
+    When I enter "<prisonNumber>" to search for a prison
+    And click on search button
+    Then I choose prison from search results
+    Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
+    And I select last booked visit reference
+    And I choose Booking history tab
+    And I see "By the prisoner" method used to Book a visit
     And I sign out of the service
 
     Examples:
-      | userName                    | password                   | prisonerName     | disability           | contactName | phoneNumber  | reason        |
-      | VSIP1_TST                   | DigitalServices10          | Ashlard          | hearing support      | John        | 07806432054  | health issues |
+      | userName                    | password                   | prisonerName     | disability           | contactName | phoneNumber  | reason        | prisonNumber |
+      | VSIP1_TST                   | DigitalServices10          | VSIP_PRISONER06  | hearing support      | John        | 07806432054  | health issues | A6539DZ      |
