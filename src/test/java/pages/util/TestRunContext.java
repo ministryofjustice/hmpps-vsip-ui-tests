@@ -25,4 +25,7 @@ public class TestRunContext {
 		return get(Context.BOOKING_REFERENCE);
 	}
 
+	public static String getTimeSlotDay() {
+		return get(Context.SLOT_DATE_TIME);
+	}
 }

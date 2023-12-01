@@ -129,6 +129,11 @@ import java.util.List;
         return driver.findElement(by).getText();
     }
 
+    public String verifyAndGetSlotDay(){
+        By by = getelementbytype("class","TODO");
+        return driver.findElement(by).getText();
+    }
+
     public void isElementVisible(String accessType, String value, String accessName){
         driver.findElement(getelementbytype(accessType,accessName)).isDisplayed();
     }
