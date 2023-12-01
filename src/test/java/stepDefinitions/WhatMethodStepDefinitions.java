@@ -13,8 +13,14 @@ public class WhatMethodStepDefinitions extends WhatMethodPage {
         selectPhoneCall();
     }
 
+    @And("I select by the prisoner option on method used to make the reqest")
+    public void iSelectByThePrisonerOptionOnMethodUsedToMakeTheReqest() {
+        selectByPrisoner();
+    }
+
     @Then("I see {string} on method used to request page")
     public void iSeeOnMethodUsedToRequestPage(String errMsg) {
         checkErrorMsg();
     }
+
 }

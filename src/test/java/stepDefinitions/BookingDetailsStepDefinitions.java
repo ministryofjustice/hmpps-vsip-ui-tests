@@ -22,7 +22,11 @@ public class BookingDetailsStepDefinitions extends BookingDetailsPage {
 
     @Then("I choose Booking history tab")
     public void iChooseBookingHistoryTab() {
-
+        clickOnBookingHistory();
     }
 
+    @And("I see {string} method used to Book a visit")
+    public void iSeeMethodUsedToBookAVisit(String method) {
+        checkMethodofNewBooking(method);
+    }
 }

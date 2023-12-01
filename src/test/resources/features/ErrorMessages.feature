@@ -164,7 +164,7 @@ Feature: Book a Visit Error messages
     And I select the main contact option
     And I enter "<phoneNumber>" to get text message
     And click on continue button
-    Then Im on "Manage prison visits - What method was used to make this request?" page
+    Then Im on "Manage prison visits - How was this booking requested?" page
     And click on continue button
     Then I see "No request method selected" on method used to request page
     And I sign out of the service
