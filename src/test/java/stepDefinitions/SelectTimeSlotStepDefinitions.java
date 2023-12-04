@@ -1,12 +1,9 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import pages.SelectTimeSlotPage;
 import pages.commonPage;
-import pages.util.TestRunContext;
 
 public class SelectTimeSlotStepDefinitions extends SelectTimeSlotPage {
 
@@ -18,10 +15,14 @@ public class SelectTimeSlotStepDefinitions extends SelectTimeSlotPage {
     }
 
     @And("I shouldn't be able to select a timeslot")
-    public void iShouldnTBeAbleToSelectATimeslot() {
+    public void iShouldBeAbleToSelectATimeslot() {
         noTimeslotAvailable();
     }
 
+    @And("I shouldn't be able to select a timeslot that was booked last")
+    public void iShouldBeAbleToSelectATimeslotThatWasBookedLast() {
+        lastBookedTimeSlotNotAvailable();
+    }
 
     @And("I select a time slot for a non-association prisoner")
     public void iSelectATimeSlotForANonAssociationPrisoner() {
