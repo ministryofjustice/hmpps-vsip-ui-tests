@@ -18,7 +18,7 @@ public class SelectTimeSlotPage extends commonMethods {
         if (slotDetails != null) {
             TestRunContext.set(Context.SLOT_DATE_TIME, slotDetails);
         } else {
-            System.err.println("data-test not found on element time slot RadioButton");
+            System.err.println("Error data-test not found on element time slot RadioButton!");
         }
     }
 
