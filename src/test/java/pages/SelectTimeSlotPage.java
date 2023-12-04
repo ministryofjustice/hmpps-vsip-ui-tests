@@ -15,7 +15,11 @@ public class SelectTimeSlotPage extends commonMethods {
         click("xpath","//button[contains(@class, 'govuk-accordion__show-all')]");
         WebElement radioButton = selectRadioButton("xpath","//*[@id='"+inputIndex+"']");
         final String slotDetails = radioButton.getAttribute("data-test");
-        TestRunContext.set(Context.SLOT_DATE_TIME,slotDetails);
+        if (slotDetails != null) {
+            TestRunContext.set(Context.SLOT_DATE_TIME, slotDetails);
+        } else {
+            System.err.println("data-test not found on element time slot RadioButton");
+        }
     }
 
     public void selectLastBookedSlot() {
