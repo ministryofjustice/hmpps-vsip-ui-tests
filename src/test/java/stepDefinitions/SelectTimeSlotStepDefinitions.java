@@ -20,7 +20,6 @@ public class SelectTimeSlotStepDefinitions extends SelectTimeSlotPage {
     @And("I shouldn't be able to select a timeslot")
     public void iShouldnTBeAbleToSelectATimeslot() {
         noTimeslotAvailable();
-
     }
 
 
@@ -29,9 +28,9 @@ public class SelectTimeSlotStepDefinitions extends SelectTimeSlotPage {
         selectNonAssTimeSlot();
     }
 
-    @And("I select the same time slot as before")
-    public void iSelectTheSameTimeSlotAsBefore() {
-        selectTimeSlotAsBefore();
+    @And("I can select the last booked time slot")
+    public void iCanSelectTheLastBookedTimeSlot() {
+        selectLastBookedSlot();
     }
 
     @And("I select time slot")

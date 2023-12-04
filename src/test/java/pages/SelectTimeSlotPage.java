@@ -14,16 +14,20 @@ public class SelectTimeSlotPage extends commonMethods {
         final int inputIndex = 1;
         click("xpath","//button[contains(@class, 'govuk-accordion__show-all')]");
         WebElement radioButton = selectRadioButton("xpath","//*[@id='"+inputIndex+"']");
-        String slotDetails = radioButton.getAttribute("data-test");
+        final String slotDetails = radioButton.getAttribute("data-test");
         TestRunContext.set(Context.SLOT_DATE_TIME,slotDetails);
     }
 
-    public void selectTimeSlotAsBefore() {
+    public void selectLastBookedSlot() {
         final String xPath = "//*[@data-test='" + TestRunContext.getTimeSlotDay() + "']";
         selectRadioButton("xpath",xPath);
     }
 
     public void noTimeslotAvailable(){
+        isElementNotVisible("xpath","//*[@id='5']");
+    }
+
+    public void lastBookedTimeSlotNotAvailable(){
         isElementNotVisible("xpath","//*[@id='5']");
     }
 
