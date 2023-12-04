@@ -1,12 +1,8 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import pages.util.Context;
 import pages.util.TestRunContext;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class SelectTimeSlotPage extends commonMethods {
 
@@ -15,15 +11,15 @@ public class SelectTimeSlotPage extends commonMethods {
     }
 
     public void selectNonAssTimeSlot(){
+        final int inputIndex = 1;
         click("xpath","//button[contains(@class, 'govuk-accordion__show-all')]");
-        selectRadioButton("xpath","//*[@id='5']");
-
-        String slotDay = verifyAndGetSlotDay();
-        TestRunContext.set(Context.SLOT_DATE_TIME,slotDay);
+        WebElement radioButton = selectRadioButton("xpath","//*[@id='"+inputIndex+"']");
+        String slotDetails = radioButton.getAttribute("data-test");
+        TestRunContext.set(Context.SLOT_DATE_TIME,slotDetails);
     }
 
     public void selectTimeSlotAsBefore() {
-        final String xPath = "//a[contains(text(),'" + TestRunContext.getTimeSlotDay() + "')]";
+        final String xPath = "//*[@data-test='" + TestRunContext.getTimeSlotDay() + "']";
         selectRadioButton("xpath",xPath);
     }
 
