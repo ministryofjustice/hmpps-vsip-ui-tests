@@ -54,7 +54,7 @@ Feature: Non-association visit
     And I select a visitor form the list
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
-    And I shouldn't be able to select a timeslot
+    And I shouldn't be able to select a timeslot that was booked last
 
     #Reverting the Booking for consistent Test execution
     And I click on Manage a Prison option
