@@ -28,7 +28,8 @@ public class SelectTimeSlotPage extends commonMethods {
     }
 
     public void lastBookedTimeSlotNotAvailable(){
-        isElementNotVisible("xpath","//*[@id='5']");
+        final String xPath = "//*[@data-test='" + TestRunContext.getTimeSlotDay() + "']";
+        isElementNotVisible("xpath",xPath);
     }
 
 }
