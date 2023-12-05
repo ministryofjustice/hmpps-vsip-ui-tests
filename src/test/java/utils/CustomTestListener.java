@@ -2,10 +2,10 @@ package utils;
 
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import pages.commonPage;
+import pages.CommonPage;
 
 public class CustomTestListener implements ITestListener {
-    pages.commonPage commonPage = new commonPage();
+    CommonPage commonPage = new CommonPage();
 
     @Override
     public void onTestFailure(ITestResult result) {

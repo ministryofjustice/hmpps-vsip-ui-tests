@@ -3,11 +3,11 @@ package stepDefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import pages.SelectTimeSlotPage;
-import pages.commonPage;
+import pages.CommonPage;
 
 public class SelectTimeSlotStepDefinitions extends SelectTimeSlotPage {
 
-    pages.commonPage commonPage = new commonPage();
+    CommonPage commonPage = new CommonPage();
 
     @Then("I see {string} on select timeslot page")
     public void iSeeOnSelectTimeslotPage(String errMsg) {
@@ -15,12 +15,12 @@ public class SelectTimeSlotStepDefinitions extends SelectTimeSlotPage {
     }
 
     @And("I shouldn't be able to select a timeslot")
-    public void iShouldBeAbleToSelectATimeslot() {
+    public void iShouldNotBeAbleToSelectATimeslot() {
         noTimeslotAvailable();
     }
 
     @And("I shouldn't be able to select a timeslot that was booked last")
-    public void iShouldBeAbleToSelectATimeslotThatWasBookedLast() {
+    public void iShouldNotBeAbleToSelectATimeslotThatWasBookedLast() {
         lastBookedTimeSlotNotAvailable();
     }
 

@@ -1,15 +1,14 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.SearchPage;
-import pages.commonPage;
+import pages.CommonPage;
 
 public class SearchStepDefinitions extends SearchPage {
 
-    pages.commonPage commonPage = new commonPage();
+    CommonPage commonPage = new CommonPage();
 
     @When("I enter {string} to search for a prison")
     public void i_enter_to_search_for_a_prison(String prisonNo) {

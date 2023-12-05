@@ -1,15 +1,13 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import pages.MainContactPage;
-import pages.commonPage;
+import pages.CommonPage;
 
 public class MainContact extends MainContactPage {
 
-    pages.commonPage commonPage = new commonPage();
+    CommonPage commonPage = new CommonPage();
 
     @Then("I select the main contact option")
     public void i_select_the_main_contact_option() {

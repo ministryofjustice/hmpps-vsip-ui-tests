@@ -5,7 +5,7 @@ import utils.Configuration;
 /**
  * Created by Anusha Nagula on 15/05/23.
  */
-public class commonPage extends CommonMethods {
+public class CommonPage extends CommonMethods {
 
 //    By continueBtnOnAllPages = By.id("submit");
 

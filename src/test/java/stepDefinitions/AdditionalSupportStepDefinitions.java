@@ -1,15 +1,13 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import pages.AdditionalSupportPage;
-import pages.commonPage;
+import pages.CommonPage;
 
 public class AdditionalSupportStepDefinitions extends AdditionalSupportPage {
 
-    pages.commonPage commonPage = new commonPage();
+    CommonPage commonPage = new CommonPage();
 
     @Then("I select No for additional support needed")
     public void i_select_no_for_additional_support_needed() {

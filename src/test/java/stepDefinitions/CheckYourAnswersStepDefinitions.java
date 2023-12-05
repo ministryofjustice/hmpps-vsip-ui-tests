@@ -1,13 +1,12 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import pages.CheckYourAnswersPage;
-import pages.commonPage;
+import pages.CommonPage;
 
 public class CheckYourAnswersStepDefinitions extends CheckYourAnswersPage {
 
-    pages.commonPage commonPage = new commonPage();
+    CommonPage commonPage = new CommonPage();
 
     @And("click on submit booking button")
     public void clickOnSubmitBookingButton() {

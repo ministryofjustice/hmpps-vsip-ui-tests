@@ -2,13 +2,13 @@ package stepDefinitions;
 
 import io.cucumber.java.en.And;
 import pages.ConfirmationPage;
-import pages.commonPage;
+import pages.CommonPage;
 import pages.util.Context;
 import pages.util.TestRunContext;
 
 public class ConfirmationStepDefinitions extends ConfirmationPage {
 
-    pages.commonPage commonPage = new commonPage();
+    CommonPage commonPage = new CommonPage();
 
     @And("I see {string} message displayed")
     public void iSeeMessageDisplayed(String confirmationMsg) {
