@@ -144,6 +144,13 @@ import java.util.List;
         Assert.assertTrue(isElementNotDisplayed, "Element is not displayed");
     }
 
+    public void isElementAvailable(String accessType, String accessName){
+        List<WebElement>  list = driver.findElements(getElementByType(accessType, accessName));
+        if (!list.isEmpty()) {
+            Assert.fail("Element " + accessName + " is available when it should not be!");
+        }
+    }
+
     /** Method to select radio button
      @param accessType : String : Locator type (id, name, class, xpath, css)
      @param accessName : String : Locator value

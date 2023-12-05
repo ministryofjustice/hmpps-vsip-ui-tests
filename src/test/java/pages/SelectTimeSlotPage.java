@@ -33,11 +33,11 @@ public class SelectTimeSlotPage extends CommonMethods {
     }
 
     public void lastBookedTimeSlotNotAvailable(){
-        isElementNotVisible("xpath",getDataTestXPathForTimeSlot());
+        isElementAvailable("xpath",getDataTestXPathForTimeSlot());
     }
 
     private String getDataTestXPathForTimeSlot() {
-        return "//*[@data-test=\"" + TestRunContext.getTimeSlotDay() + "\"]";
+        return "//*[@data-test='" + TestRunContext.getTimeSlotDay() + "']";
     }
 
 }
