@@ -1,6 +1,6 @@
 package pages;
 
-public class WhatMethodPage extends commonMethods {
+public class WhatMethodPage extends CommonMethods {
 
     public void selectPhoneCall() {
 

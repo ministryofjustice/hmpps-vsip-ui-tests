@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import pages.util.Context;
 import pages.util.TestRunContext;
 
-public class SelectTimeSlotPage extends commonMethods {
+public class SelectTimeSlotPage extends CommonMethods {
 
     public void selectTimeslotErrorDisplayed() {
         isElementDisplayed("xpath","//a[text() = 'No time slot selected']");
@@ -22,18 +22,22 @@ public class SelectTimeSlotPage extends commonMethods {
         }
     }
 
+
     public void selectLastBookedSlot() {
-        final String xPath = "//*[@data-test='" + TestRunContext.getTimeSlotDay() + "']";
-        selectRadioButton("xpath",xPath);
+        selectRadioButton("xpath",getDataTestXPathForTimeSlot());
     }
+
 
     public void noTimeslotAvailable(){
         isElementNotVisible("xpath","//*[@id='5']");
     }
 
     public void lastBookedTimeSlotNotAvailable(){
-        final String xPath = "//*[@data-test='" + TestRunContext.getTimeSlotDay() + "']";
-        isElementNotVisible("xpath",xPath);
+        isElementNotVisible("xpath",getDataTestXPathForTimeSlot());
+    }
+
+    private String getDataTestXPathForTimeSlot() {
+        return "//*[@data-test=\"" + TestRunContext.getTimeSlotDay() + "\"]";
     }
 
 }

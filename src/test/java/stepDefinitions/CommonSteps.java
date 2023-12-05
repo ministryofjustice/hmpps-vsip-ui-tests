@@ -4,7 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import pages.commonPage;
-import pages.commonMethods;
+import pages.CommonMethods;
 
 /**
  * Created by Anusha Nagula on 15/05/23.
@@ -12,7 +12,7 @@ import pages.commonMethods;
 public class CommonSteps {
 
     pages.commonPage commonPage = new commonPage();
-    pages.commonMethods commonMethods = new commonMethods();
+    CommonMethods commonMethods = new CommonMethods();
 
     @Given("click on submit button")
     public void i_click_on_submit_button() {

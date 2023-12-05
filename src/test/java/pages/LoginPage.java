@@ -1,9 +1,6 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-
-public class LoginPage extends commonMethods {
+public class LoginPage extends CommonMethods {
 
     //Enter userName in textbox
     public void enterUserName(String user_Name) {

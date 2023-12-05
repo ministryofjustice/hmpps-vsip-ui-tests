@@ -1,14 +1,11 @@
 package pages;
 
-import org.openqa.selenium.By;
 import utils.Configuration;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.*;
 
 /**
  * Created by Anusha Nagula on 15/05/23.
  */
-public class commonPage extends commonMethods {
+public class commonPage extends CommonMethods {
 
 //    By continueBtnOnAllPages = By.id("submit");
 

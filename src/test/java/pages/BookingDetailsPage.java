@@ -1,6 +1,6 @@
 package pages;
 
-public class BookingDetailsPage extends commonMethods {
+public class BookingDetailsPage extends CommonMethods {
 
     public void clickOnBookingHistory() {
         clickOnButton("xpath","//*[@id='tab_history']");

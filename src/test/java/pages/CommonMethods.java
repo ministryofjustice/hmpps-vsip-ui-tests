@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by Anusha Nagula on 15/05/23.
  */
- public class commonMethods implements WebDriverInstance {
+ public class CommonMethods implements WebDriverInstance {
 
     public Wait<WebDriver> wait = new FluentWait<>(driver)
             .withTimeout(Duration.ofSeconds(20));

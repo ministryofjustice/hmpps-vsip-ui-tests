@@ -1,6 +1,6 @@
 package pages;
 
-public class ViewVisitsByDatePage extends commonMethods {
+public class ViewVisitsByDatePage extends CommonMethods {
 
     public void selectDatePicker(){
         click("xpath","//button[contains(@data-test, 'another-date-button')]");

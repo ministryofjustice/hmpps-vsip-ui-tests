@@ -1,6 +1,6 @@
 package pages;
 
-public class CancelAVisitPage extends commonMethods {
+public class CancelAVisitPage extends CommonMethods {
 
     public void selectCancelByVisitor() {
         selectRadioButton("xpath","//input[@id='cancel']");
