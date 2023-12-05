@@ -151,8 +151,9 @@ import java.util.List;
     public WebElement selectRadioButton(String accessType, String accessName)
     {
         WebElement radioButton = wait.until(ExpectedConditions.presenceOfElementLocated(getElementByType(accessType, accessName)));
-        if(!radioButton.isSelected())
+        if(!radioButton.isSelected()) {
             radioButton.click();
+        }
 
         return radioButton;
     }
