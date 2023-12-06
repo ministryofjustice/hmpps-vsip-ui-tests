@@ -39,7 +39,7 @@ Feature: Non-association visit
     #And click on submit booking button
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
-
+    And I see a booking reference
 #   NON-ASSOCIATION scenario begins here
     And I click on Manage a Prison option
     Then Im on "Manage prison visits - Manage prison visits" page
@@ -65,7 +65,7 @@ Feature: Non-association visit
     And click on search button
     Then I choose prison from search results
     Then Im on "Manage prison visits - Vsip_prisoner03, Do Not Use" page
-    And I select latest visit reference
+    And I select last booked visit reference
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
     And I select Visitor Cancelled option
@@ -74,7 +74,6 @@ Feature: Non-association visit
     And click on cancel button
     Then Im on "Manage prison visits - Booking cancelled" page
     And I see "Booking cancelled" message displayed
-
     And I sign out of the service
 
     Examples:
