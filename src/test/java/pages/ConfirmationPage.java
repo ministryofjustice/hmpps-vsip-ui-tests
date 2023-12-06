@@ -1,6 +1,6 @@
 package pages;
 
-public class ConfirmationPage extends commonMethods {
+public class ConfirmationPage extends CommonMethods {
 
     public void checkBookingHeading(String confirmationMsg) {
         verifyHeading(confirmationMsg);

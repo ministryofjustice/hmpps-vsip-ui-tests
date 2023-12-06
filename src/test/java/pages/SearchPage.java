@@ -1,6 +1,6 @@
 package pages;
 
-public class SearchPage extends commonMethods {
+public class SearchPage extends CommonMethods {
 
     public void enterPrisonDetails(String prison_details) {
         enterValInTextField("xpath",prison_details,"//input[@id='search']");

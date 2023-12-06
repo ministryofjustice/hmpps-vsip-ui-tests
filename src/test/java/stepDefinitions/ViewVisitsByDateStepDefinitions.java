@@ -1,15 +1,13 @@
 package stepDefinitions;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.ViewVisitsByDatePage;
-import pages.commonPage;
+import pages.CommonPage;
 
 public class ViewVisitsByDateStepDefinitions extends ViewVisitsByDatePage {
 
-    pages.commonPage commonPage = new commonPage();
+    CommonPage commonPage = new CommonPage();
 
     @When("I select Date picker option")
     public void iSelectDatePickerOption() {

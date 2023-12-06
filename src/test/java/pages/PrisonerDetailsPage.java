@@ -2,7 +2,7 @@ package pages;
 
 import pages.util.TestRunContext;
 
-public class PrisonerDetailsPage extends commonMethods {
+public class PrisonerDetailsPage extends CommonMethods {
 
     public void selectLatestPrisonVisit() {
         click("xpath","//*[@id='visits']/table[1]/tbody/tr/td[1]/a");

@@ -1,6 +1,6 @@
 package pages;
 
-public class AdditionalSupportPage extends commonMethods {
+public class AdditionalSupportPage extends CommonMethods {
 
     public void selectNoForAddAssistance() {
         selectRadioButton("xpath","//input[@id='additionalSupportRequired-2']");

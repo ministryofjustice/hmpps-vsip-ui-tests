@@ -1,15 +1,12 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import pages.CancelAVisitPage;
-import pages.commonPage;
+import pages.CommonPage;
 
 public class CancelAVisitStepDefinitions extends CancelAVisitPage {
 
-    pages.commonPage commonPage = new commonPage();
+    CommonPage commonPage = new CommonPage();
 
     @And("I select Visitor Cancelled option")
     public void iSelectVisitorCancelledOption() {

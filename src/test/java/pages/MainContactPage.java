@@ -1,6 +1,6 @@
 package pages;
 
-public class MainContactPage extends commonMethods {
+public class MainContactPage extends CommonMethods {
 
     public void selectMainContact() {
         selectRadioButton("xpath","//input[@id='contact']");

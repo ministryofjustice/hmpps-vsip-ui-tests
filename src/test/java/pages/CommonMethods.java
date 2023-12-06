@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by Anusha Nagula on 15/05/23.
  */
- public class commonMethods implements WebDriverInstance {
+ public class CommonMethods implements WebDriverInstance {
 
     public Wait<WebDriver> wait = new FluentWait<>(driver)
             .withTimeout(Duration.ofSeconds(20));
@@ -38,33 +38,33 @@ import java.util.List;
      @return Boolean
      */
     public boolean isElementDisplayed(String accessType,String accessName) {
-        element = wait.until(ExpectedConditions.presenceOfElementLocated(getelementbytype(accessType, accessName)));
+        element = wait.until(ExpectedConditions.presenceOfElementLocated(getElementByType(accessType, accessName)));
         return element.isDisplayed();
     }
 
     /**Method to select element 'by' type
       * @param type : String : 'By' type
-     * @param access_name : String : Locator value
+     * @param accessName : String : Locator value
      * @return By
      */
-    public By getelementbytype(String type, String access_name) {
+    public By getElementByType(String type, String accessName) {
         switch (type) {
             case "id":
-                return By.id(access_name);
+                return By.id(accessName);
             case "name":
-                return By.name(access_name);
+                return By.name(accessName);
             case "class":
-                return By.className(access_name);
+                return By.className(accessName);
             case "xpath":
-                return By.xpath(access_name);
+                return By.xpath(accessName);
             case "css":
-                return By.cssSelector(access_name);
+                return By.cssSelector(accessName);
             case "linkText":
-                return By.linkText(access_name);
+                return By.linkText(accessName);
             case "partialLinkText":
-                return By.partialLinkText(access_name);
+                return By.partialLinkText(accessName);
             case "tagName":
-                return By.tagName(access_name);
+                return By.tagName(accessName);
             default:
                 return null;
         }
@@ -77,8 +77,8 @@ import java.util.List;
      */
 
     public void enterValInTextField(String accessType, String value, String accessName) {
-        wait.until(ExpectedConditions.presenceOfElementLocated(getelementbytype(accessType,accessName)));
-        driver.findElement(getelementbytype(accessType,accessName)).sendKeys(value);
+        wait.until(ExpectedConditions.presenceOfElementLocated(getElementByType(accessType,accessName)));
+        driver.findElement(getElementByType(accessType,accessName)).sendKeys(value);
 
     }
 
@@ -87,17 +87,20 @@ import java.util.List;
      * @param bytype : String : Name of by type
      * @param option : String : Option to select
      */
-    public void selectelementfromdropdownbytype (Select select_list, String bytype, String option)
+    public void selectElementFromDropdownByType(Select select_list, String bytype, String option)
     {
-        if(bytype.equals("selectByIndex"))
-        {
-            int index = Integer.parseInt(option);
-            select_list.selectByIndex(index-1);
+        switch (bytype) {
+            case "selectByIndex":
+                int index = Integer.parseInt(option);
+                select_list.selectByIndex(index - 1);
+                break;
+            case "value":
+                select_list.selectByValue(option);
+                break;
+            case "text":
+                select_list.selectByVisibleText(option);
+                break;
         }
-        else if (bytype.equals("value"))
-            select_list.selectByValue(option);
-        else if (bytype.equals("text"))
-            select_list.selectByVisibleText(option);
     }
 
     /** Method to click on an element
@@ -106,8 +109,8 @@ import java.util.List;
      */
 
     public void clickOnButton(String accessType, String accessName) {
-        wait.until(ExpectedConditions.elementToBeClickable(getelementbytype(accessType,accessName)));
-        driver.findElement(getelementbytype(accessType,accessName)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(getElementByType(accessType,accessName)));
+        driver.findElement(getElementByType(accessType,accessName)).click();
     }
 
     /** Method to click on an element
@@ -116,7 +119,7 @@ import java.util.List;
 	*/
     public void click(String accessType, String accessName)
     {
-        element = wait.until(ExpectedConditions.presenceOfElementLocated(getelementbytype(accessType, accessName)));
+        element = wait.until(ExpectedConditions.presenceOfElementLocated(getElementByType(accessType, accessName)));
         element.click();
     }
 
@@ -125,31 +128,41 @@ import java.util.List;
     }
 
     public String verifyAndGetBookingReference(){
-        By by = getelementbytype("class","test-booking-reference");
+        By by = getElementByType("class","test-booking-reference");
         return driver.findElement(by).getText();
     }
 
     public void isElementVisible(String accessType, String value, String accessName){
-        driver.findElement(getelementbytype(accessType,accessName)).isDisplayed();
+        driver.findElement(getElementByType(accessType,accessName)).isDisplayed();
     }
 
     public void isElementNotVisible(String accessType, String accessName){
-        WebElement element = driver.findElement(getelementbytype(accessType,accessName));
+        WebElement element = driver.findElement(getElementByType(accessType,accessName));
         // Verify if the element is not displayed
         boolean isElementNotDisplayed = !element.isDisplayed();
         // Assert the result
         Assert.assertTrue(isElementNotDisplayed, "Element is not displayed");
     }
 
+    public void isElementAvailable(String accessType, String accessName){
+        List<WebElement>  list = driver.findElements(getElementByType(accessType, accessName));
+        if (!list.isEmpty()) {
+            Assert.fail("Element " + accessName + " is available when it should not be!");
+        }
+    }
+
     /** Method to select radio button
      @param accessType : String : Locator type (id, name, class, xpath, css)
      @param accessName : String : Locator value
      */
-    public void selectRadioButton(String accessType, String accessName)
+    public WebElement selectRadioButton(String accessType, String accessName)
     {
-        WebElement radioButton = wait.until(ExpectedConditions.presenceOfElementLocated(getelementbytype(accessType, accessName)));
-        if(!radioButton.isSelected())
+        WebElement radioButton = wait.until(ExpectedConditions.presenceOfElementLocated(getElementByType(accessType, accessName)));
+        if(!radioButton.isSelected()) {
             radioButton.click();
+        }
+
+        return radioButton;
     }
 
     /** Method to check check-box
@@ -158,7 +171,7 @@ import java.util.List;
      */
     public void checkCheckbox(String accessType, String accessName)
     {
-        WebElement checkbox= wait.until(ExpectedConditions.presenceOfElementLocated(getelementbytype(accessType, accessName)));
+        WebElement checkbox= wait.until(ExpectedConditions.presenceOfElementLocated(getElementByType(accessType, accessName)));
         if (!checkbox.isSelected())
             checkbox.click();
     }

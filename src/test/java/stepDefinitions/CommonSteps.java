@@ -3,16 +3,16 @@ package stepDefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import pages.commonPage;
-import pages.commonMethods;
+import pages.CommonPage;
+import pages.CommonMethods;
 
 /**
  * Created by Anusha Nagula on 15/05/23.
  */
 public class CommonSteps {
 
-    pages.commonPage commonPage = new commonPage();
-    pages.commonMethods commonMethods = new commonMethods();
+    CommonPage commonPage = new CommonPage();
+    CommonMethods commonMethods = new CommonMethods();
 
     @Given("click on submit button")
     public void i_click_on_submit_button() {

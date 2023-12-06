@@ -2,13 +2,13 @@ package stepDefinitions;
 
 import io.cucumber.java.en.Given;
 import pages.LoginPage;
-import pages.commonPage;
+import pages.CommonPage;
 
 /**
  * Created by Anusha Nagula on 15/05/23.
  */
 public class LoginStepDefinitions extends LoginPage {
-    pages.commonPage commonPage = new commonPage();
+    CommonPage commonPage = new CommonPage();
 
     @Given("I navigate to VSIP service")
     public void i_navigate_to_vsip_service() {

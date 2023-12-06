@@ -3,11 +3,11 @@ package stepDefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import pages.PrisonerDetailsPage;
-import pages.commonPage;
+import pages.CommonPage;
 
 public class PrisonerDetailsStepDefinitions extends PrisonerDetailsPage {
 
-    pages.commonPage commonPage = new commonPage();
+    CommonPage commonPage = new CommonPage();
 
     @Then("I click on Book a visit button")
     public void i_click_on_book_a_visit_button() {

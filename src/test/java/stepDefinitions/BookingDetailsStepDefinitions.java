@@ -2,11 +2,11 @@ package stepDefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import pages.commonPage;
+import pages.CommonPage;
 import pages.BookingDetailsPage;
 
 public class BookingDetailsStepDefinitions extends BookingDetailsPage {
-    pages.commonPage commonPage = new commonPage();
+    CommonPage commonPage = new CommonPage();
 
     @And("I see {string} message displayed on Booking details page")
     public void iSeeMessageDisplayedOnBookingDetailsPage(String cancelMsg) {
