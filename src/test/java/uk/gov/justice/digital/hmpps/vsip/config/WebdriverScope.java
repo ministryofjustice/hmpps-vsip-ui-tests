@@ -10,13 +10,15 @@ import java.util.Objects;
 public class WebdriverScope extends SimpleThreadScope {
     @Override
     public Object get(String name, ObjectFactory<?> objectFactory) {
-        Object o = super.get(name, objectFactory);
-        SessionId sessionId = ((RemoteWebDriver) o).getSessionId();
-        if (Objects.isNull(sessionId)) {
-            super.remove(name);
-            o = super.get(name, objectFactory);
+        Object object = super.get(name, objectFactory);
+        if (object instanceof RemoteWebDriver remoteWebDriver) {
+            SessionId sessionId = remoteWebDriver.getSessionId();
+            if (Objects.isNull(sessionId)) {
+                super.remove(name);
+                object = super.get(name, objectFactory);
+            }
         }
-        return o;
+        return object;
     }
 
     @Override
