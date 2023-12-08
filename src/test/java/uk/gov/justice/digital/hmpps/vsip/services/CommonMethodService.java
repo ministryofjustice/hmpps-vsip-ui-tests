@@ -27,9 +27,6 @@ public class CommonMethodService {
     protected Configuration configuration;
 
 
-    private WebElement element = null;
-
-
     /**
      * method to get element status - displayed?
      *
@@ -38,7 +35,7 @@ public class CommonMethodService {
      * @return Boolean
      */
     public boolean isElementDisplayed(String accessType, String accessName) {
-        element = wait.until(ExpectedConditions.presenceOfElementLocated(getElementByType(accessType, accessName)));
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(getElementByType(accessType, accessName)));
         return element.isDisplayed();
     }
 
@@ -127,7 +124,7 @@ public class CommonMethodService {
      * @param accessName : String : Locator value
      */
     public void click(String accessType, String accessName) {
-        element = wait.until(ExpectedConditions.presenceOfElementLocated(getElementByType(accessType, accessName)));
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(getElementByType(accessType, accessName)));
         element.click();
     }
 

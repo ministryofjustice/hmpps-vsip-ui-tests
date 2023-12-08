@@ -39,7 +39,7 @@ public class WebDriverConfig {
     public WebDriver createDriverBean() {
         WebDriver driver = webDriverService.getWebDriver();
 
-        LOG.debug("Enter createDriverBean , Created Webdriver :" + driver.getClass().getName());
+        LOG.debug("Enter createDriverBean , Created Webdriver :" + driver.getClass().getSimpleName());
         return driver;
     }
 
