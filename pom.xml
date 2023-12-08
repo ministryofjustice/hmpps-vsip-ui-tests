@@ -14,10 +14,10 @@
     <version>1.0</version>
 
     <properties>
+        <java.version>21</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.surefire.version>3.0.0-M8</maven.surefire.version>
-        <java.version>21</java.version>
         <selenium.version>4.15.0</selenium.version>
         <junit.jupiter.version>5.9.2</junit.jupiter.version>
         <junit.platform.version>1.9.2</junit.platform.version>

@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: maven:3.8.7-eclipse-temurin-21
+      - image: maven:3.8.4-jdk-21
       - image: seleniarm/standalone-chromium
         environment:
           CHROME_HEADLESS: 1
