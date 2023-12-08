@@ -2,6 +2,8 @@ package uk.gov.justice.digital.hmpps.vsip.services;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyComponent;
@@ -17,17 +19,19 @@ public class TestService {
 
     private static final ThreadLocal<Map<Context, Object>> testContexts = withInitial(HashMap::new);
 
+    private static final Logger LOG = LoggerFactory.getLogger(TestService.class);
 
     @Autowired
     private ApplicationContext ctx;
 
     private static <T> T getFromContext(Context key) {
-        return (T) testContexts.get()
-                .get(key);
+        Object object = testContexts.get().get(key);
+        LOG.debug("Entered getFromContext Key :" + key + " Value :" + object);
+        return (T) object;
     }
 
     public static <T> T setToContext(Context key, T object) {
-        System.out.println("TestRunContext Key :" + key + " Value :" + object.toString());
+        LOG.debug("Entered setToContext Key :" + key + " Value :" + object);
         testContexts.get().put(key, object);
         return object;
     }
