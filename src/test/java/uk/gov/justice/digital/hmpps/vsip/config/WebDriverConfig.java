@@ -20,7 +20,6 @@ import java.time.Duration;
 @LazyConfiguration
 public class WebDriverConfig {
 
-    private static final Logger LOG = LoggerFactory.getLogger(WebDriverConfig.class);
     @Value("${default.timeout:20}")
     private int timeout;
     @LazyAutowired
@@ -37,10 +36,7 @@ public class WebDriverConfig {
     @WebdriverScopeBean
     @Primary
     public WebDriver createDriverBean() {
-        WebDriver driver = webDriverService.getWebDriver();
-
-        LOG.debug("Enter createDriverBean , Created Webdriver :" + driver.getClass().getSimpleName());
-        return driver;
+        return webDriverService.getWebDriver();
     }
 
     @Bean

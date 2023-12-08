@@ -7,6 +7,7 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
 import uk.gov.justice.digital.hmpps.vsip.services.TestService;
@@ -17,6 +18,9 @@ import uk.gov.justice.digital.hmpps.vsip.services.TestService;
 public class CucumberHooksConfig {
 
     private static final Logger LOG = LoggerFactory.getLogger(CucumberHooksConfig.class);
+
+    @Value("${browser:chrome}")
+    private String targetBrowser;
 
     @LazyAutowired
     private TestService testService;
@@ -43,7 +47,7 @@ public class CucumberHooksConfig {
 
     @After
     public void afterScenario() {
-        LOG.debug("Entered afterScenario : quit web driver");
+        LOG.debug("Entered afterScenario, quit web driver :" + targetBrowser);
         webDriver.quit();
     }
 

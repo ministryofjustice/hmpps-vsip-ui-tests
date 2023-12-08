@@ -8,6 +8,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyComponent;
 
@@ -18,6 +20,8 @@ import java.util.concurrent.TimeUnit;
 
 @LazyComponent
 public class WebDriverService {
+
+    private static final Logger LOG = LoggerFactory.getLogger(WebDriverService.class);
 
     @Value("${browser:chrome}")
     private String targetBrowser;
@@ -51,6 +55,8 @@ public class WebDriverService {
         webDriver.manage().timeouts().setScriptTimeout(60, TimeUnit.SECONDS);
         webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         webDriver.getWindowHandle();
+
+        LOG.debug("Enter createDriverBean , Created Webdriver :" + webDriver.getClass().getSimpleName() + "/" + targetBrowser);
 
         return webDriver;
     }
