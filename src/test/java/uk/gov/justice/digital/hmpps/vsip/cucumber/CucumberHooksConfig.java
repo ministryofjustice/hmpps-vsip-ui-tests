@@ -43,7 +43,7 @@ public class CucumberHooksConfig {
 
     @After
     public void afterScenario() {
-        LOG.debug("Entered afterScenario : quite web driver");
+        LOG.debug("Entered afterScenario : quit web driver");
         webDriver.quit();
     }
 
