@@ -5,7 +5,24 @@ Selenium-Cucumber is a behavior driven development (BDD) approach to write autom
 ## vsip-ui-tests
 UI test suite for the `hmpps-vsip` service using Webdriver and `java/cucumber`
 
+## Background info
+Used the approach given in this critical to introduce spring to the testing project
+https://www.swtestacademy.com/selenium-spring-boot-cucumber-junit5-project/
+
+
 ## Running the tests
+
+Java 21 is required, would recommend using SDK man to install a newer version of JDK https://sdkman.io/usage
+How to install: https://sdkman.io/install
+
+To list sdk versions to install :
+
+`sdk list java`
+
+To install JDK 21 you could use the following :
+
+`sdk install java 21.0.1-tem`
+
 
 Prior to executing the tests ensure you have:
 - Docker - to run a Chrome or Firefox browser inside a container
@@ -17,8 +34,9 @@ Run the following command to start services locally:
 
 Then execute the `run_tests_local.sh` script:
 
-The `run_tests_local.sh` script allows to choose an environment with the locally installed `chrome` driver binary.  For a complete list of supported param values, see:
-- `src/test/java/utils/Configuration.java` for **environment**
+The `run_tests_local.sh` script allows to choose an environment with the locally installed `chrome` driver binary.  
+For a complete list of supported param values, see:
+- `src/test/java/uk.gov.justice.digital.hmpps.vsip.util.Configuration.java` for **environment**
 
 ## Running tests against a containerised browser - on your machine
 
