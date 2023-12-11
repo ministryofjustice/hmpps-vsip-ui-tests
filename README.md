@@ -13,6 +13,16 @@ https://www.swtestacademy.com/selenium-spring-boot-cucumber-junit5-project/
 ## Running the tests
 
 Java 21 is required, would recommend using SDK man to install a newer version of JDK https://sdkman.io/usage
+How to install: https://sdkman.io/install
+
+To list sdk versions to install :
+
+`sdk list java`
+
+To install JDK 21 you could use the following :
+
+`sdk install java 21.0.1-tem`
+
 
 Prior to executing the tests ensure you have:
 - Docker - to run a Chrome or Firefox browser inside a container
