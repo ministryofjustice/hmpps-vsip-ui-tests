@@ -3,9 +3,9 @@ package uk.gov.justice.digital.hmpps.vsip.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import uk.gov.justice.digital.hmpps.vsip.annotation.LazyComponent;
+import uk.gov.justice.digital.hmpps.vsip.annotation.ComponentWithWebDriver;
 
-@LazyComponent
+@ComponentWithWebDriver
 public class HomePage extends BasePage {
 
     @FindBy(how = How.XPATH, using = "//a[@href='/search/prisoner']")

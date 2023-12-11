@@ -2,14 +2,13 @@ package uk.gov.justice.digital.hmpps.vsip.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import uk.gov.justice.digital.hmpps.vsip.annotation.LazyComponent;
+import uk.gov.justice.digital.hmpps.vsip.annotation.ComponentWithWebDriver;
 import uk.gov.justice.digital.hmpps.vsip.util.Context;
-import uk.gov.justice.digital.hmpps.vsip.services.TestService;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@LazyComponent
+@ComponentWithWebDriver
 public class SelectTimeSlotPage extends BasePage {
 
 
@@ -23,7 +22,7 @@ public class SelectTimeSlotPage extends BasePage {
         WebElement radioButton = methodsService.selectRadioButton("xpath", "//*[@id='" + inputIndex + "']");
         final String slotDetails = radioButton.getAttribute("data-test");
         if (slotDetails != null) {
-            TestService.setToContext(Context.SLOT_DATE_TIME, slotDetails);
+            testContextService.setToContext(Context.SLOT_DATE_TIME, slotDetails);
         } else {
             System.err.println("Error data-test not found on element time slot RadioButton!");
         }
@@ -44,7 +43,7 @@ public class SelectTimeSlotPage extends BasePage {
     }
 
     private String getDataTestXPathForTimeSlot() {
-        return "//*[@data-test='" + TestService.getTimeSlotDay() + "']";
+        return "//*[@data-test='" + testContextService.getTimeSlotDay() + "']";
     }
 
     public void clickNextEnabledElement() {

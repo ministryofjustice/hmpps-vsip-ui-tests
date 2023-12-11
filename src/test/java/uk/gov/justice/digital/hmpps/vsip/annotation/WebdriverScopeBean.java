@@ -9,8 +9,10 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import static uk.gov.justice.digital.hmpps.vsip.config.WebDriverScope.WEB_DRIVER_SCOPE;
+
 @Bean
-@Scope("webdriverscope")
+@Scope(WEB_DRIVER_SCOPE)
 @Documented
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)

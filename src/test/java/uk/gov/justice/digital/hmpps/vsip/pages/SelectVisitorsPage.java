@@ -1,9 +1,9 @@
 package uk.gov.justice.digital.hmpps.vsip.pages;
 
-import uk.gov.justice.digital.hmpps.vsip.annotation.LazyComponent;
+import uk.gov.justice.digital.hmpps.vsip.annotation.ComponentWithWebDriver;
 
 
-@LazyComponent
+@ComponentWithWebDriver
 public class SelectVisitorsPage extends BasePage {
 
     public void selectVisitorErrorDisplayed() {

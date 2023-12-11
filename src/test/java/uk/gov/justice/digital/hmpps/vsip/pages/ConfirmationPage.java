@@ -1,9 +1,9 @@
 package uk.gov.justice.digital.hmpps.vsip.pages;
 
 import org.openqa.selenium.By;
-import uk.gov.justice.digital.hmpps.vsip.annotation.LazyComponent;
+import uk.gov.justice.digital.hmpps.vsip.annotation.ComponentWithWebDriver;
 
-@LazyComponent
+@ComponentWithWebDriver
 public class ConfirmationPage extends BasePage {
 
     public void checkBookingHeading(String confirmationMsg) {

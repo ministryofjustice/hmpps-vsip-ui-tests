@@ -1,9 +1,8 @@
 package uk.gov.justice.digital.hmpps.vsip.pages;
 
-import uk.gov.justice.digital.hmpps.vsip.annotation.LazyComponent;
-import uk.gov.justice.digital.hmpps.vsip.services.TestService;
+import uk.gov.justice.digital.hmpps.vsip.annotation.ComponentWithWebDriver;
 
-@LazyComponent
+@ComponentWithWebDriver
 public class PrisonerDetailsPage extends BasePage {
 
     public void selectLatestPrisonVisit() {
@@ -11,7 +10,7 @@ public class PrisonerDetailsPage extends BasePage {
     }
 
     public void selectLastBookedVisitReference() {
-        final String xPath = "//a[contains(text(),'" + TestService.getBookingReference() + "')]";
+        final String xPath = "//a[contains(text(),'" + testContextService.getBookingReference() + "')]";
         methodsService.click("xpath", xPath);
     }
 

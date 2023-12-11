@@ -8,22 +8,22 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.springframework.beans.factory.annotation.Autowired;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
-import uk.gov.justice.digital.hmpps.vsip.annotation.LazyComponent;
+import uk.gov.justice.digital.hmpps.vsip.annotation.ComponentWithWebDriver;
 import uk.gov.justice.digital.hmpps.vsip.services.CommonMethodService;
 import uk.gov.justice.digital.hmpps.vsip.util.Configuration;
-import uk.gov.justice.digital.hmpps.vsip.services.TestService;
+import uk.gov.justice.digital.hmpps.vsip.services.TestContextService;
 
-@LazyComponent
+@ComponentWithWebDriver
 public class BasePage {
-    @Autowired
+
+    @LazyAutowired
     protected WebDriver driver;
 
-    @Autowired
+    @LazyAutowired
     protected WebDriverWait wait;
 
-    @Autowired
+    @LazyAutowired
     protected JavascriptExecutor javascriptExecutor;
 
     @LazyAutowired
@@ -33,7 +33,7 @@ public class BasePage {
     protected Configuration configuration;
 
     @LazyAutowired
-    protected TestService testService;
+    protected TestContextService testContextService;
 
     @PostConstruct
     private void init() {
@@ -52,6 +52,5 @@ public class BasePage {
     public void verifyHeading(String text) {
         driver.findElement(By.cssSelector("h1")).getText().equals(text);
     }
-
 
 }

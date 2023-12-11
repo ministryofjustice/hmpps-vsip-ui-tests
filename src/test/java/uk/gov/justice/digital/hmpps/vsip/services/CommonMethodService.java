@@ -7,20 +7,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.springframework.beans.factory.annotation.Autowired;
+import uk.gov.justice.digital.hmpps.vsip.annotation.ComponentWithWebDriver;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
-import uk.gov.justice.digital.hmpps.vsip.annotation.LazyComponent;
 import uk.gov.justice.digital.hmpps.vsip.util.Configuration;
 
 import java.util.List;
 
-@LazyComponent
+@ComponentWithWebDriver
 public class CommonMethodService {
 
-    @Autowired
+    @LazyAutowired
     protected WebDriver driver;
 
-    @Autowired
+    @LazyAutowired
     protected WebDriverWait wait;
 
     @LazyAutowired
