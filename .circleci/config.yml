@@ -14,4 +14,4 @@ jobs:
       - run:
           name: Build and Run tests
           command:
-            mvn test -Dbrowser=remote-chrome -Denvironment="STAGING" -Dtest=uk.gov.justice.digital.hmpps.vsip.suites.RunSuite
+            mvn test -Dbrowser=remote-chrome -Dspring.profiles.active="staging" -Dtest=uk.gov.justice.digital.hmpps.vsip.suites.RunSuite

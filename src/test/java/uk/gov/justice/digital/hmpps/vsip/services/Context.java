@@ -1,4 +1,4 @@
-package uk.gov.justice.digital.hmpps.vsip.util;
+package uk.gov.justice.digital.hmpps.vsip.services;
 
 public enum Context {
     BOOKING_REFERENCE,

@@ -4,10 +4,10 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
-import uk.gov.justice.digital.hmpps.vsip.util.Context;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,6 +22,9 @@ public class TestContextService {
     private static Map<Context,Object>  testContext = new HashMap<>();
 
     private static final Logger LOG = LoggerFactory.getLogger(TestContextService.class);
+
+    @Value("${vsip.ui-to-test.url}")
+    private String vsipUiUrl;
 
     @LazyAutowired
     private ApplicationContext ctx;
@@ -57,5 +60,9 @@ public class TestContextService {
 
     public byte[] getScreenshot() {
         return this.ctx.getBean(TakesScreenshot.class).getScreenshotAs(OutputType.BYTES);
+    }
+
+    public String getVsipUrl() {
+        return this.vsipUiUrl;
     }
 }

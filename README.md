@@ -30,13 +30,26 @@ Prior to executing the tests ensure you have:
 
 Run the following command to start services locally:
 
- tbc   
+`mvn test -Dbrowser=chrome -Dspring.profiles.active="local" -Dtest=uk.gov.justice.digital.hmpps.vsip.suites.RunSuite`
 
-Then execute the `run_tests_local.sh` script:
+Then execute the shell scrips `run_tests_local.sh, run-os-smoke-tests.sh, run-smoke-tests.sh` script:
 
 The `run_tests_local.sh` script allows to choose an environment with the locally installed `chrome` driver binary.  
-For a complete list of supported param values, see:
-- `src/test/java/uk.gov.justice.digital.hmpps.vsip.util.Configuration.java` for **environment**
+For a complete list of supported param values, e.g:
+
+```bash
+-Dspring.profiles.active="local"
+-Dspring.profiles.active="dev"
+-Dspring.profiles.active="staging"
+```
+
+These details are set in the corrisponding files
+
+```bash
+./resources/application-local.properties
+./resources/application-dev.properties
+./resources/application-staging.properties
+```
 
 ## Running tests against a containerised browser - on your machine
 

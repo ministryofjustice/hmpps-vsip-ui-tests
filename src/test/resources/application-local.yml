@@ -1,0 +1,10 @@
+vsip:
+  ui-to-test:
+    url: http://localhost:3000/
+  test-api:
+    url: https://hmpps-prison-visits-testing-helper-api-dev.prison.service.justice.gov.uk/
+  remote-driver:
+    url: http://localhost:4444/wd/hub
+
+default:
+  timeout: '20'

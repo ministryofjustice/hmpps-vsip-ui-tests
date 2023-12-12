@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import uk.gov.justice.digital.hmpps.vsip.annotation.ComponentWithWebDriver;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
-import uk.gov.justice.digital.hmpps.vsip.util.Configuration;
 
 import java.util.List;
 
@@ -22,8 +21,6 @@ public class CommonMethodService {
     @LazyAutowired
     protected WebDriverWait wait;
 
-    @LazyAutowired
-    protected Configuration configuration;
 
 
     /**
