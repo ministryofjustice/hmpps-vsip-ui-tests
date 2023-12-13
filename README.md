@@ -30,13 +30,51 @@ Prior to executing the tests ensure you have:
 
 Run the following command to start services locally:
 
- tbc   
+`mvn test -Dbrowser=chrome -Dspring.profiles.active="local" -Dtest=uk.gov.justice.digital.hmpps.vsip.suites.RunSuite`
 
-Then execute the `run_tests_local.sh` script:
+Then execute the shell scrips `run_tests_local.sh, run-os-smoke-tests.sh, run-smoke-tests.sh` script:
 
 The `run_tests_local.sh` script allows to choose an environment with the locally installed `chrome` driver binary.  
-For a complete list of supported param values, see:
-- `src/test/java/uk.gov.justice.digital.hmpps.vsip.util.Configuration.java` for **environment**
+For a complete list of supported param values, e.g:
+
+```bash
+-Dspring.profiles.active="local"
+-Dspring.profiles.active="dev"
+-Dspring.profiles.active="staging"
+```
+
+These details are set in the corrisponding files
+
+```bash
+./resources/application-local.properties
+./resources/application-dev.properties
+./resources/application-staging.properties
+```
+## Setting CLIENT_SECRET and CLIENT_ID
+
+Inorder for the Test helper service to work correctly you must set the environment variables for :
+
+CLIENT_SECRET
+
+CLIENT_ID
+
+The easy way to do this is as follows on the mac
+
+```bash
+touch ~/.zprofile
+open ~/.zprofile
+```
+
+Then in the text editor add :
+```bash
+export CLIENT_ID=hmpps-test-id
+export CLIENT_SECRET='.01EAWS33333OGu=Q+%aA%tn1T-UB+xAewSf3*Qww,4S,Vk>s3372j)AaTtO2'
+```
+The client id and secret above are not a real ones, to get the id and secret you must run the following command.
+Please make sure the CLIENT_SECRET value is wrapped by 'CLIENT_SECRET_VALUE' 
+```bash
+kubectl -n visit-someone-in-prison-backend-svc-staging  get secrets hmpps-prison-visits-testing-helper-api -o json | jq '.data | map_values(@base64d)'
+```
 
 ## Running tests against a containerised browser - on your machine
 

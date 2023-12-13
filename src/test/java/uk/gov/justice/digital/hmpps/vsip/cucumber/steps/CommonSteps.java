@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
 import uk.gov.justice.digital.hmpps.vsip.pages.BasePage;
 import uk.gov.justice.digital.hmpps.vsip.services.CommonMethodService;
+import uk.gov.justice.digital.hmpps.vsip.services.PrisonVisitsTestingHelperService;
 
 /**
  * Created by Anusha Nagula on 15/05/23.
@@ -17,6 +18,9 @@ public class CommonSteps {
 
     @LazyAutowired
     private CommonMethodService methodsService;
+
+    @LazyAutowired
+    private PrisonVisitsTestingHelperService testHelper;
 
     @Given("click on submit button")
     public void i_click_on_submit_button() {
@@ -62,4 +66,6 @@ public class CommonSteps {
     public void iSelectChangeEstablishment() {
         methodsService.changeEstablishment();
     }
+
+
 }

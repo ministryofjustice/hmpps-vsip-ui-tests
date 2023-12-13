@@ -3,7 +3,7 @@ package uk.gov.justice.digital.hmpps.vsip.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import uk.gov.justice.digital.hmpps.vsip.annotation.ComponentWithWebDriver;
-import uk.gov.justice.digital.hmpps.vsip.util.Context;
+import uk.gov.justice.digital.hmpps.vsip.services.Context;
 
 import java.util.ArrayList;
 import java.util.List;
