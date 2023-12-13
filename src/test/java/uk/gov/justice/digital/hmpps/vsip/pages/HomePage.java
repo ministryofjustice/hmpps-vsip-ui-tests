@@ -17,6 +17,9 @@ public class HomePage extends BasePage {
     @FindBy(how = How.XPATH, using = "//a[@href='/visits']")
     private WebElement viewVisitsOption;
 
+    @FindBy(how = How.XPATH, using = "//a[@href='/review']")
+    private WebElement findNeedAReviewOption;
+
     public void clickOnBookAVisitOption() {
         bookAVisitOption.click();
     }
@@ -24,7 +27,9 @@ public class HomePage extends BasePage {
     public void clickOnChangeAVisitOption() {
         findAVisitOption.click();
     }
-
+    public void clickOnNeedAReviewOption(){
+        findNeedAReviewOption.click();
+    }
     public void clickOnViewVisitsByDateOption() {
         viewVisitsOption.click();
     }

@@ -26,4 +26,9 @@ public class HomeSteps {
         homePage.clickOnViewVisitsByDateOption();
     }
 
+    @And("I click on Need a Review option")
+    public void iClickOnNeedAReviewOption() {
+        homePage.clickOnNeedAReviewOption();
+    }
+
 }
