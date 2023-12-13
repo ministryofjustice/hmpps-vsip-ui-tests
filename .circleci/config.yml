@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: maven:3.8.4-jdk-11
+      - image: maven:3.9.5-eclipse-temurin-21-alpine
       - image: seleniarm/standalone-chromium
         environment:
           CHROME_HEADLESS: 1
@@ -14,4 +14,4 @@ jobs:
       - run:
           name: Build and Run tests
           command:
-            mvn test -Dbrowser=remote-chrome -Denvironment="STAGING" -Dtest=suites.RunSuite
+            mvn test -Dbrowser=remote-chrome -Dspring.profiles.active="staging" -Dtest=uk.gov.justice.digital.hmpps.vsip.suites.RunSuite
