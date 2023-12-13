@@ -9,7 +9,7 @@ import uk.gov.justice.digital.hmpps.vsip.SpringSeleniumApplication;
  * This spring boot test must be in the same package as the CucumberHooksConfig
  */
 @SpringBootTest(classes = SpringSeleniumApplication.class, useMainMethod = UseMainMethod.ALWAYS)
-@CucumberContextConfiguration
+@CucumberContextConfiguration()
 public class CucumberSpringContextConfig {
 
 }

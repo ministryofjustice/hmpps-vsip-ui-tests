@@ -1,33 +1,7 @@
-spring:
-  application:
-    name: visit-scheduler
-  codec:
-    max-in-memory-size: 10MB
-
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          jwk-set-uri: https://sign-in-dev.hmpps.service.justice.gov.uk/auth/.well-known/jwks.json
-      client:
-        registration:
-          hmpps-apis:
-            provider: hmpps-auth
-            client-id: hmpps-visits-internal-admin-ui-1
-            client-secret: '!NKp2V2JHD0wVc5<mkf,9Xayf<nV;iYcvIX):lko,+*FPZyMGHyzY95l>MUx'
-            authorization-grant-type: client_credentials
-            scope: read
-        provider:
-          hmpps-auth:
-            token-uri: https://sign-in-dev.hmpps.service.justice.gov.uk/auth/oauth/token
-
 vsip:
   ui-to-test:
-    url: https://manage-prison-visits-staging.prison.service.justice.gov.uk/
+    url: https://manage-prison-visits-staging.prison.service.justice.gov.uk
   test-api:
-    url: https://hmpps-prison-visits-testing-helper-api-staging.prison.service.justice.gov.uk/
+    url: https://hmpps-prison-visits-testing-helper-api-staging.prison.service.justice.gov.uk
   remote-driver:
     url: http://localhost:4444/wd/hub
-
-default:
-  timeout: '20'

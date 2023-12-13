@@ -4,19 +4,12 @@ import jakarta.validation.constraints.NotBlank;
 
 import java.time.LocalDate;
 
-public class VisitorRestrictionEventDto {
-    @NotBlank
-    private String visitorId;
-
-    @NotBlank
-    private LocalDate startDate;
-
-    @NotBlank
-    private LocalDate endDate;
-
-    public VisitorRestrictionEventDto(String visitorId, LocalDate startDate, LocalDate endDate) {
-        this.visitorId = visitorId;
-        this.startDate = startDate;
-        this.endDate = endDate;
-    }
+public record VisitorRestrictionEventDto(
+        @NotBlank
+        String visitorId,
+        @NotBlank
+        LocalDate startDate,
+        @NotBlank
+        LocalDate endDate
+) {
 }
