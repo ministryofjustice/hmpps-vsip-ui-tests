@@ -33,6 +33,14 @@ Feature: Test new vsip tester helper service
       | VSIP1_TST                   | 2023-12-03           |
 
   @test_suite
+  Scenario Outline: A prisoner has a restriction from to day
+    Given A prisoner "<prisonerCode>" has a restriction from today
+
+    Examples:
+      | prisonerCode           |
+      | VSIP1_TST              |
+
+  @test_suite
   Scenario Outline: A visitor has a restriction from and to a date
     Given A visitor "<visitorId>" has a restriction from "<startDate>" to "<endDate>"
 

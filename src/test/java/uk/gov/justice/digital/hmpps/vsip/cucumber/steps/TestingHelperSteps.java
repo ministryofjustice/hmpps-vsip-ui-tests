@@ -35,6 +35,11 @@ public class TestingHelperSteps {
         testHelper.startPrisonerRestriction(prisonerCode, startDate, null);
     }
 
+    @Given("A prisoner {string} has a restriction from today")
+    public void aPrisonerHasARestriction(String prisonerCode) {
+        testHelper.startPrisonerRestriction(prisonerCode);
+    }
+
     @Given("A visitor {string} has a restriction from {string}")
     public void aVisitorHasARestriction(String visitorId,String startDate) {
         testHelper.startVisitorRestriction(visitorId, startDate, null);

@@ -55,20 +55,23 @@ These details are set in the corrisponding files
 Inorder for the Test helper service to work correctly you must set the environment variables for :
 
 CLIENT_SECRET
+
 CLIENT_ID
 
 The easy way to do this is as follows on the mac
 
+```bash
 touch ~/.zprofile
 open ~/.zprofile
+```
 
 Then in the text editor add :
 ```bash
 export CLIENT_ID=hmpps-test-id
 export CLIENT_SECRET='.01EAWS33333OGu=Q+%aA%tn1T-UB+xAewSf3*Qww,4S,Vk>s3372j)AaTtO2'
 ```
-The client id and secret above are not a real ones, to get the id and secret you must run the following command
-
+The client id and secret above are not a real ones, to get the id and secret you must run the following command.
+Please make sure the CLIENT_SECRET value is wrapped by 'CLIENT_SECRET_VALUE' 
 ```bash
 kubectl -n visit-someone-in-prison-backend-svc-staging  get secrets hmpps-prison-visits-testing-helper-api -o json | jq '.data | map_values(@base64d)'
 ```

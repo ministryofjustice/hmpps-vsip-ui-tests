@@ -65,4 +65,9 @@ public class PrisonVisitsTestingHelperService {
         client.put("/test/prisoner/restriction", request, client.validateCreateStatusHandler, "Prisoner restriction not created");
     }
 
+    public void startPrisonerRestriction(String prisonerCode) {
+
+        PrisonerRestrictionEventDto request = new PrisonerRestrictionEventDto(prisonerCode,LocalDate.now() , null);
+        client.put("/test/prisoner/restriction", request, client.validateCreateStatusHandler, "Prisoner restriction not created");
+    }
 }
