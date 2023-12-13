@@ -31,6 +31,11 @@ public class WebDriverConfig {
     @Value("${default.timeout:20}")
     private int timeout;
 
+    @Value("${browser:chrome}")
+    private String targetBrowser;
+
+    @Value("${remote.driver.url:http://localhost:4444/wd/hub}")
+    private String remoteDriverURl;
 
     private static final Logger LOG = LoggerFactory.getLogger(WebDriverConfig.class);
 
@@ -58,9 +63,6 @@ public class WebDriverConfig {
     }
 
 
-    @Value("${browser:chrome}")
-    private String targetBrowser;
-
     private WebDriver getWebDriver() {
 
         final WebDriver webDriver;
@@ -86,9 +88,9 @@ public class WebDriverConfig {
         }
 
         webDriver.manage().window().maximize();
-        webDriver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-        webDriver.manage().timeouts().setScriptTimeout(60, TimeUnit.SECONDS);
-        webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
+        webDriver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(60));
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         webDriver.getWindowHandle();
 
         LOG.debug("Enter createDriverBean , Created Webdriver :" + webDriver.getClass().getSimpleName() + "/" + targetBrowser);
@@ -99,11 +101,11 @@ public class WebDriverConfig {
     private WebDriver createRemoteDriver() {
         try {
             ChromeOptions options = new ChromeOptions();
-            RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+            RemoteWebDriver driver = new RemoteWebDriver(new URL(remoteDriverURl), options);
             driver.setFileDetector(new LocalFileDetector());
             return driver;
         } catch (MalformedURLException e) {
-            throw new RuntimeException("Failed to create RemoteWebDriver instance", e);
+            throw new RuntimeException("Failed to create RemoteWebDriver instance URL:" + remoteDriverURl, e);
         }
 
     }

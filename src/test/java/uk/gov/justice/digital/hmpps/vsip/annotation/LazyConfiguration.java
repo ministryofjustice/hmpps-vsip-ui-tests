@@ -1,5 +1,6 @@
 package uk.gov.justice.digital.hmpps.vsip.annotation;
 
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 

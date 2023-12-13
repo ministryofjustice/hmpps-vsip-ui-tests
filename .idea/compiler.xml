@@ -18,7 +18,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="hmpps-vsip" options="-parameters" />
+      <module name="hmpps-vsip" options="" />
       <module name="selenium-springboot" options="-parameters" />
     </option>
   </component>
