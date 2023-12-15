@@ -93,3 +93,7 @@ To run against a containerised Chrome browser:
 - *<driver-version>* Browser versions available here [Geckodriver](https://github.com/mozilla/geckodriver/tags) or [Chromedriver](http://chromedriver.storage.googleapis.com/) repositories.
 
 **Note 1:** *Need to ensure that you have a recent version of Chrome and/or Firefox installed for the later versions of the drivers to work reliably.*
+
+## Running on a Mac M1 processor
+Please use the mvn profile "I have a m1 processor" and then run update dependencies, probably a good Idea to do a clean build. 
+

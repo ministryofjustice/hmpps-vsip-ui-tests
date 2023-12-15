@@ -26,9 +26,20 @@ public class HomeSteps {
         homePage.clickOnViewVisitsByDateOption();
     }
 
+    @And("I click on Need a Review option with a review number flag")
+    public void iClickOnNeedAReviewOptionWithReviewFlag() {
+        homePage.hashNeedReviewCount();
+        homePage.clickOnNeedAReviewOption();
+    }
+
     @And("I click on Need a Review option")
     public void iClickOnNeedAReviewOption() {
         homePage.clickOnNeedAReviewOption();
+    }
+
+    @And("I goto home page")
+    public void iGoToHomePage() {
+        homePage.gotoHomePage();
     }
 
 }
