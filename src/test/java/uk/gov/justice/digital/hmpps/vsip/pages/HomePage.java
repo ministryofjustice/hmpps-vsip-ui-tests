@@ -1,5 +1,6 @@
 package uk.gov.justice.digital.hmpps.vsip.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -20,6 +21,9 @@ public class HomePage extends BasePage {
     @FindBy(how = How.XPATH, using = "//a[@href='/review']")
     private WebElement findNeedAReviewOption;
 
+    @FindBy(how = How.XPATH, using = "//*[contains(@data-test, 'need-review-count')]")
+    private WebElement findNeedReviewCount;
+
     public void clickOnBookAVisitOption() {
         bookAVisitOption.click();
     }
@@ -34,4 +38,12 @@ public class HomePage extends BasePage {
         viewVisitsOption.click();
     }
 
+    public void gotoHomePage() {
+       navigateToPage(this.testContextService.getVsipUrl());
+    }
+
+    public void hashNeedReviewCount() {
+        String count = findNeedReviewCount.getText();
+        Assert.assertTrue("Count should be greater than 0 value (" + count+")", Integer.parseInt(count.trim()) > 0);
+    }
 }

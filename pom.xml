@@ -172,4 +172,24 @@
         </plugins>
     </build>
 
+    <profiles>
+        <profile>
+            <id>I have a m1 processor</id>
+            <activation>
+                <os>
+                    <family>mac</family>
+                    <arch>aarch64</arch>
+                </os>
+            </activation>
+            <dependencies>
+                <!-- need to run this on local Mac M1 processors -->
+                <dependency>
+                    <groupId>io.netty</groupId>
+                    <artifactId>netty-all</artifactId>
+                    <version>4.1.103.Final</version>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+
 </project>
