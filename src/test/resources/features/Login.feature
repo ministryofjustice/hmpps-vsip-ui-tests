@@ -1,5 +1,5 @@
 Feature: Login
-As a user, I should be able to login to VSIP service
+  As a user, I should be able to login to VSIP service
 
   Scenario Outline: Access VSIP homepage
     Given I navigate to VSIP service
@@ -11,8 +11,8 @@ As a user, I should be able to login to VSIP service
     And I sign out of the service
 
     Examples:
-      | userName                    | password                   |
-      | VSIP1_TST                   | DigitalServices10          |
+      | userName  | password          |
+      | VSIP1_TST | DigitalServices10 |
 
   Scenario Outline: Error message - access VSIP homepage
     Given I navigate to VSIP service
@@ -24,5 +24,5 @@ As a user, I should be able to login to VSIP service
     And I sign out of the service
 
     Examples:
-      | userName                    | password                   |
-      | VSIP1_TST                   | DigitalServices10          |
+      | userName  | password          |
+      | VSIP1_TST | DigitalServices10 |

@@ -27,16 +27,13 @@ public class CucumberHooksConfig {
     private TestContextService testContextService;
 
     @LazyAutowired
-    private ApplicationContext applicationContext;
-
-    @LazyAutowired
     private WebDriver webDriver;
 
     /**
      * Called for every Scenario
      */
     @Before
-    public void initialise(){
+    public void initialise() {
         LOG.debug("Entered initialise deleteAllCookies");
         webDriver.manage().deleteAllCookies();
         testContextService.clearTestContext();
@@ -51,7 +48,7 @@ public class CucumberHooksConfig {
     public void afterStep(Scenario scenario) {
         if (scenario.isFailed()) {
             LOG.debug("Entered afterStep" + scenario.getName() + " Failed therefore take screen shot");
-            scenario.attach(this.testContextService.getScreenshot(), "image/png", scenario.getName());
+            scenario.attach(testContextService.getScreenshot(), "image/png", scenario.getName());
         }
     }
 

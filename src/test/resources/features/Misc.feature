@@ -1,5 +1,6 @@
 Feature: Book/Cancel/Amend a Visit
   As a user, I should be able to access new features to Book/Cancel/Amend a visit using VSIP service
+
   @suite
   Scenario Outline: Visit details captured by a method of booking
     Given I navigate to VSIP service
@@ -23,8 +24,8 @@ Feature: Book/Cancel/Amend a Visit
     And I sign out of the service
 
     Examples:
-      | userName                    | password                   | value1 | value2 | value3 | value4 |
-      | VSIP1_TST                   | DigitalServices10          |  em    |  il    |   ov   |   wq   |
+      | userName  | password          | value1 | value2 | value3 | value4 |
+      | VSIP1_TST | DigitalServices10 | em     | il     | ov     | wq     |
 
   @suite
   Scenario Outline: Visit details captured by a method of Cancellation
@@ -49,5 +50,5 @@ Feature: Book/Cancel/Amend a Visit
     And I sign out of the service
 
     Examples:
-      | userName                    | password                   | value1 | value2 | value3 | value4 |
-      | VSIP1_TST                   | DigitalServices10          |  gm    |  iv    |   rv   |   br   |
+      | userName  | password          | value1 | value2 | value3 | value4 |
+      | VSIP1_TST | DigitalServices10 | gm     | iv     | rv     | br     |

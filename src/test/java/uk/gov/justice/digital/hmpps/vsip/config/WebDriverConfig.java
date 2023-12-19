@@ -23,21 +23,17 @@ import uk.gov.justice.digital.hmpps.vsip.annotation.WebdriverScopeBean;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 @LazyConfiguration
 public class WebDriverConfig {
 
+    private static final Logger LOG = LoggerFactory.getLogger(WebDriverConfig.class);
     @Value("${default.timeout:20}")
     private int timeout;
-
     @Value("${browser:chrome}")
     private String targetBrowser;
-
     @Value("${remote.driver.url:http://localhost:4444/wd/hub}")
     private String remoteDriverURl;
-
-    private static final Logger LOG = LoggerFactory.getLogger(WebDriverConfig.class);
 
     /**
      * Method as static to allow the bean to be created without first creating an instance of your @Configuration

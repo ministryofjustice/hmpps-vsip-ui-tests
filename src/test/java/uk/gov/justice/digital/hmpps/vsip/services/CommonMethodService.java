@@ -22,7 +22,6 @@ public class CommonMethodService {
     protected WebDriverWait wait;
 
 
-
     /**
      * method to get element status - displayed?
      *
@@ -43,26 +42,17 @@ public class CommonMethodService {
      * @return By
      */
     public By getElementByType(String type, String accessName) {
-        switch (type) {
-            case "id":
-                return By.id(accessName);
-            case "name":
-                return By.name(accessName);
-            case "class":
-                return By.className(accessName);
-            case "xpath":
-                return By.xpath(accessName);
-            case "css":
-                return By.cssSelector(accessName);
-            case "linkText":
-                return By.linkText(accessName);
-            case "partialLinkText":
-                return By.partialLinkText(accessName);
-            case "tagName":
-                return By.tagName(accessName);
-            default:
-                return null;
-        }
+        return switch (type) {
+            case "id" -> By.id(accessName);
+            case "name" -> By.name(accessName);
+            case "class" -> By.className(accessName);
+            case "xpath" -> By.xpath(accessName);
+            case "css" -> By.cssSelector(accessName);
+            case "linkText" -> By.linkText(accessName);
+            case "partialLinkText" -> By.partialLinkText(accessName);
+            case "tagName" -> By.tagName(accessName);
+            default -> null;
+        };
     }
 
     /**

@@ -9,7 +9,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -19,10 +21,8 @@ import java.util.Map;
 @Service
 public class TestContextService {
 
-    private static Map<Context,Object>  testContext = new HashMap<>();
-
     private static final Logger LOG = LoggerFactory.getLogger(TestContextService.class);
-
+    private static final Map<Context, Object> testContext = new HashMap<>();
     @Value("${vsip.ui-to-test.url}")
     private String vsipUiUrl;
 
@@ -46,6 +46,23 @@ public class TestContextService {
     }
 
     public String getBookingReference() {
+        List<String> bookings = getFromContext(Context.BOOKING_REFERENCE);
+        if (bookings != null) {
+            return bookings.getLast();
+        }
+        return null;
+    }
+
+    public void setBookingReference(String bookingReference) {
+        List<String> bookings = getFromContext(Context.BOOKING_REFERENCE);
+        if (bookings == null) {
+            bookings = new ArrayList<>();
+        }
+        bookings.add(bookingReference);
+        this.setToContext(Context.BOOKING_REFERENCE, bookings);
+    }
+
+    public List<String> getBookingReferences() {
         return getFromContext(Context.BOOKING_REFERENCE);
     }
 
@@ -59,7 +76,7 @@ public class TestContextService {
     }
 
     public byte[] getScreenshot() {
-        return this.ctx.getBean(TakesScreenshot.class).getScreenshotAs(OutputType.BYTES);
+        return ctx.getBean(TakesScreenshot.class).getScreenshotAs(OutputType.BYTES);
     }
 
     public String getVsipUrl() {

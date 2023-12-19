@@ -1,14 +1,17 @@
-
 ## selenium-cucumber-ui-tests
-Selenium-Cucumber is a behavior driven development (BDD) approach to write automation test script to test Web. It enables you to write and execute automated acceptance/unit tests. It is cross-platform, open source and free. Automate test cases with minimal coding.
+
+Selenium-Cucumber is a behavior driven development (BDD) approach to write automation test script to test Web. It
+enables you to write and execute automated acceptance/unit tests. It is cross-platform, open source and free. Automate
+test cases with minimal coding.
 
 ## vsip-ui-tests
+
 UI test suite for the `hmpps-vsip` service using Webdriver and `java/cucumber`
 
 ## Background info
+
 Used the approach given in this critical to introduce spring to the testing project
 https://www.swtestacademy.com/selenium-spring-boot-cucumber-junit5-project/
-
 
 ## Running the tests
 
@@ -23,8 +26,8 @@ To install JDK 21 you could use the following :
 
 `sdk install java 21.0.1-tem`
 
-
 Prior to executing the tests ensure you have:
+
 - Docker - to run a Chrome or Firefox browser inside a container
 - Appropriate [drivers installed](#install-driver-binary) - to run tests against locally installed Browser
 
@@ -50,6 +53,7 @@ These details are set in the corrisponding files
 ./resources/application-dev.properties
 ./resources/application-staging.properties
 ```
+
 ## Setting CLIENT_SECRET and CLIENT_ID
 
 Inorder for the Test helper service to work correctly you must set the environment variables for :
@@ -66,12 +70,15 @@ open ~/.zprofile
 ```
 
 Then in the text editor add :
+
 ```bash
 export CLIENT_ID=hmpps-test-id
 export CLIENT_SECRET='.01EAWS33333OGu=Q+%aA%tn1T-UB+xAewSf3*Qww,4S,Vk>s3372j)AaTtO2'
 ```
+
 The client id and secret above are not a real ones, to get the id and secret you must run the following command.
-Please make sure the CLIENT_SECRET value is wrapped by 'CLIENT_SECRET_VALUE' 
+Please make sure the CLIENT_SECRET value is wrapped by 'CLIENT_SECRET_VALUE'
+
 ```bash
 kubectl -n visit-someone-in-prison-backend-svc-staging  get secrets hmpps-prison-visits-testing-helper-api -o json | jq '.data | map_values(@base64d)'
 ```
@@ -90,10 +97,14 @@ To run against a containerised Chrome browser:
 `./run-tests-with-docker.sh` is **NOT** required when running in a CI environment.
 
 - *<operating-system>* supports **macos**
-- *<driver-version>* Browser versions available here [Geckodriver](https://github.com/mozilla/geckodriver/tags) or [Chromedriver](http://chromedriver.storage.googleapis.com/) repositories.
+- *<driver-version>* Browser versions available here [Geckodriver](https://github.com/mozilla/geckodriver/tags)
+  or [Chromedriver](http://chromedriver.storage.googleapis.com/) repositories.
 
-**Note 1:** *Need to ensure that you have a recent version of Chrome and/or Firefox installed for the later versions of the drivers to work reliably.*
+**Note 1:** *Need to ensure that you have a recent version of Chrome and/or Firefox installed for the later versions of
+the drivers to work reliably.*
 
 ## Running on a Mac M1 processor
-Please use the mvn profile "I have a m1 processor" and then run update dependencies, probably a good Idea to do a clean build. 
+
+Please use the mvn profile "I have a m1 processor" and then run update dependencies, probably a good Idea to do a clean
+build. 
 

@@ -1,5 +1,6 @@
 Feature: View a Visit
   As a user, I should be able to view a visit using VSIP service
+
   @suite
   Scenario Outline: User able to view the Visit status
     Given I navigate to VSIP service
@@ -19,8 +20,8 @@ Feature: View a Visit
     And I sign out of the service
 
     Examples:
-      | userName                    | password                 | value1 | value2 | value3 | value4 |
-      | VSIP1_TST                   | DigitalServices10        |   dm   |  he    |   lj   |   zj   |
+      | userName  | password          | value1 | value2 | value3 | value4 |
+      | VSIP1_TST | DigitalServices10 | dm     | he     | lj     | zj     |
 
   @suite
   Scenario Outline: User able to view Visits by date
@@ -39,8 +40,8 @@ Feature: View a Visit
     And I sign out of the service
 
     Examples:
-      | userName                    | password                 | date           |
-      | VSIP1_TST                   | DigitalServices10        | 20/11/2023     |
+      | userName  | password          | date       |
+      | VSIP1_TST | DigitalServices10 | 20/11/2023 |
 
   @suite
   Scenario Outline: User able to view Visits by date
@@ -60,5 +61,5 @@ Feature: View a Visit
     And I sign out of the service
 
     Examples:
-      | userName                    | password                 | date           |
-      | VSIP1_TST                   | DigitalServices10        | 03/12/2023     |
+      | userName  | password          | date       |
+      | VSIP1_TST | DigitalServices10 | 03/12/2023 |

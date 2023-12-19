@@ -2,5 +2,6 @@ package uk.gov.justice.digital.hmpps.vsip.services.clients.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record PrisonerEventDto(@NotBlank String prisonCode, @NotBlank String prisonerCode) { }
+public record PrisonerEventDto(@NotBlank String prisonCode, @NotBlank String prisonerCode) {
+}
 
