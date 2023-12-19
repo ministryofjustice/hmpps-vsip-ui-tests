@@ -1,16 +1,15 @@
 version: 2.1
 jobs:
   build:
+    circleci_ip_ranges: true
     docker:
       - image: maven:3.9.5-eclipse-temurin-21-alpine
       - image: seleniarm/standalone-chromium
         environment:
           CHROME_HEADLESS: 1
-    circleci_ip_ranges: true
 
     steps:
       - checkout
-
       - run:
           name: Build and Run tests
           command:
