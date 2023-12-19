@@ -56,9 +56,10 @@ Feature: Non-association visit
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
     And I shouldn't be able to select a timeslot that was booked last
+    And I sign out of the service
     #Reverting the Booking for consistent Test execution
     And I want to clean up after the above test
-    And I sign out of the service
+
 
     Examples:
       | userName  | password          | prisonNumber | prisonerName    | phoneNumber | reason        |

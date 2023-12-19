@@ -42,10 +42,11 @@ Feature: When a prisoner with a booked visit is release then visit needs review
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Need a Review option with a review number flag
     And Im on "Manage prison visits - Visit bookings that need review" page
+    And I sign out of the service
     # Needs more work but front end work is not complete at the moment perhaps we can have a data-test element with the booking reference.
     #Reverting the Booking for consistent Test execution
     And I want to clean up after the above test
-    And I sign out of the service
+
 
     Examples:
       | userName  | password          | prisonerName    | phoneNumber | reason                | prisonCode | prisonerCode |

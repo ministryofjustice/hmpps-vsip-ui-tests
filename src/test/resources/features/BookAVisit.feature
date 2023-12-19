@@ -38,9 +38,9 @@ Feature: Book a Visit
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
     And I see a booking reference
+    And I sign out of the service
     #Reverting the Booking for consistent Test execution
     And I want to clean up after the above test
-    And I sign out of the service
 
     Examples:
       | userName  | password          | prisonNumber | phoneNumber | reason        |
@@ -83,9 +83,10 @@ Feature: Book a Visit
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
     And I see a booking reference
+    And I sign out of the service
     #Reverting the Booking for consistent Test execution
     And I want to clean up after the above test
-    And I sign out of the service
+
 
     Examples:
       | userName  | password          | prisonerName    | phoneNumber | reason        |
@@ -131,9 +132,9 @@ Feature: Book a Visit
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
     And I see a booking reference
+    And I sign out of the service
     #Reverting the Booking for consistent Test execution
     And I want to clean up after the above test
-    And I sign out of the service
 
     Examples:
       | userName  | password          | prisonerName    | disability      | phoneNumber | reason             |
@@ -213,7 +214,6 @@ Feature: Book a Visit
     And I sign out of the service
     #Reverting the Booking for consistent Test execution
     And I want to clean up after the above test
-    And I sign out of the service
 
     Examples:
       | userName  | password          | prisonerName    | disability      | contactName | phoneNumber | reason        | prisonNumber |
