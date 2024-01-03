@@ -72,8 +72,8 @@ open ~/.zprofile
 Then in the text editor add :
 
 ```bash
-export CLIENT_ID=hmpps-test-id
-export CLIENT_SECRET='.01EAWS33333OGu=Q+%aA%tn1T-UB+xAewSf3*Qww,4S,Vk>s3372j)AaTtO2'
+export CLIENT_ID=<client_id_value>
+export CLIENT_SECRET='<client_secret_value>'
 ```
 
 The client id and secret above are not a real ones, to get the id and secret you must run the following command.
