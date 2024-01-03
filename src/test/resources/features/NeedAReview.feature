@@ -1,5 +1,6 @@
 Feature: Need a review
   As a user, I should be able to review a visit using VSIP service
+
   @suite
   Scenario Outline: User able to view the Visit status
     Given I navigate to VSIP service
@@ -14,5 +15,5 @@ Feature: Need a review
     And I sign out of the service
 
     Examples:
-      | userName                    | password                 |
-      | VSIP1_TST                   | DigitalServices10        |
+      | userName  | password          |
+      | VSIP1_TST | DigitalServices10 |

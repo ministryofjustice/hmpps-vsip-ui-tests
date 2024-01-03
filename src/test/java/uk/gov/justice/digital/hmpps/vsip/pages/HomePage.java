@@ -31,19 +31,21 @@ public class HomePage extends BasePage {
     public void clickOnChangeAVisitOption() {
         findAVisitOption.click();
     }
-    public void clickOnNeedAReviewOption(){
+
+    public void clickOnNeedAReviewOption() {
         findNeedAReviewOption.click();
     }
+
     public void clickOnViewVisitsByDateOption() {
         viewVisitsOption.click();
     }
 
     public void gotoHomePage() {
-       navigateToPage(this.testContextService.getVsipUrl());
+        navigateToPage(this.testContextService.getVsipUrl());
     }
 
     public void hashNeedReviewCount() {
         String count = findNeedReviewCount.getText();
-        Assert.assertTrue("Count should be greater than 0 value (" + count+")", Integer.parseInt(count.trim()) > 0);
+        Assert.assertTrue("Count should be greater than 0 value (" + count + ")", Integer.parseInt(count.trim()) > 0);
     }
 }

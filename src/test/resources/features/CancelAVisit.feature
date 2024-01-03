@@ -29,8 +29,8 @@ Feature: Cancel a Visit
     And I sign out of the service
 
     Examples:
-      | userName                    | password                  | value1 | value2 | value3 | value4 | reason           |
-      | VSIP1_TST                   | DigitalServices10         |   vx   |  fb    |   oy   |   jj   | Health issues    |
+      | userName  | password          | value1 | value2 | value3 | value4 | reason        |
+      | VSIP1_TST | DigitalServices10 | vx     | fb     | oy     | jj     | Health issues |
 
   Scenario Outline: Cancel a visit with Establishment cancelled option
     Given I navigate to VSIP service
@@ -58,8 +58,8 @@ Feature: Cancel a Visit
     And I sign out of the service
 
     Examples:
-      | userName                    | password                   | value1 | value2 | value3 | value4 | reason           |
-      | VSIP1_TST                   | DigitalServices10          |   wx   |  hx    |   xj   |   gx   | Health issues    |
+      | userName  | password          | value1 | value2 | value3 | value4 | reason        |
+      | VSIP1_TST | DigitalServices10 | wx     | hx     | xj     | gx     | Health issues |
 
   Scenario Outline: Cancel a visit with Prisoner cancelled option
     Given I navigate to VSIP service
@@ -87,8 +87,8 @@ Feature: Cancel a Visit
     And I sign out of the service
 
     Examples:
-      | userName                    | password                   | value1 | value2 | value3 | value4 | reason           |
-      | VSIP1_TST                   | DigitalServices10          |   kx   |  ur    |   xx   |   qd   | Health issues    |
+      | userName  | password          | value1 | value2 | value3 | value4 | reason        |
+      | VSIP1_TST | DigitalServices10 | kx     | ur     | xx     | qd     | Health issues |
 
   Scenario Outline: Cancel a visit with Administrative error option
     Given I navigate to VSIP service
@@ -116,8 +116,8 @@ Feature: Cancel a Visit
     And I sign out of the service
 
     Examples:
-      | userName                    | password                   | value1 | value2 | value3 | value4 | reason           |
-      | VSIP1_TST                   | DigitalServices10          |   zm   |  he    |   vd   |   bj   | Health issues    |
+      | userName  | password          | value1 | value2 | value3 | value4 | reason        |
+      | VSIP1_TST | DigitalServices10 | zm     | he     | vd     | bj     | Health issues |
 
   Scenario Outline: Confirm Cancel a visit by a visitor
     Given I navigate to VSIP service
@@ -139,5 +139,5 @@ Feature: Cancel a Visit
     And I sign out of the service
 
     Examples:
-      | userName                    | password                   | value1 | value2 | value3 | value4 |
-      | VSIP1_TST                   | DigitalServices10          |   ql   |  iv    |   or   |   jm   |
+      | userName  | password          | value1 | value2 | value3 | value4 |
+      | VSIP1_TST | DigitalServices10 | ql     | iv     | or     | jm     |

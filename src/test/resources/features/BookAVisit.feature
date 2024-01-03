@@ -1,5 +1,6 @@
 Feature: Book a Visit
   As a user, I should be able to book a visit using VSIP service
+
   @suite
   Scenario Outline: Book a visit search via prison number
     Given I navigate to VSIP service
@@ -37,29 +38,13 @@ Feature: Book a Visit
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
     And I see a booking reference
-    #Reverting the Booking for consistent Test execution
-    And I click on Manage a Prison option
-    Then Im on "Manage prison visits - Manage prison visits" page
-    And I click on Book a visit option
-    And Im on "Manage prison visits - Search for a prisoner" page
-    When I enter "<prisonNumber>" to search for a prison
-    And click on search button
-    Then I choose prison from search results
-    Then Im on "Manage prison visits - Vsip_prisoner01, Do Not Use" page
-    And I select last booked visit reference
-    And I click on Cancel a visit button
-    Then Im on "Manage prison visits - Why is this booking being cancelled?" page
-    And I select Visitor Cancelled option
-    And I select Phone call option
-    And I enter cancellation "<reason>" for the visit
-    And click on cancel button
-    Then Im on "Manage prison visits - Booking cancelled" page
-    And I see "Booking cancelled" message displayed
     And I sign out of the service
+    #Reverting the Booking for consistent Test execution
+    And I want to clean up after the above test
 
     Examples:
-      | userName                    | password                    | prisonNumber     | phoneNumber   | reason        |
-      | VSIP1_TST                   | DigitalServices10           | A6036DZ          | 07805123900   | Health issues |
+      | userName  | password          | prisonNumber | phoneNumber | reason        |
+      | VSIP1_TST | DigitalServices10 | A6036DZ      | 07805123900 | Health issues |
 
   @smoke_tests_vs
   Scenario Outline: Book a visit search via prisoner name
@@ -98,29 +83,14 @@ Feature: Book a Visit
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
     And I see a booking reference
-    #Reverting the Booking for consistent Test execution
-    And I click on Manage a Prison option
-    Then Im on "Manage prison visits - Manage prison visits" page
-    And I click on Book a visit option
-    And Im on "Manage prison visits - Search for a prisoner" page
-    When I enter "<prisonerName>" to search for a prison
-    And click on search button
-    Then I choose prison from search results
-    Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
-    And I select last booked visit reference
-    And I click on Cancel a visit button
-    Then Im on "Manage prison visits - Why is this booking being cancelled?" page
-    And I select Visitor Cancelled option
-    And I select Phone call option
-    And I enter cancellation "<reason>" for the visit
-    And click on cancel button
-    Then Im on "Manage prison visits - Booking cancelled" page
-    And I see "Booking cancelled" message displayed
     And I sign out of the service
+    #Reverting the Booking for consistent Test execution
+    And I want to clean up after the above test
+
 
     Examples:
-      | userName                    | password                 | prisonerName     | phoneNumber   | reason              |
-      | VSIP2_TST                   | DigitalServices10        | VSIP_PRISONER06  | 07805123900   | Health issues       |
+      | userName  | password          | prisonerName    | phoneNumber | reason        |
+      | VSIP2_TST | DigitalServices10 | VSIP_PRISONER06 | 07805123900 | Health issues |
 
   @smoke_tests_os
   Scenario Outline: Book a visit - Additional support needed
@@ -162,29 +132,13 @@ Feature: Book a Visit
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
     And I see a booking reference
-    #Reverting the Booking for consistent Test execution
-    And I click on Manage a Prison option
-    Then Im on "Manage prison visits - Manage prison visits" page
-    And I click on Book a visit option
-    And Im on "Manage prison visits - Search for a prisoner" page
-    When I enter "<prisonerName>" to search for a prison
-    And click on search button
-    Then I choose prison from search results
-    Then Im on "Manage prison visits - Vsip_prisoner07, Do Not Use" page
-    And I select last booked visit reference
-    And I click on Cancel a visit button
-    Then Im on "Manage prison visits - Why is this booking being cancelled?" page
-    And I select Visitor Cancelled option
-    And I select Phone call option
-    And I enter cancellation "<reason>" for the visit
-    And click on cancel button
-    Then Im on "Manage prison visits - Booking cancelled" page
-    And I see "Booking cancelled" message displayed
     And I sign out of the service
+    #Reverting the Booking for consistent Test execution
+    And I want to clean up after the above test
 
     Examples:
-      | userName                    | password                   | prisonerName       | disability           | phoneNumber   | reason              |
-      | VSIP3_TST                   | DigitalServices10          | Vsip_prisoner07    | hearing support      | 07806789076   | family member sick  |
+      | userName  | password          | prisonerName    | disability      | phoneNumber | reason             |
+      | VSIP3_TST | DigitalServices10 | Vsip_prisoner07 | hearing support | 07806789076 | family member sick |
 
   @suite
   Scenario Outline: Book a visit - Someone else main contact
@@ -227,7 +181,7 @@ Feature: Book a Visit
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
     And I see a booking reference
-    #Reverting the Booking for consistent Test execution
+    #Now I cancel the booking
     And I click on Manage a Prison option
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
@@ -245,7 +199,7 @@ Feature: Book a Visit
     And click on cancel button
     Then Im on "Manage prison visits - Booking cancelled" page
     And I see "Booking cancelled" message displayed
-# Checking the method used to make this Booking
+    # Checking the method used to make this Booking
     And I click on Manage a Prison option
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
@@ -258,7 +212,9 @@ Feature: Book a Visit
     And I choose Booking history tab
     And I see "By the prisoner" method used to Book a visit
     And I sign out of the service
+    #Reverting the Booking for consistent Test execution
+    And I want to clean up after the above test
 
     Examples:
-      | userName                    | password                   | prisonerName     | disability           | contactName | phoneNumber  | reason        | prisonNumber |
-      | VSIP1_TST                   | DigitalServices10          | VSIP_PRISONER06  | hearing support      | John        | 07806432054  | health issues | A6539DZ      |
+      | userName  | password          | prisonerName    | disability      | contactName | phoneNumber | reason        | prisonNumber |
+      | VSIP1_TST | DigitalServices10 | VSIP_PRISONER06 | hearing support | John        | 07806432054 | health issues | A6539DZ      |

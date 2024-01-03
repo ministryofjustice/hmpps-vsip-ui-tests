@@ -1,5 +1,6 @@
 Feature: Non-association visit
   As a user, I shouldn't be able to book a visit using VSIP service for a non-association prisoners
+
   @suite
   Scenario Outline: Book a visit search via prison number
     Given I navigate to VSIP service
@@ -55,27 +56,11 @@ Feature: Non-association visit
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
     And I shouldn't be able to select a timeslot that was booked last
-
-    #Reverting the Booking for consistent Test execution
-    And I click on Manage a Prison option
-    Then Im on "Manage prison visits - Manage prison visits" page
-    And I click on Book a visit option
-    And Im on "Manage prison visits - Search for a prisoner" page
-    When I enter "<prisonNumber>" to search for a prison
-    And click on search button
-    Then I choose prison from search results
-    Then Im on "Manage prison visits - Vsip_prisoner03, Do Not Use" page
-    And I select last booked visit reference
-    And I click on Cancel a visit button
-    Then Im on "Manage prison visits - Why is this booking being cancelled?" page
-    And I select Visitor Cancelled option
-    And I select Phone call option
-    And I enter cancellation "<reason>" for the visit
-    And click on cancel button
-    Then Im on "Manage prison visits - Booking cancelled" page
-    And I see "Booking cancelled" message displayed
     And I sign out of the service
+    #Reverting the Booking for consistent Test execution
+    And I want to clean up after the above test
+
 
     Examples:
-      | userName                    | password                    | prisonNumber     | prisonerName             | phoneNumber   | reason        |
-      | VSIP3_TST                   | DigitalServices10           | A6038DZ          | VSIP_PRISONER08          | 07805123900   | Health issues |
+      | userName  | password          | prisonNumber | prisonerName    | phoneNumber | reason        |
+      | VSIP3_TST | DigitalServices10 | A6038DZ      | VSIP_PRISONER08 | 07805123900 | Health issues |

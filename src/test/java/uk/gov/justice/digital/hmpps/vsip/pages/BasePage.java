@@ -9,29 +9,20 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Value;
-import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
 import uk.gov.justice.digital.hmpps.vsip.annotation.ComponentWithWebDriver;
+import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
 import uk.gov.justice.digital.hmpps.vsip.services.CommonMethodService;
 import uk.gov.justice.digital.hmpps.vsip.services.TestContextService;
 
 @ComponentWithWebDriver
 public class BasePage {
 
-    @Value("${default.timeout:20}")
-    private int timeout;
-
     @LazyAutowired
     protected WebDriver driver;
-
     @LazyAutowired
     protected WebDriverWait wait;
-
-    @LazyAutowired
-    protected JavascriptExecutor javascriptExecutor;
-
     @LazyAutowired
     protected CommonMethodService methodsService;
-
     @LazyAutowired
     protected TestContextService testContextService;
 
