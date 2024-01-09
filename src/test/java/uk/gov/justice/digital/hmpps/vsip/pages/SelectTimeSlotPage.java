@@ -50,20 +50,10 @@ public class SelectTimeSlotPage extends BasePage {
         methodsService.click("xpath", "//button[contains(@class, 'govuk-accordion__show-all')]");
 
         // List of different XPaths for time slots elements
-        List<String> xpaths = new ArrayList<>();
-        xpaths.add("//*[@id='1']");
-        xpaths.add("//*[@id='2']");
-        xpaths.add("//*[@id='3']");
-        xpaths.add("//*[@id='4']");
-        xpaths.add("//*[@id='5']");
-        xpaths.add("//*[@id='6']");
-        xpaths.add("//*[@id='7']");
-        xpaths.add("//*[@id='8']");
-        xpaths.add("//*[@id='9']");
-        xpaths.add("//*[@id='10']");
+        int numberOfElements = 30;  // or any other number of elements you have
+        for (int i = 1; i <= numberOfElements; i++) {
+            String xpath = "//*[@id='" + i + "']";
 
-        // Iterate through the XPaths
-        for (String xpath : xpaths) {
             // Find elements using the current XPath
             List<WebElement> elements = driver.findElements(By.xpath(xpath));
 

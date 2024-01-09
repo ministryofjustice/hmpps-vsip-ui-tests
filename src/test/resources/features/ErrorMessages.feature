@@ -17,7 +17,7 @@ Feature: Book a Visit Error messages
 
     Examples:
       | userName  | password          |
-      | VSIP1_TST | DigitalServices10 |
+      | VSIP5_TST | DigitalServices10 |
 
   @suite
   Scenario Outline: Error message on select visitors page
@@ -32,7 +32,7 @@ Feature: Book a Visit Error messages
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Vsip_prisoner02, Do Not Use" page
+    Then Im on "Manage prison visits - Vsip_prisoner09, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
     And click on continue button
@@ -41,7 +41,7 @@ Feature: Book a Visit Error messages
 
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP1_TST | DigitalServices10 | A6037DZ      |
+      | VSIP5_TST | DigitalServices10 | A8416DZ      |
 
   @suite
   Scenario Outline: Error message on time slot page
@@ -56,7 +56,7 @@ Feature: Book a Visit Error messages
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Vsip_prisoner02, Do Not Use" page
+    Then Im on "Manage prison visits - Vsip_prisoner09, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
     And I select another visitor form the list
@@ -68,7 +68,7 @@ Feature: Book a Visit Error messages
 
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP1_TST | DigitalServices10 | A6037DZ      |
+      | VSIP5_TST | DigitalServices10 | A8416DZ      |
 
   @suite
   Scenario Outline: Error message on additional support needed page
@@ -83,7 +83,7 @@ Feature: Book a Visit Error messages
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Vsip_prisoner02, Do Not Use" page
+    Then Im on "Manage prison visits - Vsip_prisoner09, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
     And I select another visitor form the list
@@ -98,7 +98,7 @@ Feature: Book a Visit Error messages
 
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP2_TST | DigitalServices10 | A6037DZ      |
+      | VSIP5_TST | DigitalServices10 | A8416DZ      |
 
   @suite
   Scenario Outline: Error message on main contact page
@@ -113,7 +113,7 @@ Feature: Book a Visit Error messages
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Vsip_prisoner02, Do Not Use" page
+    Then Im on "Manage prison visits - Vsip_prisoner09, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
     And I select another visitor form the list
@@ -134,7 +134,7 @@ Feature: Book a Visit Error messages
 
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP1_TST | DigitalServices10 | A6037DZ      |
+      | VSIP5_TST | DigitalServices10 | A8416DZ      |
 
   @suite
   Scenario Outline: Error message on method used to request page
@@ -149,7 +149,7 @@ Feature: Book a Visit Error messages
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Vsip_prisoner02, Do Not Use" page
+    Then Im on "Manage prison visits - Vsip_prisoner09, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
     And I select another visitor form the list
@@ -171,7 +171,7 @@ Feature: Book a Visit Error messages
 
     Examples:
       | userName  | password          | prisonNumber | phoneNumber |
-      | VSIP1_TST | DigitalServices10 | A6037DZ      | 07806234561 |
+      | VSIP5_TST | DigitalServices10 | A8416DZ      | 07806234561 |
 
   @suite
   Scenario Outline: Error message on view Visits by date page
@@ -190,4 +190,4 @@ Feature: Book a Visit Error messages
 
     Examples:
       | userName  | password          |
-      | VSIP1_TST | DigitalServices10 |
+      | VSIP5_TST | DigitalServices10 |
