@@ -18,7 +18,11 @@ public class BookingDetailsPage extends BasePage {
     }
 
     public void checkMethodofNewBooking(String msg) {
-        methodsService.isElementDisplayed("xpath", "//p[text() = 'By the prisoner']");
+        methodsService.isElementDisplayed("xpath", "//p[text() = 'Reason: Health issues']");
+    }
+
+    public void checkBannerDisplayed(String banner) {
+        methodsService.isElementDisplayed("xpath","//span[text()='This visit was cancelled by the visitor.']");
     }
 
 }
