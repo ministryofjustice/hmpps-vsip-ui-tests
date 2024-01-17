@@ -10,11 +10,11 @@ public class BookingDetailsPage extends BasePage {
     }
 
     public void checkCancelMessageDisplayed() {
-        methodsService.isElementDisplayed("xpath", "//p[text() = 'GOV.UK request']");
+        methodsService.isElementDisplayed("xpath", "//p[text() = 'Reason: Health Issues']");
     }
 
     public void checkMethodofBooking(String msg) {
-        methodsService.isElementDisplayed("xpath", "//p[text() = 'Email request']");
+        methodsService.isElementDisplayed("xpath", "//p[text() = 'Request method: Email']");
     }
 
     public void checkMethodofNewBooking(String msg) {

@@ -20,7 +20,7 @@ Feature: Book/Cancel/Amend a Visit
     Then Im on "Manage prison visits - Visit booking details - em-il-ov-wq" page
     And I see "Visit booking details" message displayed
     Then I choose Booking history tab
-    And I see "Email request" displayed on Booking details page
+    And I see "Request method: Email" displayed on Booking details page
     And I sign out of the service
 
     Examples:
@@ -46,7 +46,7 @@ Feature: Book/Cancel/Amend a Visit
     Then Im on "Manage prison visits - Visit booking details - gm-iv-rv-br" page
     And I see "Visit booking details" message displayed
     Then I choose Booking history tab
-    And I see "GOV.UK request" message displayed on Booking details page
+    And I see "Reason: Health Issues" message displayed on Booking details page
     And I sign out of the service
 
     Examples:
