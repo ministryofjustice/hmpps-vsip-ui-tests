@@ -209,12 +209,13 @@ Feature: Book a Visit
     Then I choose prison from search results
     Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
     And I select last booked visit reference
+    And I see "This visit was cancelled by the visitor." banner
     And I choose Booking history tab
-    And I see "By the prisoner" method used to Book a visit
+    And I see "Reason: Health issues" reason used to Book a visit
     And I sign out of the service
     #Reverting the Booking for consistent Test execution
-    And I want to clean up after the above test
+    #And I want to clean up after the above test
 
     Examples:
       | userName  | password          | prisonerName    | disability      | contactName | phoneNumber | reason        | prisonNumber |
-      | VSIP1_TST | DigitalServices10 | VSIP_PRISONER06 | hearing support | John        | 07806432054 | health issues | A6539DZ      |
+      | VSIP1_TST | DigitalServices10 | VSIP_PRISONER06 | hearing support | John        | 07806432054 | Health issues | A6539DZ      |

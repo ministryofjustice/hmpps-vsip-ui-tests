@@ -25,8 +25,13 @@ public class BookingDetailsStepDefinitions {
         bookingDetailsPage.clickOnBookingHistory();
     }
 
-    @And("I see {string} method used to Book a visit")
-    public void iSeeMethodUsedToBookAVisit(String method) {
+    @And("I see {string} reason used to Book a visit")
+    public void iSeeReasonUsedToBookAVisit(String method) {
         bookingDetailsPage.checkMethodofNewBooking(method);
+    }
+
+    @And("I see {string} banner")
+    public void iSeeBanner(String banner) {
+        bookingDetailsPage.checkBannerDisplayed(banner);
     }
 }
