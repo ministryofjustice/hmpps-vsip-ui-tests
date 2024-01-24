@@ -13,4 +13,12 @@ public class NeedAReviewPage extends BasePage {
     public void isSummaryListOptionDisplayed(String summaryList) {
         methodsService.isElementDisplayed("xpath", "//span[contains(@class, 'govuk-details__summary-text')]");
     }
+
+    public void clickOnView()
+    {
+        methodsService.click("xpath","//a[text()='View']");
+    }
+    public void checkReviewMsg(String reviewMsg) {
+        methodsService.isElementDisplayed("xpath","//h2[text()='Needs review']");
+    }
 }

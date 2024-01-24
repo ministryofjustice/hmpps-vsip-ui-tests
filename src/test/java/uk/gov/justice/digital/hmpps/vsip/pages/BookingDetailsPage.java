@@ -21,6 +21,10 @@ public class BookingDetailsPage extends BasePage {
         methodsService.isElementDisplayed("xpath", "//p[text() = 'Reason: Health issues']");
     }
 
+    public void checkMethodofCancellation(String msg) {
+        methodsService.isElementDisplayed("xpath","//p[text() = 'Request method: Phone call']");
+    }
+
     public void checkBannerDisplayed(String banner) {
         methodsService.isElementDisplayed("xpath","//span[text()='This visit was cancelled by the visitor.']");
     }

@@ -212,6 +212,7 @@ Feature: Book a Visit
     And I see "This visit was cancelled by the visitor." banner
     And I choose Booking history tab
     And I see "Reason: Health issues" reason used to Book a visit
+    And I see "Request method: Phone call" used to cancel booking
     And I sign out of the service
     #Reverting the Booking for consistent Test execution
     #And I want to clean up after the above test
