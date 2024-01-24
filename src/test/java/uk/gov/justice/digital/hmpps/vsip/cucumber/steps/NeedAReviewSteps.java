@@ -13,4 +13,16 @@ public class NeedAReviewSteps {
     public void iCheckTheList(String summaryList) {
         needAReviewPage.isSummaryListOptionDisplayed(summaryList);
     }
+
+    @And("I click on view link to see details of the booking needs review")
+    public void iClickOnViewLinkToSeeDetailsOfTheBookingNeedsReview() {
+        needAReviewPage.clickOnView();
+
+    }
+
+    @And("I see {string} option")
+    public void iSeeOption(String msg) {
+        needAReviewPage.checkReviewMsg(msg);
+
+    }
 }

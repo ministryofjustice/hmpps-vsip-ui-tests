@@ -34,4 +34,9 @@ public class BookingDetailsStepDefinitions {
     public void iSeeBanner(String banner) {
         bookingDetailsPage.checkBannerDisplayed(banner);
     }
+
+    @And("I see {string} used to cancel booking")
+    public void iSeeUsedToCancelBooking(String requestMethod) {
+        bookingDetailsPage.checkMethodofCancellation(requestMethod);
+    }
 }
