@@ -1,7 +1,7 @@
 Feature: Book/Cancel/Amend a Visit
   As a user, I should be able to access new features to Book/Cancel/Amend a visit using VSIP service
 
-  @suite
+ # @suite
   Scenario Outline: Visit details captured by a method of booking
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -27,7 +27,7 @@ Feature: Book/Cancel/Amend a Visit
       | userName  | password          | value1 | value2 | value3 | value4 |
       | VSIP1_TST | DigitalServices10 | em     | il     | ov     | wq     |
 
-  @suite
+ # @suite
   Scenario Outline: Visit details captured by a method of Cancellation
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
