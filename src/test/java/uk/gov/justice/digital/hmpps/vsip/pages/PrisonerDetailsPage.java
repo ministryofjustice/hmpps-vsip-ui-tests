@@ -47,4 +47,17 @@ public class PrisonerDetailsPage extends BasePage {
     public void checkPrisonerLocation() {
         methodsService.isElementDisplayed("xpath","//span[text()='A-2-007, Bristol (HMP)']");
     }
+
+    public void checkPrisonerLocationNotProceed(){
+        methodsService.isElementDisplayed("xpath","//span[text()='RECP, Bristol (HMP)']");
+    }
+
+    public void checkPrisonerCantGoFurther() {
+        methodsService.isElementDisplayed("xpath","//p[text()='There are no available time slots for this prisoner.']");
+    }
+
+    public void checkPrisonerVisitType(){
+        methodsService.isElementDisplayed("xpath","//span[text()='Closed']");
+
+    }
 }

@@ -72,6 +72,4 @@ public class CommonSteps {
         methodsService.changeEstablishment();
     }
 
-
-
 }

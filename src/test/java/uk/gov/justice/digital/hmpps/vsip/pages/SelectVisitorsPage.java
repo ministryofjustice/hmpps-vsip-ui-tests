@@ -34,4 +34,9 @@ public class SelectVisitorsPage extends BasePage {
         methodsService.click("xpath","//*[@id='visitor-4729510']");
     }
 
+    public void chooseVistor() { methodsService.click("xpath","//*[@id='visitor-4729699']");}
+
+    public void chooseVisitorFromDrakeHall() { methodsService.click("xpath","//*[@id='visitor-4729692']");
+    }
+
 }

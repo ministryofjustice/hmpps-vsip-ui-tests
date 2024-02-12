@@ -191,3 +191,33 @@ Feature: Book a Visit Error messages
     Examples:
       | userName  | password          |
       | VSIP5_TST | DigitalServices10 |
+
+  @suite
+  Scenario Outline: Error message on select open or closed type visit page
+    Given I navigate to VSIP service
+    And Im on "HMPPS Digital Services - Sign in" page
+    And I enter "<userName>"
+    And I enter the "<password>"
+    And click on submit button
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I select change establishment
+    And I change the establishmnet to Drake Hall
+    And click on continue button
+    And I click on Book a visit option
+    And Im on "Manage prison visits - Search for a prisoner" page
+    When I enter "<prisonNumber>" to search for a prison
+    And click on search button
+    Then I choose prison from search results
+    Then Im on "Manage prison visits - Vsip_prisoner11, Do Not Use" page
+    And I click on Book a visit button
+    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
+    And I select a visitor form the list from Drake hall establishment
+    And click on continue button
+    Then Im on "Manage prison visits - Check the prisoner&#39;s closed visit restrictions" page
+    And click on continue button
+    Then I see "No visit type selected" on select open or closed type page
+    And I sign out of the service
+
+    Examples:
+      | userName  | password          | prisonNumber |
+      | VSIP4_TST | DigitalServices10 | A8899DZ      |

@@ -61,8 +61,19 @@ public class PrisonerDetailsSteps {
         prisonerDetailsPage.checkPrisonerLocation();
     }
 
-    @And("I check Prisoner location {string} unable to carry on")
-    public void iCheckPrisonerLocationUnableToCarryOn(String prisonerLocation) {
+    @And("I check Prisoner location {string} unable to proceed to book a visit")
+    public void iCheckPrisonerLocationUnableToProceedToBookAVisit(String location) {
+        prisonerDetailsPage.checkPrisonerLocationNotProceed();
+    }
+
+    @And("I see I cannot go further no time slots is available")
+    public void iSeeICannotGoFurtherNoTimeSlotsIsAvailable() {
+        prisonerDetailsPage.checkPrisonerCantGoFurther();
+    }
+
+    @And("I check {string} visit type is displayed")
+    public void iCheckVisitTypeIsDisplayed(String visitType) {
+        prisonerDetailsPage.checkPrisonerVisitType();
 
     }
 }
