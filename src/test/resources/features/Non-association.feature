@@ -2,7 +2,7 @@ Feature: Non-association visit
   As a user, I shouldn't be able to book a visit using VSIP service for a non-association prisoners
 
  # @suite
-  Scenario Outline: Book a visit search via prison number
+  Scenario Outline: Non-association
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"

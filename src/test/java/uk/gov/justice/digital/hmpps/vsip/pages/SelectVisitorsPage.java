@@ -10,7 +10,6 @@ public class SelectVisitorsPage extends BasePage {
         methodsService.isElementDisplayed("xpath", "//a[text() = 'No visitors selected']");
     }
 
-
     public void chooseAPrisoner() {
         methodsService.click("xpath", "(//input[@name='visitors'])[1]");
     }
@@ -29,6 +28,15 @@ public class SelectVisitorsPage extends BasePage {
 
     public void choosePrisonerB() {
         methodsService.click("xpath", "//*[@id='visitor-4729791']");
+    }
+
+    public void choosePrisner() {
+        methodsService.click("xpath","//*[@id='visitor-4729510']");
+    }
+
+    public void chooseVistor() { methodsService.click("xpath","//*[@id='visitor-4729699']");}
+
+    public void chooseVisitorFromDrakeHall() { methodsService.click("xpath","//*[@id='visitor-4729692']");
     }
 
 }

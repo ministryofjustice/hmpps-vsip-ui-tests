@@ -40,4 +40,5 @@ public class SelectTimeSlotSteps {
     public void iSelectTimeSlot() {
         selectTimeSlotPage.clickNextEnabledElement();
     }
+
 }
