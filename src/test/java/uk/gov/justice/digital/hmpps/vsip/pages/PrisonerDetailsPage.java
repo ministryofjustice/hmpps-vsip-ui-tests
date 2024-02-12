@@ -43,4 +43,8 @@ public class PrisonerDetailsPage extends BasePage {
     public void checkFemCategoryPrisoner(){
         methodsService.isElementDisplayed("xpath","//span[text()='Fem Closed']");
     }
+
+    public void checkPrisonerLocation() {
+        methodsService.isElementDisplayed("xpath","//span[text()='A-2-007, Bristol (HMP)']");
+    }
 }

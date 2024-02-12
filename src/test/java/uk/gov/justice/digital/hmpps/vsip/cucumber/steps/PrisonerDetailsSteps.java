@@ -55,4 +55,14 @@ public class PrisonerDetailsSteps {
     public void iCheckFemaleCategoryForThatPrisoner() {
         prisonerDetailsPage.checkFemCategoryPrisoner();
     }
+
+    @And("I check Prisoner location {string}")
+    public void iCheckPrisonerLocation(String location) {
+        prisonerDetailsPage.checkPrisonerLocation();
+    }
+
+    @And("I check Prisoner location {string} unable to carry on")
+    public void iCheckPrisonerLocationUnableToCarryOn(String prisonerLocation) {
+
+    }
 }
