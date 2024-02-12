@@ -1,7 +1,7 @@
 Feature: View a Visit
   As a user, I should be able to view a visit using VSIP service
 
- # @suite
+  @suite
   Scenario Outline: User able to view the Visit status
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page

@@ -40,4 +40,9 @@ public class SelectTimeSlotSteps {
     public void iSelectTimeSlot() {
         selectTimeSlotPage.clickNextEnabledElement();
     }
+
+    @And("I see no time slots available to book a session")
+    public void iSeeNoTimeSlotsAvailableToBookASession() {
+
+    }
 }

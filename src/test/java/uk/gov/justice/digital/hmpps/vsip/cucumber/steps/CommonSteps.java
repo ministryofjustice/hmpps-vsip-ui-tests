@@ -57,6 +57,11 @@ public class CommonSteps {
         methodsService.chooseBristol();
     }
 
+    @And("I change the establishmnet to Drake Hall")
+    public void iChangeTheEstablishmnetToDrakeHall() {
+        methodsService.chooseDrakeHall();
+    }
+
     @And("I should not be able to select Bristol establishment")
     public void iShouldNotBeAbleToSelectBristolEstablishment() {
         methodsService.chooseNoBristol();
@@ -66,6 +71,7 @@ public class CommonSteps {
     public void iSelectChangeEstablishment() {
         methodsService.changeEstablishment();
     }
+
 
 
 }

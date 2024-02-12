@@ -185,6 +185,10 @@ public class CommonMethodService {
         isElementNotVisible("xpath", "//*[@id='BLI']");
     }
 
+    public void chooseDrakeHall() {
+        selectRadioButton("xpath","//*[@id='DHI']");
+    }
+
     public void changeEstablishment() {
         click("xpath", "//a[contains(@data-test, 'change-establishment')]");
     }
