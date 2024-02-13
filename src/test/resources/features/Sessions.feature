@@ -11,7 +11,7 @@ Feature: Session template based tests
     And click on submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
-    And I change the establishmnet to Bristol
+    And I change the establishment to Bristol
     And click on continue button
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
@@ -21,7 +21,7 @@ Feature: Session template based tests
     Then Im on "Manage prison visits - Vsip_prisoner12, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
-    And I select a visitr form the list from Bristol establishment
+    And I select a new visitor form the list from Bristol establishment
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
     And I check only Open time slots is available
@@ -146,7 +146,7 @@ Feature: Session template based tests
     And click on submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
-    And I change the establishmnet to Bristol
+    And I change the establishment to Bristol
     And click on continue button
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
@@ -157,7 +157,7 @@ Feature: Session template based tests
     And I check incentive level for that prisoner
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
-    And I select a visitoor form the list from Bristol establishment
+    And I select next visitor form the list from Bristol establishment
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
     And I check only standard incentive timeslots available
@@ -179,7 +179,7 @@ Feature: Session template based tests
     And click on submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
-    And I change the establishmnet to Bristol
+    And I change the establishment to Bristol
     And click on continue button
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
@@ -190,7 +190,7 @@ Feature: Session template based tests
     And I check enhanced incentive level for that prisoner
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
-    And I select a visitr form the list from Bristol establishment
+    And I select a new visitor form the list from Bristol establishment
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
     And I check only enhanced incentive timeslots available
@@ -212,7 +212,7 @@ Feature: Session template based tests
     And click on submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
-    And I change the establishmnet to Bristol
+    And I change the establishment to Bristol
     And click on continue button
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
@@ -223,7 +223,7 @@ Feature: Session template based tests
     And I check category for that prisoner
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
-    And I select a visitr form the list from Bristol establishment
+    And I select a new visitor form the list from Bristol establishment
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
     And I check only Cat C time slots is available for this prisoner
@@ -245,7 +245,7 @@ Feature: Session template based tests
     And click on submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
-    And I change the establishmnet to Bristol
+    And I change the establishment to Bristol
     And click on continue button
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
@@ -255,7 +255,7 @@ Feature: Session template based tests
     Then Im on "Manage prison visits - Vsip_prisoner13, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
-    And I select a visitoor form the list from Bristol establishment
+    And I select next visitor form the list from Bristol establishment
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
     And I check only Cat B timeslots is available
