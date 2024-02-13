@@ -2,7 +2,7 @@ Feature: Session template based tests
   As a user, I should be able to view the Prison sessions based on session restrictions within the Prison establishments
 # All the Test Data is pre-set in Admin service & via NOMIS ensure the Test Data is up-to-date with regards to session restrictions(in Admin service) within each establishment. All the tests are using Drake hall & Bristol establishments.
 
-  @suites
+  @suite
   Scenario Outline: Open session - User able to book an Open session for all Prisoners within the establishment
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -32,7 +32,7 @@ Feature: Session template based tests
       | userName  | password          | prisonNumber |
       | VSIP4_TST | DigitalServices10 | A8897DZ      |
 
-  @suites
+  @suite
   Scenario Outline: Closed session - User able to book a Closed session for all Prisoners within the establishment
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -67,7 +67,7 @@ Feature: Session template based tests
       | userName  | password          | prisonNumber |
       | VSIP4_TST | DigitalServices10 | A8899DZ      |
 
-  @suites
+  @suite
   Scenario Outline: Location based - User able to book a visit based on a location within an establishment where the Prisoner is based
   # ensure a session restricted by location is only available to prisoners in that location
     Given I navigate to VSIP service
@@ -103,7 +103,7 @@ Feature: Session template based tests
       | userName  | password          | prisonNumber |
       | VSIP4_TST | DigitalServices10 | A8899DZ      |
 
-  @suites
+  @suite
   Scenario Outline: Location not based - User not able to book a visit based on a location within an establishment where the Prisoner is based
   # ensure a session restricted by location is not available to a prisoner not in that location
     Given I navigate to VSIP service
@@ -135,7 +135,7 @@ Feature: Session template based tests
       | userName  | password          | prisonNumber |
       | VSIP4_TST | DigitalServices10 | A8900DZ      |
 
-  @suites
+  @suite
   Scenario Outline: Incentive level - User check incentive level within an establishment where the Prisoner is based
   # ensure a session restricted by incentive level is only available to prisoners with that incentive level
 
@@ -168,7 +168,7 @@ Feature: Session template based tests
       | userName  | password          | prisonNumber |
       | VSIP4_TST | DigitalServices10 | A8898DZ      |
 
-  @suites
+  @suite
   Scenario Outline: Incentive level - User check on incentive level of a Prisoner within an establishment
   # ensure a session restricted by incentive level is not available to a prisoner with that incentive level
 
@@ -201,7 +201,7 @@ Feature: Session template based tests
       | userName  | password          | prisonNumber |
       | VSIP4_TST | DigitalServices10 | A8897DZ      |
 
-  @suites
+  @suite
   Scenario Outline: Category - User check the Category of a Prisoner within an establishment
   # ensure a session restricted by category is only available to prisoners with that category
 
@@ -234,7 +234,7 @@ Feature: Session template based tests
       | userName  | password          | prisonNumber |
       | VSIP4_TST | DigitalServices10 | A8897DZ      |
 
-  @suites
+  @suite
   Scenario Outline: Category - User check the Category of a Prisoner within an establishment
   # ensure a session restricted by category is not available to a prisoner without that category
 
