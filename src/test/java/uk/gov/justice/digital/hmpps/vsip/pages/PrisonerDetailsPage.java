@@ -45,11 +45,15 @@ public class PrisonerDetailsPage extends BasePage {
     }
 
     public void checkPrisonerLocation() {
-        methodsService.isElementDisplayed("xpath","//span[text()='A-2-007, Bristol (HMP)']");
+        methodsService.isElementDisplayed("xpath","//span[text()='I-1-003, Drake Hall (HMP & YOI)']");
     }
 
     public void checkPrisonerLocationNotProceed(){
         methodsService.isElementDisplayed("xpath","//span[text()='RECP, Bristol (HMP)']");
+    }
+
+    public void checkPrisonerLocationDrakeHall() {
+        methodsService.isElementDisplayed("xpath","//span[text()='F-1-018, Drake Hall (HMP & YOI)']");
     }
 
     public void checkPrisonerCantGoFurther() {

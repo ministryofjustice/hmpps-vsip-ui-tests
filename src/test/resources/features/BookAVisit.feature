@@ -34,7 +34,6 @@ Feature: Book a Visit
     And click on continue button
     Then Im on "Manage prison visits - Check the visit details before booking" page
     And click on continue button
-    #And click on submit booking button
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
     And I see a booking reference
@@ -79,7 +78,6 @@ Feature: Book a Visit
     And click on continue button
     Then Im on "Manage prison visits - Check the visit details before booking" page
     And click on continue button
-#    And click on submit booking button
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
     And I see a booking reference
@@ -128,7 +126,6 @@ Feature: Book a Visit
     And click on continue button
     Then Im on "Manage prison visits - Check the visit details before booking" page
     And click on continue button
-#    And click on submit booking button
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
     And I see a booking reference
@@ -177,7 +174,6 @@ Feature: Book a Visit
     And click on continue button
     Then Im on "Manage prison visits - Check the visit details before booking" page
     And click on continue button
-#    And click on submit booking button
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
     And I see a booking reference

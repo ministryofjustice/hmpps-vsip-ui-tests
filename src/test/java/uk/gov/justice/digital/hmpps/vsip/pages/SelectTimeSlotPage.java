@@ -67,4 +67,68 @@ public class SelectTimeSlotPage extends BasePage {
             }
         }
     }
+
+    public void checkOnlyOpenTimeSlots() {
+        methodsService.isElementDisplayed("xpath","//p[contains(text(), '150 tables available')]");
+    }
+
+    public void checkNoClosedTimeSlotsAvailable() {
+        methodsService.isElementNotDisplayed("xpath","//p[not(contains(text(), '75 tables available'))]");
+    }
+
+    public void checkOnlyEnhancedTimeSlotsAvailable() {
+        methodsService.isElementDisplayed("xpath","//p[contains(text(), '200 tables available')]");
+    }
+
+    public void checkNoStandardTimeslotsAvailable() {
+        methodsService.isElementNotDisplayed("xpath","//p[not(contains(text(), '300 tables available'))]");
+    }
+
+    public void checkOnlyStandardTimeslotsAvailable() {
+        methodsService.isElementDisplayed("xpath","//p[contains(text(), '300 tables available')]");
+    }
+
+    public void checkNoEnhancedTimeslotsAvailable() {
+        methodsService.isElementNotDisplayed("xpath","//p[not(contains(text(), '200 tables available'))]");
+    }
+
+    public void checkOnlyThisLocationTimeslotsAvailable() {
+        methodsService.isElementDisplayed("xpath","//p[contains(text(), '250 tables available')]");
+    }
+
+    public void checkOtherLocationTimeSlotsNotAvailble() {
+        methodsService.isElementNotDisplayed("xpath","//p[not(contains(text(), '315 tables available'))]");
+    }
+
+    public void checkTimeSlotsAvailableForThisLocation() {
+        methodsService.isElementDisplayed("xpath","//p[contains(text(), '315 tables available')]");
+    }
+
+    public void checkNoOtherLocationTimeslotsAvailable() {
+        methodsService.isElementNotDisplayed("xpath","//p[not(contains(text(), '450 tables available'))]");
+    }
+
+    public void checkOnlyClosedTimeslotsAvailable(){
+        methodsService.isElementDisplayed("xpath","//p[contains(text(), '250 tables available')]");
+    }
+
+    public void checkNoOpenTimeSlotsAvailabe() {
+        methodsService.isElementNotDisplayed("xpath","//p[not(contains(text(), '450 tables available'))]");
+    }
+
+    public void checkOnlyCatCTimeslotsAvailable() {
+        methodsService.isElementDisplayed("xpath","//p[contains(text(), '150 tables available')]");
+    }
+
+    public void checkNoOtherCategoryTimeSlotsAvailable() {
+        methodsService.isElementNotDisplayed("xpath","//p[not(contains(text(), '550 tables available'))]");
+    }
+
+    public void checkOnlyCatBTimeslotsAvailable() {
+        methodsService.isElementDisplayed("xpath","//p[contains(text(), '550 tables available')]");
+    }
+
+    public void checkNoOthrCategoryTimeslotsAvailable() {
+        methodsService.isElementNotDisplayed("xpath","//p[not(contains(text(), '150 tables available'))]");
+    }
 }

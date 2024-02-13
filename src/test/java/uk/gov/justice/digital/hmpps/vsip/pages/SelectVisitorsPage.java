@@ -38,5 +38,8 @@ public class SelectVisitorsPage extends BasePage {
 
     public void chooseVisitorFromDrakeHall() { methodsService.click("xpath","//*[@id='visitor-4729692']");
     }
+    public void chooseAVisitorFromBristol() { methodsService.click("xpath","//*[@id='visitor-4729699']");}
+
+    public void chooseAVisitorFromDrakeHall() { methodsService.click("xpath","//*[@id='visitor-4729692']"); }
 
 }

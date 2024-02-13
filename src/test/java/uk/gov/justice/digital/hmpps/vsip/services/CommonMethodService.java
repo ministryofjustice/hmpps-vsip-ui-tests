@@ -35,6 +35,18 @@ public class CommonMethodService {
     }
 
     /**
+     * method to get element status - displayed?
+     *
+     * @param accessType : String : Locator type (id, name, class, xpath, css)
+     * @param accessName : String : Locator value
+     * @return Boolean
+     */
+    public boolean isElementNotDisplayed(String accessType, String accessName) {
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(getElementByType(accessType, accessName)));
+        return !element.isDisplayed();
+    }
+
+    /**
      * Method to select element 'by' type
      *
      * @param type       : String : 'By' type
