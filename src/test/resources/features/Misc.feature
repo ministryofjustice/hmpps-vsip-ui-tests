@@ -52,3 +52,26 @@ Feature: Book/Cancel/Amend a Visit
     Examples:
       | userName  | password          | value1 | value2 | value3 | value4 |
       | VSIP1_TST | DigitalServices10 | gm     | iv     | rv     | br     |
+
+  @suite
+  Scenario Outline: User sees a message displayed if a Prisoner has no visitors over 18years old
+    Given I navigate to VSIP service
+    And Im on "HMPPS Digital Services - Sign in" page
+    And I enter "<userName>"
+    And I enter the "<password>"
+    And click on submit button
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I click on Book a visit option
+    And Im on "Manage prison visits - Search for a prisoner" page
+    When I enter "<prisonNumber>" to search for a prison
+    And click on search button
+    Then I choose prison from search results
+    Then Im on "Manage prison visits - Vsip_prisoner04, Do Not Use" page
+    And I click on Book a visit button
+    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
+    And I check if the message is displayed no booking can be booked for this prisoner
+    And I sign out of the service
+
+    Examples:
+      | userName  | password          | prisonNumber |
+      | VSIP1_TST | DigitalServices10 | A6445DZ      |

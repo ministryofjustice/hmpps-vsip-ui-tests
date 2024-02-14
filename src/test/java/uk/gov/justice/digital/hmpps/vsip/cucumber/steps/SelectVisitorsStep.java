@@ -65,4 +65,9 @@ public class SelectVisitorsStep {
     public void iSelectAVisitorTheListFromTheDrakeHallEstablishment() {
         selectVisitorsPage.chooseAVisitorFromDrakeHall();
     }
+
+    @And("I check if the message is displayed no booking can be booked for this prisoner")
+    public void iCheckIfTheMessageIsDisplayedNoBookingCanBeBookedForThisPrisoner() {
+        selectVisitorsPage.checkMessage();
+    }
 }
