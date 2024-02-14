@@ -52,8 +52,8 @@ public class CommonSteps {
         methodsService.errorMsgDisplayed(errorMsg);
     }
 
-    @And("I change the establishmnet to Bristol")
-    public void iChangeTheEstablishmnetToBristol() {
+    @And("I change the establishment to Bristol")
+    public void iChangeTheEstablishmentToBristol() {
         methodsService.chooseBristol();
     }
 

@@ -40,8 +40,8 @@ public class SelectVisitorsStep {
         selectVisitorsPage.choosePrisonerB();
     }
 
-    @And("I select a visitr form the list from Bristol establishment")
-    public void iSelectAVisitrFormTheListFromBristolEstablishment() {
+    @And("I select a new visitor form the list from Bristol establishment")
+    public void iSelectANewVisitorFormTheListFromBristolEstablishment() {
         selectVisitorsPage.choosePrisner();
     }
 
@@ -54,5 +54,15 @@ public class SelectVisitorsStep {
     @And("I select a visitor form the list from Drake hall establishment")
     public void iSelectAVisitorFormTheListFromDrakeHallEstablishment() {
         selectVisitorsPage.chooseVisitorFromDrakeHall();
+    }
+
+    @And("I select next visitor form the list from Bristol establishment")
+    public void iSelectNextVisitorFormTheListFromBristolEstablishment() {
+        selectVisitorsPage.chooseAVisitorFromBristol();
+    }
+
+    @And("I select a visitor the list from the Drake hall establishment")
+    public void iSelectAVisitorTheListFromTheDrakeHallEstablishment() {
+        selectVisitorsPage.chooseAVisitorFromDrakeHall();
     }
 }

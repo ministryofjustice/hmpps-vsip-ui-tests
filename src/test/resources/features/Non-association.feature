@@ -10,7 +10,7 @@ Feature: Non-association visit
     And click on submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
-    And I change the establishmnet to Bristol
+    And I change the establishment to Bristol
     And click on continue button
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page

@@ -76,4 +76,9 @@ public class PrisonerDetailsSteps {
         prisonerDetailsPage.checkPrisonerVisitType();
 
     }
+
+    @And("I check Prisoner location {string} for drake hall")
+    public void iCheckPrisonerLocationForDrakeHall(String location) {
+        prisonerDetailsPage.checkPrisonerLocationDrakeHall();
+    }
 }

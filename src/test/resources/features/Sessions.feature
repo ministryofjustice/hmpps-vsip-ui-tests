@@ -11,7 +11,7 @@ Feature: Session template based tests
     And click on submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
-    And I change the establishmnet to Bristol
+    And I change the establishment to Bristol
     And click on continue button
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
@@ -21,44 +21,16 @@ Feature: Session template based tests
     Then Im on "Manage prison visits - Vsip_prisoner12, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
-    And I select a visitr form the list from Bristol establishment
+    And I select a new visitor form the list from Bristol establishment
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
-    And I select time slot
-    And click on continue button
-    Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
-    And I select No for additional support needed
-    And click on continue button
-    Then Im on "Manage prison visits - Who is the main contact for this booking?" page
-    And I select the main contact option
-    And I enter "<phoneNumber>" to get text message
-    And click on continue button
-    Then Im on "Manage prison visits - How was this booking requested?" page
-    And I select a phone call option on method used to make the reqest
-    And click on continue button
-    Then Im on "Manage prison visits - Check the visit details before booking" page
-    And click on continue button
-    #And click on submit booking button
-    Then Im on "Manage prison visits - Booking confirmed" page
-    And I see "Booking confirmed" message displayed
-    And I see a booking reference
-    And I click on Manage a Prison option
-    Then Im on "Manage prison visits - Manage prison visits" page
-    And I click on Book a visit option
-    And Im on "Manage prison visits - Search for a prisoner" page
-    When I enter "<prisonNumber>" to search for a prison
-    And click on search button
-    Then I choose prison from search results
-    Then Im on "Manage prison visits - Vsip_prisoner12, Do Not Use" page
-    And I select last booked visit reference
-    And I check "open" session is booked
+    And I check only Open time slots is available
+    And I check no Closed time slots is available
     And I sign out of the service
-    #Reverting the Booking for consistent Test execution
-    And I want to clean up after the above test
 
     Examples:
-      | userName  | password          | prisonNumber | phoneNumber    |
-      | VSIP4_TST | DigitalServices10 | A8897DZ      | 07806543211    |
+      | userName  | password          | prisonNumber |
+      | VSIP4_TST | DigitalServices10 | A8897DZ      |
 
   @suite
   Scenario Outline: Closed session - User able to book a Closed session for all Prisoners within the establishment
@@ -87,128 +59,81 @@ Feature: Session template based tests
     Then Im on "Manage prison visits - Select date and time of visit" page
     #Closed type is displayed
     And I check "Closed" visit type is displayed
-    And I select time slot
-    And click on continue button
-    Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
-    And I select No for additional support needed
-    And click on continue button
-    Then Im on "Manage prison visits - Who is the main contact for this booking?" page
-    And I select the main contact option
-    And I enter "<phoneNumber>" to get text message
-    And click on continue button
-    Then Im on "Manage prison visits - How was this booking requested?" page
-    And I select a phone call option on method used to make the reqest
-    And click on continue button
-    Then Im on "Manage prison visits - Check the visit details before booking" page
-    And click on continue button
-    #And click on submit booking button
-    Then Im on "Manage prison visits - Booking confirmed" page
-    And I see "Booking confirmed" message displayed
-    And I see a booking reference
-    And I click on Manage a Prison option
+    And I check only closed time slots is available
+    And I check open timeslots not available
+    And I sign out of the service
+
+    Examples:
+      | userName  | password          | prisonNumber |
+      | VSIP4_TST | DigitalServices10 | A8899DZ      |
+
+  @suite
+  Scenario Outline: Location based - User able to book a visit based on a location within an establishment where the Prisoner is based
+  # ensure a session restricted by location is only available to prisoners in that location
+    Given I navigate to VSIP service
+    And Im on "HMPPS Digital Services - Sign in" page
+    And I enter "<userName>"
+    And I enter the "<password>"
+    And click on submit button
     Then Im on "Manage prison visits - Manage prison visits" page
+    And I select change establishment
+    And I change the establishmnet to Drake Hall
+    And click on continue button
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
     Then I choose prison from search results
     Then Im on "Manage prison visits - Vsip_prisoner11, Do Not Use" page
-    And I select last booked visit reference
-    And I check "Closed" visit type is displayed
-    And I sign out of the service
-    #Reverting the Booking for consistent Test execution
-    And I want to clean up after the above test
-
-
-    Examples:
-      | userName  | password          | prisonNumber | phoneNumber     |
-      | VSIP4_TST | DigitalServices10 | A8899DZ      | 07895165098     |
-
-  @suite
-  Scenario Outline: Location based - User able to book a visit based on a location within an establishment where the Prisoner is based
-  # ensure a session restricted by location is only available to prisoners in that location
-
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
-    Then Im on "Manage prison visits - Manage prison visits" page
-    And I select change establishment
-    And I change the establishmnet to Bristol
-    And click on continue button
-    And I click on Book a visit option
-    And Im on "Manage prison visits - Search for a prisoner" page
-    When I enter "<prisonNumber>" to search for a prison
-    And click on search button
-    Then I choose prison from search results
-    Then Im on "Manage prison visits - Vsip_prisoner12, Do Not Use" page
     #Location of a prisoner is being checked in this step if they can't carry on means Location is changed.
-    And I check Prisoner location "A-2-007, Bristol (HMP)"
+    And I check Prisoner location "I-1-003, Drake Hall (HMP & YOI)"
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
-    And I select a visitr form the list from Bristol establishment
+    And I select a visitor form the list from Drake hall establishment
+    And click on continue button
+    Then Im on "Manage prison visits - Check the prisoner&#39;s closed visit restrictions" page
+    And I choose closed type visit
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
-    And I select time slot
-    And click on continue button
-    Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
-    And I select No for additional support needed
-    And click on continue button
-    Then Im on "Manage prison visits - Who is the main contact for this booking?" page
-    And I select the main contact option
-    And I enter "<phoneNumber>" to get text message
-    And click on continue button
-    Then Im on "Manage prison visits - How was this booking requested?" page
-    And I select a phone call option on method used to make the reqest
-    And click on continue button
-    Then Im on "Manage prison visits - Check the visit details before booking" page
-    And click on continue button
-    #And click on submit booking button
-    Then Im on "Manage prison visits - Booking confirmed" page
-    And I see "Booking confirmed" message displayed
-    And I see a booking reference
-    And I sign out of the service
-    #Reverting the Booking for consistent Test execution
-    And I want to clean up after the above test
-
-    Examples:
-      | userName  | password          | prisonNumber | phoneNumber     |
-      | VSIP4_TST | DigitalServices10 | A8897DZ      | 07806156987     |
-
-  @suite
-  Scenario Outline: Location not based - User not able to book a visit based on a location within an establishment where the Prisoner is based
-  # ensure a session restricted by location is not available to a prisoner not in that location
-
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
-    Then Im on "Manage prison visits - Manage prison visits" page
-    And I select change establishment
-    And I change the establishmnet to Bristol
-    And click on continue button
-    And I click on Book a visit option
-    And Im on "Manage prison visits - Search for a prisoner" page
-    When I enter "<prisonNumber>" to search for a prison
-    And click on search button
-    Then I choose prison from search results
-    Then Im on "Manage prison visits - Vsip_prisoner13, Do Not Use" page
-    # This Prisoner is based in Reception so Booking  cannot be booked
-    And I check Prisoner location "RECP, Bristol (HMP)" unable to proceed to book a visit
-    And I click on Book a visit button
-    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
-    And I select a visitor the list from Bristol establishment
-    And click on continue button
-    Then Im on "Manage prison visits - Select date and time of visit" page
-    #Prisoner Location in Reception so time slots available
-    And I see I cannot go further no time slots is available
+    And I check only this location time slots is available
+    And I check other location within this establishment timeslots not available
     And I sign out of the service
 
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP4_TST | DigitalServices10 | A8898DZ      |
+      | VSIP4_TST | DigitalServices10 | A8899DZ      |
+
+  @suite
+  Scenario Outline: Location not based - User not able to book a visit based on a location within an establishment where the Prisoner is based
+  # ensure a session restricted by location is not available to a prisoner not in that location
+    Given I navigate to VSIP service
+    And Im on "HMPPS Digital Services - Sign in" page
+    And I enter "<userName>"
+    And I enter the "<password>"
+    And click on submit button
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I select change establishment
+    And I change the establishmnet to Drake Hall
+    And click on continue button
+    And I click on Book a visit option
+    And Im on "Manage prison visits - Search for a prisoner" page
+    When I enter "<prisonNumber>" to search for a prison
+    And click on search button
+    Then I choose prison from search results
+    Then Im on "Manage prison visits - Vsip_prisoner14, Do Not Use" page
+    And I check Prisoner location "F-1-018, Drake Hall (HMP & YOI)" for drake hall
+    And I click on Book a visit button
+    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
+    And I select a visitor the list from the Drake hall establishment
+    And click on continue button
+    Then Im on "Manage prison visits - Select date and time of visit" page
+    And I check this location time slots is available
+    And I check no other location time slots is available
+    And I sign out of the service
+
+    Examples:
+      | userName  | password          | prisonNumber |
+      | VSIP4_TST | DigitalServices10 | A8900DZ      |
 
   @suite
   Scenario Outline: Incentive level - User check incentive level within an establishment where the Prisoner is based
@@ -221,7 +146,7 @@ Feature: Session template based tests
     And click on submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
-    And I change the establishmnet to Bristol
+    And I change the establishment to Bristol
     And click on continue button
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
@@ -230,6 +155,13 @@ Feature: Session template based tests
     Then I choose prison from search results
     Then Im on "Manage prison visits - Vsip_prisoner13, Do Not Use" page
     And I check incentive level for that prisoner
+    And I click on Book a visit button
+    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
+    And I select next visitor form the list from Bristol establishment
+    And click on continue button
+    Then Im on "Manage prison visits - Select date and time of visit" page
+    And I check only standard incentive timeslots available
+    And I check enhanced timeslots not available
     And I sign out of the service
 
     Examples:
@@ -247,7 +179,7 @@ Feature: Session template based tests
     And click on submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
-    And I change the establishmnet to Bristol
+    And I change the establishment to Bristol
     And click on continue button
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
@@ -256,6 +188,13 @@ Feature: Session template based tests
     Then I choose prison from search results
     Then Im on "Manage prison visits - Vsip_prisoner12, Do Not Use" page
     And I check enhanced incentive level for that prisoner
+    And I click on Book a visit button
+    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
+    And I select a new visitor form the list from Bristol establishment
+    And click on continue button
+    Then Im on "Manage prison visits - Select date and time of visit" page
+    And I check only enhanced incentive timeslots available
+    And I check standard timeslots not available
     And I sign out of the service
 
     Examples:
@@ -273,7 +212,7 @@ Feature: Session template based tests
     And click on submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
-    And I change the establishmnet to Bristol
+    And I change the establishment to Bristol
     And click on continue button
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
@@ -282,6 +221,13 @@ Feature: Session template based tests
     Then I choose prison from search results
     Then Im on "Manage prison visits - Vsip_prisoner12, Do Not Use" page
     And I check category for that prisoner
+    And I click on Book a visit button
+    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
+    And I select a new visitor form the list from Bristol establishment
+    And click on continue button
+    Then Im on "Manage prison visits - Select date and time of visit" page
+    And I check only Cat C time slots is available for this prisoner
+    And I check other category time slots is not available
     And I sign out of the service
 
     Examples:
@@ -299,17 +245,23 @@ Feature: Session template based tests
     And click on submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
-    And I change the establishmnet to Drake Hall
+    And I change the establishment to Bristol
     And click on continue button
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Vsip_prisoner14, Do Not Use" page
-    And I check Female category for that prisoner
+    Then Im on "Manage prison visits - Vsip_prisoner13, Do Not Use" page
+    And I click on Book a visit button
+    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
+    And I select next visitor form the list from Bristol establishment
+    And click on continue button
+    Then Im on "Manage prison visits - Select date and time of visit" page
+    And I check only Cat B timeslots is available
+    And I check no other category timeslots is available
     And I sign out of the service
 
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP4_TST | DigitalServices10 | A8900DZ      |
+      | VSIP4_TST | DigitalServices10 | A8898DZ       |
