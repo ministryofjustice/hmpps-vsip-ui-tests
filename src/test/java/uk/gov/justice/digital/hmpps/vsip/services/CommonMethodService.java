@@ -168,6 +168,18 @@ public class CommonMethodService {
             checkbox.click();
     }
 
+    /**
+     * method to check element disabled
+     *
+     * @param accessType : String : Locator type (id, name, class, xpath, css)
+     * @param accessName : String : Locator value
+     * @return Boolean
+     */
+    public boolean isElementDisabled(String accessType, String accessName) {
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(getElementByType(accessType, accessName)));
+        return !element.isEnabled();
+    }
+
     public void clickOnSubmitBtn() {
         clickOnButton("xpath", "//*[@id='submit']");
     }

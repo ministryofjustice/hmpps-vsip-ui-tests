@@ -45,4 +45,10 @@ public class SelectVisitorsPage extends BasePage {
     public void checkMessage() { methodsService.isElementDisplayed("xpath","//span[text()='There are no          approved\n" +
             "visitors over 18 for this prisoner. A booking cannot be made at this time.']");}
 
+    public void checkBannedStatus() {
+        methodsService.isElementDisplayed("xpath","//span[text()='Banned']");
+    }
+
+    public void checkVisitorUnselectable() { methodsService.isElementDisabled("xpath","//*[@id='visitor-4729711']"); }
+
 }

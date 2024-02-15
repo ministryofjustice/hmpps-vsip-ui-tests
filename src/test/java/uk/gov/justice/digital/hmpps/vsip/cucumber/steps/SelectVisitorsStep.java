@@ -70,4 +70,14 @@ public class SelectVisitorsStep {
     public void iCheckIfTheMessageIsDisplayedNoBookingCanBeBookedForThisPrisoner() {
         selectVisitorsPage.checkMessage();
     }
+
+    @And("I check Banned status for the visitor")
+    public void iCheckBannedStatusForTheVisitor() {
+        selectVisitorsPage.checkBannedStatus();
+    }
+
+    @And("I check the Banned visitor is not selectable")
+    public void iCheckTheBannedVisitorIsNotSelectable() {
+        selectVisitorsPage.checkVisitorUnselectable();
+    }
 }

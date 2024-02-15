@@ -75,3 +75,27 @@ Feature: Book/Cancel/Amend a Visit
     Examples:
       | userName  | password          | prisonNumber |
       | VSIP1_TST | DigitalServices10 | A6445DZ      |
+
+  @suite
+  Scenario Outline: User can't Book a visit for a Prisoner for any of the Banned Visitors within their visitor list
+    Given I navigate to VSIP service
+    And Im on "HMPPS Digital Services - Sign in" page
+    And I enter "<userName>"
+    And I enter the "<password>"
+    And click on submit button
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I click on Book a visit option
+    And Im on "Manage prison visits - Search for a prisoner" page
+    When I enter "<prisonNumber>" to search for a prison
+    And click on search button
+    Then I choose prison from search results
+    Then Im on "Manage prison visits - Vsip_prisoner09, Do Not Use" page
+    And I click on Book a visit button
+    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
+    And I check Banned status for the visitor
+    And I check the Banned visitor is not selectable
+    And I sign out of the service
+
+    Examples:
+      | userName  | password          | prisonNumber |
+      | VSIP1_TST | DigitalServices10 | A8416DZ      |
