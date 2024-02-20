@@ -6,19 +6,19 @@ import uk.gov.justice.digital.hmpps.vsip.annotation.ComponentWithWebDriver;
 public class AdditionalSupportPage extends BasePage {
 
     public void selectNoForAddAssistance() {
-        methodsService.selectRadioButton("xpath", "//input[@id='additionalSupportRequired-2']");
+        methodsService.selectRadioButton("xpath", "//label[@for='additionalSupportRequired-2']");
     }
 
     public void selectYesForAddAssistance() {
-        methodsService.selectRadioButton("xpath", "//input[@id='additionalSupportRequired']");
+        methodsService.selectRadioButton("xpath", "//label[@for='additionalSupportRequired']");
     }
 
     public void checkDisabilityOption() {
-        methodsService.checkCheckbox("xpath", "//input[@id='additionalSupport']");
+        methodsService.checkCheckbox("xpath", "//label[@for='additionalSupport']");
     }
 
     public void checkOtherDisabilityOption() {
-        methodsService.checkCheckbox("xpath", "//input[@id='additionalSupport-5']");
+        methodsService.checkCheckbox("xpath", "//label[@for='additionalSupport-5']");
     }
 
     public void enterDisability(String disability) {

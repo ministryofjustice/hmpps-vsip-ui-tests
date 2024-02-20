@@ -52,7 +52,7 @@ public class SelectTimeSlotPage extends BasePage {
         // List of different XPaths for time slots elements
         int numberOfElements = 30;  // or any other number of elements you have
         for (int i = 1; i <= numberOfElements; i++) {
-            String xpath = "//*[@id='" + i + "']";
+            String xpath = "//label[@for='" + i + "']";
 
             // Find elements using the current XPath
             List<WebElement> elements = driver.findElements(By.xpath(xpath));

@@ -6,7 +6,7 @@ import uk.gov.justice.digital.hmpps.vsip.annotation.ComponentWithWebDriver;
 public class SelectOpenOrClosedTypePage extends BasePage {
 
     public void chooseClosedType(){
-        methodsService.selectRadioButton("xpath","//*[@id='visitType-2']");
+        methodsService.selectRadioButton("xpath","//label[@for='visitType-2']");
     }
 
     public void checkErrormessage(){
