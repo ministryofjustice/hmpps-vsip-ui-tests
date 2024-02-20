@@ -10,7 +10,7 @@ public class SelectVisitorsPage extends BasePage {
         methodsService.isElementDisplayed("xpath", "//a[text() = 'No visitors selected']");
     }
 
-    public void chooseAPrisoner() { methodsService.click("xpath", "(//label[@for='visitor-4729775']"); }
+    public void chooseAPrisoner() { methodsService.click("xpath", "//label[@for='visitor-4729775']"); }
 
     public void choosePrisoners() {
         methodsService.click("xpath", "//label[@for='visitor-4729778']");
