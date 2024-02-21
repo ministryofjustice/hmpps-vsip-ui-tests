@@ -80,4 +80,9 @@ public class SelectVisitorsStep {
     public void iCheckTheBannedVisitorIsNotSelectable() {
         selectVisitorsPage.checkVisitorUnselectable();
     }
+
+    @And("I select a visitor from the list")
+    public void iSelectAVisitorFromTheList() {
+        selectVisitorsPage.choosePrisoner();
+    }
 }

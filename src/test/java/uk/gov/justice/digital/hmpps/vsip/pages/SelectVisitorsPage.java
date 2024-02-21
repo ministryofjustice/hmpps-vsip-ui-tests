@@ -12,6 +12,8 @@ public class SelectVisitorsPage extends BasePage {
 
     public void chooseAPrisoner() { methodsService.click("xpath", "//*[@id='visitor-4729775']"); }
 
+    public void choosePrisoner() { methodsService.click("xpath","//*[@id='visitor-4729776']"); }
+
     public void choosePrisoners() {
         methodsService.click("xpath", "//*[@id='visitor-4729778']");
     }
