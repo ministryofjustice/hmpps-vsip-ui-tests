@@ -12,7 +12,7 @@ Feature: Login
 
     Examples:
       | userName  | password          |
-      | VSIP1_TST | DigitalServices10 |
+      | VSIP1_TST | Expired10         |
 
   Scenario Outline: Error message - access VSIP homepage
     Given I navigate to VSIP service
@@ -25,4 +25,4 @@ Feature: Login
 
     Examples:
       | userName  | password          |
-      | VSIP1_TST | DigitalServices10 |
+      | VSIP1_TST | Expired10         |

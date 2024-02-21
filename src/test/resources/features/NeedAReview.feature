@@ -16,4 +16,4 @@ Feature: Need a review
 
     Examples:
       | userName  | password          |
-      | VSIP1_TST | DigitalServices10 |
+      | VSIP1_TST | Expired10         |
