@@ -202,7 +202,7 @@ public class CommonMethodService {
     }
 
     public void chooseBristol() {
-        selectRadioButton("xpath", "//*[@id='BLI']");
+        selectRadioButton("xpath", "//p[text()='Bristol (HMP & YOI)']");
     }
 
     public void chooseNoBristol() {
@@ -210,7 +210,7 @@ public class CommonMethodService {
     }
 
     public void chooseDrakeHall() {
-        selectRadioButton("xpath","//*[@id='DHI']");
+        selectRadioButton("xpath","//p[text()='Drake Hall (HMP & YOI)']");
     }
 
     public void changeEstablishment() {

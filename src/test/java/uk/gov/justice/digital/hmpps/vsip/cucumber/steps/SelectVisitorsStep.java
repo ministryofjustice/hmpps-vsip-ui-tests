@@ -80,4 +80,5 @@ public class SelectVisitorsStep {
     public void iCheckTheBannedVisitorIsNotSelectable() {
         selectVisitorsPage.checkVisitorUnselectable();
     }
+
 }

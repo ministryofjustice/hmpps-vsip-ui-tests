@@ -10,9 +10,7 @@ public class SelectVisitorsPage extends BasePage {
         methodsService.isElementDisplayed("xpath", "//a[text() = 'No visitors selected']");
     }
 
-    public void chooseAPrisoner() {
-        methodsService.click("xpath", "(//input[@name='visitors'])[1]");
-    }
+    public void chooseAPrisoner() { methodsService.click("xpath", "//*[@id='visitor-4729775']"); }
 
     public void choosePrisoners() {
         methodsService.click("xpath", "//*[@id='visitor-4729778']");

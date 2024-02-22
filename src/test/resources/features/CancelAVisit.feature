@@ -30,7 +30,7 @@ Feature: Cancel a Visit
 
     Examples:
       | userName  | password          | value1 | value2 | value3 | value4 | reason        |
-      | VSIP1_TST | DigitalServices10 | vx     | fb     | oy     | jj     | Health issues |
+      | VSIP1_TST | Expired10         | vx     | fb     | oy     | jj     | Health issues |
 
   Scenario Outline: Cancel a visit with Establishment cancelled option
     Given I navigate to VSIP service
@@ -59,7 +59,7 @@ Feature: Cancel a Visit
 
     Examples:
       | userName  | password          | value1 | value2 | value3 | value4 | reason        |
-      | VSIP1_TST | DigitalServices10 | wx     | hx     | xj     | gx     | Health issues |
+      | VSIP1_TST | Expired10         | wx     | hx     | xj     | gx     | Health issues |
 
   Scenario Outline: Cancel a visit with Prisoner cancelled option
     Given I navigate to VSIP service
@@ -88,7 +88,7 @@ Feature: Cancel a Visit
 
     Examples:
       | userName  | password          | value1 | value2 | value3 | value4 | reason        |
-      | VSIP1_TST | DigitalServices10 | kx     | ur     | xx     | qd     | Health issues |
+      | VSIP1_TST | Expired10         | kx     | ur     | xx     | qd     | Health issues |
 
   Scenario Outline: Cancel a visit with Administrative error option
     Given I navigate to VSIP service
@@ -117,7 +117,7 @@ Feature: Cancel a Visit
 
     Examples:
       | userName  | password          | value1 | value2 | value3 | value4 | reason        |
-      | VSIP1_TST | DigitalServices10 | zm     | he     | vd     | bj     | Health issues |
+      | VSIP1_TST | Expired10         | zm     | he     | vd     | bj     | Health issues |
 
   Scenario Outline: Confirm Cancel a visit by a visitor
     Given I navigate to VSIP service
@@ -140,4 +140,4 @@ Feature: Cancel a Visit
 
     Examples:
       | userName  | password          | value1 | value2 | value3 | value4 |
-      | VSIP1_TST | DigitalServices10 | ql     | iv     | or     | jm     |
+      | VSIP1_TST | Expired10         | ql     | iv     | or     | jm     |

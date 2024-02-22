@@ -43,7 +43,7 @@ Feature: Book a Visit
 
     Examples:
       | userName  | password          | prisonNumber | phoneNumber | reason        |
-      | VSIP1_TST | DigitalServices10 | A6036DZ      | 07805123900 | Health issues |
+      | VSIP1_TST | Expired10         | A6036DZ      | 07805123900 | Health issues |
 
   @smoke_tests_vs
   Scenario Outline: Book a visit search via prisoner name
@@ -88,7 +88,7 @@ Feature: Book a Visit
 
     Examples:
       | userName  | password          | prisonerName    | phoneNumber | reason        |
-      | VSIP2_TST | DigitalServices10 | VSIP_PRISONER06 | 07805123900 | Health issues |
+      | VSIP2_TST | Expired10         | VSIP_PRISONER06 | 07805123900 | Health issues |
 
   @smoke_tests_os
   Scenario Outline: Book a visit - Additional support needed
@@ -135,7 +135,7 @@ Feature: Book a Visit
 
     Examples:
       | userName  | password          | prisonerName    | disability      | phoneNumber | reason             |
-      | VSIP3_TST | DigitalServices10 | Vsip_prisoner07 | hearing support | 07806789076 | family member sick |
+      | VSIP3_TST | Expired10         | Vsip_prisoner07 | hearing support | 07806789076 | family member sick |
 
   @suite
   Scenario Outline: Book a visit - Someone else main contact
@@ -153,7 +153,7 @@ Feature: Book a Visit
     Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
-    And I select a visitor form the list
+    And I select a visitor form the lists
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
     And I select time slot
@@ -215,4 +215,4 @@ Feature: Book a Visit
 
     Examples:
       | userName  | password          | prisonerName    | disability      | contactName | phoneNumber | reason        | prisonNumber |
-      | VSIP1_TST | DigitalServices10 | VSIP_PRISONER06 | hearing support | John        | 07806432054 | Health issues | A6539DZ      |
+      | VSIP1_TST | Expired10         | VSIP_PRISONER06 | hearing support | John        | 07806432054 | Health issues | A6539DZ      |
