@@ -6,11 +6,11 @@ import uk.gov.justice.digital.hmpps.vsip.annotation.ComponentWithWebDriver;
 public class MainContactPage extends BasePage {
 
     public void selectMainContact() {
-        methodsService.selectRadioButton("xpath", "//label[@for='contact']");
+        methodsService.selectRadioButton("xpath", "//input[@id='contact']");
     }
 
     public void selectSomeOneElse() {
-        methodsService.selectRadioButton("xpath", "//label[@for='contact-2']");
+        methodsService.selectRadioButton("xpath", "//input[@id='contact-2']");
     }
 
     public void enterPhoneNo(String phoneNo) {

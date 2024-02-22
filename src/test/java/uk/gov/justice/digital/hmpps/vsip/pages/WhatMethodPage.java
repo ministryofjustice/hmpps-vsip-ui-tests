@@ -7,12 +7,12 @@ public class WhatMethodPage extends BasePage {
 
     public void selectPhoneCall() {
 
-        methodsService.selectRadioButton("xpath", "//label[@for='method']");
+        methodsService.selectRadioButton("xpath", "//input[@id='method']");
     }
 
     public void selectByPrisoner() {
 
-        methodsService.selectRadioButton("xpath", "//label[@for='method-5']");
+        methodsService.selectRadioButton("xpath", "//input[@id='method-5']");
     }
 
     public void checkErrorMsg() {
