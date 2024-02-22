@@ -81,8 +81,4 @@ public class SelectVisitorsStep {
         selectVisitorsPage.checkVisitorUnselectable();
     }
 
-    @And("I select a visitor from the list")
-    public void iSelectAVisitorFromTheList() {
-        selectVisitorsPage.choosePrisoner();
-    }
 }
