@@ -1,3 +1,6 @@
-*.DS_Store
+.DS_Store
 target
 /src/test/resources/application.properties
+.idea
+.vscode
+
