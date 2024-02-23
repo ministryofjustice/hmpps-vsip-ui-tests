@@ -93,7 +93,7 @@ public class SelectTimeSlotPage extends BasePage {
     }
 
     public void checkOnlyThisLocationTimeslotsAvailable() {
-        methodsService.isElementDisplayed("xpath","//p[contains(text(), '250 tables available')]");
+        methodsService.isElementDisplayed("xpath","//p[contains(text(), '190 tables available')]");
     }
 
     public void checkOtherLocationTimeSlotsNotAvailble() {
@@ -109,11 +109,11 @@ public class SelectTimeSlotPage extends BasePage {
     }
 
     public void checkOnlyClosedTimeslotsAvailable(){
-        methodsService.isElementDisplayed("xpath","//p[contains(text(), '250 tables available')]");
+        methodsService.isElementDisplayed("xpath","//p[contains(text(), '190 tables available')]");
     }
 
     public void checkNoOpenTimeSlotsAvailabe() {
-        methodsService.isElementNotDisplayed("xpath","//p[not(contains(text(), '450 tables available'))]");
+        methodsService.isElementNotDisplayed("xpath","//p[not(contains(text(), '250 tables available'))]");
     }
 
     public void checkOnlyCatCTimeslotsAvailable() {
