@@ -62,4 +62,4 @@ Feature: View a Visit
 
     Examples:
       | userName  | password          | date       |
-      | VSIP1_TST | Expired10         | 03/12/2023 |
+      | VSIP1_TST | Expired10         | 20/03/2024 |
