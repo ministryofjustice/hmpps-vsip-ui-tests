@@ -14,7 +14,7 @@ public class BookingDetailsPage extends BasePage {
     }
 
     public void checkMethodofBooking(String msg) {
-        methodsService.isElementDisplayed("xpath", "//p[text() = 'Request method: Email']");
+        methodsService.isElementDisplayed("xpath", "//p[text() = 'Request method: In person']");
     }
 
     public void checkMethodofNewBooking(String msg) {
