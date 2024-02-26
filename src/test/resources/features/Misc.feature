@@ -43,7 +43,7 @@ Feature: Book/Cancel/Amend a Visit
     And I enter "<value4>" in fourth block
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Visit booking details - ec-yv-wm-ya" page
+    Then Im on "Manage prison visits - Visit booking details - bf-wo-sq-jj" page
     And I see "Visit booking details" message displayed
     Then I choose Booking history tab
     And I see "Reason: Health Issues" message displayed on Booking details page
