@@ -47,7 +47,7 @@ public class SelectTimeSlotPage extends BasePage {
     }
 
     public void clickNextEnabledElement() {
-        methodsService.click("xpath", "//button[contains(@class, 'govuk-accordion__show-all')]");
+        methodsService.click("xpath", "//span[text()='Show all sections']");
 
         // List of different XPaths for time slots elements
         int numberOfElements = 30;  // or any other number of elements you have
