@@ -152,7 +152,7 @@ Feature: Book a Visit Error messages
     Then Im on "Manage prison visits - Vsip_prisoner02, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
-    And I select another visitor form the list
+    And I select avisitor form the list
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
     And I select time slot
