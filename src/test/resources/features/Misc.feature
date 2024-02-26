@@ -17,7 +17,7 @@ Feature: Book/Cancel/Amend a Visit
     And I enter "<value4>" in fourth block
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Visit booking details - ru-oo-nw-dl" page
+    Then Im on "Manage prison visits - Visit booking details - qa-cv-mg-zv" page
     And I see "Visit booking details" message displayed
     Then I choose Booking history tab
     And I see "Request method: In person" displayed on Booking details page
@@ -25,7 +25,7 @@ Feature: Book/Cancel/Amend a Visit
 
     Examples:
       | userName  | password          | value1 | value2 | value3 | value4 |
-      | VSIP1_TST | Expired10         | ru     | oo     | nw     | dl     |
+      | VSIP1_TST | Expired10         | qa     | cv     | mg     | zv     |
 
   @suite
   Scenario Outline: Visit details captured by a method of Cancellation
@@ -43,7 +43,7 @@ Feature: Book/Cancel/Amend a Visit
     And I enter "<value4>" in fourth block
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Visit booking details - bf-wo-sq-jj" page
+    Then Im on "Manage prison visits - Visit booking details - ra-in-mv-vo" page
     And I see "Visit booking details" message displayed
     Then I choose Booking history tab
     And I see "Reason: Health Issues" message displayed on Booking details page
@@ -51,7 +51,7 @@ Feature: Book/Cancel/Amend a Visit
 
     Examples:
       | userName  | password          | value1 | value2 | value3 | value4 |
-      | VSIP1_TST | Expired10         | bf     | wo     | sq     | jj     |
+      | VSIP1_TST | Expired10         | ra     | in     | mv     | vo     |
 
   @suite
   Scenario Outline: User sees a message displayed if a Prisoner has no visitors over 18years old

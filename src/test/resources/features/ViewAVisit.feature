@@ -21,7 +21,7 @@ Feature: View a Visit
 
     Examples:
       | userName  | password          | value1 | value2 | value3 | value4 |
-      | VSIP1_TST | Expired10         | ru     | oo     | nw     | dl     |
+      | VSIP1_TST | Expired10         | qa     | cv     | mg     | cv     |
 
   @suite
   Scenario Outline: User able to view Visits by date
