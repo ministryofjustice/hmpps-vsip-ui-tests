@@ -47,7 +47,10 @@ public class SelectTimeSlotPage extends BasePage {
     }
 
     public void clickNextEnabledElement() {
-        methodsService.click("xpath", "//span[text()='Show all sections']");
+        List<WebElement> allSections = driver.findElements(By.xpath("//span[text()='Show all sections']"));
+        for (WebElement element : allSections) {
+            element.click();
+        }
 
         // List of different XPaths for time slots elements
         int numberOfElements = 30;  // or any other number of elements you have
