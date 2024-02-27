@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.PrisonVisitsTestingHelperClient;
+import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.CreateNotificationEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.NonAssociationEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerRestrictionEventDto;
@@ -85,5 +86,9 @@ public class PrisonVisitsTestingHelperService {
         }
     }
 
+    public void addVisitExcludeDateEvent(String visitReference) {
+        CreateNotificationEventDto request = new CreateNotificationEventDto("PRISON_VISITS_BLOCKED_FOR_DATE");
 
+        client.put("/test/visit/"+ visitReference + "/notifications", request, client.validateCreateStatusHandler, "");
+    }
 }
