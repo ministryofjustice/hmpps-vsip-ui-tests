@@ -134,4 +134,8 @@ public class SelectTimeSlotPage extends BasePage {
     public void checkNoOthrCategoryTimeslotsAvailable() {
         methodsService.isElementNotDisplayed("xpath","//p[not(contains(text(), '150 tables available'))]");
     }
+
+    public void checkAMessageDisplayed() {
+        methodsService.isElementDisabled("xpath","//p[text()='A new visit time must be selected.']");
+    }
 }

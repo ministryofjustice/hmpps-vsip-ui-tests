@@ -25,4 +25,9 @@ public class NeedAReviewSteps {
         needAReviewPage.checkReviewMsg(msg);
 
     }
+
+    @And("I see booking reference is not available")
+    public void iSeeBookingReferenceIsNotAvailable() {
+
+    }
 }
