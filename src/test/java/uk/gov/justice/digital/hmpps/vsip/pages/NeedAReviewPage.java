@@ -25,7 +25,6 @@ public class NeedAReviewPage extends BasePage {
     public void checkNoReferenceIsDisplayed(String reference) {
         String xpath = "//*[@id='main-content']/div/div/table/tbody//td[contains(text(),'" + reference + "')]";
         methodsService.isElementNotDisplayed("xpath", xpath);
-
     }
 
     public void checkNoPrisonerNumberIsDisplayed(String priosnerNumber) {

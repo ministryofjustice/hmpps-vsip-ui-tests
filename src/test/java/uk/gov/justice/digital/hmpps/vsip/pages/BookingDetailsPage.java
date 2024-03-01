@@ -22,7 +22,6 @@ public class BookingDetailsPage extends BasePage {
     }
 
     public void checkReasonFlagged(String reason) { methodsService.isElementDisplayed("xpath", "//p[text() = 'Reason: Time slot removed']");
-
     }
 
     public void clickOnUpdateBooking() {
