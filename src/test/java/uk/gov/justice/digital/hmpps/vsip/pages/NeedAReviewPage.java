@@ -27,4 +27,9 @@ public class NeedAReviewPage extends BasePage {
         methodsService.isElementNotDisplayed("xpath", xpath);
 
     }
+
+    public void checkNoPrisonerNumberIsDisplayed(String priosnerNumber) {
+        String xpath = "//*[@id='main-content']/div/div/table/tbody//td[contains(text(),'" + priosnerNumber + "')]";
+        methodsService.isElementNotDisplayed("xpath", xpath);
+    }
 }

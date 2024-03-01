@@ -32,8 +32,14 @@ public class NeedAReviewSteps {
 
     @And("I see booking reference is not available")
     public void iSeeBookingReferenceIsNotAvailable() {
+
         String reference = testContextService.getBookingReference();
         needAReviewPage.checkNoReferenceIsDisplayed(reference);
 
+    }
+
+    @And("I check {string} is not available")
+    public void iCheckIsNotAvailable(String prisonerNumber) {
+        needAReviewPage.checkNoPrisonerNumberIsDisplayed(prisonerNumber);
     }
 }

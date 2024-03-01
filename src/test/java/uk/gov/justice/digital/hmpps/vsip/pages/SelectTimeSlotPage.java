@@ -136,6 +136,6 @@ public class SelectTimeSlotPage extends BasePage {
     }
 
     public void checkAMessageDisplayed() {
-        methodsService.isElementDisabled("xpath","//p[text()='A new visit time must be selected.']");
+        methodsService.isElementDisabled("xpath","//p[text()='A new visit time should be selected as the date is no longer available for social visits.']");
     }
 }

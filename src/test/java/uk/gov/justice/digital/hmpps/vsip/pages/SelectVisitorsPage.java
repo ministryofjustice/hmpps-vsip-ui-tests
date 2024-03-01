@@ -16,9 +16,7 @@ public class SelectVisitorsPage extends BasePage {
         methodsService.click("xpath", "//*[@id='visitor-4729778']");
     }
 
-    public void chooseAnotherPrisoner() {
-        methodsService.click("xpath", "//*[@id='visitor-4729692']");
-    }
+    public void chooseAnotherPrisoner() { methodsService.click("xpath", "//*[@id='visitor-4729692']");}
 
     public void chooseVisitorFromBristol() {
         methodsService.click("xpath", "//*[@id='visitor-4729777']");
@@ -48,5 +46,7 @@ public class SelectVisitorsPage extends BasePage {
     }
 
     public void checkVisitorUnselectable() { methodsService.isElementDisabled("xpath","//*[@id='visitor-4729711']"); }
+
+    public void chooseVisitorForPrisoner10() { methodsService.click("xpath","//*[@id='visitor-4729441']"); }
 
 }

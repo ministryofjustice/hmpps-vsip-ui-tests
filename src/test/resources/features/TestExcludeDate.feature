@@ -1,7 +1,7 @@
 Feature: Exclude date
   As a user, I should be able to view a booking flagged when the booking date is excluded from an establishment and able to update the booking accordingly and see it is unflagged.
 
-  @suite
+  @test_suite
   Scenario Outline: Exclude Date
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -14,10 +14,10 @@ Feature: Exclude date
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
     Then I choose prison from search results
-    Then Im on "Manage prison visits - Vsip_prisoner01, Do Not Use" page
+    Then Im on "Manage prison visits - Vsip_prisoner10, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
-    And I select a visitor form the list
+    And I select visitor from the list
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
     And I select time slot
@@ -48,8 +48,11 @@ Feature: Exclude date
     And I see "Reason: Time slot removed" time slot removed reason
     Then I click on update booking button
     And Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
-    Then I see "A new visit time must be selected." message is displayed
+    Then I see "A new visit time should be selected as the date is no longer available for social visits." message is displayed
+    And I select visitor from the list
     # updating the booking
+    And click on continue button
+    Then Im on "Manage prison visits - Select date and time of visit" page
     And I select time slot
     And click on continue button
     Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
@@ -72,10 +75,13 @@ Feature: Exclude date
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Need a Review option
     And Im on "Manage prison visits - Visit bookings that need review" page
-    And I see booking reference is not available
+    And I check "<prisonNumber>" is not available
+   # And I see booking reference is not available
     And I sign out of the service
+    #Reverting the Booking for consistent Test execution
+    And I want to clean up after the above test
 
 
     Examples:
       | userName  | password          | prisonNumber | phoneNumber |
-      | VSIP1_TST | Expired10         | A6036DZ      | 07805123900 |
+      | VSIP1_TST | Expired10         | A8417DZ      | 07805123900 |
