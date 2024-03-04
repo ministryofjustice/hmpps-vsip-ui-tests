@@ -1,6 +1,7 @@
 package uk.gov.justice.digital.hmpps.vsip.cucumber.steps;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
 import uk.gov.justice.digital.hmpps.vsip.pages.ConfirmationPage;
 import uk.gov.justice.digital.hmpps.vsip.services.TestContextService;
@@ -23,6 +24,4 @@ public class ConfirmationSteps {
         String bookingReference = confirmationPage.getBookingReference();
         testContextService.setBookingReference(bookingReference);
     }
-
-
 }

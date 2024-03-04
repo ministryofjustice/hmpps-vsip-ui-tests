@@ -39,4 +39,14 @@ public class BookingDetailsStepDefinitions {
     public void iSeeUsedToCancelBooking(String requestMethod) {
         bookingDetailsPage.checkMethodofCancellation(requestMethod);
     }
+
+    @And("I see {string} time slot removed reason")
+    public void iSeeTimeSlotRemovedReason(String reason) {
+        bookingDetailsPage.checkReasonFlagged(reason);
+    }
+
+    @Then("I click on update booking button")
+    public void iClickOnUpdateBookingButton() {
+        bookingDetailsPage.clickOnUpdateBooking();
+    }
 }

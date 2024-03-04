@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
 import uk.gov.justice.digital.hmpps.vsip.services.PrisonVisitsTestingHelperService;
+import uk.gov.justice.digital.hmpps.vsip.services.TestContextService;
 
 /**
  * Created by Anusha Nagula on 15/05/23.
@@ -11,6 +12,9 @@ import uk.gov.justice.digital.hmpps.vsip.services.PrisonVisitsTestingHelperServi
 public class TestingHelperSteps {
     @LazyAutowired
     private PrisonVisitsTestingHelperService testHelper;
+
+    @LazyAutowired
+    private TestContextService testContextService;
 
     @Given("A prisoner {string} is released from {string}")
     public void aPrisonerIsReleased(String prisonerCode, String prisonCode) {
@@ -57,4 +61,9 @@ public class TestingHelperSteps {
         testHelper.cleanUpBookings();
     }
 
+    @Given("A booking reference date is excluded")
+    public void aBookingDateIsExcluded() {
+        String reference = testContextService.getBookingReference();
+        testHelper.addVisitExcludeDateEvent(reference);
+    }
 }

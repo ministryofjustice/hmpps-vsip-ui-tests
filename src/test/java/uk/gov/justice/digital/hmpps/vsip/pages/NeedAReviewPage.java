@@ -21,4 +21,14 @@ public class NeedAReviewPage extends BasePage {
     public void checkReviewMsg(String reviewMsg) {
         methodsService.isElementDisplayed("xpath","//h2[text()='Needs review']");
     }
+
+    public void checkNoReferenceIsDisplayed(String reference) {
+        String xpath = "//*[@id='main-content']/div/div/table/tbody//td[contains(text(),'" + reference + "')]";
+        methodsService.isElementNotDisplayed("xpath", xpath);
+    }
+
+    public void checkNoPrisonerNumberIsDisplayed(String priosnerNumber) {
+        String xpath = "//*[@id='main-content']/div/div/table/tbody//td[contains(text(),'" + priosnerNumber + "')]";
+        methodsService.isElementNotDisplayed("xpath", xpath);
+    }
 }

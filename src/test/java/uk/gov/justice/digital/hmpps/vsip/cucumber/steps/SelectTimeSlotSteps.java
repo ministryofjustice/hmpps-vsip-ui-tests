@@ -121,4 +121,9 @@ public class SelectTimeSlotSteps {
     public void iCheckNoOtherCategoryTimeslotsIsAvailable() {
         selectTimeSlotPage.checkNoOthrCategoryTimeslotsAvailable();
     }
+
+    @Then("I see {string} message is displayed")
+    public void iSeeMessageIsDisplayed(String message) {
+        selectTimeSlotPage.checkAMessageDisplayed();
+    }
 }
