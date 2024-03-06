@@ -9,10 +9,13 @@ public class ConfirmationPage extends BasePage {
     public void checkBookingHeading(String confirmationMsg) {
         verifyHeading(confirmationMsg);
     }
-
     public String getBookingReference() {
         By by = methodsService.getElementByType("class", "test-booking-reference");
+
         return driver.findElement(by).getText();
     }
-
+    public String getDateBooked() {
+        By by = methodsService.getElementByType("class","test-visit-date");
+        return driver.findElement(by).getText();
+    }
 }

@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -60,6 +59,40 @@ public class TestContextService {
         }
         bookings.add(bookingReference);
         this.setToContext(Context.BOOKING_REFERENCE, bookings);
+    }
+
+    public String getDateBookingReference() {
+        String date = getFromContext(Context.BOOKING_DATE);
+        if (date != null && !date.isEmpty()) {
+            return date;
+        }
+        return null;
+    }
+
+    public void setDateBookingReference(String dateBookingReference) {
+        String date = getFromContext(Context.BOOKING_DATE);
+        if (date == null) {
+            date = new String();
+        }
+        date = dateBookingReference;
+        this.setToContext(Context.BOOKING_DATE, date);
+    }
+
+    public String getOriginalDateBookingReference() {
+        String date = getFromContext(Context.Original_BOOKING_DATE);
+        if (date != null && !date.isEmpty()) {
+            return date;
+        }
+        return null;
+    }
+
+    public void setOriginalDateBookingReference(String originalDateBookingReference) {
+        String date = getFromContext(Context.Original_BOOKING_DATE);
+        if (date == null) {
+            date = new String();
+        }
+        date = originalDateBookingReference;
+        this.setToContext(Context.Original_BOOKING_DATE, date);
     }
 
     public List<String> getBookingReferences() {

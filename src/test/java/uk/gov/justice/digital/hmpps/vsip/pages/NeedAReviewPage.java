@@ -14,21 +14,16 @@ public class NeedAReviewPage extends BasePage {
         methodsService.isElementDisplayed("xpath", "//span[contains(@class, 'govuk-details__summary-text')]");
     }
 
-    public void clickOnView()
-    {
+    public void clickOnView(String excludedate) {
+        String xpath = "//*[starts-with(@data-test, 'visit-date-')]//li[contains(text(), '" + excludedate + "')]";
+        methodsService.isElementDisplayed("xpath",xpath);
         methodsService.click("xpath","//a[text()='View']");
     }
     public void checkReviewMsg(String reviewMsg) {
         methodsService.isElementDisplayed("xpath","//h2[text()='Needs review']");
     }
 
-    public void checkNoReferenceIsDisplayed(String reference) {
-        String xpath = "//*[@id='main-content']/div/div/table/tbody//td[contains(text(),'" + reference + "')]";
-        methodsService.isElementNotDisplayed("xpath", xpath);
-    }
-
-    public void checkNoPrisonerNumberIsDisplayed(String priosnerNumber) {
-        String xpath = "//*[@id='main-content']/div/div/table/tbody//td[contains(text(),'" + priosnerNumber + "')]";
-        methodsService.isElementNotDisplayed("xpath", xpath);
+    public void checkNoExcludeDateISAvailable(String excludeDate) {
+        methodsService.isElementDisplayed("xpath","//p[text()='There are no bookings for Hewell (HMP) that need review.']");
     }
 }

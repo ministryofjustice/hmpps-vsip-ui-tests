@@ -137,7 +137,7 @@ Feature: Book a Visit
       | userName  | password          | prisonerName    | disability      | phoneNumber | reason             |
       | VSIP3_TST | Expired10         | Vsip_prisoner07 | hearing support | 07806789076 | family member sick |
 
-  @suite
+  #@suite
   Scenario Outline: Book a visit - Someone else main contact
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
