@@ -15,7 +15,7 @@ public class NeedAReviewPage extends BasePage {
     }
 
     public void clickOnView(String excludedate) {
-        String xpath = "//li[@class='govuk-!-margin-bottom-0' and contains(text(), '" + excludedate + "')]";
+        String xpath = "//*[starts-with(@data-test, 'visit-date-')]//li[contains(text(), '" + excludedate + "')]";
         methodsService.isElementDisplayed("xpath",xpath);
         methodsService.click("xpath","//a[text()='View']");
     }

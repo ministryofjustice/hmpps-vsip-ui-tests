@@ -22,7 +22,6 @@ public class NeedAReviewSteps {
     public void iClickOnViewLinkToSeeDetailsOfTheBookingNeedsReview() {
         System.out.println("Original Date Booking Reference: " + testContextService.getOriginalDateBookingReference());
         needAReviewPage.clickOnView(testContextService.getOriginalDateBookingReference());
-
     }
 
     @And("I see {string} option")

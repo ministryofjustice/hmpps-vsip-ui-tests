@@ -1,8 +1,8 @@
-Feature: Exclude date
+Feature: API based Exclude date
   As a user, I should be able to view a booking flagged when the booking date is excluded from an establishment and able to update the booking accordingly and see it is unflagged.
 
-  @test_suite
-  Scenario Outline: Exclude Date
+  @suite
+  Scenario Outline: API based Exclude Date
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"

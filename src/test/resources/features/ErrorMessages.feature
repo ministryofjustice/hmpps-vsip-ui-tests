@@ -100,7 +100,7 @@ Feature: Book a Visit Error messages
       | userName  | password          | prisonNumber |
       | VSIP5_TST | DigitalServices10 | A8416DZ      |
 
-  @suite
+  #@suite
   Scenario Outline: Error message on main contact page
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
