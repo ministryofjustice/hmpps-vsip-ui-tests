@@ -61,9 +61,10 @@ public class TestingHelperSteps {
         testHelper.cleanUpBookings();
     }
 
-    @Given("A booking reference date is excluded")
-    public void aBookingDateIsExcluded() {
-        String reference = testContextService.getBookingReference();
-        testHelper.addVisitExcludeDateEvent(reference);
+    @And("I want to clean up after the exclude date test")
+    public void iWantToCleanUpAfterTheExcludeDateTest() {
+        System.out.println("Original Date Booking Reference: " + testContextService.getDateBookingReference());
+        testHelper.removeVisitExcludeDateEvent("HEI",testContextService.getDateBookingReference());
+
     }
 }

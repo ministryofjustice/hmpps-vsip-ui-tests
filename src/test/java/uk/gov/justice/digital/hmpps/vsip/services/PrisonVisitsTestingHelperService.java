@@ -86,9 +86,15 @@ public class PrisonVisitsTestingHelperService {
         }
     }
 
-    public void addVisitExcludeDateEvent(String visitReference) {
+    public void addVisitExcludeDateEvent(String prisonCode, String date) {
         CreateNotificationEventDto request = new CreateNotificationEventDto("PRISON_VISITS_BLOCKED_FOR_DATE");
 
-        client.put("/test/visit/"+ visitReference + "/notifications", request, client.validateCreateStatusHandler, "");
+        client.put("/test/prison/"+ prisonCode +"/add/exclude-date/"+ date, request, client.validateCreateStatusHandler, "");
+    }
+
+    public void removeVisitExcludeDateEvent(String prisonCode, String date) {
+        CreateNotificationEventDto request = new CreateNotificationEventDto("PRISON_VISITS_BLOCKED_FOR_DATE");
+
+        client.put("/test/prison/"+ prisonCode +"/remove/exclude-date/"+ date, request, client.validateCreateStatusHandler, "");
     }
 }

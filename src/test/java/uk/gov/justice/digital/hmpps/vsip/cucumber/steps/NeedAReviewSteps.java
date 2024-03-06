@@ -20,26 +20,18 @@ public class NeedAReviewSteps {
 
     @And("I click on view link to see details of the booking needs review")
     public void iClickOnViewLinkToSeeDetailsOfTheBookingNeedsReview() {
-        needAReviewPage.clickOnView();
+        System.out.println("Original Date Booking Reference: " + testContextService.getOriginalDateBookingReference());
+        needAReviewPage.clickOnView(testContextService.getOriginalDateBookingReference());
 
     }
 
     @And("I see {string} option")
     public void iSeeOption(String msg) {
         needAReviewPage.checkReviewMsg(msg);
-
     }
 
-    @And("I see booking reference is not available")
-    public void iSeeBookingReferenceIsNotAvailable() {
-
-        String reference = testContextService.getBookingReference();
-        needAReviewPage.checkNoReferenceIsDisplayed(reference);
-
-    }
-
-    @And("I check {string} is not available")
-    public void iCheckIsNotAvailable(String prisonerNumber) {
-        needAReviewPage.checkNoPrisonerNumberIsDisplayed(prisonerNumber);
+    @And("I check exclude date is not available")
+    public void iCheckExcludeDateIsNotAvailable() {
+        needAReviewPage.checkNoExcludeDateISAvailable(testContextService.getOriginalDateBookingReference());
     }
 }

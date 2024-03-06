@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import uk.gov.justice.digital.hmpps.vsip.annotation.ComponentWithWebDriver;
 import uk.gov.justice.digital.hmpps.vsip.services.Context;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @ComponentWithWebDriver
@@ -28,11 +26,9 @@ public class SelectTimeSlotPage extends BasePage {
         }
     }
 
-
     public void selectLastBookedSlot() {
         methodsService.selectRadioButton("xpath", getDataTestXPathForTimeSlot());
     }
-
 
     public void noTimeslotAvailable() {
         methodsService.isElementNotVisible("xpath", "//*[@id='5']");
@@ -136,6 +132,6 @@ public class SelectTimeSlotPage extends BasePage {
     }
 
     public void checkAMessageDisplayed() {
-        methodsService.isElementDisabled("xpath","//p[text()='A new visit time should be selected as the date is no longer available for social visits.']");
+        methodsService.isElementDisabled("xpath","//span[text()='A new visit time should be selected as the date is no longer available for social visits.']");
     }
 }
