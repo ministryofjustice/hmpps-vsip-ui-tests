@@ -40,4 +40,19 @@ public class AdditionalSupportSteps {
     public void iSeeOnSupportNeededPage(String errorMsg) {
         additionalSupportPage.selectAdditionalSupportOptErrorDisplayed();
     }
+
+    @And("I enter {string} for additional support")
+    public void iEnterForAdditionalSupport(String details) {
+        additionalSupportPage.enterDetails(details);
+    }
+
+    @Then("I see {string} on the additional support page")
+    public void iSeeOnTheAdditionalSupportPage(String errMessage) {
+        additionalSupportPage.checkErrorMessageDisplayed();
+    }
+
+    @Then("I see {string} error message on character length")
+    public void iSeeErrorMessageOnCharacterLength(String characterLengthErrMsg) {
+        additionalSupportPage.checkCharacterLengthErrMsg();
+    }
 }

@@ -94,11 +94,17 @@ Feature: Book a Visit Error messages
     Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
     And click on continue button
     Then I see "No answer selected" on support needed page
+    And I select Yes for additional support needed
+    And click on continue button
+    Then I see "Enter details of the request" on the additional support page
+    And I enter "<incorrectdetails>" for additional support
+    And click on continue button
+    Then I see "Please enter at least 3 and no more than 512 characters" error message on character length
     And I sign out of the service
 
     Examples:
-      | userName  | password          | prisonNumber |
-      | VSIP5_TST | DigitalServices10 | A8416DZ      |
+      | userName  | password          | prisonNumber | incorrectdetails     |
+      | VSIP5_TST | DigitalServices10 | A8416DZ      | w                    |
 
   #@suite
   Scenario Outline: Error message on main contact page
@@ -221,3 +227,4 @@ Feature: Book a Visit Error messages
     Examples:
       | userName  | password          | prisonNumber |
       | VSIP4_TST | DigitalServices10 | A8899DZ      |
+
