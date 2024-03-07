@@ -27,6 +27,7 @@ Feature: Book a Visit
     And click on continue button
     Then Im on "Manage prison visits - Who is the main contact for this booking?" page
     And I select the main contact option
+    And I choose No phone number provided option
     And click on continue button
     Then Im on "Manage prison visits - How was this booking requested?" page
     And I select a phone call option on method used to make the reqest
