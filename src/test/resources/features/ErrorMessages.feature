@@ -106,7 +106,7 @@ Feature: Book a Visit Error messages
       | userName  | password          | prisonNumber | incorrectdetails     |
       | VSIP5_TST | DigitalServices10 | A8416DZ      | w                    |
 
-  #@suite
+  @suite
   Scenario Outline: Error message on main contact page
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -135,12 +135,56 @@ Feature: Book a Visit Error messages
     Then I see "No main contact selected" on select main contact page
     And I select the main contact option
     And click on continue button
+    Then I see "No answer selected" error message on main contact page
+    And I choose UK phone number option
+    And click on continue button
     Then I see "Enter a phone number" select main contact page
     And I sign out of the service
 
     Examples:
       | userName  | password          | prisonNumber |
       | VSIP5_TST | DigitalServices10 | A8416DZ      |
+
+  @suite
+  Scenario Outline: Error message on main contact page ~ Someone else option
+    Given I navigate to VSIP service
+    And Im on "HMPPS Digital Services - Sign in" page
+    And I enter "<userName>"
+    And I enter the "<password>"
+    And click on submit button
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I click on Book a visit option
+    And Im on "Manage prison visits - Search for a prisoner" page
+    When I enter "<prisonNumber>" to search for a prison
+    And click on search button
+    Then I choose prison from search results
+    Then Im on "Manage prison visits - Vsip_prisoner09, Do Not Use" page
+    And I click on Book a visit button
+    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
+    And I select another visitor form the list
+    And click on continue button
+    Then Im on "Manage prison visits - Select date and time of visit" page
+    And I select time slot
+    And click on continue button
+    Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
+    And I select No for additional support needed
+    And click on continue button
+    Then Im on "Manage prison visits - Who is the main contact for this booking?" page
+    And click on continue button
+    Then I see "No main contact selected" on select main contact page
+    And I select the someone else option
+    And click on continue button
+    Then I see "Enter the name of the main contact" error message displayed
+    Then I see "No answer selected" error message on main contact page
+    And I choose UK phone number option
+    And click on continue button
+    Then I see "Enter a phone number" select main contact page
+    And I sign out of the service
+
+    Examples:
+      | userName  | password          | prisonNumber |
+      | VSIP5_TST | DigitalServices10 | A8416DZ      |
+
 
   @suite
   Scenario Outline: Error message on method used to request page
@@ -168,6 +212,7 @@ Feature: Book a Visit Error messages
     And click on continue button
     Then Im on "Manage prison visits - Who is the main contact for this booking?" page
     And I select the main contact option
+    And I choose UK phone number option
     And I enter "<phoneNumber>" to get text message
     And click on continue button
     Then Im on "Manage prison visits - How was this booking requested?" page

@@ -13,8 +13,16 @@ public class MainContactPage extends BasePage {
         methodsService.selectRadioButton("xpath", "//input[@id='contact-2']");
     }
 
+    public void chooseUKPhoneNoOption() {
+        methodsService.selectRadioButton("xpath","//*[@id='phoneNumber']");
+    }
+
+    public void chooseNoPhoneNoOption() {
+        methodsService.selectRadioButton("xpath","//*[@id='phoneNumber-2']");
+    }
+
     public void enterPhoneNo(String phoneNo) {
-        methodsService.enterValInTextField("xpath", phoneNo, "//input[@id='phoneNumber']");
+        methodsService.enterValInTextField("xpath", phoneNo, "//input[@id='phoneNumberInput']");
     }
 
     public void enterContactName(String contactName) {
@@ -27,6 +35,14 @@ public class MainContactPage extends BasePage {
 
     public void checkPhoneNoErrorMsg() {
         methodsService.isElementDisplayed("xpath", "//a[text() = 'Enter a phone number']");
+    }
+
+    public void checkNoAnswerErrorMsg() {
+        methodsService.isElementDisabled("xpath","//a[text() = 'No answer selected']");
+    }
+
+    public void checkNameOfMainContactErrorMsg() {
+        methodsService.isElementDisplayed("xpath","//a[text() = 'Enter the name of the main contact']");
     }
 
 }

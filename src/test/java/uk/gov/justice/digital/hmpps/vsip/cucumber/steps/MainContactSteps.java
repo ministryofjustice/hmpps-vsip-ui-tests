@@ -39,4 +39,24 @@ public class MainContactSteps {
     public void iSeeSelectMainContactPage(String errMsg) {
         mainContactPage.checkPhoneNoErrorMsg();
     }
+
+    @And("I choose UK phone number option")
+    public void iChooseUKPhoneNumberOption() {
+        mainContactPage.chooseUKPhoneNoOption();
+    }
+
+    @And("I choose No phone number provided option")
+    public void iChooseNoPhoneNumberProvidedOption() {
+        mainContactPage.chooseNoPhoneNoOption();
+    }
+
+    @Then("I see {string} error message on main contact page")
+    public void iSeeErrorMessageOnMainContactPage(String errMsg) {
+        mainContactPage.checkNoAnswerErrorMsg();
+    }
+
+    @Then("I see {string} error message displayed")
+    public void iSeeErrorMessageDisplayed(String nameErrorMessage) {
+        mainContactPage.checkNameOfMainContactErrorMsg();
+    }
 }
