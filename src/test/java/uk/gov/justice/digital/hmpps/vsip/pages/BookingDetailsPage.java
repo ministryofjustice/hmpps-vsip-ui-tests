@@ -36,4 +36,12 @@ public class BookingDetailsPage extends BasePage {
         methodsService.isElementDisplayed("xpath","//span[text()='This visit was cancelled by the visitor.']");
     }
 
+    public void clickOnVisitorsTab() {
+        methodsService.click("xpath","//*[@id='tab_visitors']");
+    }
+
+    public void checkAddSupportDetails() {
+        methodsService.isElementDisplayed("xpath","//span[text()='wheel chair']");
+    }
+
 }

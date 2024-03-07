@@ -49,4 +49,14 @@ public class BookingDetailsStepDefinitions {
     public void iClickOnUpdateBookingButton() {
         bookingDetailsPage.clickOnUpdateBooking();
     }
+
+    @And("I choose Booking visitors tab")
+    public void iChooseBookingVisitorsTab() {
+        bookingDetailsPage.clickOnVisitorsTab();
+    }
+
+    @Then("I check additional support is displayed")
+    public void iCheckAdditionalSupportIsDisplayed() {
+        bookingDetailsPage.checkAddSupportDetails();
+    }
 }
