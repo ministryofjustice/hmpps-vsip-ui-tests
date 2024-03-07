@@ -27,6 +27,7 @@ Feature: API based Exclude date
     And click on continue button
     Then Im on "Manage prison visits - Who is the main contact for this booking?" page
     And I select the main contact option
+    And I choose UK phone number option
     And I enter "<phoneNumber>" to get text message
     And click on continue button
     Then Im on "Manage prison visits - How was this booking requested?" page

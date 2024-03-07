@@ -27,7 +27,7 @@ Feature: Book a Visit
     And click on continue button
     Then Im on "Manage prison visits - Who is the main contact for this booking?" page
     And I select the main contact option
-    And I enter "<phoneNumber>" to get text message
+    And I choose No phone number provided option
     And click on continue button
     Then Im on "Manage prison visits - How was this booking requested?" page
     And I select a phone call option on method used to make the reqest
@@ -42,10 +42,10 @@ Feature: Book a Visit
     And I want to clean up after the above test
 
     Examples:
-      | userName  | password          | prisonNumber | phoneNumber | reason        |
-      | VSIP1_TST | Expired10         | A6036DZ      | 07805123900 | Health issues |
+      | userName  | password          | prisonNumber |
+      | VSIP1_TST | Expired10         | A6036DZ      |
 
-  @smoke_tests_vs
+  @smoke_tests_vs @suite
   Scenario Outline: Book a visit search via prisoner name
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -71,7 +71,7 @@ Feature: Book a Visit
     And click on continue button
     Then Im on "Manage prison visits - Who is the main contact for this booking?" page
     And I select the main contact option
-    And I enter "<phoneNumber>" to get text message
+    And I choose No phone number provided option
     And click on continue button
     Then Im on "Manage prison visits - How was this booking requested?" page
     And I select a phone call option on method used to make the reqest
@@ -85,10 +85,9 @@ Feature: Book a Visit
     #Reverting the Booking for consistent Test execution
     And I want to clean up after the above test
 
-
     Examples:
-      | userName  | password          | prisonerName    | phoneNumber | reason        |
-      | VSIP2_TST | Expired10         | VSIP_PRISONER06 | 07805123900 | Health issues |
+      | userName  | password          | prisonerName    |
+      | VSIP2_TST | Expired10         | VSIP_PRISONER06 |
 
   @smoke_tests_os
   Scenario Outline: Book a visit - Additional support needed
@@ -119,6 +118,7 @@ Feature: Book a Visit
     And click on continue button
     Then Im on "Manage prison visits - Who is the main contact for this booking?" page
     And I select the main contact option
+    And I choose UK phone number option
     And I enter "<phoneNumber>" to get text message
     And click on continue button
     Then Im on "Manage prison visits - How was this booking requested?" page
@@ -134,10 +134,10 @@ Feature: Book a Visit
     And I want to clean up after the above test
 
     Examples:
-      | userName  | password          | prisonerName    | disability      | phoneNumber | reason             |
-      | VSIP3_TST | Expired10         | Vsip_prisoner07 | hearing support | 07806789076 | family member sick |
+      | userName  | password          | prisonerName    | disability      | phoneNumber |
+      | VSIP3_TST | Expired10         | Vsip_prisoner07 | hearing support | 07806789076 |
 
-  #@suite
+  @suite
   Scenario Outline: Book a visit - Someone else main contact
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -160,13 +160,12 @@ Feature: Book a Visit
     And click on continue button
     Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
     And I select Yes for additional support needed
-    And I choose an option of disability
-    And I choose other option additionally
-    And I enter "<disability>" in the section
+    And I enter "<details>" for additional support
     And click on continue button
     Then Im on "Manage prison visits - Who is the main contact for this booking?" page
     And I select the someone else option
     And I enter "<contactName>" in the someone else option
+    And I choose UK phone number option
     And I enter "<phoneNumber>" to get text message
     And click on continue button
     Then Im on "Manage prison visits - How was this booking requested?" page
@@ -214,5 +213,5 @@ Feature: Book a Visit
     #And I want to clean up after the above test
 
     Examples:
-      | userName  | password          | prisonerName    | disability      | contactName | phoneNumber | reason        | prisonNumber |
-      | VSIP1_TST | Expired10         | VSIP_PRISONER06 | hearing support | John        | 07806432054 | Health issues | A6539DZ      |
+      | userName  | password          | prisonerName    | contactName | phoneNumber | reason        | prisonNumber |
+      | VSIP1_TST | Expired10         | VSIP_PRISONER06 | John        | 07806432054 | Health issues | A6539DZ      |
