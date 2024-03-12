@@ -89,7 +89,7 @@ Feature: Book a Visit
       | userName  | password          | prisonerName    |
       | VSIP2_TST | Expired10         | VSIP_PRISONER06 |
 
-  @smoke_tests_os
+  @smoke_tests_os @suite @error_messages
   Scenario Outline: Book a visit - Additional support needed
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -105,23 +105,46 @@ Feature: Book a Visit
     Then Im on "Manage prison visits - Vsip_prisoner07, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
+    And click on continue button
+    # checking error message
+    Then I see "No visitors selected" on select visitors page
     And I select a visitor form the list for a prisoner
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
+    And click on continue button
+    # checking error message
     And I select time slot
     And click on continue button
     Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
+    And click on continue button
+    # checking error messages
+    Then I see "No answer selected" on support needed page
     And I select Yes for additional support needed
-    And I choose an option of disability
-    And I choose other option additionally
-    And I enter "<disability>" in the section
+    And click on continue button
+    Then I see "Enter details of the request" on the additional support page
+    And I enter "<incorrectdetails>" for additional support
+    And click on continue button
+    Then I see "Please enter at least 3 and no more than 512 characters" error message on character length
+    And I select No for additional support needed
     And click on continue button
     Then Im on "Manage prison visits - Who is the main contact for this booking?" page
+    And click on continue button
+    # checking error messages
+    Then I see "No main contact selected" on select main contact page
+    And I select the main contact option
+    And click on continue button
+    Then I see "No answer selected" error message on main contact page
+    And I choose UK phone number option
+    And click on continue button
+    Then I see "Enter a phone number" select main contact page
     And I select the main contact option
     And I choose UK phone number option
     And I enter "<phoneNumber>" to get text message
     And click on continue button
     Then Im on "Manage prison visits - How was this booking requested?" page
+    And click on continue button
+    # checking error message
+    Then I see "No request method selected" on method used to request page
     And I select a phone call option on method used to make the reqest
     And click on continue button
     Then Im on "Manage prison visits - Check the visit details before booking" page
@@ -134,8 +157,8 @@ Feature: Book a Visit
     And I want to clean up after the above test
 
     Examples:
-      | userName  | password          | prisonerName    | disability      | phoneNumber |
-      | VSIP3_TST | Expired10         | Vsip_prisoner07 | hearing support | 07806789076 |
+      | userName  | password          | prisonerName    | phoneNumber | incorrectdetails     |
+      | VSIP3_TST | Expired10         | Vsip_prisoner07 | 07806789076 | w                    |
 
   @suite
   Scenario Outline: Book a visit - Someone else main contact
