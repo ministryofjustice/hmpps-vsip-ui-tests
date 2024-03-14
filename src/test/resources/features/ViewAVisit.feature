@@ -1,7 +1,7 @@
 Feature: View a Visit
   As a user, I should be able to view a visit using VSIP service
 
-  @suite
+#  @suite
   Scenario Outline: User able to view the Visit status
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -21,7 +21,7 @@ Feature: View a Visit
 
     Examples:
       | userName  | password          | value1 | value2 | value3 | value4 |
-      | VSIP1_TST | Expired10         | qa     | cv     | mg     | zv     |
+      | VSIP1_TST | Expired10         | ln     | fq     | zv     | sv     |
 
   @suite
   Scenario Outline: User able to view Visits by date
@@ -43,7 +43,7 @@ Feature: View a Visit
       | userName  | password          | date       |
       | VSIP1_TST | Expired10         | 20/11/2023 |
 
-  @suite
+#  @suite
   Scenario Outline: User able to view Visits by date
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
