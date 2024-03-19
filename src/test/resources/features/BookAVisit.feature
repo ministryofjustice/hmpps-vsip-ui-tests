@@ -81,6 +81,16 @@ Feature: Book a Visit
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
     And I see a booking reference
+    # capture Booking date and view
+    And I capture date the Booking is booked
+    And I click on Manage a Prison option
+    And I click on View visits by date option
+    And Im on "Manage prison visits - View visits by date" page
+    When I select Date picker option
+    And I enter date to view the visits
+    Then I click on view button
+    Then I see a visit and click on view option
+    Then I see "Visit booking details" of the visit of that date
     And I sign out of the service
     #Reverting the Booking for consistent Test execution
     And I want to clean up after the above test
