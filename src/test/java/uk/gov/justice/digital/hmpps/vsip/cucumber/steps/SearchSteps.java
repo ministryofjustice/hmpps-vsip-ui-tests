@@ -55,4 +55,9 @@ public class SearchSteps {
     public void iCheckTheVisitStatus(String status) {
         searchPage.visitStatusDisplayed(status);
     }
+
+    @Then("I see {string} on booking reference search page")
+    public void iSeeOnBookingReferenceSearchPage(String errorMsg) {
+        searchPage.bookingRefSearchErrMsg();
+    }
 }

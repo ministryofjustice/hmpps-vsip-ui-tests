@@ -24,6 +24,12 @@ public class HomePage extends BasePage {
     @FindBy(how = How.XPATH, using = "//*[contains(@data-test, 'need-review-count')]")
     private WebElement findNeedReviewCount;
 
+    @FindBy(how = How.XPATH, using = "//a[@href='/search/visit']")
+    private WebElement clickSearchByRefOption;
+
+    @FindBy(how = How.XPATH, using = "//a[@href='/search/prisoner']")
+    private WebElement clickSearchByPrisonNo;
+
     public void clickOnBookAVisitOption() {
         bookAVisitOption.click();
     }
@@ -47,5 +53,13 @@ public class HomePage extends BasePage {
     public void hashNeedReviewCount() {
         String count = findNeedReviewCount.getText();
         Assert.assertTrue("Count should be greater than 0 value (" + count + ")", Integer.parseInt(count.trim()) > 0);
+    }
+
+    public void clickOptionSearchByRef() {
+        clickSearchByRefOption.click();
+    }
+
+    public void clickOptionSearchByPrisonNo() {
+        clickSearchByPrisonNo.click();
     }
 }

@@ -20,6 +20,25 @@ Feature: Book a Visit Error messages
       | VSIP5_TST | DigitalServices10 |
 
   @suite
+  Scenario Outline: Error message on search page
+    Given I navigate to VSIP service
+    And Im on "HMPPS Digital Services - Sign in" page
+    And I enter "<userName>"
+    And I enter the "<password>"
+    And click on submit button
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I click on Book a visit option
+    And Im on "Manage prison visits - Search for a prisoner" page
+    Then I click on option to search by booking reference
+    And click on search button
+    Then I see "Booking reference must be 8 characters" on booking reference search page
+    And I sign out of the service
+
+    Examples:
+      | userName  | password          |
+      | VSIP5_TST | DigitalServices10 |
+
+  @suite
   Scenario Outline: Error message on main contact page ~ Someone else option
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page

@@ -61,4 +61,8 @@ public class SearchPage extends BasePage {
     public void clickOnSearchBtn() {
         methodsService.click("xpath", "//button[contains(@data-test, 'search')]");
     }
+
+    public void bookingRefSearchErrMsg() {
+        methodsService.click("xpath","//a[text()='Booking reference must be 8 characters']");
+    }
 }
