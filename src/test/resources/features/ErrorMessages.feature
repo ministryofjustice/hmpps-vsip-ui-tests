@@ -17,7 +17,7 @@ Feature: Book a Visit Error messages
 
     Examples:
       | userName  | password          |
-      | VSIP5_TST | DigitalServices10 |
+      | VSIP5_TST | DigitalServices11 |
 
   @suite
   Scenario Outline: Error message on search page
@@ -36,7 +36,7 @@ Feature: Book a Visit Error messages
 
     Examples:
       | userName  | password          |
-      | VSIP5_TST | DigitalServices10 |
+      | VSIP5_TST | DigitalServices11 |
 
   @suite
   Scenario Outline: Error message on main contact page ~ Someone else option
@@ -76,7 +76,7 @@ Feature: Book a Visit Error messages
 
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP5_TST | DigitalServices10 | A8416DZ      |
+      | VSIP5_TST | DigitalServices11 | A8416DZ      |
 
   @suite
   Scenario Outline: Error message on view Visits by date page
@@ -95,7 +95,7 @@ Feature: Book a Visit Error messages
 
     Examples:
       | userName  | password          |
-      | VSIP5_TST | DigitalServices10 |
+      | VSIP5_TST | DigitalServices11 |
 
   @suite
   Scenario Outline: Error message on select open or closed type visit page
@@ -125,4 +125,4 @@ Feature: Book a Visit Error messages
 
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP4_TST | DigitalServices10 | A8899DZ      |
+      | VSIP4_TST | DigitalServices11 | A8899DZ      |
