@@ -7,7 +7,7 @@ Feature: API based Exclude date
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
     And I enter the "<password>"
-    And click on submit button
+    And click on login submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
@@ -78,7 +78,7 @@ Feature: API based Exclude date
     And Im on "Manage prison visits - Visit bookings that need review" page
     And I check exclude date is not available
     And I sign out of the service
-    #Reverting the Booking for consistent Test execution
+
     And I want to clean up after the exclude date test
 
     Examples:

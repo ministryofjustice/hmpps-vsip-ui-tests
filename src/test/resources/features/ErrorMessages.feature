@@ -7,7 +7,7 @@ Feature: Book a Visit Error messages
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
     And I enter the "<password>"
-    And click on submit button
+    And click on login submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
@@ -17,7 +17,26 @@ Feature: Book a Visit Error messages
 
     Examples:
       | userName  | password          |
-      | VSIP5_TST | DigitalServices10 |
+      | VSIP5_TST | DigitalServices11 |
+
+  @suite
+  Scenario Outline: Error message on search page
+    Given I navigate to VSIP service
+    And Im on "HMPPS Digital Services - Sign in" page
+    And I enter "<userName>"
+    And I enter the "<password>"
+    And click on login submit button
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I click on Book a visit option
+    And Im on "Manage prison visits - Search for a prisoner" page
+    Then I click on option to search by booking reference
+    And click on search button
+    Then I see "Booking reference must be 8 characters" on booking reference search page
+    And I sign out of the service
+
+    Examples:
+      | userName  | password          |
+      | VSIP5_TST | DigitalServices11 |
 
   @suite
   Scenario Outline: Error message on main contact page ~ Someone else option
@@ -25,7 +44,7 @@ Feature: Book a Visit Error messages
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
     And I enter the "<password>"
-    And click on submit button
+    And click on login submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
@@ -57,7 +76,7 @@ Feature: Book a Visit Error messages
 
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP5_TST | DigitalServices10 | A8416DZ      |
+      | VSIP5_TST | DigitalServices11 | A8416DZ      |
 
   @suite
   Scenario Outline: Error message on view Visits by date page
@@ -65,7 +84,7 @@ Feature: Book a Visit Error messages
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
     And I enter the "<password>"
-    And click on submit button
+    And click on login submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on View visits by date option
     And Im on "Manage prison visits - View visits by date" page
@@ -76,7 +95,7 @@ Feature: Book a Visit Error messages
 
     Examples:
       | userName  | password          |
-      | VSIP5_TST | DigitalServices10 |
+      | VSIP5_TST | DigitalServices11 |
 
   @suite
   Scenario Outline: Error message on select open or closed type visit page
@@ -84,7 +103,7 @@ Feature: Book a Visit Error messages
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
     And I enter the "<password>"
-    And click on submit button
+    And click on login submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
     And I change the establishmnet to Drake Hall
@@ -106,4 +125,4 @@ Feature: Book a Visit Error messages
 
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP4_TST | DigitalServices10 | A8899DZ      |
+      | VSIP4_TST | DigitalServices11 | A8899DZ      |

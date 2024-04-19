@@ -7,7 +7,7 @@ Feature: Need a review
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
     And I enter the "<password>"
-    And click on submit button
+    And click on login submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Need a Review option
     And Im on "Manage prison visits - Visit bookings that need review" page

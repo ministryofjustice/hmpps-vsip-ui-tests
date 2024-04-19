@@ -33,7 +33,7 @@ public class BookingDetailsPage extends BasePage {
     }
 
     public void checkBannerDisplayed(String banner) {
-        methodsService.isElementDisplayed("xpath","//span[text()='This visit was cancelled by the visitor.']");
+        methodsService.isElementDisplayed("xpath","//span[text()='"+banner+"']");
     }
 
     public void clickOnVisitorsTab() {

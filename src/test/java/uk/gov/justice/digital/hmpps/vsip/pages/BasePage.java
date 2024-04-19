@@ -14,6 +14,8 @@ import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
 import uk.gov.justice.digital.hmpps.vsip.services.CommonMethodService;
 import uk.gov.justice.digital.hmpps.vsip.services.TestContextService;
 
+import java.time.Duration;
+
 @ComponentWithWebDriver
 public class BasePage {
 
@@ -42,6 +44,10 @@ public class BasePage {
 
     public void verifyHeading(String text) {
         driver.findElement(By.cssSelector("h1")).getText().equals(text);
+    }
+
+    public void waitAWhile(int seconds) {
+         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
     }
 
 }

@@ -7,9 +7,11 @@ Feature: Book/Cancel/Amend a Visit
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
     And I enter the "<password>"
-    And click on submit button
+    And click on login submit button
     Then Im on "Manage prison visits - Manage prison visits" page
-    And I click on Change a visit option
+    And I click on Book a visit option
+    And Im on "Manage prison visits - Search for a prisoner" page
+    Then I click on option to search by booking reference
     And Im on "Manage prison visits - Search for a booking" page
     And I enter "<value1>" in first block
     And I enter "<value2>" in second block
@@ -33,9 +35,11 @@ Feature: Book/Cancel/Amend a Visit
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
     And I enter the "<password>"
-    And click on submit button
+    And click on login submit button
     Then Im on "Manage prison visits - Manage prison visits" page
-    And I click on Change a visit option
+    And I click on Book a visit option
+    And Im on "Manage prison visits - Search for a prisoner" page
+    Then I click on option to search by booking reference
     And Im on "Manage prison visits - Search for a booking" page
     And I enter "<value1>" in first block
     And I enter "<value2>" in second block
@@ -54,12 +58,36 @@ Feature: Book/Cancel/Amend a Visit
       | VSIP1_TST | Expired10         | ra     | in     | mv     | vo     |
 
   @suite
+  Scenario Outline: Visit details captured by a method of Cancellation
+    Given I navigate to VSIP service
+    And Im on "HMPPS Digital Services - Sign in" page
+    And I enter "<userName>"
+    And I enter the "<password>"
+    And click on login submit button
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I click on Book a visit option
+    And Im on "Manage prison visits - Search for a prisoner" page
+    Then I click on option to search by booking reference
+    And Im on "Manage prison visits - Search for a booking" page
+    Then I click on search by name or prison number option
+    And Im on "Manage prison visits - Search for a prisoner" page
+    When I enter "<prisonerName>" to search for a prison
+    And click on search button
+    Then I choose prison from search results
+    Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
+    And I sign out of the service
+
+    Examples:
+      | userName  | password          | prisonerName      |
+      | VSIP1_TST | Expired10         | VSIP_PRISONER06   |
+
+  @suite
   Scenario Outline: User sees a message displayed if a Prisoner has no visitors over 18years old
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
     And I enter the "<password>"
-    And click on submit button
+    And click on login submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
@@ -82,7 +110,7 @@ Feature: Book/Cancel/Amend a Visit
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
     And I enter the "<password>"
-    And click on submit button
+    And click on login submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page

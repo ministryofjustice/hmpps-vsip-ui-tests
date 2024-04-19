@@ -7,7 +7,7 @@ Feature: Non-association visit
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
     And I enter the "<password>"
-    And click on submit button
+    And click on login submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
     And I change the establishment to Bristol
@@ -58,8 +58,8 @@ Feature: Non-association visit
     Then Im on "Manage prison visits - Select date and time of visit" page
     And I shouldn't be able to select a timeslot that was booked last
     And I sign out of the service
-    #Reverting the Booking for consistent Test execution
-    And I want to clean up after the above test
+
+
 
 
     Examples:

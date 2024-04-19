@@ -1,52 +1,9 @@
-Feature: Book a Visit
-  As a user, I should be able to book a visit using VSIP service
+Feature: When a booking get prisoner release notification
+  but we do not want to change the visit
 
-  @suite
-  Scenario Outline: Book a visit search via prison number
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on login submit button
-    Then Im on "Manage prison visits - Manage prison visits" page
-    And I click on Book a visit option
-    And Im on "Manage prison visits - Search for a prisoner" page
-    When I enter "<prisonNumber>" to search for a prison
-    And click on search button
-    Then I choose prison from search results
-    Then Im on "Manage prison visits - Vsip_prisoner01, Do Not Use" page
-    And I click on Book a visit button
-    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
-    And I select a visitor form the list
-    And click on continue button
-    Then Im on "Manage prison visits - Select date and time of visit" page
-    And I select time slot
-    And click on continue button
-    Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
-    And I select No for additional support needed
-    And click on continue button
-    Then Im on "Manage prison visits - Who is the main contact for this booking?" page
-    And I select the main contact option
-    And I choose No phone number provided option
-    And click on continue button
-    Then Im on "Manage prison visits - How was this booking requested?" page
-    And I select a phone call option on method used to make the reqest
-    And click on continue button
-    Then Im on "Manage prison visits - Check the visit details before booking" page
-    And click on continue button
-    Then Im on "Manage prison visits - Booking confirmed" page
-    And I see "Booking confirmed" message displayed
-    And I see a booking reference
-    And I sign out of the service
+  @test_suite
+  Scenario Outline: mark visit notification for some one who released from prison as do not change and add remark
 
-
-
-    Examples:
-      | userName  | password          | prisonNumber |
-      | VSIP1_TST | Expired10         | A6036DZ      |
-
-  @smoke_tests_vs @suite
-  Scenario Outline: Book a visit search via prisoner name
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
@@ -67,11 +24,13 @@ Feature: Book a Visit
     And I select time slot
     And click on continue button
     Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
+    Then I take note of the hidden application reference
     And I select No for additional support needed
     And click on continue button
     Then Im on "Manage prison visits - Who is the main contact for this booking?" page
     And I select the main contact option
-    And I choose No phone number provided option
+    And I choose UK phone number option
+    And I enter "<phoneNumber>" to get text message
     And click on continue button
     Then Im on "Manage prison visits - How was this booking requested?" page
     And I select a phone call option on method used to make the reqest
@@ -81,170 +40,209 @@ Feature: Book a Visit
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
     And I see a booking reference
-    # capture Booking date and view
-    And I capture date the Booking is booked
-    And I click on Manage a Prison option
-    And I click on View visits by date option
-    And Im on "Manage prison visits - View visits by date" page
-    When I select Date picker option
-    And I enter date to view the visits
-    Then I click on view button
-    Then I see a visit and click on view option
-    Then I see "Visit booking details" of the visit of that date
-    And I sign out of the service
-
-
-
-    Examples:
-      | userName  | password          | prisonerName    |
-      | VSIP2_TST | Expired10         | VSIP_PRISONER06 |
-
-  @smoke_tests_os @suite @error_messages
-  Scenario Outline: Book a visit - Additional support needed
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on login submit button
+    Given A prisoner "<prisonerCode>" is released from "<prisonCode>"
+    And then we wait "2" second for the system to update
+    And I goto home page
     Then Im on "Manage prison visits - Manage prison visits" page
-    And I click on Book a visit option
-    And Im on "Manage prison visits - Search for a prisoner" page
-    When I enter "<prisonerName>" to search for a prison
-    And click on search button
-    Then I choose prison from search results
-    Then Im on "Manage prison visits - Vsip_prisoner07, Do Not Use" page
-    And I click on Book a visit button
-    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
-    And click on continue button
-    # checking error message
-    Then I see "No visitors selected" on select visitors page
-    And I select a visitor form the list for a prisoner
-    And click on continue button
-    Then Im on "Manage prison visits - Select date and time of visit" page
-    And click on continue button
-    # checking error message
-    And I select time slot
-    And click on continue button
-    Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
-    And click on continue button
-    # checking error messages
-    Then I see "No answer selected" on support needed page
-    And I select Yes for additional support needed
-    And click on continue button
-    Then I see "Enter details of the request" on the additional support page
-    And I enter "<incorrectdetails>" for additional support
-    And click on continue button
-    Then I see "Please enter at least 3 and no more than 512 characters" error message on character length
-    And I select No for additional support needed
-    And click on continue button
-    Then Im on "Manage prison visits - Who is the main contact for this booking?" page
-    And click on continue button
-    # checking error messages
-    Then I see "No main contact selected" on select main contact page
-    And I select the main contact option
-    And click on continue button
-    Then I see "No answer selected" error message on main contact page
-    And I choose UK phone number option
-    And click on continue button
-    Then I see "Enter a phone number" select main contact page
-    And I select the main contact option
-    And I choose UK phone number option
-    And I enter "<phoneNumber>" to get text message
-    And click on continue button
-    Then Im on "Manage prison visits - How was this booking requested?" page
-    And click on continue button
-    # checking error message
-    Then I see "No request method selected" on method used to request page
-    And I select a phone call option on method used to make the reqest
-    And click on continue button
-    Then Im on "Manage prison visits - Check the visit details before booking" page
-    And click on continue button
-    Then Im on "Manage prison visits - Booking confirmed" page
-    And I see "Booking confirmed" message displayed
-    And I see a booking reference
-    And I sign out of the service
-
-
-
-    Examples:
-      | userName  | password          | prisonerName    | phoneNumber | incorrectdetails     |
-      | VSIP3_TST | Expired10         | Vsip_prisoner07 | 07806789076 | w                    |
-
-  @suite
-  Scenario Outline: Book a visit - Someone else main contact
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on login submit button
-    Then Im on "Manage prison visits - Manage prison visits" page
-    And I click on Book a visit option
-    And Im on "Manage prison visits - Search for a prisoner" page
-    When I enter "<prisonerName>" to search for a prison
-    And click on search button
-    Then I choose prison from search results
-    Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
-    And I click on Book a visit button
-    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
-    And I select a visitor form the lists
-    And click on continue button
-    Then Im on "Manage prison visits - Select date and time of visit" page
-    And I select time slot
-    And click on continue button
-    Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
-    And I select Yes for additional support needed
-    And I enter "<details>" for additional support
-    And click on continue button
-    Then Im on "Manage prison visits - Who is the main contact for this booking?" page
-    And I select the someone else option
-    And I enter "<contactName>" in the someone else option
-    And I choose UK phone number option
-    And I enter "<phoneNumber>" to get text message
-    And click on continue button
-    Then Im on "Manage prison visits - How was this booking requested?" page
-    And I select by the prisoner option on method used to make the reqest
-    And click on continue button
-    Then Im on "Manage prison visits - Check the visit details before booking" page
-    And click on continue button
-    Then Im on "Manage prison visits - Booking confirmed" page
-    And I see "Booking confirmed" message displayed
-    And I see a booking reference
-    #Now I cancel the booking
-    And I click on Manage a Prison option
-    Then Im on "Manage prison visits - Manage prison visits" page
-    And I click on Book a visit option
-    And Im on "Manage prison visits - Search for a prisoner" page
-    When I enter "<prisonNumber>" to search for a prison
-    And click on search button
-    Then I choose prison from search results
-    Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
-    And I select last booked visit reference
-    And I click on Cancel a visit button
-    Then Im on "Manage prison visits - Why is this booking being cancelled?" page
-    And I select Visitor Cancelled option
-    And I select Phone call option
-    And I enter cancellation "<reason>" for the visit
-    And click on cancel button
-    Then Im on "Manage prison visits - Booking cancelled" page
-    And I see "Booking cancelled" message displayed
-    # Checking the method used to make this Booking
-    And I click on Manage a Prison option
-    Then Im on "Manage prison visits - Manage prison visits" page
-    And I click on Book a visit option
-    And Im on "Manage prison visits - Search for a prisoner" page
-    When I enter "<prisonNumber>" to search for a prison
-    And click on search button
-    Then I choose prison from search results
-    Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
-    And I select last booked visit reference
-    And I see "This visit was cancelled by the visitor." banner
+    And I click on Need a Review option with a review number flag
+    And Im on "Manage prison visits - Visit bookings that need review" page
+    And I click on view link to see details of the booking needs review
+    Then Im on "Manage prison visits - Visit booking details - <booking_reference>" visit view page
+    And I see "This booking should be cancelled as the prisoner has been released." banner
     And I choose Booking history tab
-    And I see "Reason: Health issues" reason used to Book a visit
-    And I see "Request method: Phone call" used to cancel booking
+    And click on do not change button
+    Then Im on "Manage prison visits - Are you sure the visit does not need to be updated or cancelled?" page
+    And I select yes i am sure the visit dose not need to be updated or cancelled
+    And I enter a "Because the prisoner is coming back" as a reason why the visit dose not need to be updated or cancelled
+    And click on submit button
+    Then Im on "Manage prison visits - Visit booking details - <booking_reference>" visit view page
+    And I do not see the do not change button
     And I sign out of the service
 
-    #
+    Examples:
+          | userName  | password          | prisonerName    | phoneNumber | prisonCode | prisonerCode |
+          | VSIP2_TST | Expired10         | VSIP_PRISONER06 | 07805123900 | HEI        | A6539DZ      |
+
+
+  @test_suite
+  Scenario Outline: mark visit notification for some one who released from prison as do not change and do not add remark
+
+    Given I navigate to VSIP service
+    And Im on "HMPPS Digital Services - Sign in" page
+    And I enter "<userName>"
+    And I enter the "<password>"
+    And click on login submit button
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I click on Book a visit option
+    And Im on "Manage prison visits - Search for a prisoner" page
+    When I enter "<prisonerName>" to search for a prison
+    And click on search button
+    Then I choose prison from search results
+    Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
+    And I click on Book a visit button
+    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
+    And I select a visitor form the lists
+    And click on continue button
+    Then Im on "Manage prison visits - Select date and time of visit" page
+    And I select time slot
+    And click on continue button
+    Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
+    Then I take note of the hidden application reference
+    And I select No for additional support needed
+    And click on continue button
+    Then Im on "Manage prison visits - Who is the main contact for this booking?" page
+    And I select the main contact option
+    And I choose UK phone number option
+    And I enter "<phoneNumber>" to get text message
+    And click on continue button
+    Then Im on "Manage prison visits - How was this booking requested?" page
+    And I select a phone call option on method used to make the reqest
+    And click on continue button
+    Then Im on "Manage prison visits - Check the visit details before booking" page
+    And click on continue button
+    Then Im on "Manage prison visits - Booking confirmed" page
+    And I see "Booking confirmed" message displayed
+    And I see a booking reference
+    Given A prisoner "<prisonerCode>" is released from "<prisonCode>"
+    And then we wait "2" second for the system to update
+    And I goto home page
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I click on Need a Review option with a review number flag
+    And Im on "Manage prison visits - Visit bookings that need review" page
+    And I click on view link to see details of the booking needs review
+    Then Im on "Manage prison visits - Visit booking details - <booking_reference>" visit view page
+    And I see "This booking should be cancelled as the prisoner has been released." banner
+    And I choose Booking history tab
+    And click on do not change button
+    Then Im on "Manage prison visits - Are you sure the visit does not need to be updated or cancelled?" page
+    And I select yes i am sure the visit dose not need to be updated or cancelled
+    And I enter a "" as a reason why the visit dose not need to be updated or cancelled
+    And click on submit button
+    Then I see "Enter a reason for not changing the booking" on the page
+    And I sign out of the service
 
     Examples:
-      | userName  | password          | prisonerName    | contactName | phoneNumber | reason        | prisonNumber |
-      | VSIP1_TST | Expired10         | VSIP_PRISONER06 | John        | 07806432054 | Health issues | A6539DZ      |
+      | userName  | password          | prisonerName    | phoneNumber | prisonCode | prisonerCode |
+      | VSIP2_TST | Expired10         | VSIP_PRISONER06 | 07805123900 | HEI        | A6539DZ      |
+
+
+  @test_suite
+  Scenario Outline: goto visit notification page and press submit with out selecting options
+
+    Given I navigate to VSIP service
+    And Im on "HMPPS Digital Services - Sign in" page
+    And I enter "<userName>"
+    And I enter the "<password>"
+    And click on login submit button
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I click on Book a visit option
+    And Im on "Manage prison visits - Search for a prisoner" page
+    When I enter "<prisonerName>" to search for a prison
+    And click on search button
+    Then I choose prison from search results
+    Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
+    And I click on Book a visit button
+    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
+    And I select a visitor form the lists
+    And click on continue button
+    Then Im on "Manage prison visits - Select date and time of visit" page
+    And I select time slot
+    And click on continue button
+    Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
+    Then I take note of the hidden application reference
+    And I select No for additional support needed
+    And click on continue button
+    Then Im on "Manage prison visits - Who is the main contact for this booking?" page
+    And I select the main contact option
+    And I choose UK phone number option
+    And I enter "<phoneNumber>" to get text message
+    And click on continue button
+    Then Im on "Manage prison visits - How was this booking requested?" page
+    And I select a phone call option on method used to make the reqest
+    And click on continue button
+    Then Im on "Manage prison visits - Check the visit details before booking" page
+    And click on continue button
+    Then Im on "Manage prison visits - Booking confirmed" page
+    And I see "Booking confirmed" message displayed
+    And I see a booking reference
+    Given A prisoner "<prisonerCode>" is released from "<prisonCode>"
+    And then we wait "2" second for the system to update
+    And I goto home page
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I click on Need a Review option with a review number flag
+    And Im on "Manage prison visits - Visit bookings that need review" page
+    And I click on view link to see details of the booking needs review
+    Then Im on "Manage prison visits - Visit booking details - <booking_reference>" visit view page
+    And I see "This booking should be cancelled as the prisoner has been released." banner
+    And I choose Booking history tab
+    And click on do not change button
+    Then Im on "Manage prison visits - Are you sure the visit does not need to be updated or cancelled?" page
+    And click on submit button
+    Then I see "No answer selected" on the page
+    And I sign out of the service
+
+    Examples:
+      | userName  | password          | prisonerName    | phoneNumber | prisonCode | prisonerCode |
+      | VSIP2_TST | Expired10         | VSIP_PRISONER06 | 07805123900 | HEI        | A6539DZ      |
+
+
+  @test_suite
+  Scenario Outline: goto visit notification page and select no to are you sure the visit does not need to be updated or cancelled
+
+    Given I navigate to VSIP service
+    And Im on "HMPPS Digital Services - Sign in" page
+    And I enter "<userName>"
+    And I enter the "<password>"
+    And click on login submit button
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I click on Book a visit option
+    And Im on "Manage prison visits - Search for a prisoner" page
+    When I enter "<prisonerName>" to search for a prison
+    And click on search button
+    Then I choose prison from search results
+    Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
+    And I click on Book a visit button
+    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
+    And I select a visitor form the lists
+    And click on continue button
+    Then Im on "Manage prison visits - Select date and time of visit" page
+    And I select time slot
+    And click on continue button
+    Then Im on "Manage prison visits - Is additional support needed for any of the visitors?" page
+    Then I take note of the hidden application reference
+    And I select No for additional support needed
+    And click on continue button
+    Then Im on "Manage prison visits - Who is the main contact for this booking?" page
+    And I select the main contact option
+    And I choose UK phone number option
+    And I enter "<phoneNumber>" to get text message
+    And click on continue button
+    Then Im on "Manage prison visits - How was this booking requested?" page
+    And I select a phone call option on method used to make the reqest
+    And click on continue button
+    Then Im on "Manage prison visits - Check the visit details before booking" page
+    And click on continue button
+    Then Im on "Manage prison visits - Booking confirmed" page
+    And I see "Booking confirmed" message displayed
+    And I see a booking reference
+    Given A prisoner "<prisonerCode>" is released from "<prisonCode>"
+    And then we wait "2" second for the system to update
+    And I goto home page
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I click on Need a Review option with a review number flag
+    And Im on "Manage prison visits - Visit bookings that need review" page
+    And I click on view link to see details of the booking needs review
+    Then Im on "Manage prison visits - Visit booking details - <booking_reference>" visit view page
+    And I see "This booking should be cancelled as the prisoner has been released." banner
+    And I choose Booking history tab
+    And click on do not change button
+    Then Im on "Manage prison visits - Are you sure the visit does not need to be updated or cancelled?" page
+    And I select no i am sure the visit dose not need to be updated or cancelled
+    And click on submit button
+    Then Im on "Manage prison visits - Visit booking details - <booking_reference>" visit view page
+    And I see the do not change button
+    And I sign out of the service
+
+    Examples:
+      | userName  | password          | prisonerName    | phoneNumber | prisonCode | prisonerCode |
+      | VSIP2_TST | Expired10         | VSIP_PRISONER06 | 07805123900 | HEI        | A6539DZ      |

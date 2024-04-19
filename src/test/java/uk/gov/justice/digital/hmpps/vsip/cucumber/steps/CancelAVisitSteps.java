@@ -1,6 +1,11 @@
 package uk.gov.justice.digital.hmpps.vsip.cucumber.steps;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
+import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
 import uk.gov.justice.digital.hmpps.vsip.pages.CancelAVisitPage;
 
@@ -9,6 +14,7 @@ public class CancelAVisitSteps {
 
     @LazyAutowired
     private CancelAVisitPage cancelAVisitPage;
+
 
     @And("I select Visitor Cancelled option")
     public void iSelectVisitorCancelledOption() {
@@ -23,6 +29,36 @@ public class CancelAVisitSteps {
     @And("click on cancel button")
     public void clickOnCancelButton() {
         cancelAVisitPage.clickOnCancelBtn();
+    }
+
+    @And("click on do not change button")
+    public void clickOnDoNoChangeButton() {
+        cancelAVisitPage.clickOnDoNoChangeButton();
+    }
+
+
+    @And("I do not see the do not change button")
+    public void idoNotSeeTheDoNotChangeButton() {
+        Assert.assertTrue("We should not see the do not change button", !cancelAVisitPage.canISeeDoNotChangeButton());
+    }
+
+    @And("I see the do not change button")
+    public void idoSeeTheDoNotChangeButton() {
+        Assert.assertTrue("We should see the do not change button", cancelAVisitPage.canISeeDoNotChangeButton());
+    }
+
+    @And("I select yes i am sure the visit dose not need to be updated or cancelled")
+    public void selectYesIAmSureTheVisitDoseNotNeedToBeUpdatedOrCancelled() {
+        cancelAVisitPage.clickSelectYesIAmSureTheVisitDoseNotNeed();
+    }
+    @And("I select no i am sure the visit dose not need to be updated or cancelled")
+    public void iSelectNoIAmSureTheVisitDoseNotNeedToBeUpdatedOrCancelled() {
+        cancelAVisitPage.clickSelectNoIAmSureTheVisitDoseNotNeed();
+    }
+
+    @And("I enter a {string} as a reason why the visit dose not need to be updated or cancelled")
+    public void iEnterAReasonWhyTheVisitDoseNotNeedToBeUpdatedOrCancelled(String reason) {
+        cancelAVisitPage.entreReasonForDoNotChangeInput(reason);
     }
 
     @And("I select Establishment cancelled option")
@@ -45,4 +81,7 @@ public class CancelAVisitSteps {
     public void iSelectPhoneCallOption() {
         cancelAVisitPage.selectCancelByPhone();
     }
+
+
+
 }

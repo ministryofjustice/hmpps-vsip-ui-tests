@@ -6,7 +6,7 @@ Feature: Cancel a Visit
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
     And I enter the "<password>"
-    And click on submit button
+    And click on login submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Change a visit option
     And Im on "Manage prison visits - Search for a booking" page
@@ -37,7 +37,7 @@ Feature: Cancel a Visit
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
     And I enter the "<password>"
-    And click on submit button
+    And click on login submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Change a visit option
     And Im on "Manage prison visits - Search for a booking" page
@@ -66,7 +66,7 @@ Feature: Cancel a Visit
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
     And I enter the "<password>"
-    And click on submit button
+    And click on login submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Change a visit option
     And Im on "Manage prison visits - Search for a booking" page
@@ -95,7 +95,7 @@ Feature: Cancel a Visit
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
     And I enter the "<password>"
-    And click on submit button
+    And click on login submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Change a visit option
     And Im on "Manage prison visits - Search for a booking" page
@@ -124,7 +124,7 @@ Feature: Cancel a Visit
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
     And I enter the "<password>"
-    And click on submit button
+    And click on login submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Change a visit option
     And Im on "Manage prison visits - Search for a booking" page

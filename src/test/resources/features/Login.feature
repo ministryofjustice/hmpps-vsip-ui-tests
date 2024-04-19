@@ -6,7 +6,7 @@ Feature: Login
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
     And I enter the "<password>"
-    And click on submit button
+    And click on login submit button
     Then Im on "Manage prison visits - Manage prison visits" page
     And I sign out of the service
 
@@ -19,7 +19,7 @@ Feature: Login
     And Im on "HMPPS Digital Services - Sign in" page
     And I enter "<userName>"
     And I enter the "<password>"
-    And click on submit button
+    And click on login submit button
     Then I see "Enter a valid username and password. You will be locked out if you enter the wrong details 10 times." page
     And I sign out of the service
 
