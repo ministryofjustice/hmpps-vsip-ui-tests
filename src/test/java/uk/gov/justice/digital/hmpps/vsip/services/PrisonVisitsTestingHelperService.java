@@ -85,7 +85,6 @@ public class PrisonVisitsTestingHelperService {
             var bookings = new ArrayList<>(context.getBookingReferences());
             if (bookings != null) {
                 LOG.debug(bookings.size() + " Bookings found, must tidy up!");
-                // We use changing here because it is not counted as part of booking slot counts and is also removed after configured time.
                 bookings.forEach(bookingReference -> {
                     client.deleteVisits(bookingReference);
                     // Remove reference from context
@@ -98,7 +97,6 @@ public class PrisonVisitsTestingHelperService {
             var applicationReferences = new ArrayList<>(context.getApplicationReferences());
             if (applicationReferences != null) {
                 LOG.debug(applicationReferences.size() + " Application found, must tidy up!");
-                // We use changing here because it is not counted as part of booking slot counts and is also removed after configured time.
                 applicationReferences.forEach(applicationReference -> {
                     client.deleteApplication(applicationReference);
                     // Remove reference from context

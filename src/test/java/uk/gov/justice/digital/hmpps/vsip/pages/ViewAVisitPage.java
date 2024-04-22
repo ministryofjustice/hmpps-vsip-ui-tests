@@ -8,7 +8,7 @@ import org.openqa.selenium.support.How;
 import uk.gov.justice.digital.hmpps.vsip.annotation.ComponentWithWebDriver;
 
 @ComponentWithWebDriver
-public class CancelAVisitPage extends BasePage {
+public class ViewAVisitPage extends BasePage {
 
     @FindBy(how = How.XPATH, using = "//input[@data-test='clear-notification-yes']")
     private WebElement selectYesIAmSureTheVisitDoseNotNeed;

@@ -1,19 +1,15 @@
 package uk.gov.justice.digital.hmpps.vsip.cucumber.steps;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
-import uk.gov.justice.digital.hmpps.vsip.pages.CancelAVisitPage;
+import uk.gov.justice.digital.hmpps.vsip.pages.ViewAVisitPage;
 
 
-public class CancelAVisitSteps {
+public class ViewAVisitSteps {
 
     @LazyAutowired
-    private CancelAVisitPage cancelAVisitPage;
+    private ViewAVisitPage cancelAVisitPage;
 
 
     @And("I select Visitor Cancelled option")
@@ -47,11 +43,11 @@ public class CancelAVisitSteps {
         Assert.assertTrue("We should see the do not change button", cancelAVisitPage.canISeeDoNotChangeButton());
     }
 
-    @And("I select yes i am sure the visit dose not need to be updated or cancelled")
+    @And("I select yes to the question i am sure the visit dose not need to be updated or cancelled")
     public void selectYesIAmSureTheVisitDoseNotNeedToBeUpdatedOrCancelled() {
         cancelAVisitPage.clickSelectYesIAmSureTheVisitDoseNotNeed();
     }
-    @And("I select no i am sure the visit dose not need to be updated or cancelled")
+    @And("I select no to the question i am sure the visit dose not need to be updated or cancelled")
     public void iSelectNoIAmSureTheVisitDoseNotNeedToBeUpdatedOrCancelled() {
         cancelAVisitPage.clickSelectNoIAmSureTheVisitDoseNotNeed();
     }

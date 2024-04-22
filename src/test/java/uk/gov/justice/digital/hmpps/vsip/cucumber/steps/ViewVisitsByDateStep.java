@@ -3,6 +3,8 @@ package uk.gov.justice.digital.hmpps.vsip.cucumber.steps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
 import uk.gov.justice.digital.hmpps.vsip.pages.ConfirmationPage;
 import uk.gov.justice.digital.hmpps.vsip.pages.ViewVisitsByDatePage;
@@ -12,6 +14,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class ViewVisitsByDateStep {
+
+    private static final Logger LOG = LoggerFactory.getLogger(ViewVisitsByDateStep.class);
 
     @LazyAutowired
     ViewVisitsByDatePage viewVisitsByDatePage;
@@ -62,10 +66,10 @@ public class ViewVisitsByDateStep {
     public void iCaptureDateTheBookingIsBooked() {
         //capturing date from booking confirmation page
         String originalDateValue = confirmationPage.getDateBooked();
-        System.out.println("Original Date value from confirmation page: " + originalDateValue);
+        LOG.debug("Original Date value from confirmation page: " + originalDateValue);
 
         testContextService.setOriginalDateBookingReference(originalDateValue);
-        System.out.println("Original Date Booking Reference: " + testContextService.getOriginalDateBookingReference());
+        LOG.debug("Original Date Booking Reference: " + testContextService.getOriginalDateBookingReference());
 
         //formatting the date to pass to API
         DateTimeFormatter originalFormatter = DateTimeFormatter.ofPattern("EEEE d MMMM yyyy");
