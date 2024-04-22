@@ -52,7 +52,7 @@ public class ViewAVisitSteps {
         cancelAVisitPage.clickSelectNoIAmSureTheVisitDoseNotNeed();
     }
 
-    @And("I enter a {string} as a reason why the visit dose not need to be updated or cancelled")
+    @And("I enter a {string} as a reason why the visit does not need to be updated or cancelled")
     public void iEnterAReasonWhyTheVisitDoseNotNeedToBeUpdatedOrCancelled(String reason) {
         cancelAVisitPage.entreReasonForDoNotChangeInput(reason);
     }
