@@ -27,10 +27,7 @@ public class CommonSteps {
     @LazyAutowired
     private TestContextService testContextService;
 
-    @Given("click on login submit button")
-    public void i_click_on_login_submit_button() {
-        methodsService.clickOnLoginSubmitBtn();
-    }
+
 
     @Given("click on submit button")
     public void i_click_on_submit_button() {

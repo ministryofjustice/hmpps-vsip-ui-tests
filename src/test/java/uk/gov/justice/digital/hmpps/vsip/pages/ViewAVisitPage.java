@@ -22,9 +22,7 @@ public class ViewAVisitPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//a[contains(@data-test, 'clear-notifications')]")
     private WebElement doNotChangeButton;
 
-    public void selectCancelByVisitor() {
-        methodsService.selectRadioButton("xpath", "//input[@id='cancel']");
-    }
+
 
     public void selectCancelByPhone() {
         methodsService.selectRadioButton("xpath", "//input[@id='method']");
@@ -46,16 +44,25 @@ public class ViewAVisitPage extends BasePage {
         methodsService.enterValInTextField("xpath", reason, "//input[@id='reason']");
     }
 
+
+    public void selectCancelByVisitor() {
+        methodsService.selectRadioButton("xpath", "//input[@data-test='visitor_cancelled']");
+    }
+
     public void selectCancelByEstablishment() {
-        methodsService.selectRadioButton("xpath", "//input[@id='cancel-2']");
+        methodsService.selectRadioButton("xpath", "//input[@data-test='establishment_cancelled']");
     }
 
     public void selectCancelByPrisoner() {
-        methodsService.selectRadioButton("xpath", "//input[@id='cancel-3']");
+        methodsService.selectRadioButton("xpath", "//input[@data-test='prisoner_cancelled']");
+    }
+
+    public void selectCancelBecauseDetailsChangedAfterBooking() {
+        methodsService.selectRadioButton("xpath", "//input[@data-test='details_changed_after_booking']");
     }
 
     public void selectCancelByAdmin() {
-        methodsService.selectRadioButton("xpath", "//input[@id='cancel-3']");
+        methodsService.selectRadioButton("xpath", "//input[@data-test='administrative_error']");
     }
 
     public void clickOnCancelBtn() {

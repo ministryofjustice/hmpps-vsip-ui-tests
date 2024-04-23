@@ -72,6 +72,11 @@ public class ViewAVisitSteps {
         cancelAVisitPage.selectCancelByAdmin();
     }
 
+    @And("I select because booking details have changed option")
+    public void selectCancelBecauseDetailsChangedAfterBooking() {
+        cancelAVisitPage.selectCancelBecauseDetailsChangedAfterBooking();
+    }
+
     //The below method can be written for multiple options Gov.uk,Email,In person
     @And("I select Phone call option")
     public void iSelectPhoneCallOption() {

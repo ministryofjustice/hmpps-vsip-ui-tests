@@ -209,7 +209,8 @@ public class CommonMethodService {
     }
 
     public void errorMsgDisplayed(String errorMsg) {
-        isElementDisplayed("xpath", "//*[@id='error-detail']");
+        var xpath = "//div[contains(@id, 'error-detail') and .//*[text() = '"+errorMsg+"']]";
+        isElementDisplayed("xpath", xpath);
     }
 
     public void chooseBristol() {

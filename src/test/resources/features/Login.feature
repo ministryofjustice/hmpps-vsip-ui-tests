@@ -21,8 +21,7 @@ Feature: Login
     And I enter the "<password>"
     And click on login submit button
     Then I see "Enter a valid username and password. You will be locked out if you enter the wrong details 10 times." page
-    And I sign out of the service
 
     Examples:
       | userName  | password          |
-      | VSIP1_TST | Expired10         |
+      | VSIP1d_TST | Expired10         |
