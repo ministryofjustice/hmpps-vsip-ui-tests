@@ -58,7 +58,7 @@ public class TestingHelperSteps {
 
     @And("I want to clean up after the above test")
     public void iWantToCleanUpAfterTheAboveTest() {
-        testHelper.cleanUpBookings();
+        testHelper.cleanUpBookingsAndApplications();
     }
 
     @And("I want to clean up after the exclude date test")

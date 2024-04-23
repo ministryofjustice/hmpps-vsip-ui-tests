@@ -3,11 +3,7 @@ Feature: Need a review
 
   @suite
   Scenario Outline: User able to view the Visit status
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Need a Review option
     And Im on "Manage prison visits - Visit bookings that need review" page

@@ -18,9 +18,9 @@ spring:
 
 vsip:
   ui-to-test:
-    url: https://manage-prison-visits-dev.prison.service.justice.gov.uk
+    url: https://manage-prison-visits-staging.prison.service.justice.gov.uk
   test-api:
-    url: https://hmpps-prison-visits-testing-helper-api-dev.prison.service.justice.gov.uk
+    url: https://hmpps-prison-visits-testing-helper-api-staging.prison.service.justice.gov.uk
   remote-driver:
     url: http://localhost:4444/wd/hub
 

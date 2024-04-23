@@ -28,7 +28,7 @@ public class HomeSteps {
 
     @And("I click on Need a Review option with a review number flag")
     public void iClickOnNeedAReviewOptionWithReviewFlag() {
-        homePage.hashNeedReviewCount();
+        homePage.hasNeedReviewCount();
         homePage.clickOnNeedAReviewOption();
     }
 
@@ -42,4 +42,13 @@ public class HomeSteps {
         homePage.gotoHomePage();
     }
 
+    @Then("I click on option to search by booking reference")
+    public void iClickOnOptionToSearchByBookingReference() {
+        homePage.clickOptionSearchByRef();
+    }
+
+    @Then("I click on search by name or prison number option")
+    public void iClickOnSearchByNameOrPrisonNumberOption() {
+        homePage.clickOptionSearchByPrisonNo();
+    }
 }

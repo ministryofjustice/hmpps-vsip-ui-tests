@@ -3,11 +3,7 @@ Feature: Non-association visit
 
  # @suite
   Scenario Outline: Non-association
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
     And I change the establishment to Bristol
@@ -16,7 +12,7 @@ Feature: Non-association visit
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
-    Then I choose prison from search results
+    Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner03, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
@@ -34,7 +30,7 @@ Feature: Non-association visit
     And I enter "<phoneNumber>" to get text message
     And click on continue button
     Then Im on "Manage prison visits - How was this booking requested?" page
-    And I select a phone call option on method used to make the reqest
+    And I select a phone call option on method used to make the request
     And click on continue button
     Then Im on "Manage prison visits - Check the visit details before booking" page
     And click on continue button
@@ -49,7 +45,7 @@ Feature: Non-association visit
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonerName>" to search for a prison
     And click on search button
-    Then I choose prison from search results
+    Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner08, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
@@ -58,8 +54,8 @@ Feature: Non-association visit
     Then Im on "Manage prison visits - Select date and time of visit" page
     And I shouldn't be able to select a timeslot that was booked last
     And I sign out of the service
-    #Reverting the Booking for consistent Test execution
-    And I want to clean up after the above test
+
+
 
 
     Examples:

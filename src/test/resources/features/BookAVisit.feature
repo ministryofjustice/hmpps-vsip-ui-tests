@@ -3,17 +3,13 @@ Feature: Book a Visit
 
   @suite
   Scenario Outline: Book a visit search via prison number
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
-    Then I choose prison from search results
+    Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner01, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
@@ -30,7 +26,7 @@ Feature: Book a Visit
     And I choose No phone number provided option
     And click on continue button
     Then Im on "Manage prison visits - How was this booking requested?" page
-    And I select a phone call option on method used to make the reqest
+    And I select a phone call option on method used to make the request
     And click on continue button
     Then Im on "Manage prison visits - Check the visit details before booking" page
     And click on continue button
@@ -38,8 +34,8 @@ Feature: Book a Visit
     And I see "Booking confirmed" message displayed
     And I see a booking reference
     And I sign out of the service
-    #Reverting the Booking for consistent Test execution
-    And I want to clean up after the above test
+
+
 
     Examples:
       | userName  | password          | prisonNumber |
@@ -47,17 +43,13 @@ Feature: Book a Visit
 
   @smoke_tests_vs @suite
   Scenario Outline: Book a visit search via prisoner name
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonerName>" to search for a prison
     And click on search button
-    Then I choose prison from search results
+    Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
@@ -74,16 +66,26 @@ Feature: Book a Visit
     And I choose No phone number provided option
     And click on continue button
     Then Im on "Manage prison visits - How was this booking requested?" page
-    And I select a phone call option on method used to make the reqest
+    And I select a phone call option on method used to make the request
     And click on continue button
     Then Im on "Manage prison visits - Check the visit details before booking" page
     And click on continue button
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
     And I see a booking reference
+    # capture Booking date and view
+    And I capture date the Booking is booked
+    And I click on Manage a Prison option
+    And I click on View visits by date option
+    And Im on "Manage prison visits - View visits by date" page
+    When I select Date picker option
+    And I enter date to view the visits
+    Then I click on view button
+    Then I see a visit and click on view option
+    Then I see "Visit booking details" of the visit of that date
     And I sign out of the service
-    #Reverting the Booking for consistent Test execution
-    And I want to clean up after the above test
+
+
 
     Examples:
       | userName  | password          | prisonerName    |
@@ -91,17 +93,13 @@ Feature: Book a Visit
 
   @smoke_tests_os @suite @error_messages
   Scenario Outline: Book a visit - Additional support needed
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonerName>" to search for a prison
     And click on search button
-    Then I choose prison from search results
+    Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner07, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
@@ -145,7 +143,7 @@ Feature: Book a Visit
     And click on continue button
     # checking error message
     Then I see "No request method selected" on method used to request page
-    And I select a phone call option on method used to make the reqest
+    And I select a phone call option on method used to make the request
     And click on continue button
     Then Im on "Manage prison visits - Check the visit details before booking" page
     And click on continue button
@@ -153,8 +151,8 @@ Feature: Book a Visit
     And I see "Booking confirmed" message displayed
     And I see a booking reference
     And I sign out of the service
-    #Reverting the Booking for consistent Test execution
-    And I want to clean up after the above test
+
+
 
     Examples:
       | userName  | password          | prisonerName    | phoneNumber | incorrectdetails     |
@@ -162,17 +160,13 @@ Feature: Book a Visit
 
   @suite
   Scenario Outline: Book a visit - Someone else main contact
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonerName>" to search for a prison
     And click on search button
-    Then I choose prison from search results
+    Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
@@ -206,7 +200,7 @@ Feature: Book a Visit
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
-    Then I choose prison from search results
+    Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
     And I select last booked visit reference
     And I click on Cancel a visit button
@@ -224,7 +218,7 @@ Feature: Book a Visit
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
-    Then I choose prison from search results
+    Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
     And I select last booked visit reference
     And I see "This visit was cancelled by the visitor." banner
@@ -232,8 +226,8 @@ Feature: Book a Visit
     And I see "Reason: Health issues" reason used to Book a visit
     And I see "Request method: Phone call" used to cancel booking
     And I sign out of the service
-    #Reverting the Booking for consistent Test execution
-    #And I want to clean up after the above test
+
+    #
 
     Examples:
       | userName  | password          | prisonerName    | contactName | phoneNumber | reason        | prisonNumber |

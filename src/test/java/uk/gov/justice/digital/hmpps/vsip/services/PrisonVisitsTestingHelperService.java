@@ -12,7 +12,9 @@ import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerRestrictio
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.VisitStatus;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.VisitorRestrictionEventDto;
 
+import java.lang.reflect.Array;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 @Service
 public class PrisonVisitsTestingHelperService {
@@ -76,14 +78,33 @@ public class PrisonVisitsTestingHelperService {
         client.put("/test/prisoner/restriction", request, client.validateCreateStatusHandler, "Prisoner restriction not created");
     }
 
-    public void cleanUpBookings() {
-        LOG.debug("Entered cleanUpLastBooking");
-        var bookings = context.getBookingReferences();
-        if (bookings != null) {
-            LOG.debug(bookings.size() + " Bookings found, must tidy up!");
-            // We use changing here because it is not counted as part of booking slot counts and is also removed after configured time.
-            bookings.forEach(bookingReference -> client.changeStatus(bookingReference, VisitStatus.CHANGING));
+    public void cleanUpBookingsAndApplications() {
+        LOG.debug("Entered cleanUpLastBooking"
+        );
+        if (context.getBookingReferences()!=null) {
+            var bookings = new ArrayList<>(context.getBookingReferences());
+            if (bookings != null) {
+                LOG.debug(bookings.size() + " Bookings found, must tidy up!");
+                bookings.forEach(bookingReference -> {
+                    client.deleteVisits(bookingReference);
+                    // Remove reference from context
+                    context.getBookingReferences().remove(bookingReference);
+                });
+            }
         }
+
+        if (context.getApplicationReferences()!=null) {
+            var applicationReferences = new ArrayList<>(context.getApplicationReferences());
+            if (applicationReferences != null) {
+                LOG.debug(applicationReferences.size() + " Application found, must tidy up!");
+                applicationReferences.forEach(applicationReference -> {
+                    client.deleteApplication(applicationReference);
+                    // Remove reference from context
+                    context.getApplicationReferences().remove(applicationReference);
+                });
+            }
+        }
+
     }
 
     public void addVisitExcludeDateEvent(String prisonCode, String date) {

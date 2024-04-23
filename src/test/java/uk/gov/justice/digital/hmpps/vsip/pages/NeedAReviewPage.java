@@ -19,6 +19,13 @@ public class NeedAReviewPage extends BasePage {
         methodsService.isElementDisplayed("xpath",xpath);
         methodsService.click("xpath","//a[text()='View']");
     }
+
+    public void clickOnViewWithRef(String bookingReference) {
+        final String xpath = "//a[@href='/visit/"+bookingReference+"?from=review']";
+        methodsService.isElementDisplayed("xpath",xpath);
+        methodsService.click("xpath",xpath);
+    }
+
     public void checkReviewMsg(String reviewMsg) {
         methodsService.isElementDisplayed("xpath","//h2[text()='Needs review']");
     }

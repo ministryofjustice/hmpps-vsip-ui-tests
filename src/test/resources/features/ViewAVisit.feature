@@ -1,35 +1,27 @@
 Feature: View a Visit
   As a user, I should be able to view a visit using VSIP service
 
-#  @suite
+  @suite
   Scenario Outline: User able to view the Visit status
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
-    And I click on Change a visit option
+    Then I book a visit for "<prisonerName>"
+    And I click on Book a visit option
+    And Im on "Manage prison visits - Search for a prisoner" page
+    Then I click on option to search by booking reference
     And Im on "Manage prison visits - Search for a booking" page
-    And I enter "<value1>" in first block
-    And I enter "<value2>" in second block
-    And I enter "<value3>" in third block
-    And I enter "<value4>" in fourth block
+    And I enter the booking reference
     And click on search button
     And I check the visit status "Booked"
     And I sign out of the service
 
     Examples:
-      | userName  | password          | value1 | value2 | value3 | value4 |
-      | VSIP1_TST | Expired10         | ln     | fq     | zv     | sv     |
+      | userName  | password          | prisonerName |
+      | VSIP1_TST | Expired10         | Vsip_prisoner06 |
 
   @suite
   Scenario Outline: User able to view Visits by date
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on View visits by date option
     And Im on "Manage prison visits - View visits by date" page
@@ -45,11 +37,7 @@ Feature: View a Visit
 
 #  @suite
   Scenario Outline: User able to view Visits by date
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on View visits by date option
     And Im on "Manage prison visits - View visits by date" page

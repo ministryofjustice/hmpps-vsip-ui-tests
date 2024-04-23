@@ -3,10 +3,12 @@ package uk.gov.justice.digital.hmpps.vsip.cucumber.steps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
 import uk.gov.justice.digital.hmpps.vsip.pages.BasePage;
 import uk.gov.justice.digital.hmpps.vsip.services.CommonMethodService;
 import uk.gov.justice.digital.hmpps.vsip.services.PrisonVisitsTestingHelperService;
+import uk.gov.justice.digital.hmpps.vsip.services.TestContextService;
 
 /**
  * Created by Anusha Nagula on 15/05/23.
@@ -22,14 +24,36 @@ public class CommonSteps {
     @LazyAutowired
     private PrisonVisitsTestingHelperService testHelper;
 
+    @LazyAutowired
+    private TestContextService testContextService;
+
+
+
     @Given("click on submit button")
     public void i_click_on_submit_button() {
         methodsService.clickOnSubmitBtn();
     }
 
+    @Then("I see {string} on the page")
+    public void iSeeOnThePage(String error) {
+        methodsService.isElementDisplayed("xpath","//a[text()='"+error+"']");
+    }
+
     @Then("Im on {string} page")
     public void im_on_vsip_page(String pageTitle) {
         basePage.isPageTitleDisplayed(pageTitle);
+    }
+
+    @Then("I take note of the hidden application reference")
+    public void then_i_take_note_of_the_hidden_application_reference() {
+        String applicationReference = methodsService.getApplicationRef();
+        Assert.assertTrue("We are expecting a application reference here", applicationReference!=null || !applicationReference.trim().isEmpty());
+        testContextService.setApplicationReference(applicationReference);
+    }
+
+    @Then("Im on {string} visit view page")
+    public void im_on_a_visit_view_page(String pageTitle) {
+        basePage.isPageTitleDisplayed(pageTitle.replace("<booking_reference>",testContextService.getBookingReference()));
     }
 
     @Then("click on continue button")
@@ -72,4 +96,8 @@ public class CommonSteps {
         methodsService.changeEstablishment();
     }
 
+    @And("then we wait {string} second for the system to update")
+    public void thenWeWaitSecondForTheSystemToUpdate(String seconds) {
+        basePage.waitAWhile(Integer.parseInt(seconds.trim()));
+    }
 }

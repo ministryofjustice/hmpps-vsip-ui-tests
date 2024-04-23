@@ -9,9 +9,28 @@ public class BookingDetailsPage extends BasePage {
         methodsService.clickOnButton("xpath", "//*[@id='tab_history']");
     }
 
-    public void checkCancelMessageDisplayed() {
-        methodsService.isElementDisplayed("xpath", "//p[text() = 'Reason: Health Issues']");
+    public void checkCancelMessageDisplayed(String cancelMsg) {
+        methodsService.isElementDisplayed("xpath", "//span[text() = '"+ cancelMsg +"']");
     }
+
+
+    public void checkHistoryTabCancelRequestMethod(String text) {
+        methodsService.isElementDisplayed("xpath", "//p[starts-with(@data-test,'visit-cancelled-request-method') and contains(.,'"+ text +"')]");
+    }
+
+    public void checkHistoryTabCancelReasonMethod(String text) {
+        methodsService.isElementDisplayed("xpath", "//p[starts-with(@data-test,'visit-cancelled-reason') and contains(.,'"+ text +"')]");
+    }
+
+    public void checkHistoryTabBookRequestMethod(String text) {
+        methodsService.isElementDisplayed("xpath", "//p[starts-with(@data-test,'visit-request-method') and text()='"+ text +"']");
+    }
+
+
+
+
+
+
 
     public void checkMethodofBooking(String msg) {
         methodsService.isElementDisplayed("xpath", "//p[text() = 'Request method: In person']");
@@ -33,7 +52,7 @@ public class BookingDetailsPage extends BasePage {
     }
 
     public void checkBannerDisplayed(String banner) {
-        methodsService.isElementDisplayed("xpath","//span[text()='This visit was cancelled by the visitor.']");
+        methodsService.isElementDisplayed("xpath","//span[text()='"+banner+"']");
     }
 
     public void clickOnVisitorsTab() {

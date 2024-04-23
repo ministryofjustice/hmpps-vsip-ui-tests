@@ -21,14 +21,13 @@ public class SearchSteps {
         searchPage.clickOnSearchBtn();
     }
 
-    @Then("I choose prison from search results")
-    public void i_choose_prison_from_search_results() {
+    @Then("I choose prisoner from search results")
+    public void i_choose_prisoner_from_search_results() {
         searchPage.selectPrisoner();
     }
 
     @And("I enter {string} in first block")
     public void iEnterInFirstBlock(String value1) {
-        searchPage.enterConfirmationInBlock1(value1);
     }
 
     @And("I enter {string} in second block")
@@ -54,5 +53,15 @@ public class SearchSteps {
     @And("I check the visit status {string}")
     public void iCheckTheVisitStatus(String status) {
         searchPage.visitStatusDisplayed(status);
+    }
+
+    @Then("I see {string} on booking reference search page")
+    public void iSeeOnBookingReferenceSearchPage(String errorMsg) {
+        searchPage.bookingRefSearchErrMsg();
+    }
+
+    @And("I enter the booking reference")
+    public void iEnterBookingReference() {
+        searchPage.enterBookingReference();
     }
 }

@@ -24,6 +24,12 @@ public class HomePage extends BasePage {
     @FindBy(how = How.XPATH, using = "//*[contains(@data-test, 'need-review-count')]")
     private WebElement findNeedReviewCount;
 
+    @FindBy(how = How.XPATH, using = "//a[@href='/search/visit']")
+    private WebElement clickSearchByRefOption;
+
+    @FindBy(how = How.XPATH, using = "//a[@href='/search/prisoner']")
+    private WebElement clickSearchByPrisonNo;
+
     public void clickOnBookAVisitOption() {
         bookAVisitOption.click();
     }
@@ -44,8 +50,25 @@ public class HomePage extends BasePage {
         navigateToPage(this.testContextService.getVsipUrl());
     }
 
-    public void hashNeedReviewCount() {
+    public void hasNeedReviewCount() {
+        findNeedReviewCount.isDisplayed();
         String count = findNeedReviewCount.getText();
-        Assert.assertTrue("Count should be greater than 0 value (" + count + ")", Integer.parseInt(count.trim()) > 0);
+        Assert.assertTrue("Count should be greater than 0 value (" + count + ")", isPositiveNumber(count));
+    }
+
+    public static boolean isPositiveNumber(String strNum) {
+        if (strNum != null)
+            try {
+                return Integer.parseInt(strNum)>0;
+            } catch (NumberFormatException nfe) {}
+        return false;
+    }
+
+    public void clickOptionSearchByRef() {
+        clickSearchByRefOption.click();
+    }
+
+    public void clickOptionSearchByPrisonNo() {
+        clickSearchByPrisonNo.click();
     }
 }
