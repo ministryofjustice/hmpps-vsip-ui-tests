@@ -30,7 +30,7 @@ public class NeedAReviewPage extends BasePage {
         methodsService.isElementDisplayed("xpath","//h2[text()='Needs review']");
     }
 
-    public void checkNoExcludeDateISAvailable(String excludeDate) {
+    public void iCheckToSeeIfThereNoNotificationsForReview() {
         methodsService.isElementDisplayed("xpath","//p[text()='There are no bookings for Hewell (HMP) that need review.']");
     }
 }

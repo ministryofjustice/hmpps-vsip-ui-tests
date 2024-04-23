@@ -100,4 +100,6 @@ public class CommonSteps {
     public void thenWeWaitSecondForTheSystemToUpdate(String seconds) {
         basePage.waitAWhile(Integer.parseInt(seconds.trim()));
     }
+
+
 }
