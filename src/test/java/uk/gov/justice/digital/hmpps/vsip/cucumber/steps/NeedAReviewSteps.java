@@ -3,6 +3,7 @@ package uk.gov.justice.digital.hmpps.vsip.cucumber.steps;
 import io.cucumber.java.en.And;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
 import uk.gov.justice.digital.hmpps.vsip.pages.NeedAReviewPage;
+import uk.gov.justice.digital.hmpps.vsip.services.DateUtilService;
 import uk.gov.justice.digital.hmpps.vsip.services.TestContextService;
 
 public class NeedAReviewSteps {
@@ -12,6 +13,9 @@ public class NeedAReviewSteps {
 
     @LazyAutowired
     private TestContextService testContextService;
+
+    @LazyAutowired
+    private DateUtilService dateUtilService;
 
     @And("I check the list {string}")
     public void iCheckTheList(String summaryList) {
@@ -29,8 +33,8 @@ public class NeedAReviewSteps {
         needAReviewPage.checkReviewMsg(msg);
     }
 
-    @And("I check exclude date is not available")
-    public void iCheckExcludeDateIsNotAvailable() {
-        needAReviewPage.checkNoExcludeDateISAvailable(testContextService.getOriginalDateBookingReference());
+    @And("I check to see if there no notifications for review")
+    public void iCheckToSeeIfThereNoNotificationsForReview() {
+        needAReviewPage.iCheckToSeeIfThereNoNotificationsForReview();
     }
 }

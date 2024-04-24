@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -82,20 +84,12 @@ public class TestContextService {
     }
 
 
-    public String getDateBookingReference() {
+    public LocalDate getBookingDate() {
         return getFromContext(Context.BOOKING_DATE);
     }
 
-    public void setDateBookingReference(String dateBookingReference) {
-        this.setToContext(Context.BOOKING_DATE, dateBookingReference);
-    }
-
-    public String getOriginalDateBookingReference() {
-        return getFromContext(Context.ORIGINAL_BOOKING_DATE);
-    }
-
-    public void setOriginalDateBookingReference(String originalDateBookingReference) {
-        this.setToContext(Context.ORIGINAL_BOOKING_DATE, originalDateBookingReference);
+    public void setBookingDate(LocalDate bookingDate) {
+        this.setToContext(Context.BOOKING_DATE, bookingDate);
     }
 
     public List<String> getBookingReferences() {
@@ -112,7 +106,7 @@ public class TestContextService {
 
     public void clearTestContext() {
         LOG.debug("Entered clearTestContext()");
-        prisonVisitsTestingHelperService.cleanUpBookingsAndApplications();
+        prisonVisitsTestingHelperService.cleanUp();
     }
 
     public byte[] getScreenshot() {

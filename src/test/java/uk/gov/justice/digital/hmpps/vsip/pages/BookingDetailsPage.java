@@ -40,7 +40,8 @@ public class BookingDetailsPage extends BasePage {
         methodsService.isElementDisplayed("xpath", "//p[text() = 'Reason: Health issues']");
     }
 
-    public void checkReasonFlagged(String reason) { methodsService.isElementDisplayed("xpath", "//p[text() = 'Reason: Time slot removed']");
+    public void checkReasonFlagged(String reason) {
+        methodsService.isElementDisplayed("xpath", "//p[text() = '"+reason+"']");
     }
 
     public void clickOnUpdateBooking() {

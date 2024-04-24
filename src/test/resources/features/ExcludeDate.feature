@@ -2,12 +2,12 @@ Feature: API based Exclude date
   As a user, I should be able to view a booking flagged when the booking date is excluded from an establishment and able to update the booking accordingly and see it is unflagged.
 
   @suite
-  Scenario Outline: API based Exclude Date
+  Scenario Outline: Exclude Date
     Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     Then I book a visit for "<prisonerName>" and stay on confirmation page
     # To exclude date ~~ API call
-    Given A booking reference date is excluded
+    Given A date is excluded for booking at "<prison>"
     And I goto home page
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Need a Review option
@@ -16,11 +16,9 @@ Feature: API based Exclude date
     Then I see "A new visit time should be selected as the date is no longer available for social visits." message is displayed
     And I choose Booking history tab
     And I see "Reason: Time slot removed" time slot removed reason
+    And I do not see the do not change button
     # updating the booking
     Then I click on update booking button
-#    And Im on "Manage prison visits - Confirm update" page
-#    Then I select Yes to update booking
-#    And click on continue button
     And Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
@@ -44,11 +42,10 @@ Feature: API based Exclude date
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Need a Review option
     And Im on "Manage prison visits - Visit bookings that need review" page
-    # And I check exclude date is not available
-    # This does not work, need to do some more tests on this, will add removal of do not change option
+    And I check to see if there no notifications for review
     And I sign out of the service
-
+    And I want to clean up after the exclude date test at "<prison>"
 
     Examples:
-      | userName  | password          | prisonerName         |
-      | VSIP1_TST | Expired10         | Vsip_prisoner06      |
+      | userName  | password          | prisonerName         | prison |
+      | VSIP1_TST | Expired10         | Vsip_prisoner06      | HEI    |
