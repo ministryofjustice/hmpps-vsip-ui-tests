@@ -71,7 +71,7 @@ public class ViewVisitsByDateStep {
     }
     @Then("I enter date to view the visits")
     public void iEnterToViewTheVisits() {
-        viewVisitsByDatePage.enterDate(dateUtilService.getBookingDateStr(testContextService.getBookingDate()));
+        viewVisitsByDatePage.enterDate(dateUtilService.getCalendarDateStr(testContextService.getBookingDate()));
     }
 
 }

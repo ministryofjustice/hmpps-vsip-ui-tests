@@ -30,6 +30,8 @@ public class DateUtilService {
 
     private final DateTimeFormatter bookingDateFormatter = DateTimeFormatter.ofPattern("EEEE d MMMM yyyy");
 
+    private final DateTimeFormatter calendarDateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
     public LocalDate getBookingDate(String bookingDate)
     {
         return LocalDate.parse(bookingDate, bookingDateFormatter);
@@ -43,6 +45,11 @@ public class DateUtilService {
     public String getBookingDateStr(LocalDate bookingDate)
     {
         return bookingDateFormatter.format(bookingDate);
+    }
+
+    public String getCalendarDateStr(LocalDate bookingDate)
+    {
+        return calendarDateFormatter.format(bookingDate);
     }
 
 }
