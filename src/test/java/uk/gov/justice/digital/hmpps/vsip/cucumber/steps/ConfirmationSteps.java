@@ -33,6 +33,4 @@ public class ConfirmationSteps {
         String bookingReference = confirmationPage.getBookingReference();
         testContextService.setBookingReference(bookingReference);
     }
-
-
 }

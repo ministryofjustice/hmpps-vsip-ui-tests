@@ -193,12 +193,9 @@ public class CommonMethodService {
         return driver.findElement(by).getAttribute("data-test-app-ref");
     }
 
-
-
     public void clickOnContinueBtn() {
         click("xpath", "//button[contains(@data-test, 'submit')]");
     }
-
 
     public void clickOnManagePrisonOption() {
         click("xpath", "//a[contains(@class, 'hmpps-header__link hmpps-header__title__service-name')]");

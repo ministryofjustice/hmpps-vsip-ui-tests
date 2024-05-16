@@ -5,4 +5,5 @@ public enum Context {
     APPLICATION_REFERENCE,
     SLOT_DATE_TIME,
     BOOKING_DATE,
+    BOOKING_CAPACITY,
 }

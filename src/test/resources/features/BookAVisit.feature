@@ -35,11 +35,45 @@ Feature: Book a Visit
     And I see a booking reference
     And I sign out of the service
 
-
-
     Examples:
       | userName  | password          | prisonNumber |
       | VSIP1_TST | Expired10         | A6036DZ      |
+
+  @suite
+  Scenario Outline: Book a visit capacity is refilled after 10minutes
+    Given I log in with "VSIP1_TST" and "Expired10"
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I click on Book a visit option
+    And Im on "Manage prison visits - Search for a prisoner" page
+    When I enter "A6036DZ" to search for a prison
+    And click on search button
+    Then I choose prisoner from search results
+    Then Im on "Manage prison visits - Vsip_prisoner01, Do Not Use" page
+    And I click on Book a visit button
+    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
+    And I select a visitor form the list
+    And click on continue button
+    Then Im on "Manage prison visits - Select date and time of visit" page
+    And I capture the initial booking capacity size
+    Then I select time slot
+    And click on continue button
+    And I take note of the hidden application reference
+    Then I sign out of the service
+    Then I update the last modified time in the database to be "11" minutes in the past
+    Then I log in with "VSIP1_TST" and "Expired10"
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I click on Book a visit option
+    And Im on "Manage prison visits - Search for a prisoner" page
+    When I enter "A6037DZ" to search for a prison
+    And click on search button
+    Then I choose prisoner from search results
+    Then Im on "Manage prison visits - Vsip_prisoner02, Do Not Use" page
+    And I click on Book a visit button
+    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
+    And I select other prisoner visitor form the list
+    And click on continue button
+    Then Im on "Manage prison visits - Select date and time of visit" page
+    And The available capacity is back to the initial capacity
 
   @smoke_tests_vs @suite
   Scenario Outline: Book a visit search via prisoner name

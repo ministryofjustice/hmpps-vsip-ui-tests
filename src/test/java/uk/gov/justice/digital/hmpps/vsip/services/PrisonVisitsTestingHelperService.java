@@ -12,6 +12,7 @@ import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerRestrictio
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.VisitorRestrictionEventDto;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
@@ -81,8 +82,7 @@ public class PrisonVisitsTestingHelperService {
     }
 
     public void cleanUp() {
-        LOG.debug("Entered cleanUpLastBooking"
-        );
+        LOG.debug("Entered cleanUpLastBooking");
         if (context.getBookingReferences()!=null) {
             var bookings = new ArrayList<>(context.getBookingReferences());
             if (bookings != null) {
@@ -125,5 +125,11 @@ public class PrisonVisitsTestingHelperService {
         CreateNotificationEventDto request = new CreateNotificationEventDto("PRISON_VISITS_BLOCKED_FOR_DATE");
         var jsonDate = jsonDateFormatter.format(date);
         client.put("/test/prison/"+ prisonCode +"/remove/exclude-date/"+ jsonDate, request, client.validateCreateStatusHandler, "");
+    }
+
+    public void updateModifyTimestampOfApplication(String applicationReference,  LocalDateTime updatedModifyTimestamp) {
+        LOG.debug("Enter updateModifyTimestampOfApplication");
+        client.updateModifyTimestamp(applicationReference, updatedModifyTimestamp);
+        LOG.debug("Exit updateModifyTimestampOfApplication");
     }
 }
