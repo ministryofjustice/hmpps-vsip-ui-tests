@@ -40,7 +40,7 @@ Feature: Book a Visit
       | VSIP1_TST | Expired10         | A6036DZ      |
 
   @suite
-  Scenario Outline: Book a visit capacity is refilled after 10minutes
+  Scenario: Book a visit capacity is refilled after 10minutes
     Given I log in with "VSIP1_TST" and "Expired10"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
