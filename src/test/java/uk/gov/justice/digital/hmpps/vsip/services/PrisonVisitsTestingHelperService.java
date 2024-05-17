@@ -107,6 +107,10 @@ public class PrisonVisitsTestingHelperService {
             }
         }
 
+        if (context.getBookingCapacity() != null) {
+            context.setBookingCapacity(null);
+        }
+
         if (context.getBookingDate()!=null) {
             // TODO need to add a booking object to context that holds booking ref, booking date extra
         }
