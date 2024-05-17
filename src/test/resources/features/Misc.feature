@@ -21,7 +21,7 @@ Feature: Book/Cancel/Amend a Visit
 
     Examples:
       | userName  | password    | prisonerName    |
-      | VSIP1_TST | Expired10   | Vsip_prisoner06 |
+      | VSIP1_TST | Expired11   | Vsip_prisoner06 |
 
 
 
@@ -43,7 +43,7 @@ Feature: Book/Cancel/Amend a Visit
 
     Examples:
       | userName  | password          | prisonerName      |
-      | VSIP1_TST | Expired10         | VSIP_PRISONER06   |
+      | VSIP1_TST | Expired11         | VSIP_PRISONER06   |
 
   @suite
   Scenario Outline: User sees a message displayed if a Prisoner has no visitors over 18years old
@@ -62,7 +62,7 @@ Feature: Book/Cancel/Amend a Visit
 
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP1_TST | Expired10         | A6445DZ      |
+      | VSIP1_TST | Expired11         | A6445DZ      |
 
   @suite
   Scenario Outline: User can't Book a visit for a Prisoner for any of the Banned Visitors within their visitor list
@@ -82,4 +82,4 @@ Feature: Book/Cancel/Amend a Visit
 
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP1_TST | Expired10         | A8416DZ      |
+      | VSIP1_TST | Expired11         | A8416DZ      |

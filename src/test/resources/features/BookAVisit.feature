@@ -37,11 +37,11 @@ Feature: Book a Visit
 
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP1_TST | Expired10         | A6036DZ      |
+      | VSIP1_TST | Expired11         | A6036DZ      |
 
   @suite
   Scenario: Book a visit capacity is refilled after 10minutes
-    Given I log in with "VSIP1_TST" and "Expired10"
+    Given I log in with "VSIP1_TST" and "Expired11"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
@@ -60,7 +60,7 @@ Feature: Book a Visit
     And I take note of the hidden application reference
     Then I sign out of the service
     Then I update the last modified time in the database to be "11" minutes in the past
-    Then I log in with "VSIP1_TST" and "Expired10"
+    Then I log in with "VSIP1_TST" and "Expired11"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
@@ -123,7 +123,7 @@ Feature: Book a Visit
 
     Examples:
       | userName  | password          | prisonerName    |
-      | VSIP2_TST | Expired10         | VSIP_PRISONER06 |
+      | VSIP2_TST | Expired11         | VSIP_PRISONER06 |
 
   @smoke_tests_os @suite @error_messages
   Scenario Outline: Book a visit - Additional support needed
@@ -190,7 +190,7 @@ Feature: Book a Visit
 
     Examples:
       | userName  | password          | prisonerName    | phoneNumber | incorrectdetails     |
-      | VSIP3_TST | Expired10         | Vsip_prisoner07 | 07806789076 | w                    |
+      | VSIP3_TST | Expired11         | Vsip_prisoner07 | 07806789076 | w                    |
 
   @suite
   Scenario Outline: Book a visit - Someone else main contact
@@ -265,4 +265,4 @@ Feature: Book a Visit
 
     Examples:
       | userName  | password          | prisonerName    | contactName | phoneNumber | reason        | prisonNumber |
-      | VSIP1_TST | Expired10         | VSIP_PRISONER06 | John        | 07806432054 | Health issues | A6539DZ      |
+      | VSIP1_TST | Expired11         | VSIP_PRISONER06 | John        | 07806432054 | Health issues | A6539DZ      |

@@ -48,4 +48,4 @@ Feature: API based Exclude date
 
     Examples:
       | userName  | password          | prisonerName         | prison |
-      | VSIP1_TST | Expired10         | Vsip_prisoner06      | HEI    |
+      | VSIP1_TST | Expired11         | Vsip_prisoner06      | HEI    |
