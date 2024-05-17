@@ -42,7 +42,7 @@ Feature: API based Exclude date
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Need a Review option
     And Im on "Manage prison visits - Visit bookings that need review" page
-    And I check to see if there no notifications for review
+    And I check to see that there are no notifications for review
     And I sign out of the service
     And I want to clean up after the exclude date test at "<prison>"
 
