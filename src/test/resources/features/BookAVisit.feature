@@ -35,11 +35,45 @@ Feature: Book a Visit
     And I see a booking reference
     And I sign out of the service
 
-
-
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP1_TST | Expired10         | A6036DZ      |
+      | VSIP1_TST | Expired11         | A6036DZ      |
+
+  @suite
+  Scenario: Book a visit capacity is refilled after 10minutes
+    Given I log in with "VSIP1_TST" and "Expired11"
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I click on Book a visit option
+    And Im on "Manage prison visits - Search for a prisoner" page
+    When I enter "A6036DZ" to search for a prison
+    And click on search button
+    Then I choose prisoner from search results
+    Then Im on "Manage prison visits - Vsip_prisoner01, Do Not Use" page
+    And I click on Book a visit button
+    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
+    And I select a visitor form the list
+    And click on continue button
+    Then Im on "Manage prison visits - Select date and time of visit" page
+    And I capture the initial booking capacity size
+    Then I select time slot
+    And click on continue button
+    And I take note of the hidden application reference
+    Then I sign out of the service
+    Then I update the last modified time in the database to be "11" minutes in the past
+    Then I log in with "VSIP1_TST" and "Expired11"
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I click on Book a visit option
+    And Im on "Manage prison visits - Search for a prisoner" page
+    When I enter "A6037DZ" to search for a prison
+    And click on search button
+    Then I choose prisoner from search results
+    Then Im on "Manage prison visits - Vsip_prisoner02, Do Not Use" page
+    And I click on Book a visit button
+    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
+    And I select other prisoner visitor form the list
+    And click on continue button
+    Then Im on "Manage prison visits - Select date and time of visit" page
+    And The available capacity is back to the initial capacity
 
   @smoke_tests_vs @suite
   Scenario Outline: Book a visit search via prisoner name
@@ -89,7 +123,7 @@ Feature: Book a Visit
 
     Examples:
       | userName  | password          | prisonerName    |
-      | VSIP2_TST | Expired10         | VSIP_PRISONER06 |
+      | VSIP2_TST | Expired11         | VSIP_PRISONER06 |
 
   @smoke_tests_os @suite @error_messages
   Scenario Outline: Book a visit - Additional support needed
@@ -156,7 +190,7 @@ Feature: Book a Visit
 
     Examples:
       | userName  | password          | prisonerName    | phoneNumber | incorrectdetails     |
-      | VSIP3_TST | Expired10         | Vsip_prisoner07 | 07806789076 | w                    |
+      | VSIP3_TST | Expired11         | Vsip_prisoner07 | 07806789076 | w                    |
 
   @suite
   Scenario Outline: Book a visit - Someone else main contact
@@ -231,4 +265,4 @@ Feature: Book a Visit
 
     Examples:
       | userName  | password          | prisonerName    | contactName | phoneNumber | reason        | prisonNumber |
-      | VSIP1_TST | Expired10         | VSIP_PRISONER06 | John        | 07806432054 | Health issues | A6539DZ      |
+      | VSIP1_TST | Expired11         | VSIP_PRISONER06 | John        | 07806432054 | Health issues | A6539DZ      |

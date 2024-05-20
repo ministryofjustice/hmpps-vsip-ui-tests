@@ -33,7 +33,7 @@ public class NeedAReviewSteps {
         needAReviewPage.checkReviewMsg(msg);
     }
 
-    @And("I check to see if there no notifications for review")
+    @And("I check to see that there are no notifications for review")
     public void iCheckToSeeIfThereNoNotificationsForReview() {
         needAReviewPage.iCheckToSeeIfThereNoNotificationsForReview();
     }

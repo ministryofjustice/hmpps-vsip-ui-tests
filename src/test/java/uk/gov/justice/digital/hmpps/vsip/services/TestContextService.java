@@ -83,13 +83,20 @@ public class TestContextService {
         this.setToContext(Context.APPLICATION_REFERENCE, applications);
     }
 
-
     public LocalDate getBookingDate() {
         return getFromContext(Context.BOOKING_DATE);
     }
 
     public void setBookingDate(LocalDate bookingDate) {
         this.setToContext(Context.BOOKING_DATE, bookingDate);
+    }
+
+    public String getBookingCapacity() {
+        return getFromContext(Context.BOOKING_CAPACITY);
+    }
+
+    public void setBookingCapacity(String bookingCapacity) {
+        this.setToContext(Context.BOOKING_CAPACITY, bookingCapacity);
     }
 
     public List<String> getBookingReferences() {

@@ -30,6 +30,11 @@ public class SelectVisitorsStep {
         selectVisitorsPage.chooseAnotherPrisoner();
     }
 
+    @And("I select other prisoner visitor form the list")
+    public void iSelectOtherPrisonerVisitorFormTheList() {
+        selectVisitorsPage.chooseOtherPrisonersVisitor();
+    }
+
     @And("I select a visitor form the list from Bristol establishment")
     public void iSelectAVisitorFormTheListFromBristolEstablishment() {
         selectVisitorsPage.chooseVisitorFromBristol();

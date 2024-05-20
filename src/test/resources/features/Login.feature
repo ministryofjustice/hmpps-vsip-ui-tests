@@ -12,7 +12,7 @@ Feature: Login
 
     Examples:
       | userName  | password          |
-      | VSIP1_TST | Expired10         |
+      | VSIP1_TST | Expired11         |
 
   Scenario Outline: Error message - access VSIP homepage
     Given I navigate to VSIP service
@@ -23,5 +23,5 @@ Feature: Login
     Then I see "Enter a valid username and password. You will be locked out if you enter the wrong details 10 times." page
 
     Examples:
-      | userName  | password          |
-      | VSIP1d_TST | Expired10         |
+      | userName   | password  |
+      | VSIP1d_TST | Expired10 |
