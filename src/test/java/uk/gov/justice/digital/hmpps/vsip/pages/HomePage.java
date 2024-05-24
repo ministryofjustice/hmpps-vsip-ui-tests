@@ -71,4 +71,5 @@ public class HomePage extends BasePage {
     public void clickOptionSearchByPrisonNo() {
         clickSearchByPrisonNo.click();
     }
+
 }
