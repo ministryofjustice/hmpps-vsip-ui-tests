@@ -1,5 +1,6 @@
 package uk.gov.justice.digital.hmpps.vsip.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -34,6 +35,19 @@ public class SearchPage extends BasePage {
         firstPrisonerReturnedLink.click();
     }
 
+    public void enterBookingReference() {
+
+        var bookingReference = testContextService.getBookingReference();
+        Assert.assertNotNull("Cant find a booking reference to submit!", bookingReference);
+
+        var bookingRefElements = bookingReference.split("-");
+
+        enterConfirmationInBlock1(bookingRefElements[0]);
+        enterConfirmationInBlock2(bookingRefElements[1]);
+        enterConfirmationInBlock3(bookingRefElements[2]);
+        enterConfirmationInBlock4(bookingRefElements[3]);
+    }
+
     public void enterConfirmationInBlock1(String value1) {
         referenceDetailsInput1.sendKeys(value1);
     }
@@ -65,4 +79,6 @@ public class SearchPage extends BasePage {
     public void bookingRefSearchErrMsg() {
         methodsService.click("xpath","//a[text()='Booking reference must be 8 characters']");
     }
+
+
 }

@@ -2,14 +2,18 @@ package uk.gov.justice.digital.hmpps.vsip.cucumber.steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
 import uk.gov.justice.digital.hmpps.vsip.pages.SelectTimeSlotPage;
+import uk.gov.justice.digital.hmpps.vsip.services.TestContextService;
 
 public class SelectTimeSlotSteps {
 
     @LazyAutowired
     private SelectTimeSlotPage selectTimeSlotPage;
 
+    @LazyAutowired
+    private TestContextService testContextService;
 
     @Then("I see {string} on select timeslot page")
     public void iSeeOnSelectTimeslotPage(String errMsg) {
@@ -125,5 +129,17 @@ public class SelectTimeSlotSteps {
     @Then("I see {string} message is displayed")
     public void iSeeMessageIsDisplayed(String message) {
         selectTimeSlotPage.checkAMessageDisplayed();
+    }
+
+    @And("I capture the initial booking capacity size")
+    public void iCaptureTheInitialBookingCapacitySize() {
+        String initialCapacity = selectTimeSlotPage.getBookingCapacity();
+        testContextService.setBookingCapacity(initialCapacity);
+    }
+
+    @And("The available capacity is back to the initial capacity")
+    public void theAvailableCapacityIsBackToTheInitialCapacity() {
+        String capacity = selectTimeSlotPage.getBookingCapacity();
+        Assert.assertEquals(capacity, testContextService.getBookingCapacity());
     }
 }

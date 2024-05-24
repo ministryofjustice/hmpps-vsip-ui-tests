@@ -4,11 +4,7 @@ Feature: Session template based tests
 
   @suite
   Scenario Outline: Open session - User able to book an Open session for all Prisoners within the establishment
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
     And I change the establishment to Bristol
@@ -17,7 +13,7 @@ Feature: Session template based tests
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
-    Then I choose prison from search results
+    Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner12, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
@@ -34,11 +30,7 @@ Feature: Session template based tests
 
   @suite
   Scenario Outline: Closed session - User able to book a Closed session for all Prisoners within the establishment
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
     And I change the establishmnet to Drake Hall
@@ -47,7 +39,7 @@ Feature: Session template based tests
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
-    Then I choose prison from search results
+    Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner11, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
@@ -70,11 +62,7 @@ Feature: Session template based tests
   @suite
   Scenario Outline: Location based - User able to book a visit based on a location within an establishment where the Prisoner is based
   # ensure a session restricted by location is only available to prisoners in that location
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
     And I change the establishmnet to Drake Hall
@@ -83,7 +71,7 @@ Feature: Session template based tests
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
-    Then I choose prison from search results
+    Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner11, Do Not Use" page
     #Location of a prisoner is being checked in this step if they can't carry on means Location is changed.
     And I check Prisoner location "I-1-003, Drake Hall (HMP & YOI)"
@@ -106,11 +94,7 @@ Feature: Session template based tests
   @suite
   Scenario Outline: Location not based - User not able to book a visit based on a location within an establishment where the Prisoner is based
   # ensure a session restricted by location is not available to a prisoner not in that location
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
     And I change the establishmnet to Drake Hall
@@ -119,7 +103,7 @@ Feature: Session template based tests
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
-    Then I choose prison from search results
+    Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner14, Do Not Use" page
     And I check Prisoner location "F-1-018, Drake Hall (HMP & YOI)" for drake hall
     And I click on Book a visit button
@@ -139,11 +123,7 @@ Feature: Session template based tests
   Scenario Outline: Incentive level - User check incentive level within an establishment where the Prisoner is based
   # ensure a session restricted by incentive level is only available to prisoners with that incentive level
 
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
     And I change the establishment to Bristol
@@ -152,7 +132,7 @@ Feature: Session template based tests
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
-    Then I choose prison from search results
+    Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner13, Do Not Use" page
     And I check incentive level for that prisoner
     And I click on Book a visit button
@@ -172,11 +152,7 @@ Feature: Session template based tests
   Scenario Outline: Incentive level - User check on incentive level of a Prisoner within an establishment
   # ensure a session restricted by incentive level is not available to a prisoner with that incentive level
 
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
     And I change the establishment to Bristol
@@ -185,7 +161,7 @@ Feature: Session template based tests
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
-    Then I choose prison from search results
+    Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner12, Do Not Use" page
     And I check enhanced incentive level for that prisoner
     And I click on Book a visit button
@@ -205,11 +181,7 @@ Feature: Session template based tests
   Scenario Outline: Category - User check the Category of a Prisoner within an establishment
   # ensure a session restricted by category is only available to prisoners with that category
 
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
     And I change the establishment to Bristol
@@ -218,7 +190,7 @@ Feature: Session template based tests
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
-    Then I choose prison from search results
+    Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner12, Do Not Use" page
     And I check category for that prisoner
     And I click on Book a visit button
@@ -238,11 +210,7 @@ Feature: Session template based tests
   Scenario Outline: Category - User check the Category of a Prisoner within an establishment
   # ensure a session restricted by category is not available to a prisoner without that category
 
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
     And I change the establishment to Bristol
@@ -251,7 +219,7 @@ Feature: Session template based tests
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
-    Then I choose prison from search results
+    Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner13, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page

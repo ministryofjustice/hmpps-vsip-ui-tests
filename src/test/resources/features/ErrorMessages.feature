@@ -3,11 +3,7 @@ Feature: Book a Visit Error messages
 #Error message Scenarios
   @suite
   Scenario Outline: Error message on search page
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
@@ -21,11 +17,7 @@ Feature: Book a Visit Error messages
 
   @suite
   Scenario Outline: Error message on search page
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
@@ -40,17 +32,13 @@ Feature: Book a Visit Error messages
 
   @suite
   Scenario Outline: Error message on main contact page ~ Someone else option
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
-    Then I choose prison from search results
+    Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner09, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
@@ -80,11 +68,7 @@ Feature: Book a Visit Error messages
 
   @suite
   Scenario Outline: Error message on view Visits by date page
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on View visits by date option
     And Im on "Manage prison visits - View visits by date" page
@@ -99,11 +83,7 @@ Feature: Book a Visit Error messages
 
   @suite
   Scenario Outline: Error message on select open or closed type visit page
-    Given I navigate to VSIP service
-    And Im on "HMPPS Digital Services - Sign in" page
-    And I enter "<userName>"
-    And I enter the "<password>"
-    And click on submit button
+    Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
     And I change the establishmnet to Drake Hall
@@ -112,7 +92,7 @@ Feature: Book a Visit Error messages
     And Im on "Manage prison visits - Search for a prisoner" page
     When I enter "<prisonNumber>" to search for a prison
     And click on search button
-    Then I choose prison from search results
+    Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner11, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page

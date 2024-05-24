@@ -3,15 +3,19 @@ package uk.gov.justice.digital.hmpps.vsip.cucumber.steps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
 import uk.gov.justice.digital.hmpps.vsip.pages.ConfirmationPage;
 import uk.gov.justice.digital.hmpps.vsip.pages.ViewVisitsByDatePage;
+import uk.gov.justice.digital.hmpps.vsip.services.DateUtilService;
 import uk.gov.justice.digital.hmpps.vsip.services.TestContextService;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class ViewVisitsByDateStep {
+
+    private static final Logger LOG = LoggerFactory.getLogger(ViewVisitsByDateStep.class);
 
     @LazyAutowired
     ViewVisitsByDatePage viewVisitsByDatePage;
@@ -22,6 +26,8 @@ public class ViewVisitsByDateStep {
     @LazyAutowired
     private TestContextService testContextService;
 
+    @LazyAutowired
+    private DateUtilService dateUtilService;
 
     @When("I select Date picker option")
     public void iSelectDatePickerOption() {
@@ -60,27 +66,12 @@ public class ViewVisitsByDateStep {
 
     @And("I capture date the Booking is booked")
     public void iCaptureDateTheBookingIsBooked() {
-        //capturing date from booking confirmation page
-        String originalDateValue = confirmationPage.getDateBooked();
-        System.out.println("Original Date value from confirmation page: " + originalDateValue);
-
-        testContextService.setOriginalDateBookingReference(originalDateValue);
-        System.out.println("Original Date Booking Reference: " + testContextService.getOriginalDateBookingReference());
-
-        //formatting the date to pass to API
-        DateTimeFormatter originalFormatter = DateTimeFormatter.ofPattern("EEEE d MMMM yyyy");
-        // Parse the original date string
-        LocalDate originalDate = LocalDate.parse(originalDateValue, originalFormatter);
-        // Define the formatter for the desired output format
-        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        // Format the date to the desired output format
-        String formattedDate = originalDate.format(outputFormatter);
-        //set formatted date to use in further Test steps
-        testContextService.setDateBookingReference(formattedDate);
+        LocalDate bookDate = confirmationPage.getBookingDate();
+        testContextService.setBookingDate(bookDate);
     }
     @Then("I enter date to view the visits")
     public void iEnterToViewTheVisits() {
-        viewVisitsByDatePage.enterDate(testContextService.getDateBookingReference());
+        viewVisitsByDatePage.enterDate(dateUtilService.getCalendarDateStr(testContextService.getBookingDate()));
     }
 
 }

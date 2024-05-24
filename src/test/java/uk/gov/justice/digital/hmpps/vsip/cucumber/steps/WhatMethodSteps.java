@@ -11,8 +11,8 @@ public class WhatMethodSteps {
     private WhatMethodPage whatMethodPage;
 
     //The below method can be written for multiple options Gov.uk,Email,In person
-    @And("I select a phone call option on method used to make the reqest")
-    public void iSelectAPhoneCallOptionOnMethodUsedToMakeTheReqest() {
+    @And("I select a phone call option on method used to make the request")
+    public void iSelectAPhoneCallOptionOnMethodUsedToMakeTheRequest() {
         whatMethodPage.selectPhoneCall();
     }
 

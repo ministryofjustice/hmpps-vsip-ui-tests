@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import uk.gov.justice.digital.hmpps.vsip.annotation.ComponentWithWebDriver;
 import uk.gov.justice.digital.hmpps.vsip.services.Context;
+
 import java.util.List;
 
 @ComponentWithWebDriver
@@ -40,6 +41,10 @@ public class SelectTimeSlotPage extends BasePage {
 
     private String getDataTestXPathForTimeSlot() {
         return "//*[@data-test='" + testContextService.getTimeSlotDay() + "']";
+    }
+
+    public String getBookingCapacity() {
+        return "//*[contains(@id,’content-1’)]/div/div[1]/div/div/div/label/p/text()";
     }
 
     public void clickNextEnabledElement() {

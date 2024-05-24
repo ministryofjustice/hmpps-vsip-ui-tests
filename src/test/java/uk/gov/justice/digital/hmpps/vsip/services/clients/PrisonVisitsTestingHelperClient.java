@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.ClientResponse;
@@ -17,6 +18,7 @@ import reactor.core.publisher.Mono;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.VisitStatus;
 
 import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -52,15 +54,42 @@ public class PrisonVisitsTestingHelperClient {
                 .body(BodyInserters.fromValue(dto))
                 .retrieve()
                 .onStatus(statusToCheckHandler, statusHandler)
-                .toBodilessEntity()
-                .onErrorResume(e -> {
-                    LOG.error("Error PUT failed :" + uri, e);
-                    return Mono.error(e);
-                });
+                .toBodilessEntity();
 
-        response.block(Duration.ofSeconds(apiTimeout));
+        try {
+            ResponseEntity<Void> results = response.block(Duration.ofSeconds(apiTimeout));
+            LOG.error("put  :" + results.getStatusCode());
+        } catch(Exception e) {
+            LOG.error("Error PUT failed :" + uri, e);
+            throw e;
+        }
     }
 
+    public void updateModifyTimestamp(String applicationReference, LocalDateTime updatedModifyTimestamp) {
+        final var uri = "/test/application/" + applicationReference + "/modifiedTimestamp/" + updatedModifyTimestamp;
+
+        LOG.debug("Enter updateModifyTimestamp {}", uri);
+
+        Function<ClientResponse, Mono<? extends Throwable>> statusHandler = response -> {
+            var message = "Error updateModifyTimestamp failed :" + uri + " http_status:" + response.statusCode();
+            LOG.error(message);
+            return Mono.error(new AssertionError(message));
+        };
+
+        var response = webClient.put()
+                .uri(uri)
+                .retrieve()
+                .onStatus(validateOkStatusHandler, statusHandler)
+                .toBodilessEntity();
+
+        try {
+            ResponseEntity<Void> results = response.block(Duration.ofSeconds(apiTimeout));
+            LOG.error("put  :{}", results.getStatusCode());
+        } catch(Exception e) {
+            LOG.error("Error PUT failed :{}", uri, e);
+            throw e;
+        }
+    }
 
     public void changeStatus(String bookingReference, VisitStatus status) {
 
@@ -78,13 +107,69 @@ public class PrisonVisitsTestingHelperClient {
                 .uri(uri)
                 .retrieve()
                 .onStatus(validateOkStatusHandler, statusHandler)
-                .toBodilessEntity()
-                .onErrorResume(e -> {
-                    LOG.error("Error changeStatus failed :" + uri, e);
-                    return Mono.error(e);
-                });
+                .toBodilessEntity();
 
-        response.block(Duration.ofSeconds(apiTimeout));
+        try {
+            ResponseEntity<Void> results = response.block(Duration.ofSeconds(apiTimeout));
+            LOG.error("put  :" + results.getStatusCode());
+        } catch(Exception e) {
+            LOG.error("Error PUT failed :" + uri, e);
+            throw e;
+        }
+    }
+
+    public void deleteVisits(String bookingReference) {
+
+        final var uri = "/test/visit/" + bookingReference;
+
+        LOG.debug("Enter deleteVisits " + uri);
+
+        Function<ClientResponse, Mono<? extends Throwable>> statusHandler = response -> {
+            var message = "Error deleteVisits failed :" + uri + " http_status:" + response.statusCode();
+            LOG.error(message);
+            return Mono.error(new AssertionError(message));
+        };
+
+        var response = webClient.delete()
+                .uri(uri)
+                .retrieve()
+                .onStatus(validateOkStatusHandler, statusHandler)
+                .toBodilessEntity();
+
+        try {
+            ResponseEntity<Void> results = response.block(Duration.ofSeconds(apiTimeout));
+            LOG.error("put  :" + results.getStatusCode());
+        } catch(Exception e) {
+            LOG.error("Error PUT failed :" + uri, e);
+            throw e;
+        }
+    }
+
+    public void deleteApplication(String applicationReference) {
+
+        final var uri = "/test/application/" + applicationReference;
+
+        LOG.debug("Enter deleteApplication " + uri);
+
+        Function<ClientResponse, Mono<? extends Throwable>> statusHandler = response -> {
+            var message = "Error deleteApplication failed :" + uri + " http_status:" + response.statusCode();
+            LOG.error(message);
+            return Mono.error(new AssertionError(message));
+        };
+
+        var response = webClient.delete()
+                .uri(uri)
+                .retrieve()
+                .onStatus(validateOkStatusHandler, statusHandler)
+                .toBodilessEntity();
+
+        try {
+            ResponseEntity<Void> results = response.block(Duration.ofSeconds(apiTimeout));
+            LOG.error("put  :" + results.getStatusCode());
+        } catch(Exception e) {
+            LOG.error("Error PUT failed :" + uri, e);
+            throw e;
+        }
     }
 
 }

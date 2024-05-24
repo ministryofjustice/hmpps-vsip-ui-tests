@@ -180,14 +180,22 @@ public class CommonMethodService {
         return !element.isEnabled();
     }
 
-    public void clickOnSubmitBtn() {
+    public void clickOnLoginSubmitBtn() {
         clickOnButton("xpath", "//*[@id='submit']");
+    }
+
+    public void clickOnSubmitBtn() {
+        clickOnButton("xpath", "//*[@data-test='submit']");
+    }
+
+    public String getApplicationRef() {
+        By by = getElementByType("xpath", "//button[contains(@data-test, 'submit')]");
+        return driver.findElement(by).getAttribute("data-test-app-ref");
     }
 
     public void clickOnContinueBtn() {
         click("xpath", "//button[contains(@data-test, 'submit')]");
     }
-
 
     public void clickOnManagePrisonOption() {
         click("xpath", "//a[contains(@class, 'hmpps-header__link hmpps-header__title__service-name')]");
@@ -198,7 +206,8 @@ public class CommonMethodService {
     }
 
     public void errorMsgDisplayed(String errorMsg) {
-        isElementDisplayed("xpath", "//*[@id='error-detail']");
+        var xpath = "//div[contains(@id, 'error-detail') and .//*[text() = '"+errorMsg+"']]";
+        isElementDisplayed("xpath", xpath);
     }
 
     public void chooseBristol() {

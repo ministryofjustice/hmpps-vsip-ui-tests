@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,6 +30,9 @@ public class TestContextService {
     @LazyAutowired
     private ApplicationContext ctx;
 
+    @LazyAutowired
+    private PrisonVisitsTestingHelperService prisonVisitsTestingHelperService;
+
     public TestContextService() {
         LOG.debug("Entered TestService created");
     }
@@ -46,7 +51,7 @@ public class TestContextService {
 
     public String getBookingReference() {
         List<String> bookings = getFromContext(Context.BOOKING_REFERENCE);
-        if (bookings != null) {
+        if (bookings != null && !bookings.isEmpty()) {
             return bookings.getLast();
         }
         return null;
@@ -61,42 +66,45 @@ public class TestContextService {
         this.setToContext(Context.BOOKING_REFERENCE, bookings);
     }
 
-    public String getDateBookingReference() {
-        String date = getFromContext(Context.BOOKING_DATE);
-        if (date != null && !date.isEmpty()) {
-            return date;
+    public String getApplicationReference() {
+        List<String> applications = getFromContext(Context.APPLICATION_REFERENCE);
+        if (applications != null && !applications.isEmpty()) {
+            return applications.getLast();
         }
         return null;
     }
 
-    public void setDateBookingReference(String dateBookingReference) {
-        String date = getFromContext(Context.BOOKING_DATE);
-        if (date == null) {
-            date = new String();
+    public void setApplicationReference(String bookingReference) {
+        List<String> applications = getFromContext(Context.APPLICATION_REFERENCE);
+        if (applications == null) {
+            applications = new ArrayList<>();
         }
-        date = dateBookingReference;
-        this.setToContext(Context.BOOKING_DATE, date);
+        applications.add(bookingReference);
+        this.setToContext(Context.APPLICATION_REFERENCE, applications);
     }
 
-    public String getOriginalDateBookingReference() {
-        String date = getFromContext(Context.Original_BOOKING_DATE);
-        if (date != null && !date.isEmpty()) {
-            return date;
-        }
-        return null;
+    public LocalDate getBookingDate() {
+        return getFromContext(Context.BOOKING_DATE);
     }
 
-    public void setOriginalDateBookingReference(String originalDateBookingReference) {
-        String date = getFromContext(Context.Original_BOOKING_DATE);
-        if (date == null) {
-            date = new String();
-        }
-        date = originalDateBookingReference;
-        this.setToContext(Context.Original_BOOKING_DATE, date);
+    public void setBookingDate(LocalDate bookingDate) {
+        this.setToContext(Context.BOOKING_DATE, bookingDate);
+    }
+
+    public String getBookingCapacity() {
+        return getFromContext(Context.BOOKING_CAPACITY);
+    }
+
+    public void setBookingCapacity(String bookingCapacity) {
+        this.setToContext(Context.BOOKING_CAPACITY, bookingCapacity);
     }
 
     public List<String> getBookingReferences() {
         return getFromContext(Context.BOOKING_REFERENCE);
+    }
+
+    public List<String> getApplicationReferences() {
+        return getFromContext(Context.APPLICATION_REFERENCE);
     }
 
     public String getTimeSlotDay() {
@@ -105,7 +113,7 @@ public class TestContextService {
 
     public void clearTestContext() {
         LOG.debug("Entered clearTestContext()");
-        testContext.clear();
+        prisonVisitsTestingHelperService.cleanUp();
     }
 
     public byte[] getScreenshot() {

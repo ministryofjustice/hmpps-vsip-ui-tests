@@ -9,10 +9,12 @@ import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.CreateNotification
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.NonAssociationEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerRestrictionEventDto;
-import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.VisitStatus;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.VisitorRestrictionEventDto;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 @Service
 public class PrisonVisitsTestingHelperService {
@@ -22,6 +24,9 @@ public class PrisonVisitsTestingHelperService {
     protected PrisonVisitsTestingHelperClient client;
     @Autowired
     protected TestContextService context;
+
+    private final DateTimeFormatter jsonDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
 
     public void startPrisonerReleased(String prisonCode, String prisonerCode) {
         PrisonerEventDto request = new PrisonerEventDto(prisonCode, prisonerCode);
@@ -76,25 +81,59 @@ public class PrisonVisitsTestingHelperService {
         client.put("/test/prisoner/restriction", request, client.validateCreateStatusHandler, "Prisoner restriction not created");
     }
 
-    public void cleanUpBookings() {
+    public void cleanUp() {
         LOG.debug("Entered cleanUpLastBooking");
-        var bookings = context.getBookingReferences();
-        if (bookings != null) {
-            LOG.debug(bookings.size() + " Bookings found, must tidy up!");
-            // We use changing here because it is not counted as part of booking slot counts and is also removed after configured time.
-            bookings.forEach(bookingReference -> client.changeStatus(bookingReference, VisitStatus.CHANGING));
+        if (context.getBookingReferences()!=null) {
+            var bookings = new ArrayList<>(context.getBookingReferences());
+            if (bookings != null) {
+                LOG.debug(bookings.size() + " Bookings found, must tidy up!");
+                bookings.forEach(bookingReference -> {
+                    client.deleteVisits(bookingReference);
+                    // Remove reference from context
+                    context.getBookingReferences().remove(bookingReference);
+                });
+            }
         }
+
+        if (context.getApplicationReferences()!=null) {
+            var applicationReferences = new ArrayList<>(context.getApplicationReferences());
+            if (applicationReferences != null) {
+                LOG.debug(applicationReferences.size() + " Application found, must tidy up!");
+                applicationReferences.forEach(applicationReference -> {
+                    client.deleteApplication(applicationReference);
+                    // Remove reference from context
+                    context.getApplicationReferences().remove(applicationReference);
+                });
+            }
+        }
+
+        if (context.getBookingCapacity() != null) {
+            context.setBookingCapacity(null);
+        }
+
+        if (context.getBookingDate()!=null) {
+            // TODO need to add a booking object to context that holds booking ref, booking date extra
+        }
+
     }
 
-    public void addVisitExcludeDateEvent(String prisonCode, String date) {
+    public void addVisitExcludeDateEvent(String prisonCode, LocalDate date) {
+        LOG.debug("Enter addVisitExcludeDateEvent: " + date);
         CreateNotificationEventDto request = new CreateNotificationEventDto("PRISON_VISITS_BLOCKED_FOR_DATE");
-
-        client.put("/test/prison/"+ prisonCode +"/add/exclude-date/"+ date, request, client.validateCreateStatusHandler, "");
+        var jsonDate = jsonDateFormatter.format(date);
+        client.put("/test/prison/"+ prisonCode +"/add/exclude-date/"+ jsonDate, request, client.validateCreateStatusHandler, "");
     }
 
-    public void removeVisitExcludeDateEvent(String prisonCode, String date) {
+    public void removeVisitExcludeDateEvent(String prisonCode, LocalDate date) {
+        LOG.debug("Enter removeVisitExcludeDateEvent: " + date);
         CreateNotificationEventDto request = new CreateNotificationEventDto("PRISON_VISITS_BLOCKED_FOR_DATE");
+        var jsonDate = jsonDateFormatter.format(date);
+        client.put("/test/prison/"+ prisonCode +"/remove/exclude-date/"+ jsonDate, request, client.validateCreateStatusHandler, "");
+    }
 
-        client.put("/test/prison/"+ prisonCode +"/remove/exclude-date/"+ date, request, client.validateCreateStatusHandler, "");
+    public void updateModifyTimestampOfApplication(String applicationReference,  LocalDateTime updatedModifyTimestamp) {
+        LOG.debug("Enter updateModifyTimestampOfApplication");
+        client.updateModifyTimestamp(applicationReference, updatedModifyTimestamp);
+        LOG.debug("Exit updateModifyTimestampOfApplication");
     }
 }

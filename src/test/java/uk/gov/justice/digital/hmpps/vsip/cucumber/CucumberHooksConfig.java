@@ -54,6 +54,7 @@ public class CucumberHooksConfig {
 
     @After
     public void afterScenario() {
+        testContextService.clearTestContext();
         LOG.debug("Entered afterScenario, quit web driver :" + targetBrowser);
         webDriver.quit();
     }

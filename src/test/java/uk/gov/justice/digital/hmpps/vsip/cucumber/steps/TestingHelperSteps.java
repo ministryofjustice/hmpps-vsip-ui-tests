@@ -2,9 +2,14 @@ package uk.gov.justice.digital.hmpps.vsip.cucumber.steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
+import uk.gov.justice.digital.hmpps.vsip.pages.ConfirmationPage;
 import uk.gov.justice.digital.hmpps.vsip.services.PrisonVisitsTestingHelperService;
 import uk.gov.justice.digital.hmpps.vsip.services.TestContextService;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * Created by Anusha Nagula on 15/05/23.
@@ -15,6 +20,9 @@ public class TestingHelperSteps {
 
     @LazyAutowired
     private TestContextService testContextService;
+
+    @LazyAutowired
+    private ConfirmationPage confirmationPage;
 
     @Given("A prisoner {string} is released from {string}")
     public void aPrisonerIsReleased(String prisonerCode, String prisonCode) {
@@ -58,13 +66,28 @@ public class TestingHelperSteps {
 
     @And("I want to clean up after the above test")
     public void iWantToCleanUpAfterTheAboveTest() {
-        testHelper.cleanUpBookings();
+        testHelper.cleanUp();
     }
 
-    @And("I want to clean up after the exclude date test")
-    public void iWantToCleanUpAfterTheExcludeDateTest() {
-        System.out.println("Original Date Booking Reference: " + testContextService.getDateBookingReference());
-        testHelper.removeVisitExcludeDateEvent("HEI",testContextService.getDateBookingReference());
+    @And("I want to clean up after the exclude date test at {string}")
+    public void iWantToCleanUpAfterTheExcludeDateTest(String prison) {
+        testHelper.removeVisitExcludeDateEvent(prison,testContextService.getBookingDate());
+    }
 
+    @Given("A date is excluded for booking at {string}")
+    public void aDateIsExcludedForBooking(String prison) {
+        //capturing date from booking confirmation page
+        LocalDate bookingDate = confirmationPage.getBookingDate();
+
+        //send call to exclude visit to testing api
+        testHelper.addVisitExcludeDateEvent(prison, bookingDate);
+
+        testContextService.setBookingDate(bookingDate);
+    }
+
+    @Then("I update the last modified time in the database to be {string} minutes in the past")
+    public void iUpdateTheLastModifiedTimeInTheDatabaseToBeInThePast(String time) {
+        LocalDateTime updatedModifiedDate = LocalDateTime.now().minusMinutes(Integer.parseInt(time));
+        testHelper.updateModifyTimestampOfApplication(testContextService.getApplicationReference(), updatedModifiedDate);
     }
 }
