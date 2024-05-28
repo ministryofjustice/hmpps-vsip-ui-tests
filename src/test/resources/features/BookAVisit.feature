@@ -74,6 +74,7 @@ Feature: Book a Visit
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
     And The available capacity is back to the initial capacity
+    And I sign out of the service
 
   @smoke_tests_vs @suite
   Scenario Outline: Book a visit search via prisoner name
