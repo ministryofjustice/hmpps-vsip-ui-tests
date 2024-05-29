@@ -12,7 +12,7 @@ Feature: When a prisoner with a booked visit is release then visit needs review
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Need a Review option with a review number flag
     And Im on "Manage prison visits - Visit bookings that need review" page
-    # This has to wait for front end to develop pahe
+    # This has to wait for front end to be developed
     # And I click on view link to see details of the booking needs review
     # Then Im on "Manage prison visits - Visit booking details - <booking_reference>" visit view page
     # And I see "This booking should be cancelled as the prisoner has been received." banner
