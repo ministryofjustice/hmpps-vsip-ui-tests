@@ -8,6 +8,7 @@ import uk.gov.justice.digital.hmpps.vsip.services.clients.PrisonVisitsTestingHel
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.CreateNotificationEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.NonAssociationEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerEventDto;
+import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerReceivedEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerRestrictionEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.VisitorRestrictionEventDto;
 
@@ -16,8 +17,12 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+
+
 @Service
 public class PrisonVisitsTestingHelperService {
+
+    final static  String SQS_PRISONER_RECEIVED = "/test/prisoner/received";
 
     private static final Logger LOG = LoggerFactory.getLogger(PrisonVisitsTestingHelperService.class);
     @Autowired
@@ -33,10 +38,10 @@ public class PrisonVisitsTestingHelperService {
         client.put("/test/prisoner/released", request, client.validateCreateStatusHandler, "Prisoner release not created");
     }
 
-    public void startPrisonerReceived(String prisonCode, String prisonerCode) {
-        PrisonerEventDto request = new PrisonerEventDto(prisonCode, prisonerCode);
+    public void startPrisonerReceived(String prisonCode, String prisonerCode, String reason) {
+        PrisonerReceivedEventDto request = new PrisonerReceivedEventDto(prisonCode, prisonerCode, reason);
 
-        client.put("/test/prisoner/received", request, client.validateCreateStatusHandler, "Prisoner received not created");
+        client.put(SQS_PRISONER_RECEIVED, request, client.validateCreateStatusHandler, "Prisoner received not created");
     }
 
     public void startPrisonerNonAssociation(String prisonerCode, String nonAssociationPrisonerCode) {
@@ -81,6 +86,27 @@ public class PrisonVisitsTestingHelperService {
         client.put("/test/prisoner/restriction", request, client.validateCreateStatusHandler, "Prisoner restriction not created");
     }
 
+    public void addVisitExcludeDateEvent(String prisonCode, LocalDate date) {
+        LOG.debug("Enter addVisitExcludeDateEvent: " + date);
+        CreateNotificationEventDto request = new CreateNotificationEventDto("PRISON_VISITS_BLOCKED_FOR_DATE");
+        var jsonDate = jsonDateFormatter.format(date);
+        client.put("/test/prison/"+ prisonCode +"/add/exclude-date/"+ jsonDate, request, client.validateCreateStatusHandler, "");
+    }
+
+    public void removeVisitExcludeDateEvent(String prisonCode, LocalDate date) {
+        LOG.debug("Enter removeVisitExcludeDateEvent: " + date);
+        CreateNotificationEventDto request = new CreateNotificationEventDto("PRISON_VISITS_BLOCKED_FOR_DATE");
+        var jsonDate = jsonDateFormatter.format(date);
+        client.put("/test/prison/"+ prisonCode +"/remove/exclude-date/"+ jsonDate, request, client.validateCreateStatusHandler, "");
+    }
+
+    public void updateModifyTimestampOfApplication(String applicationReference,  LocalDateTime updatedModifyTimestamp) {
+        LOG.debug("Enter updateModifyTimestampOfApplication");
+        client.updateModifyTimestamp(applicationReference, updatedModifyTimestamp);
+        LOG.debug("Exit updateModifyTimestampOfApplication");
+    }
+
+
     public void cleanUp() {
         LOG.debug("Entered cleanUpLastBooking");
         if (context.getBookingReferences()!=null) {
@@ -115,25 +141,5 @@ public class PrisonVisitsTestingHelperService {
             // TODO need to add a booking object to context that holds booking ref, booking date extra
         }
 
-    }
-
-    public void addVisitExcludeDateEvent(String prisonCode, LocalDate date) {
-        LOG.debug("Enter addVisitExcludeDateEvent: " + date);
-        CreateNotificationEventDto request = new CreateNotificationEventDto("PRISON_VISITS_BLOCKED_FOR_DATE");
-        var jsonDate = jsonDateFormatter.format(date);
-        client.put("/test/prison/"+ prisonCode +"/add/exclude-date/"+ jsonDate, request, client.validateCreateStatusHandler, "");
-    }
-
-    public void removeVisitExcludeDateEvent(String prisonCode, LocalDate date) {
-        LOG.debug("Enter removeVisitExcludeDateEvent: " + date);
-        CreateNotificationEventDto request = new CreateNotificationEventDto("PRISON_VISITS_BLOCKED_FOR_DATE");
-        var jsonDate = jsonDateFormatter.format(date);
-        client.put("/test/prison/"+ prisonCode +"/remove/exclude-date/"+ jsonDate, request, client.validateCreateStatusHandler, "");
-    }
-
-    public void updateModifyTimestampOfApplication(String applicationReference,  LocalDateTime updatedModifyTimestamp) {
-        LOG.debug("Enter updateModifyTimestampOfApplication");
-        client.updateModifyTimestamp(applicationReference, updatedModifyTimestamp);
-        LOG.debug("Exit updateModifyTimestampOfApplication");
     }
 }

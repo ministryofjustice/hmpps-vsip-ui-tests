@@ -29,9 +29,9 @@ public class TestingHelperSteps {
         testHelper.startPrisonerReleased(prisonCode, prisonerCode);
     }
 
-    @Given("A prisoner {string} is received from {string}")
-    public void aPrisonerIsReceived(String prisonerCode, String prisonCode) {
-        testHelper.startPrisonerReceived(prisonCode, prisonerCode);
+    @Given("A prisoner {string} is received from {string} for {string}")
+    public void aPrisonerIsReceived(String prisonerCode, String prisonCode, String reason) {
+        testHelper.startPrisonerReceived(prisonCode, prisonerCode, reason);
     }
 
     @Given("A prisoner {string} has a restriction from {string} to {string}")
@@ -90,4 +90,6 @@ public class TestingHelperSteps {
         LocalDateTime updatedModifiedDate = LocalDateTime.now().minusMinutes(Integer.parseInt(time));
         testHelper.updateModifyTimestampOfApplication(testContextService.getApplicationReference(), updatedModifiedDate);
     }
+
+
 }
