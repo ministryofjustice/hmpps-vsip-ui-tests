@@ -84,7 +84,7 @@ public class PrisonVisitsTestingHelperService {
     }
 
     public void startAlertsUpdated(String prisonCode, List<String> alertsAdded, List<String> alertsRemoved) {
-        String description = alertsAdded.size() + " alerts added.";
+        String description = alertsAdded.size() + " alert(s) added.";
         PrisonerAlertCreatedUpdatedEventDto request = new PrisonerAlertCreatedUpdatedEventDto(prisonCode, description, alertsAdded, alertsRemoved);
         client.put("/test/prisoner/alerts/updated", request, client.validateCreateStatusHandler, "Prisoner alerts updated");
     }

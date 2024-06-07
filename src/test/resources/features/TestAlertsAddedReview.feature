@@ -1,12 +1,12 @@
 Feature: When a prisoner with a booked visit  has high priority alerts added then visit needs review
 
   @test_suite
-  Scenario Outline: A prisoner with a booked visit has a high priority alert (C1) added then visit needs review
-    Given I log in with "<userName>" and "<password>"
+  Scenario: A prisoner with a booked visit has a high priority alert (C1) added then visit needs review
+    Given I log in with "VSIP2_TST" and "Expired11"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
-    When I enter "<prisonerName>" to search for a prison
+    When I enter "VSIP_PRISONER06" to search for a prison
     And click on search button
     Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
@@ -23,7 +23,7 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
     Then Im on "Manage prison visits - Who is the main contact for this booking?" page
     And I select the main contact option
     And I choose UK phone number option
-    And I enter "<phoneNumber>" to get text message
+    And I enter "01111111111" to get text message
     And click on continue button
     Then Im on "Manage prison visits - How was this booking requested?" page
     And I select a phone call option on method used to make the request
@@ -34,7 +34,7 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
     And I see "Booking confirmed" message displayed
     And I see a booking reference
     # add alert event
-    Given A prisoner "<prisonerCode>" has "<alerts>" alerts updated
+    Given A prisoner "A6539DZ" has "C1,TEST" alerts updated
     And then we wait "5" second for the system to update
     And I goto home page
     Then Im on "Manage prison visits - Manage prison visits" page
@@ -50,17 +50,14 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
     # And I see the description text?
     And I sign out of the service
 
-    Examples:
-      | userName  | password          | prisonerName    | phoneNumber | prisonerCode | alerts        |
-      | VSIP2_TST | Expired11         | VSIP_PRISONER06 | 01111111111 | A6539DZ      | C1,TEST       |
 
   @test_suite
-  Scenario Outline: A prisoner with a booked visit has a alert added that does not impact visits (TEST) then visit does not need review
-    Given I log in with "<userName>" and "<password>"
+  Scenario: A prisoner with a booked visit has a alert added that does not impact visits (TEST) then visit does not need review
+    Given I log in with "VSIP2_TST" and "Expired11"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
-    When I enter "<prisonerName>" to search for a prison
+    When I enter "VSIP_PRISONER06" to search for a prison
     And click on search button
     Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
@@ -77,7 +74,7 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
     Then Im on "Manage prison visits - Who is the main contact for this booking?" page
     And I select the main contact option
     And I choose UK phone number option
-    And I enter "<phoneNumber>" to get text message
+    And I enter "01111111111" to get text message
     And click on continue button
     Then Im on "Manage prison visits - How was this booking requested?" page
     And I select a phone call option on method used to make the request
@@ -88,7 +85,7 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
     And I see "Booking confirmed" message displayed
     And I see a booking reference
     # add alert event
-    Given A prisoner "<prisonerCode>" has "<alerts>" alerts updated
+    Given A prisoner "A6539DZ" has "TEST" alerts updated
     And then we wait "5" second for the system to update
     And I goto home page
     Then Im on "Manage prison visits - Manage prison visits" page
@@ -97,17 +94,13 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
     And I check to see that there are no notifications for review
     And I sign out of the service
 
-    Examples:
-      | userName  | password          | prisonerName    | phoneNumber | prisonerCode | alerts     |
-      | VSIP2_TST | Expired11         | VSIP_PRISONER06 | 01111111111 | A6539DZ      | TEST       |
-
   @test_suite
-  Scenario Outline: A prisoner with a booked visit has only alerts removed then visit does not need review
-    Given I log in with "<userName>" and "<password>"
+  Scenario: A prisoner with a booked visit has only alerts removed then visit does not need review
+    Given I log in with "VSIP2_TST" and "Expired11"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
-    When I enter "<prisonerName>" to search for a prison
+    When I enter "VSIP_PRISONER06" to search for a prison
     And click on search button
     Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
@@ -124,7 +117,7 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
     Then Im on "Manage prison visits - Who is the main contact for this booking?" page
     And I select the main contact option
     And I choose UK phone number option
-    And I enter "<phoneNumber>" to get text message
+    And I enter "01111111111" to get text message
     And click on continue button
     Then Im on "Manage prison visits - How was this booking requested?" page
     And I select a phone call option on method used to make the request
@@ -135,7 +128,7 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
     And I see "Booking confirmed" message displayed
     And I see a booking reference
     # add alert event
-    Given A prisoner "<prisonerCode>" has no alerts added
+    Given A prisoner "A6539DZ" has no alerts added
     And then we wait "5" second for the system to update
     And I goto home page
     Then Im on "Manage prison visits - Manage prison visits" page
@@ -143,7 +136,3 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
     And Im on "Manage prison visits - Visit bookings that need review" page
     And I check to see that there are no notifications for review
     And I sign out of the service
-
-    Examples:
-      | userName  | password          | prisonerName    | phoneNumber | prisonerCode |
-      | VSIP2_TST | Expired11         | VSIP_PRISONER06 | 01111111111 | A6539DZ      |
