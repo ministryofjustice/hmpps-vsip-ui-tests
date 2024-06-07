@@ -52,7 +52,7 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
 
     Examples:
       | userName  | password          | prisonerName    | phoneNumber | prisonerCode | alerts        |
-      | VSIP2_TST | Expired11         | VSIP_PRISONER06 | 07805123900 | A6539DZ      | C1,TEST       |
+      | VSIP2_TST | Expired11         | VSIP_PRISONER06 | 01111111111 | A6539DZ      | C1,TEST       |
 
   @test_suite
   Scenario Outline: A prisoner with a booked visit has a alert added that does not impact visits (TEST) then visit does not need review
@@ -99,7 +99,7 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
 
     Examples:
       | userName  | password          | prisonerName    | phoneNumber | prisonerCode | alerts     |
-      | VSIP2_TST | Expired11         | VSIP_PRISONER06 | 07805123900 | A6539DZ      | TEST       |
+      | VSIP2_TST | Expired11         | VSIP_PRISONER06 | 01111111111 | A6539DZ      | TEST       |
 
   @test_suite
   Scenario Outline: A prisoner with a booked visit has only alerts removed then visit does not need review
@@ -146,4 +146,4 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
 
     Examples:
       | userName  | password          | prisonerName    | phoneNumber | prisonerCode |
-      | VSIP2_TST | Expired11         | VSIP_PRISONER06 | 07805123900 | A6539DZ      |
+      | VSIP2_TST | Expired11         | VSIP_PRISONER06 | 01111111111 | A6539DZ      |
