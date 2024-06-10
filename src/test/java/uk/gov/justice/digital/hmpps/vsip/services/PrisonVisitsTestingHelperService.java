@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.PrisonVisitsTestingHelperClient;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.CreateNotificationEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.NonAssociationEventDto;
+import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerAlertCreatedUpdatedEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerRestrictionEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.VisitorRestrictionEventDto;
@@ -15,6 +16,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class PrisonVisitsTestingHelperService {
@@ -79,6 +81,12 @@ public class PrisonVisitsTestingHelperService {
 
         PrisonerRestrictionEventDto request = new PrisonerRestrictionEventDto(prisonerCode, LocalDate.now(), null);
         client.put("/test/prisoner/restriction", request, client.validateCreateStatusHandler, "Prisoner restriction not created");
+    }
+
+    public void startAlertsUpdated(String prisonCode, List<String> alertsAdded, List<String> alertsRemoved) {
+        String description = alertsAdded.size() + " alert(s) added.";
+        PrisonerAlertCreatedUpdatedEventDto request = new PrisonerAlertCreatedUpdatedEventDto(prisonCode, description, alertsAdded, alertsRemoved);
+        client.put("/test/prisoner/alerts/updated", request, client.validateCreateStatusHandler, "Prisoner alerts updated");
     }
 
     public void cleanUp() {
