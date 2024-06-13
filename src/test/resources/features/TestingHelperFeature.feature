@@ -3,7 +3,7 @@ Feature: Test new vsip tester helper service
 
   @test_suite
   Scenario Outline: A prisoner is released
-    Given A prisoner "<prisonerCode>" is released from "<prisonCode>"
+    Given A prisoner "<prisonerCode>" is released from "<prisonCode>" for "RELEASED"
 
     Examples:
       | prisonerCode | prisonCode |
@@ -11,7 +11,7 @@ Feature: Test new vsip tester helper service
 
   @test_suite
   Scenario Outline: A prisoner is received
-    Given A prisoner "<prisonerCode>" is received from "<prisonCode>"
+    Given A prisoner "<prisonerCode>" is received from "<prisonCode>" for "TRANSFERRED"
 
     Examples:
       | prisonerCode | prisonCode |

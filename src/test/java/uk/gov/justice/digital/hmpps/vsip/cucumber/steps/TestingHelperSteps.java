@@ -24,14 +24,14 @@ public class TestingHelperSteps {
     @LazyAutowired
     private ConfirmationPage confirmationPage;
 
-    @Given("A prisoner {string} is released from {string}")
-    public void aPrisonerIsReleased(String prisonerCode, String prisonCode) {
-        testHelper.startPrisonerReleased(prisonCode, prisonerCode);
+    @Given("A prisoner {string} is released from {string} for {string}")
+    public void aPrisonerIsReleased(String prisonerCode, String prisonCode, String type) {
+        testHelper.startPrisonerReleased(prisonCode, prisonerCode,type);
     }
 
-    @Given("A prisoner {string} is received from {string}")
-    public void aPrisonerIsReceived(String prisonerCode, String prisonCode) {
-        testHelper.startPrisonerReceived(prisonCode, prisonerCode);
+    @Given("A prisoner {string} is received from {string} for {string}")
+    public void aPrisonerIsReceived(String prisonerCode, String prisonCode, String reason) {
+        testHelper.startPrisonerReceived(prisonCode, prisonerCode, reason);
     }
 
     @Given("A prisoner {string} has a restriction from {string} to {string}")
@@ -101,5 +101,12 @@ public class TestingHelperSteps {
     public void iUpdateTheLastModifiedTimeInTheDatabaseToBeInThePast(String time) {
         LocalDateTime updatedModifiedDate = LocalDateTime.now().minusMinutes(Integer.parseInt(time));
         testHelper.updateModifyTimestampOfApplication(testContextService.getApplicationReference(), updatedModifiedDate);
+    }
+
+
+    @Then("I change booked visit prison to {string}")
+    public void iChangeBookedVisitPrisonTo(String prisonCode) {
+        final String bookingReference = testContextService.getBookingReference();
+        testHelper.changeVisitPrison(bookingReference, prisonCode );
     }
 }

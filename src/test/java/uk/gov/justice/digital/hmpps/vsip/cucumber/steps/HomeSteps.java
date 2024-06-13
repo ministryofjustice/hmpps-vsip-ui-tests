@@ -32,6 +32,11 @@ public class HomeSteps {
         homePage.clickOnNeedAReviewOption();
     }
 
+    @And("I see need a Review option with a review number flag")
+    public void iSeeNeedAReviewOptionWithReviewFlag() {
+        homePage.hasNeedReviewCount();
+    }
+
     @And("I click on Need a Review option")
     public void iClickOnNeedAReviewOption() {
         homePage.clickOnNeedAReviewOption();

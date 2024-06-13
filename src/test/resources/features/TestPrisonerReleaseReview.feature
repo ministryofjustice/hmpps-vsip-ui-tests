@@ -34,7 +34,7 @@ Feature: When a prisoner with a booked visit is release then visit needs review
     And I see "Booking confirmed" message displayed
     And I see a booking reference
     # release prisoner
-    Given A prisoner "<prisonerCode>" is released from "<prisonCode>"
+    Given A prisoner "<prisonerCode>" is released from "<prisonCode>" for "RELEASED"
     And then we wait "5" second for the system to update
     And I goto home page
     Then Im on "Manage prison visits - Manage prison visits" page

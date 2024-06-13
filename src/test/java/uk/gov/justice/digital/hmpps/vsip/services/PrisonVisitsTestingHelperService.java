@@ -7,19 +7,23 @@ import org.springframework.stereotype.Service;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.PrisonVisitsTestingHelperClient;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.CreateNotificationEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.NonAssociationEventDto;
+import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerReceivedEventDto;
+import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerReleasedEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerAlertCreatedUpdatedEventDto;
-import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerRestrictionEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.VisitorRestrictionEventDto;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 @Service
 public class PrisonVisitsTestingHelperService {
+
+    final static  String SQS_PRISONER_RECEIVED = "/test/prisoner/received";
 
     private static final Logger LOG = LoggerFactory.getLogger(PrisonVisitsTestingHelperService.class);
     @Autowired
@@ -30,15 +34,15 @@ public class PrisonVisitsTestingHelperService {
     private final DateTimeFormatter jsonDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
 
-    public void startPrisonerReleased(String prisonCode, String prisonerCode) {
-        PrisonerEventDto request = new PrisonerEventDto(prisonCode, prisonerCode);
+    public void startPrisonerReleased(String prisonCode, String prisonerCode, String reason) {
+        PrisonerReleasedEventDto request = new PrisonerReleasedEventDto(prisonerCode,prisonCode, reason);
         client.put("/test/prisoner/released", request, client.validateCreateStatusHandler, "Prisoner release not created");
     }
 
-    public void startPrisonerReceived(String prisonCode, String prisonerCode) {
-        PrisonerEventDto request = new PrisonerEventDto(prisonCode, prisonerCode);
+    public void startPrisonerReceived(String prisonCode, String prisonerCode, String reason) {
+        PrisonerReceivedEventDto request = new PrisonerReceivedEventDto(prisonerCode,prisonCode, reason.toUpperCase());
 
-        client.put("/test/prisoner/received", request, client.validateCreateStatusHandler, "Prisoner received not created");
+        client.put(SQS_PRISONER_RECEIVED, request, client.validateCreateStatusHandler, "Prisoner received not created");
     }
 
     public void startPrisonerNonAssociation(String prisonerCode, String nonAssociationPrisonerCode) {
@@ -83,47 +87,6 @@ public class PrisonVisitsTestingHelperService {
         client.put("/test/prisoner/restriction", request, client.validateCreateStatusHandler, "Prisoner restriction not created");
     }
 
-    public void startAlertsUpdated(String prisonCode, List<String> alertsAdded, List<String> alertsRemoved) {
-        String description = alertsAdded.size() + " alert(s) added.";
-        PrisonerAlertCreatedUpdatedEventDto request = new PrisonerAlertCreatedUpdatedEventDto(prisonCode, description, alertsAdded, alertsRemoved);
-        client.put("/test/prisoner/alerts/updated", request, client.validateCreateStatusHandler, "Prisoner alerts updated");
-    }
-
-    public void cleanUp() {
-        LOG.debug("Entered cleanUpLastBooking");
-        if (context.getBookingReferences()!=null) {
-            var bookings = new ArrayList<>(context.getBookingReferences());
-            if (bookings != null) {
-                LOG.debug(bookings.size() + " Bookings found, must tidy up!");
-                bookings.forEach(bookingReference -> {
-                    client.deleteVisits(bookingReference);
-                    // Remove reference from context
-                    context.getBookingReferences().remove(bookingReference);
-                });
-            }
-        }
-
-        if (context.getApplicationReferences()!=null) {
-            var applicationReferences = new ArrayList<>(context.getApplicationReferences());
-            if (applicationReferences != null) {
-                LOG.debug(applicationReferences.size() + " Application found, must tidy up!");
-                applicationReferences.forEach(applicationReference -> {
-                    client.deleteApplication(applicationReference);
-                    // Remove reference from context
-                    context.getApplicationReferences().remove(applicationReference);
-                });
-            }
-        }
-
-        if (context.getBookingCapacity() != null) {
-            context.setBookingCapacity(null);
-        }
-
-        if (context.getBookingDate()!=null) {
-            // TODO need to add a booking object to context that holds booking ref, booking date extra
-        }
-
-    }
 
     public void addVisitExcludeDateEvent(String prisonCode, LocalDate date) {
         LOG.debug("Enter addVisitExcludeDateEvent: " + date);
@@ -144,4 +107,57 @@ public class PrisonVisitsTestingHelperService {
         client.updateModifyTimestamp(applicationReference, updatedModifyTimestamp);
         LOG.debug("Exit updateModifyTimestampOfApplication");
     }
+
+    public void changeVisitPrison(String bookingReference, String prisonCode) {
+        LOG.debug("Enter changeVisitPrison {1} {2}", bookingReference, prisonCode);
+        client.changeVisitPrison(bookingReference, prisonCode);
+        LOG.debug("Exit changeVisitPrison");
+    }
+
+
+
+    public void startAlertsUpdated(String prisonCode, List<String> alertsAdded, List<String> alertsRemoved) {
+        String description = alertsAdded.size() + " alert(s) added.";
+        PrisonerAlertCreatedUpdatedEventDto request = new PrisonerAlertCreatedUpdatedEventDto(prisonCode, description, alertsAdded, alertsRemoved);
+        client.put("/test/prisoner/alerts/updated", request, client.validateCreateStatusHandler, "Prisoner alerts updated");
+    }
+
+
+    public void cleanUp() {
+        LOG.debug("Entered cleanUpLastBooking");
+        if (context.getBookingReferences()!=null) {
+            var bookings = new ArrayList<>(context.getBookingReferences());
+            if (bookings != null) {
+                    LOG.debug(bookings.size() + " Bookings found, must tidy up!");
+                    bookings.forEach(bookingReference -> {
+                    client.deleteVisits(bookingReference);
+                    // Remove reference from context
+                    context.getBookingReferences().remove(bookingReference);
+                });
+            }
+        }
+
+        if (context.getApplicationReferences()!=null) {
+            var applicationReferences = new ArrayList<>(context.getApplicationReferences());
+            if (applicationReferences != null) {
+                    LOG.debug(applicationReferences.size() + " Application found, must tidy up!");
+                    applicationReferences.forEach(applicationReference -> {
+                    client.deleteApplication(applicationReference);
+                   // Remove reference from context
+                   context.getApplicationReferences().remove(applicationReference);
+                });
+            }
+        }
+
+        if (context.getBookingCapacity() != null) {
+            context.setBookingCapacity(null);
+        }
+
+        if (context.getBookingDate()!=null) {
+            // TODO need to add a booking object to context that holds booking ref, booking date extra
+        }
+
+    }
+
+
 }
