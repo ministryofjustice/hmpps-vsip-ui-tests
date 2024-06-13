@@ -135,7 +135,7 @@ Feature: Book a Visit
     When I enter "<prisonerName>" to search for a prison
     And click on search button
     Then I choose prisoner from search results
-    Then Im on "Manage prison visits - Vsip_prisoner07, Do Not Use" page
+    Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
     And I click on Book a visit button
     Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
     And click on continue button
@@ -191,7 +191,7 @@ Feature: Book a Visit
 
     Examples:
       | userName  | password          | prisonerName    | phoneNumber | incorrectdetails     |
-      | VSIP3_TST | Expired11         | Vsip_prisoner07 | 07806789076 | w                    |
+      | VSIP3_TST | Expired11         | Vsip_prisoner06 | 07806789076 | w                    |
 
   @suite
   Scenario Outline: Book a visit - Someone else main contact
