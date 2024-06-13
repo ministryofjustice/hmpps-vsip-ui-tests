@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.PrisonVisitsTestingHelperClient;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.CreateNotificationEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.NonAssociationEventDto;
-import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerReceivedEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerReleasedEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerRestrictionEventDto;
@@ -35,7 +34,7 @@ public class PrisonVisitsTestingHelperService {
 
 
     public void startPrisonerReleased(String prisonCode, String prisonerCode, String reason) {
-        PrisonerReleasedEventDto request = new PrisonerReleasedEventDto(prisonCode, prisonerCode, reason);
+        PrisonerReleasedEventDto request = new PrisonerReleasedEventDto(prisonerCode,prisonCode, reason);
         client.put("/test/prisoner/released", request, client.validateCreateStatusHandler, "Prisoner release not created");
     }
 
@@ -107,6 +106,12 @@ public class PrisonVisitsTestingHelperService {
         LOG.debug("Exit updateModifyTimestampOfApplication");
     }
 
+    public void changeVisitPrison(String bookingReference, String prisonCode) {
+        LOG.debug("Enter changeVisitPrison {1} {2}", bookingReference, prisonCode);
+        client.changeVisitPrison(bookingReference, prisonCode);
+        LOG.debug("Exit changeVisitPrison");
+    }
+
 
     public void cleanUp() {
         LOG.debug("Entered cleanUpLastBooking");
@@ -115,7 +120,7 @@ public class PrisonVisitsTestingHelperService {
             if (bookings != null) {
                 LOG.debug(bookings.size() + " Bookings found, must tidy up!");
                 bookings.forEach(bookingReference -> {
-                    client.deleteVisits(bookingReference);
+                 //   client.deleteVisits(bookingReference);
                     // Remove reference from context
                     context.getBookingReferences().remove(bookingReference);
                 });
@@ -127,7 +132,7 @@ public class PrisonVisitsTestingHelperService {
             if (applicationReferences != null) {
                 LOG.debug(applicationReferences.size() + " Application found, must tidy up!");
                 applicationReferences.forEach(applicationReference -> {
-                   client.deleteApplication(applicationReference);
+               //    client.deleteApplication(applicationReference);
                    // Remove reference from context
                    context.getApplicationReferences().remove(applicationReference);
                 });
@@ -143,4 +148,6 @@ public class PrisonVisitsTestingHelperService {
         }
 
     }
+
+
 }

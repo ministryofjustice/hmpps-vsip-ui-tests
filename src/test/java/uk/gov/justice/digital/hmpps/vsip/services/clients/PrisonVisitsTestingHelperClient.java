@@ -91,6 +91,32 @@ public class PrisonVisitsTestingHelperClient {
         }
     }
 
+    public void changeVisitPrison(String bookingReference, String prisonCode) {
+        final var uri = "/test/visit/" + bookingReference + "/change/prison/" + prisonCode;
+        LOG.debug("Enter changeVisitPrison {}", uri);
+
+        Function<ClientResponse, Mono<? extends Throwable>> statusHandler = response -> {
+            var message = "Error changeVisitPrison failed :" + uri + " http_status:" + response.statusCode();
+            LOG.error(message);
+            return Mono.error(new AssertionError(message));
+        };
+
+        var response = webClient.put()
+                .uri(uri)
+                .retrieve()
+                .onStatus(validateOkStatusHandler, statusHandler)
+                .toBodilessEntity();
+
+        try {
+            ResponseEntity<Void> results = response.block(Duration.ofSeconds(apiTimeout));
+            LOG.error("put  :{}", results.getStatusCode());
+        } catch(Exception e) {
+            LOG.error("Error PUT failed :{}", uri, e);
+            throw e;
+        }
+    }
+
+
     public void changeStatus(String bookingReference, VisitStatus status) {
 
         final var uri = "/test/visit/" + bookingReference + "/status/" + status.name();
@@ -171,5 +197,6 @@ public class PrisonVisitsTestingHelperClient {
             throw e;
         }
     }
+
 
 }

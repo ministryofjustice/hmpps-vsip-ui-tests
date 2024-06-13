@@ -92,4 +92,9 @@ public class TestingHelperSteps {
     }
 
 
+    @Then("I change booked visit prison to {string}")
+    public void iChangeBookedVisitPrisonTo(String prisonCode) {
+        final String bookingReference = testContextService.getBookingReference();
+        testHelper.changeVisitPrison(bookingReference, prisonCode );
+    }
 }
