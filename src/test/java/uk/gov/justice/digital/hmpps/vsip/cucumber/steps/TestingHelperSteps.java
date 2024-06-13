@@ -24,9 +24,9 @@ public class TestingHelperSteps {
     @LazyAutowired
     private ConfirmationPage confirmationPage;
 
-    @Given("A prisoner {string} is released from {string}")
-    public void aPrisonerIsReleased(String prisonerCode, String prisonCode) {
-        testHelper.startPrisonerReleased(prisonCode, prisonerCode);
+    @Given("A prisoner {string} is released from {string} for {string}")
+    public void aPrisonerIsReleased(String prisonerCode, String prisonCode, String type) {
+        testHelper.startPrisonerReleased(prisonCode, prisonerCode,type);
     }
 
     @Given("A prisoner {string} is received from {string} for {string}")

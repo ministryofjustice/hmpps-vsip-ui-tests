@@ -12,7 +12,7 @@ Feature: When a booking get prisoner release notification
     Then I click on option to search by booking reference
     And Im on "Manage prison visits - Search for a booking" page
     And I enter the booking reference
-    Given A prisoner "<prisonerCode>" is released from "<prisonCode>"
+    Given A prisoner "<prisonerCode>" is released from "<prisonCode>" for "RELEASED"
     And then we wait "5" second for the system to update
     And I goto home page
     Then Im on "Manage prison visits - Manage prison visits" page
@@ -47,7 +47,7 @@ Feature: When a booking get prisoner release notification
     Then I click on option to search by booking reference
     And Im on "Manage prison visits - Search for a booking" page
     And I enter the booking reference
-    Given A prisoner "<prisonerCode>" is released from "<prisonCode>"
+    Given A prisoner "<prisonerCode>" is released from "<prisonCode>" for "RELEASED"
     And then we wait "5" second for the system to update
     And I goto home page
     Then Im on "Manage prison visits - Manage prison visits" page
@@ -81,7 +81,7 @@ Feature: When a booking get prisoner release notification
     Then I click on option to search by booking reference
     And Im on "Manage prison visits - Search for a booking" page
     And I enter the booking reference
-    Given A prisoner "<prisonerCode>" is released from "<prisonCode>"
+    Given A prisoner "<prisonerCode>" is released from "<prisonCode>" for "RELEASED"
     And then we wait "5" second for the system to update
     And I goto home page
     Then Im on "Manage prison visits - Manage prison visits" page
@@ -113,7 +113,7 @@ Feature: When a booking get prisoner release notification
     Then I click on option to search by booking reference
     And Im on "Manage prison visits - Search for a booking" page
     And I enter the booking reference
-    Given A prisoner "<prisonerCode>" is released from "<prisonCode>"
+    Given A prisoner "<prisonerCode>" is released from "<prisonCode>" for "RELEASED"
     And then we wait "5" second for the system to update
     And I goto home page
     Then Im on "Manage prison visits - Manage prison visits" page

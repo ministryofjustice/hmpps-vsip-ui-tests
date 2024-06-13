@@ -9,6 +9,7 @@ import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.CreateNotification
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.NonAssociationEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerReceivedEventDto;
+import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerReleasedEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerRestrictionEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.VisitorRestrictionEventDto;
 
@@ -33,13 +34,13 @@ public class PrisonVisitsTestingHelperService {
     private final DateTimeFormatter jsonDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
 
-    public void startPrisonerReleased(String prisonCode, String prisonerCode) {
-        PrisonerEventDto request = new PrisonerEventDto(prisonCode, prisonerCode);
+    public void startPrisonerReleased(String prisonCode, String prisonerCode, String reason) {
+        PrisonerReleasedEventDto request = new PrisonerReleasedEventDto(prisonCode, prisonerCode, reason);
         client.put("/test/prisoner/released", request, client.validateCreateStatusHandler, "Prisoner release not created");
     }
 
     public void startPrisonerReceived(String prisonCode, String prisonerCode, String reason) {
-        PrisonerReceivedEventDto request = new PrisonerReceivedEventDto(prisonCode, prisonerCode, reason);
+        PrisonerReceivedEventDto request = new PrisonerReceivedEventDto(prisonerCode,prisonCode, reason.toUpperCase());
 
         client.put(SQS_PRISONER_RECEIVED, request, client.validateCreateStatusHandler, "Prisoner received not created");
     }
@@ -126,9 +127,9 @@ public class PrisonVisitsTestingHelperService {
             if (applicationReferences != null) {
                 LOG.debug(applicationReferences.size() + " Application found, must tidy up!");
                 applicationReferences.forEach(applicationReference -> {
-                    client.deleteApplication(applicationReference);
-                    // Remove reference from context
-                    context.getApplicationReferences().remove(applicationReference);
+                   client.deleteApplication(applicationReference);
+                   // Remove reference from context
+                   context.getApplicationReferences().remove(applicationReference);
                 });
             }
         }

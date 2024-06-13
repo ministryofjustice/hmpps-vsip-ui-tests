@@ -4,7 +4,7 @@ Feature: When a prisoner with a booked visit is release then visit needs review
   Scenario: A prisoner with a booked visit is release then visit needs review
     Given I log in with "VSIP2_TST" and "Expired11"
     Then Im on "Manage prison visits - Manage prison visits" page
-    Then I book a visit for "VSIP_PRISONER06"
+    Then I book a visit for "Vsip_prisoner06"
     # received prisoner
     Given A prisoner "A6539DZ" is received from "HEI" for "TRANSFERRED"
     And then we wait "5" second for the system to update
