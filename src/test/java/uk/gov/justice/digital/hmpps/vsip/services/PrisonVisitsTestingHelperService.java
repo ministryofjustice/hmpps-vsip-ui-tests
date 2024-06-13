@@ -118,9 +118,9 @@ public class PrisonVisitsTestingHelperService {
         if (context.getBookingReferences()!=null) {
             var bookings = new ArrayList<>(context.getBookingReferences());
             if (bookings != null) {
-                LOG.debug(bookings.size() + " Bookings found, must tidy up!");
-                bookings.forEach(bookingReference -> {
-                 //   client.deleteVisits(bookingReference);
+                    LOG.debug(bookings.size() + " Bookings found, must tidy up!");
+                    bookings.forEach(bookingReference -> {
+                    client.deleteVisits(bookingReference);
                     // Remove reference from context
                     context.getBookingReferences().remove(bookingReference);
                 });
@@ -130,9 +130,9 @@ public class PrisonVisitsTestingHelperService {
         if (context.getApplicationReferences()!=null) {
             var applicationReferences = new ArrayList<>(context.getApplicationReferences());
             if (applicationReferences != null) {
-                LOG.debug(applicationReferences.size() + " Application found, must tidy up!");
-                applicationReferences.forEach(applicationReference -> {
-               //    client.deleteApplication(applicationReference);
+                    LOG.debug(applicationReferences.size() + " Application found, must tidy up!");
+                    applicationReferences.forEach(applicationReference -> {
+                    client.deleteApplication(applicationReference);
                    // Remove reference from context
                    context.getApplicationReferences().remove(applicationReference);
                 });
