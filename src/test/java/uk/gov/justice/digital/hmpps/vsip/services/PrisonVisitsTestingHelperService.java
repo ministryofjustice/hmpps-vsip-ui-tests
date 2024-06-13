@@ -9,13 +9,14 @@ import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.CreateNotification
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.NonAssociationEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerReceivedEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerReleasedEventDto;
+import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerAlertCreatedUpdatedEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerRestrictionEventDto;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.VisitorRestrictionEventDto;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -86,6 +87,7 @@ public class PrisonVisitsTestingHelperService {
         client.put("/test/prisoner/restriction", request, client.validateCreateStatusHandler, "Prisoner restriction not created");
     }
 
+
     public void addVisitExcludeDateEvent(String prisonCode, LocalDate date) {
         LOG.debug("Enter addVisitExcludeDateEvent: " + date);
         CreateNotificationEventDto request = new CreateNotificationEventDto("PRISON_VISITS_BLOCKED_FOR_DATE");
@@ -110,6 +112,14 @@ public class PrisonVisitsTestingHelperService {
         LOG.debug("Enter changeVisitPrison {1} {2}", bookingReference, prisonCode);
         client.changeVisitPrison(bookingReference, prisonCode);
         LOG.debug("Exit changeVisitPrison");
+    }
+
+
+
+    public void startAlertsUpdated(String prisonCode, List<String> alertsAdded, List<String> alertsRemoved) {
+        String description = alertsAdded.size() + " alert(s) added.";
+        PrisonerAlertCreatedUpdatedEventDto request = new PrisonerAlertCreatedUpdatedEventDto(prisonCode, description, alertsAdded, alertsRemoved);
+        client.put("/test/prisoner/alerts/updated", request, client.validateCreateStatusHandler, "Prisoner alerts updated");
     }
 
 

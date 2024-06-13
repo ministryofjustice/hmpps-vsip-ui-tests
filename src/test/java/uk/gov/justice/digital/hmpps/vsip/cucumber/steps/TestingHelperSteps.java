@@ -10,10 +10,10 @@ import uk.gov.justice.digital.hmpps.vsip.services.TestContextService;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.List;
+import static uk.gov.justice.digital.hmpps.vsip.utils.TestingHelperUtils.stringToListOfStrings;
 
-/**
- * Created by Anusha Nagula on 15/05/23.
- */
 public class TestingHelperSteps {
     @LazyAutowired
     private PrisonVisitsTestingHelperService testHelper;
@@ -71,7 +71,7 @@ public class TestingHelperSteps {
 
     @And("I want to clean up after the exclude date test at {string}")
     public void iWantToCleanUpAfterTheExcludeDateTest(String prison) {
-        testHelper.removeVisitExcludeDateEvent(prison,testContextService.getBookingDate());
+        testHelper.removeVisitExcludeDateEvent(prison, testContextService.getBookingDate());
     }
 
     @Given("A date is excluded for booking at {string}")
@@ -83,6 +83,18 @@ public class TestingHelperSteps {
         testHelper.addVisitExcludeDateEvent(prison, bookingDate);
 
         testContextService.setBookingDate(bookingDate);
+    }
+
+    @Given("A prisoner {string} has {string} alerts updated")
+    public void aPrisonerHasAlertsUpdated(String prisonerCode, String alerts) {
+        List<String> alertsAddedList = stringToListOfStrings(alerts);
+        testHelper.startAlertsUpdated(prisonerCode, alertsAddedList, Collections.emptyList());
+    }
+
+    @Given("A prisoner {string} has no alerts added")
+    public void aPrisonerHasNoAlertsAdded(String prisonerCode) {
+        List<String> alertsAddedList = Collections.emptyList();
+        testHelper.startAlertsUpdated(prisonerCode,  alertsAddedList, Collections.emptyList());
     }
 
     @Then("I update the last modified time in the database to be {string} minutes in the past")

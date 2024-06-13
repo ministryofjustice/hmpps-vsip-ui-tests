@@ -7,12 +7,8 @@ import org.junit.Assert;
 import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
 import uk.gov.justice.digital.hmpps.vsip.pages.BasePage;
 import uk.gov.justice.digital.hmpps.vsip.services.CommonMethodService;
-import uk.gov.justice.digital.hmpps.vsip.services.PrisonVisitsTestingHelperService;
 import uk.gov.justice.digital.hmpps.vsip.services.TestContextService;
 
-/**
- * Created by Anusha Nagula on 15/05/23.
- */
 public class CommonSteps {
 
     @LazyAutowired
@@ -22,12 +18,7 @@ public class CommonSteps {
     private CommonMethodService methodsService;
 
     @LazyAutowired
-    private PrisonVisitsTestingHelperService testHelper;
-
-    @LazyAutowired
     private TestContextService testContextService;
-
-
 
     @Given("click on submit button")
     public void i_click_on_submit_button() {
