@@ -114,7 +114,17 @@ public class PrisonVisitsTestingHelperService {
         LOG.debug("Exit changeVisitPrison");
     }
 
+    public void changeClosedSessionSlotCapacityForApplication(String applicationReference, Integer capacity) {
+         LOG.debug("Enter changeClosedSessionSlotCapacityForApplication {1} {2}", applicationReference, capacity);
+         client.changeClosedSessionSlotCapacityForApplication(applicationReference, capacity);
+         LOG.debug("Exit changeClosedSessionSlotCapacityForApplication");
+    }
 
+    public void changeOpenSessionSlotCapacityForApplication(String applicationReference, Integer capacity) {
+        LOG.debug("Enter changeClosedSessionSlotCapacityForApplication {1} {2}", applicationReference, capacity);
+        client.changeOpenSessionSlotCapacityForApplication(applicationReference, capacity);
+        LOG.debug("Exit changeClosedSessionSlotCapacityForApplication");
+    }
 
     public void startAlertsUpdated(String prisonCode, List<String> alertsAdded, List<String> alertsRemoved) {
         String description = alertsAdded.size() + " alert(s) added.";

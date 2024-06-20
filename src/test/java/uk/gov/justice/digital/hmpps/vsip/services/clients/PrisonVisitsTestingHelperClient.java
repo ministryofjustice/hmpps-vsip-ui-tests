@@ -199,4 +199,52 @@ public class PrisonVisitsTestingHelperClient {
     }
 
 
+    public void changeClosedSessionSlotCapacityForApplication(String applicationReference, Integer capacity) {
+        final var uri = "/test/application/"+applicationReference+"/session/capacity/closed/" + capacity;
+
+        LOG.debug("Enter changeClosedSessionSlotCapacityForApplication " + uri);
+
+        Function<ClientResponse, Mono<? extends Throwable>> statusHandler = response -> {
+            var message = "Error changeClosedSessionSlotCapacityForApplication failed :" + uri + " http_status:" + response.statusCode();
+            LOG.error(message);
+            return Mono.error(new AssertionError(message));
+        };
+
+        putCall(uri, statusHandler);
+    }
+
+    public void changeOpenSessionSlotCapacityForApplication(String applicationReference, Integer capacity) {
+        final var uri = "/test/application/"+applicationReference+"/session/capacity/open/" + capacity;
+
+        LOG.debug("Enter changeOpenSessionSlotCapacityForApplication " + uri);
+
+        Function<ClientResponse, Mono<? extends Throwable>> statusHandler = response -> {
+            var message = "Error changeOpenSessionSlotCapacityForApplication failed :" + uri + " http_status:" + response.statusCode();
+            LOG.error(message);
+            return Mono.error(new AssertionError(message));
+        };
+
+        putCall(uri, statusHandler);
+    }
+
+    private void putCall(String uri, Function<ClientResponse, Mono<? extends Throwable>> statusHandler ) {
+
+
+
+
+        var response = webClient.put()
+                .uri(uri)
+                .retrieve()
+                .onStatus(validateOkStatusHandler, statusHandler)
+                .toBodilessEntity();
+
+        try {
+            ResponseEntity<Void> results = response.block(Duration.ofSeconds(apiTimeout));
+            LOG.error("put  :" + results.getStatusCode());
+        } catch(Exception e) {
+            LOG.error("Error PUT failed :" + uri, e);
+            throw e;
+        }
+    }
+
 }
