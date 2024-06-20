@@ -109,4 +109,16 @@ public class TestingHelperSteps {
         final String bookingReference = testContextService.getBookingReference();
         testHelper.changeVisitPrison(bookingReference, prisonCode );
     }
+
+    @Given("I want to change open capacity for my application to {string}")
+    public void changeOpenSessionSlotCapacityForApplication(String capacity) {
+        final String applicationRef = testContextService.getApplicationReference();
+        testHelper.changeOpenSessionSlotCapacityForApplication(applicationRef,  Integer.parseInt(capacity));
+    }
+
+    @Given("I want to change closed capacity for my application to {string}")
+    public void changeClosedSessionSlotCapacityForApplication(String capacity) {
+        final String applicationRef = testContextService.getApplicationReference();
+        testHelper.changeClosedSessionSlotCapacityForApplication(applicationRef,  Integer.parseInt(capacity));
+    }
 }
