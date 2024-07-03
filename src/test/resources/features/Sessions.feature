@@ -26,7 +26,7 @@ Feature: Session template based tests
 
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP4_TST | DigitalServices11 | A8897DZ      |
+      | VSIP4_TST | DigitalServices12 | A8897DZ      |
 
   @suite
   Scenario Outline: Closed session - User able to book a Closed session for all Prisoners within the establishment
@@ -57,7 +57,7 @@ Feature: Session template based tests
 
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP4_TST | DigitalServices11 | A8899DZ      |
+      | VSIP4_TST | DigitalServices12 | A8899DZ      |
 
   @suite
   Scenario Outline: Location based - User able to book a visit based on a location within an establishment where the Prisoner is based
@@ -89,7 +89,7 @@ Feature: Session template based tests
 
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP4_TST | DigitalServices11 | A8899DZ      |
+      | VSIP4_TST | DigitalServices12 | A8899DZ      |
 
   @suite
   Scenario Outline: Location not based - User not able to book a visit based on a location within an establishment where the Prisoner is based
@@ -117,7 +117,7 @@ Feature: Session template based tests
 
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP4_TST | DigitalServices11 | A8900DZ      |
+      | VSIP4_TST | DigitalServices12 | A8900DZ      |
 
   @suite
   Scenario Outline: Incentive level - User check incentive level within an establishment where the Prisoner is based
@@ -146,7 +146,7 @@ Feature: Session template based tests
 
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP4_TST | DigitalServices11 | A8898DZ      |
+      | VSIP4_TST | DigitalServices12 | A8898DZ      |
 
   @suite
   Scenario Outline: Incentive level - User check on incentive level of a Prisoner within an establishment
@@ -175,7 +175,7 @@ Feature: Session template based tests
 
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP4_TST | DigitalServices11 | A8897DZ      |
+      | VSIP4_TST | DigitalServices12 | A8897DZ      |
 
   @suite
   Scenario Outline: Category - User check the Category of a Prisoner within an establishment
@@ -204,7 +204,7 @@ Feature: Session template based tests
 
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP4_TST | DigitalServices11 | A8897DZ      |
+      | VSIP4_TST | DigitalServices12 | A8897DZ      |
 
   @suite
   Scenario Outline: Category - User check the Category of a Prisoner within an establishment
@@ -232,4 +232,4 @@ Feature: Session template based tests
 
     Examples:
       | userName  | password          | prisonNumber |
-      | VSIP4_TST | DigitalServices11 | A8898DZ       |
+      | VSIP4_TST | DigitalServices12 | A8898DZ       |
