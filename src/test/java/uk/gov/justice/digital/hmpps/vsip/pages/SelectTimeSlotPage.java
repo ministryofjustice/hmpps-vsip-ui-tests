@@ -1,7 +1,10 @@
 package uk.gov.justice.digital.hmpps.vsip.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import uk.gov.justice.digital.hmpps.vsip.annotation.ComponentWithWebDriver;
 import uk.gov.justice.digital.hmpps.vsip.services.Context;
 
@@ -10,6 +13,8 @@ import java.util.List;
 @ComponentWithWebDriver
 public class SelectTimeSlotPage extends BasePage {
 
+    @FindBy(how = How.XPATH, using = "//*[@data-test='visit-restriction']")
+    private WebElement visitRestriction;
 
     public void selectTimeslotErrorDisplayed() {
         methodsService.isElementDisplayed("xpath", "//a[text() = 'No time slot selected']");
@@ -73,12 +78,16 @@ public class SelectTimeSlotPage extends BasePage {
     }
 
     public void checkOnlyOpenTimeSlots() {
-        methodsService.isElementDisplayed("xpath","//p[contains(text(), '150 tables available')]");
+        final String visitRestriction = this.visitRestriction.getText();
+        Assert.assertEquals("Restriction should be Open not Closed","Open", visitRestriction);
+        methodsService.isElementDisplayed("xpath","//p[contains(text(), 'tables available')]");
+    }
+    public void checkOnlyClosedTimeslotsAvailable() {
+        final String visitRestriction = this.visitRestriction.getText();
+        Assert.assertEquals("Restriction should be Closed not Open","Closed", visitRestriction);
+        methodsService.isElementDisplayed("xpath","//p[contains(text(), 'tables available')]");
     }
 
-    public void checkNoClosedTimeSlotsAvailable() {
-        methodsService.isElementNotDisplayed("xpath","//p[not(contains(text(), '75 tables available'))]");
-    }
 
     public void checkOnlyEnhancedTimeSlotsAvailable() {
         methodsService.isElementDisplayed("xpath","//p[contains(text(), '200 tables available')]");
@@ -112,9 +121,7 @@ public class SelectTimeSlotPage extends BasePage {
         methodsService.isElementNotDisplayed("xpath","//p[not(contains(text(), '450 tables available'))]");
     }
 
-    public void checkOnlyClosedTimeslotsAvailable(){
-        methodsService.isElementDisplayed("xpath","//p[contains(text(), '190 tables available')]");
-    }
+
 
     public void checkNoOpenTimeSlotsAvailabe() {
         methodsService.isElementNotDisplayed("xpath","//p[not(contains(text(), '250 tables available'))]");
