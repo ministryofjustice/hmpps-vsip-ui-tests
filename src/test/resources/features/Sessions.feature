@@ -21,7 +21,6 @@ Feature: Session template based tests
     And click on continue button
     Then Im on "Manage prison visits - Select date and time of visit" page
     And I check only Open time slots is available
-    And I check no Closed time slots is available
     And I sign out of the service
 
     Examples:

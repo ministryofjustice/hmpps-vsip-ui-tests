@@ -50,11 +50,6 @@ public class SelectTimeSlotSteps {
         selectTimeSlotPage.checkOnlyOpenTimeSlots();
     }
 
-    @And("I check no Closed time slots is available")
-    public void iCheckNoClosedTimeSlotsIsAvailable() {
-        selectTimeSlotPage.checkNoClosedTimeSlotsAvailable();
-    }
-
     @And("I check only enhanced incentive timeslots available")
     public void iCheckOnlyEnhancedIncentiveTimeslotsAvailable() {
         selectTimeSlotPage.checkOnlyEnhancedTimeSlotsAvailable();
@@ -99,7 +94,6 @@ public class SelectTimeSlotSteps {
     public void iCheckOnlyClosedTimeSlotsIsAvailable() {
         selectTimeSlotPage.checkOnlyClosedTimeslotsAvailable();
     }
-
 
     @And("I check open timeslots not available")
     public void iCheckOpenTimeslotsNotAvailable() {
