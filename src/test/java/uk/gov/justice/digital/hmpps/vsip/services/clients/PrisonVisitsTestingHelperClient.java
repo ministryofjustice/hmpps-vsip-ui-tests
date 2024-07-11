@@ -14,11 +14,14 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.util.UriBuilder;
 import reactor.core.publisher.Mono;
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.VisitStatus;
 
+import java.net.URI;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -58,7 +61,7 @@ public class PrisonVisitsTestingHelperClient {
 
         try {
             ResponseEntity<Void> results = response.block(Duration.ofSeconds(apiTimeout));
-            LOG.error("put  :" + results.getStatusCode());
+            LOG.debug("put  :" + results.getStatusCode());
         } catch(Exception e) {
             LOG.error("Error PUT failed :" + uri, e);
             throw e;
@@ -84,7 +87,7 @@ public class PrisonVisitsTestingHelperClient {
 
         try {
             ResponseEntity<Void> results = response.block(Duration.ofSeconds(apiTimeout));
-            LOG.error("put  :{}", results.getStatusCode());
+            LOG.debug("put  :{}", results.getStatusCode());
         } catch(Exception e) {
             LOG.error("Error PUT failed :{}", uri, e);
             throw e;
@@ -109,7 +112,7 @@ public class PrisonVisitsTestingHelperClient {
 
         try {
             ResponseEntity<Void> results = response.block(Duration.ofSeconds(apiTimeout));
-            LOG.error("put  :{}", results.getStatusCode());
+            LOG.debug("put  :{}", results.getStatusCode());
         } catch(Exception e) {
             LOG.error("Error PUT failed :{}", uri, e);
             throw e;
@@ -139,7 +142,7 @@ public class PrisonVisitsTestingHelperClient {
             ResponseEntity<Void> results = response.block(Duration.ofSeconds(apiTimeout));
             LOG.error("put  :" + results.getStatusCode());
         } catch(Exception e) {
-            LOG.error("Error PUT failed :" + uri, e);
+            LOG.debug("Error PUT failed :" + uri, e);
             throw e;
         }
     }
@@ -164,7 +167,7 @@ public class PrisonVisitsTestingHelperClient {
 
         try {
             ResponseEntity<Void> results = response.block(Duration.ofSeconds(apiTimeout));
-            LOG.error("put  :" + results.getStatusCode());
+            LOG.debug("put  :" + results.getStatusCode());
         } catch(Exception e) {
             LOG.error("Error PUT failed :" + uri, e);
             throw e;
@@ -196,6 +199,96 @@ public class PrisonVisitsTestingHelperClient {
             LOG.error("Error PUT failed :" + uri, e);
             throw e;
         }
+    }
+
+
+    public String createSessionTemplate(
+            String prisonCode,
+            LocalDateTime sessionStartDateTime,
+            Integer weeklyFrequency,
+            Integer closedCapacity,
+            Integer openCapacity,
+            String locationLevels,
+            String incentive,
+            String category,
+            Boolean disableAllOtherSessionsForSlotAndPrison
+    ) {
+        final var uri = "/test/prison/"+prisonCode+"/add/template";
+        LOG.debug("Enter createSessionTemplate " + uri);
+
+        Function<ClientResponse, Mono<? extends Throwable>> statusHandler = response -> {
+            var message = "Error createSessionTemplate failed :" + uri + " http_status:" + response.statusCode();
+            LOG.error(message);
+            return Mono.error(new AssertionError(message));
+        };
+
+        var response = webClient.put()
+                .uri(builder ->
+                        getCreateSessionTemplateUri(prisonCode,
+                                sessionStartDateTime,
+                                weeklyFrequency,
+                                closedCapacity,
+                                openCapacity,
+                                locationLevels,
+                                incentive,
+                                category,
+                                disableAllOtherSessionsForSlotAndPrison,
+                                builder,
+                                uri))
+                .retrieve()
+                .onStatus(validateCreateStatusHandler, statusHandler)
+                .bodyToMono(String.class);
+
+        try {
+            String results = response.block(Duration.ofSeconds(apiTimeout));
+            LOG.debug("put  createSessionTemplate:" + results);
+            return results;
+        } catch(Exception e) {
+            LOG.error("Error put createSessionTemplate failed :" + uri, e);
+            throw e;
+        }
+    }
+
+    public void deleteSessionTemplate(String sessionTemplateReference) {
+
+        final var uri = "/test/template/" + sessionTemplateReference + "/delete";
+
+        LOG.debug("Enter deleteSessionTemplate " + uri);
+
+        Function<ClientResponse, Mono<? extends Throwable>> statusHandler = response -> {
+            var message = "Error deleteSessionTemplate failed :" + uri + " http_status:" + response.statusCode();
+            LOG.error(message);
+            return Mono.error(new AssertionError(message));
+        };
+
+        var response = webClient.put()
+                .uri(uri)
+                .retrieve()
+                .onStatus(validateOkStatusHandler, statusHandler)
+                .toBodilessEntity();
+
+        try {
+            ResponseEntity<Void> results = response.block(Duration.ofSeconds(apiTimeout));
+            LOG.error("put  :" + results.getStatusCode());
+        } catch(Exception e) {
+            LOG.error("Error PUT failed :" + uri, e);
+            throw e;
+        }
+    }
+
+
+    private static URI getCreateSessionTemplateUri(String prisonCode, LocalDateTime sessionStartDateTime, Integer weeklyFrequency, Integer closedCapacity, Integer openCapacity, String locationLevels, String incentive, String category, Boolean disableAllOtherSessionsForSlotAndPrison, UriBuilder builder, String path) {
+        return builder.path(path)
+                .queryParamIfPresent("prisonCode", Optional.of(prisonCode))
+                .queryParamIfPresent("sessionStartDateTime", Optional.ofNullable(sessionStartDateTime))
+                .queryParamIfPresent("weeklyFrequency", Optional.ofNullable(weeklyFrequency))
+                .queryParamIfPresent("closedCapacity", Optional.ofNullable(closedCapacity))
+                .queryParamIfPresent("openCapacity", Optional.ofNullable(openCapacity))
+                .queryParamIfPresent("locationLevels", Optional.ofNullable(locationLevels))
+                .queryParamIfPresent("incentive", Optional.ofNullable(incentive))
+                .queryParamIfPresent("category", Optional.ofNullable(category))
+                .queryParamIfPresent("disableAllOtherSessionsForSlotAndPrison", Optional.of(disableAllOtherSessionsForSlotAndPrison))
+                .build();
     }
 
 
@@ -240,11 +333,12 @@ public class PrisonVisitsTestingHelperClient {
 
         try {
             ResponseEntity<Void> results = response.block(Duration.ofSeconds(apiTimeout));
-            LOG.error("put  :" + results.getStatusCode());
+            LOG.debug("put  :" + results.getStatusCode());
         } catch(Exception e) {
             LOG.error("Error PUT failed :" + uri, e);
             throw e;
         }
     }
+
 
 }

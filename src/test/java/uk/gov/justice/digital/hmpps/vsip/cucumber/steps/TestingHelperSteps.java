@@ -121,4 +121,18 @@ public class TestingHelperSteps {
         final String applicationRef = testContextService.getApplicationReference();
         testHelper.changeClosedSessionSlotCapacityForApplication(applicationRef,  Integer.parseInt(capacity));
     }
+
+    @Given("I want to setup a closed session for {string} for two days time at 9am to 11am for prisoner location of {string}")
+    public void createClosedSessionTemplate(String prison, String location) {
+        LocalDateTime sessionSlotTime = LocalDate.now().plusDays(2).atStartOfDay().withHour(9);
+        testHelper.createSessionTemplate(prison, sessionSlotTime,1,1,0,location,
+                null,null,true);
+    }
+
+    @Given("I want to setup a opened session for {string} for two days time at 9am to 11am for prisoner location of {string}")
+    public void createOpenedSessionTemplate(String prison, String location) {
+        LocalDateTime sessionSlotTime = LocalDate.now().plusDays(2).atStartOfDay().withHour(9);
+        testHelper.createSessionTemplate(prison, sessionSlotTime,1,1,1,location,
+                null,null,true);
+    }
 }

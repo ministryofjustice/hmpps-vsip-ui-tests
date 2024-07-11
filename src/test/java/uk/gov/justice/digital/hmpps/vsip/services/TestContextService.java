@@ -66,6 +66,23 @@ public class TestContextService {
         this.setToContext(Context.BOOKING_REFERENCE, bookings);
     }
 
+    public void setSessionTemplateReference(String sessionTemplateReference) {
+        List<String> bookings = getFromContext(Context.SESSION_TEMPLATE_REFERENCE);
+        if (bookings == null) {
+            bookings = new ArrayList<>();
+        }
+        bookings.add(sessionTemplateReference);
+        this.setToContext(Context.SESSION_TEMPLATE_REFERENCE, bookings);
+    }
+
+    public String getSessionTemplateReference() {
+        List<String> applications = getFromContext(Context.SESSION_TEMPLATE_REFERENCE);
+        if (applications != null && !applications.isEmpty()) {
+            return applications.getLast();
+        }
+        return null;
+    }
+
     public String getApplicationReference() {
         List<String> applications = getFromContext(Context.APPLICATION_REFERENCE);
         if (applications != null && !applications.isEmpty()) {
@@ -105,6 +122,10 @@ public class TestContextService {
 
     public List<String> getApplicationReferences() {
         return getFromContext(Context.APPLICATION_REFERENCE);
+    }
+
+    public List<String> getSessionTemplateReferences() {
+        return getFromContext(Context.SESSION_TEMPLATE_REFERENCE);
     }
 
     public String getTimeSlotDay() {

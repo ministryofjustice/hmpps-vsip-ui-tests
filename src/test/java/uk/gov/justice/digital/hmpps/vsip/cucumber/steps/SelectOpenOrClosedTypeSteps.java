@@ -16,6 +16,11 @@ public class SelectOpenOrClosedTypeSteps {
         selectOpenOrClosedTypePage.chooseClosedType();
     }
 
+    @And("I choose opened type visit")
+    public void iChooseOpenedTypeVisit() {
+        selectOpenOrClosedTypePage.chooseOpenedType();
+    }
+
     @Then("I see {string} on select open or closed type page")
     public void iSeeOnSelectOpenOrClosedTypePage(String errorMsg) {
         selectOpenOrClosedTypePage.checkErrormessage();
