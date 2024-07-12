@@ -137,6 +137,14 @@ public class SelectTimeSlotPage extends BasePage {
         methodsService.click("xpath", getDataTestXPathForTimeSlot(dataTestValue));
     }
 
+    public void iCannotSelectASlotInTwoDaysTimeAt9amTo11am() {
+        showAllSlotsDates();
+
+        String dataTestValue = testHelper.getSlotDataTestValue(LocalDate.now().plusDays(2),9,11);
+        var isElementDisplayed = methodsService.isElementPresent("xpath", getDataTestXPathForTimeSlot(dataTestValue));
+        Assert.assertFalse(isElementDisplayed);
+    }
+
     public void checkOtherLocationTimeSlotsNotAvailble() {
         methodsService.isElementNotDisplayed("xpath","//p[not(contains(text(), '315 tables available'))]");
     }

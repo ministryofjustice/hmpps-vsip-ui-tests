@@ -80,6 +80,12 @@ public class SelectTimeSlotSteps {
         selectTimeSlotPage.iSelectASlotInTwoDaysTimeAt9amTo11am();
     }
 
+    @And("I cant select a slot in two days time at 9am to 11am")
+    public void iCantSelectASlotInTwoDaysTimeAt9amTo11am() {
+        selectTimeSlotPage.iCannotSelectASlotInTwoDaysTimeAt9amTo11am();
+    }
+
+
     @And("I check other location within this establishment timeslots not available")
     public void iCheckOtherLocationWithinThisEstablishmentTimeslotsNotAvailable() {
         selectTimeSlotPage.checkOtherLocationTimeSlotsNotAvailble();

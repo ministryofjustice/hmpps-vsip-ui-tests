@@ -46,6 +46,14 @@ public class CommonMethodService {
         return !element.isDisplayed();
     }
 
+    public boolean isElementPresent(String accessType, String accessName) {
+        try {
+            driver.findElement(getElementByType(accessType, accessName));
+            return true;
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
+    }
     /**
      * Method to select element 'by' type
      *
