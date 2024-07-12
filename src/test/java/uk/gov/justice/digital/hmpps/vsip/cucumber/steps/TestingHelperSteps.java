@@ -130,9 +130,38 @@ public class TestingHelperSteps {
     }
 
     @Given("I want to setup a opened session for {string} for two days time at 9am to 11am for prisoner location of {string}")
-    public void createOpenedSessionTemplate(String prison, String location) {
+    public void createOpenedSessionTemplateForLocation(String prison, String location) {
         LocalDateTime sessionSlotTime = LocalDate.now().plusDays(2).atStartOfDay().withHour(9);
-        testHelper.createSessionTemplate(prison, sessionSlotTime,1,1,1,location,
+        testHelper.createSessionTemplate(prison, sessionSlotTime,1,0,1,location,
                 null,null,true);
     }
+
+    @Given("I want to setup a opened session for {string} for two days time at 9am to 11am for prisoner incentive of {string}")
+    public void createOpenedSessionTemplateForIncentiveLevel(String prison, String incentiveLevel) {
+        LocalDateTime sessionSlotTime = LocalDate.now().plusDays(2).atStartOfDay().withHour(9);
+        testHelper.createSessionTemplate(prison, sessionSlotTime,1,0,1,null,
+                incentiveLevel,null,true);
+    }
+
+    @Given("I want to setup a closed session for {string} for two days time at 9am to 11am for prisoner incentive of {string}")
+    public void createClosedSessionTemplateForIncentiveLevel(String prison, String incentiveLevel) {
+        LocalDateTime sessionSlotTime = LocalDate.now().plusDays(2).atStartOfDay().withHour(9);
+        testHelper.createSessionTemplate(prison, sessionSlotTime,1,1,0,null,
+                incentiveLevel,null,true);
+    }
+
+    @Given("I want to setup a opened session for {string} for two days time at 9am to 11am for prisoner category of {string}")
+    public void createOpenedSessionTemplateForCategory(String prison, String category) {
+        LocalDateTime sessionSlotTime = LocalDate.now().plusDays(2).atStartOfDay().withHour(9);
+        testHelper.createSessionTemplate(prison, sessionSlotTime,1,0,1,null,
+                null,category,true);
+    }
+
+    @Given("I want to setup a closed session for {string} for two days time at 9am to 11am for prisoner category of {string}")
+    public void createClosedSessionTemplateForCategory(String prison, String category) {
+        LocalDateTime sessionSlotTime = LocalDate.now().plusDays(2).atStartOfDay().withHour(9);
+        testHelper.createSessionTemplate(prison, sessionSlotTime,1,1,0,null,
+                null,category,true);
+    }
+
 }
