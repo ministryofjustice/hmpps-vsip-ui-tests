@@ -86,7 +86,7 @@ Feature: Book a Visit Error messages
     Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I select change establishment
-    And I change the establishmnet to Drake Hall
+    And I change the establishment to Drake Hall
     And click on continue button
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page

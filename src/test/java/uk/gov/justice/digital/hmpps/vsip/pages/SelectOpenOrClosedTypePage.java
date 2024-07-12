@@ -9,6 +9,10 @@ public class SelectOpenOrClosedTypePage extends BasePage {
         methodsService.selectRadioButton("xpath","//input[@id='visitType-2']");
     }
 
+    public void chooseOpenedType(){
+        methodsService.selectRadioButton("xpath","//input[@id='visitType']");
+    }
+
     public void checkErrormessage(){
         methodsService.isElementDisplayed("xpath","//a[text()='No visit type selected']");
     }

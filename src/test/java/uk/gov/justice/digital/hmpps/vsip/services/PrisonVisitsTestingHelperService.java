@@ -14,6 +14,7 @@ import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.PrisonerRestrictio
 import uk.gov.justice.digital.hmpps.vsip.services.clients.dto.VisitorRestrictionEventDto;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -109,19 +110,35 @@ public class PrisonVisitsTestingHelperService {
     }
 
     public void changeVisitPrison(String bookingReference, String prisonCode) {
-        LOG.debug("Enter changeVisitPrison {1} {2}", bookingReference, prisonCode);
+        LOG.debug("Enter changeVisitPrison {} {}", bookingReference, prisonCode);
         client.changeVisitPrison(bookingReference, prisonCode);
         LOG.debug("Exit changeVisitPrison");
     }
 
+    public void createSessionTemplate(String prisonCode,
+                                      LocalDateTime sessionStartDateTime,
+                                      Integer weeklyFrequency,
+                                      Integer closedCapacity,
+                                      Integer openCapacity,
+                                      String locationLevels,
+                                      String incentive,
+                                      String category,
+                                      Boolean disableAllOtherSessionsForSlotAndPrison) {
+        LOG.debug("Enter changeVisitPrison {} {} {} {} {} {} {} {} {}", prisonCode, sessionStartDateTime,weeklyFrequency,closedCapacity, openCapacity,locationLevels,incentive,category,disableAllOtherSessionsForSlotAndPrison);
+        var sessionReference = client.createSessionTemplate(prisonCode, sessionStartDateTime,weeklyFrequency,closedCapacity, openCapacity,locationLevels,incentive,category,disableAllOtherSessionsForSlotAndPrison);
+        context.setSessionTemplateReference(sessionReference);
+        LOG.debug("Exit changeVisitPrison");
+    }
+
+
     public void changeClosedSessionSlotCapacityForApplication(String applicationReference, Integer capacity) {
-         LOG.debug("Enter changeClosedSessionSlotCapacityForApplication {1} {2}", applicationReference, capacity);
+         LOG.debug("Enter changeClosedSessionSlotCapacityForApplication {} {}", applicationReference, capacity);
          client.changeClosedSessionSlotCapacityForApplication(applicationReference, capacity);
          LOG.debug("Exit changeClosedSessionSlotCapacityForApplication");
     }
 
     public void changeOpenSessionSlotCapacityForApplication(String applicationReference, Integer capacity) {
-        LOG.debug("Enter changeClosedSessionSlotCapacityForApplication {1} {2}", applicationReference, capacity);
+        LOG.debug("Enter changeClosedSessionSlotCapacityForApplication {} {}", applicationReference, capacity);
         client.changeOpenSessionSlotCapacityForApplication(applicationReference, capacity);
         LOG.debug("Exit changeClosedSessionSlotCapacityForApplication");
     }
@@ -167,7 +184,36 @@ public class PrisonVisitsTestingHelperService {
             // TODO need to add a booking object to context that holds booking ref, booking date extra
         }
 
+        if (context.getSessionTemplateReferences()!=null) {
+            // This must be done after visits have been deleted
+            var sessionTemplateReferences = new ArrayList<>(context.getSessionTemplateReferences());
+            if (sessionTemplateReferences != null) {
+                LOG.debug(sessionTemplateReferences.size() + " Session template references, must tidy up!");
+                sessionTemplateReferences.forEach(sessionTemplateReference -> {
+                    client.deleteSessionTemplate(sessionTemplateReference);
+                    // Remove reference from context
+                    context.getSessionTemplateReferences().remove(sessionTemplateReference);
+                });
+            }
+        }
+
     }
 
 
+    public String getSlotDataTestValue(LocalDate localDate, int startSlot, int endSlot) {
+        var startTime = LocalTime.of(startSlot,0);
+        var endTime = LocalTime.of(endSlot,0);
+        var formatter = DateTimeFormatter.ofPattern("ha");
+
+        //Format as follows <2024-07-13 - 9am to 11am>
+        final StringBuilder buffer = new StringBuilder();
+        buffer.append(localDate.toString());
+        buffer.append(" - ");
+        buffer.append(startTime.format(formatter));
+        buffer.append(" to ");
+        buffer.append(endTime.format(formatter));
+
+        //    2024-07-13 - 9am to 11am
+        return buffer.toString();
+    }
 }

@@ -6,8 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import uk.gov.justice.digital.hmpps.vsip.annotation.ComponentWithWebDriver;
+import uk.gov.justice.digital.hmpps.vsip.annotation.LazyAutowired;
 import uk.gov.justice.digital.hmpps.vsip.services.Context;
+import uk.gov.justice.digital.hmpps.vsip.services.PrisonVisitsTestingHelperService;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @ComponentWithWebDriver
@@ -15,6 +18,9 @@ public class SelectTimeSlotPage extends BasePage {
 
     @FindBy(how = How.XPATH, using = "//*[@data-test='visit-restriction']")
     private WebElement visitRestriction;
+
+    @LazyAutowired
+    private PrisonVisitsTestingHelperService testHelper;
 
     public void selectTimeslotErrorDisplayed() {
         methodsService.isElementDisplayed("xpath", "//a[text() = 'No time slot selected']");
@@ -33,7 +39,11 @@ public class SelectTimeSlotPage extends BasePage {
     }
 
     public void selectLastBookedSlot() {
-        methodsService.selectRadioButton("xpath", getDataTestXPathForTimeSlot());
+        selectBookedSlot(getDataTestXPathForTimeSlot());
+    }
+
+    public void selectBookedSlot(String xpath) {
+        methodsService.selectRadioButton("xpath", xpath);
     }
 
     public void noTimeslotAvailable() {
@@ -45,7 +55,10 @@ public class SelectTimeSlotPage extends BasePage {
     }
 
     private String getDataTestXPathForTimeSlot() {
-        return "//*[@data-test='" + testContextService.getTimeSlotDay() + "']";
+        return getDataTestXPathForTimeSlot(testContextService.getTimeSlotDay());
+    }
+    private String getDataTestXPathForTimeSlot(String value) {
+        return "//*[@data-test='" + value+ "']";
     }
 
     public String getBookingCapacity() {
@@ -107,6 +120,21 @@ public class SelectTimeSlotPage extends BasePage {
 
     public void checkOnlyThisLocationTimeslotsAvailable() {
         methodsService.isElementDisplayed("xpath","//p[contains(text(), '190 tables available')]");
+    }
+
+
+    public void showAllSlotsDates() {
+        List<WebElement> allSections = driver.findElements(By.xpath("//span[text()='Show all sections']"));
+        for (WebElement element : allSections) {
+            element.click();
+        }
+    }
+
+    public void iSelectASlotInTwoDaysTimeAt9amTo11am() {
+        showAllSlotsDates();
+
+        String dataTestValue = testHelper.getSlotDataTestValue(LocalDate.now().plusDays(2),9,11);
+        methodsService.click("xpath", getDataTestXPathForTimeSlot(dataTestValue));
     }
 
     public void checkOtherLocationTimeSlotsNotAvailble() {

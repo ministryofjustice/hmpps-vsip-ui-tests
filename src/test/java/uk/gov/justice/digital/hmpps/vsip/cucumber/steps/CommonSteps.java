@@ -72,8 +72,8 @@ public class CommonSteps {
         methodsService.chooseBristol();
     }
 
-    @And("I change the establishmnet to Drake Hall")
-    public void iChangeTheEstablishmnetToDrakeHall() {
+    @And("I change the establishment to Drake Hall")
+    public void iChangeTheEstablishmentToDrakeHall() {
         methodsService.chooseDrakeHall();
     }
 
