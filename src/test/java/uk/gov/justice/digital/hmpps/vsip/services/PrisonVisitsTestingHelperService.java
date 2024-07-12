@@ -110,7 +110,7 @@ public class PrisonVisitsTestingHelperService {
     }
 
     public void changeVisitPrison(String bookingReference, String prisonCode) {
-        LOG.debug("Enter changeVisitPrison {1} {2}", bookingReference, prisonCode);
+        LOG.debug("Enter changeVisitPrison {} {}", bookingReference, prisonCode);
         client.changeVisitPrison(bookingReference, prisonCode);
         LOG.debug("Exit changeVisitPrison");
     }
@@ -124,7 +124,7 @@ public class PrisonVisitsTestingHelperService {
                                       String incentive,
                                       String category,
                                       Boolean disableAllOtherSessionsForSlotAndPrison) {
-        LOG.debug("Enter changeVisitPrison {1} {2} {3} {4} {5} {6} {7} {8} {9}", prisonCode, sessionStartDateTime,weeklyFrequency,closedCapacity, openCapacity,locationLevels,incentive,category,disableAllOtherSessionsForSlotAndPrison);
+        LOG.debug("Enter changeVisitPrison {} {} {} {} {} {} {} {} {}", prisonCode, sessionStartDateTime,weeklyFrequency,closedCapacity, openCapacity,locationLevels,incentive,category,disableAllOtherSessionsForSlotAndPrison);
         var sessionReference = client.createSessionTemplate(prisonCode, sessionStartDateTime,weeklyFrequency,closedCapacity, openCapacity,locationLevels,incentive,category,disableAllOtherSessionsForSlotAndPrison);
         context.setSessionTemplateReference(sessionReference);
         LOG.debug("Exit changeVisitPrison");
@@ -132,13 +132,13 @@ public class PrisonVisitsTestingHelperService {
 
 
     public void changeClosedSessionSlotCapacityForApplication(String applicationReference, Integer capacity) {
-         LOG.debug("Enter changeClosedSessionSlotCapacityForApplication {1} {2}", applicationReference, capacity);
+         LOG.debug("Enter changeClosedSessionSlotCapacityForApplication {} {}", applicationReference, capacity);
          client.changeClosedSessionSlotCapacityForApplication(applicationReference, capacity);
          LOG.debug("Exit changeClosedSessionSlotCapacityForApplication");
     }
 
     public void changeOpenSessionSlotCapacityForApplication(String applicationReference, Integer capacity) {
-        LOG.debug("Enter changeClosedSessionSlotCapacityForApplication {1} {2}", applicationReference, capacity);
+        LOG.debug("Enter changeClosedSessionSlotCapacityForApplication {} {}", applicationReference, capacity);
         client.changeOpenSessionSlotCapacityForApplication(applicationReference, capacity);
         LOG.debug("Exit changeClosedSessionSlotCapacityForApplication");
     }
