@@ -213,7 +213,7 @@ public class PrisonVisitsTestingHelperClient {
             String category,
             Boolean disableAllOtherSessionsForSlotAndPrison
     ) {
-        final var uri = "/test/prison/"+prisonCode+"/add/template";
+        final var uri = "/test/prison/"+prisonCode+"/template/add";
         LOG.debug("Enter createSessionTemplate " + uri);
 
         Function<ClientResponse, Mono<? extends Throwable>> statusHandler = response -> {
