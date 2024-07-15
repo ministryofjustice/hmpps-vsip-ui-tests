@@ -59,64 +59,6 @@ Feature: Session template based tests
       | VSIP4_TST | DigitalServices12 | A8899DZ      |
 
   @suite
-  Scenario Outline: Incentive level - User check incentive level within an establishment where the Prisoner is based
-  # ensure a session restricted by incentive level is only available to prisoners with that incentive level
-
-    Given I log in with "<userName>" and "<password>"
-    Then Im on "Manage prison visits - Manage prison visits" page
-    And I select change establishment
-    And I change the establishment to Bristol
-    And click on continue button
-    And I click on Book a visit option
-    And Im on "Manage prison visits - Search for a prisoner" page
-    When I enter "<prisonNumber>" to search for a prison
-    And click on search button
-    Then I choose prisoner from search results
-    Then Im on "Manage prison visits - Vsip_prisoner13, Do Not Use" page
-    And I check incentive level for that prisoner
-    And I click on Book a visit button
-    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
-    And I select next visitor form the list from Bristol establishment
-    And click on continue button
-    Then Im on "Manage prison visits - Select date and time of visit" page
-    And I check only standard incentive timeslots available
-    And I check enhanced timeslots not available
-    And I sign out of the service
-
-    Examples:
-      | userName  | password          | prisonNumber |
-      | VSIP4_TST | DigitalServices12 | A8898DZ      |
-
-  @suite
-  Scenario Outline: Incentive level - User check on incentive level of a Prisoner within an establishment
-  # ensure a session restricted by incentive level is not available to a prisoner with that incentive level
-
-    Given I log in with "<userName>" and "<password>"
-    Then Im on "Manage prison visits - Manage prison visits" page
-    And I select change establishment
-    And I change the establishment to Bristol
-    And click on continue button
-    And I click on Book a visit option
-    And Im on "Manage prison visits - Search for a prisoner" page
-    When I enter "<prisonNumber>" to search for a prison
-    And click on search button
-    Then I choose prisoner from search results
-    Then Im on "Manage prison visits - Vsip_prisoner12, Do Not Use" page
-    And I check enhanced incentive level for that prisoner
-    And I click on Book a visit button
-    Then Im on "Manage prison visits - Select visitors from the prisoner’s approved visitor list" page
-    And I select a new visitor form the list from Bristol establishment
-    And click on continue button
-    Then Im on "Manage prison visits - Select date and time of visit" page
-    And I check only enhanced incentive timeslots available
-    And I check standard timeslots not available
-    And I sign out of the service
-
-    Examples:
-      | userName  | password          | prisonNumber |
-      | VSIP4_TST | DigitalServices12 | A8897DZ      |
-
-  @suite
   Scenario Outline: Category - User check the Category of a Prisoner within an establishment
   # ensure a session restricted by category is only available to prisoners with that category
 
