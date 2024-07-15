@@ -1,7 +1,7 @@
 Feature: Login
   As a user, I should be able to book a slot with the correct category
 
-  Scenario Outline: Book a opened slot for given category
+  Scenario Outline: Book a opened slot for given category that matches prisoners category
     Given I navigate to VSIP service
     And I want to setup a opened session for "<prison>" for two days time at 9am to 11am for prisoner category of "<category>"
     Given I log in with "<userName>" and "<password>"
@@ -44,7 +44,7 @@ Feature: Login
       | userName  | password          | prison | prisonNumber | category      |
       | VSIP4_TST | DigitalServices12 | DHI    | A8900DZ      | FEMALE_CLOSED |
 
-  Scenario Outline: When a prisoner is in given category then we cannot book
+  Scenario Outline: When a prisoner is not in given category then we cannot book
     Given I navigate to VSIP service
     And I want to setup a opened session for "<prison>" for two days time at 9am to 11am for prisoner location of "<category>"
     Given I log in with "<userName>" and "<password>"
