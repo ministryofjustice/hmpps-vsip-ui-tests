@@ -36,8 +36,8 @@ Feature: Book a Visit
     And I sign out of the service
 
     Examples:
-      | userName  | password          | prisonNumber |
-      | VSIP1_TST | Expired11         | A6036DZ      |
+      | userName  | password  | prisonNumber |
+      | VSIP1_TST | Expired11 | A6036DZ      |
 
   @suite
   Scenario: Book a visit capacity is refilled after 10minutes
@@ -123,8 +123,8 @@ Feature: Book a Visit
 
 
     Examples:
-      | userName  | password          | prisonerName    |
-      | VSIP2_TST | Expired11         | VSIP_PRISONER06 |
+      | userName  | password  | prisonerName    |
+      | VSIP2_TST | Expired11 | VSIP_PRISONER06 |
 
   @smoke_tests_os @suite @error_messages
   Scenario Outline: Book a visit - Additional support needed
@@ -190,8 +190,8 @@ Feature: Book a Visit
 
 
     Examples:
-      | userName  | password          | prisonerName    | phoneNumber | incorrectdetails     |
-      | VSIP3_TST | Expired11         | Vsip_prisoner06 | 07806789076 | w                    |
+      | userName  | password  | prisonerName    | phoneNumber | incorrectdetails |
+      | VSIP3_TST | Expired11 | Vsip_prisoner06 | 07806789076 | w                |
 
   @suite
   Scenario Outline: Book a visit - Someone else main contact
@@ -259,11 +259,11 @@ Feature: Book a Visit
     And I see "This visit was cancelled by the visitor." banner
     And I choose Booking history tab
     And I see "Reason: Health issues" reason used to Book a visit
-    And I see "Request method: Phone call" used to cancel booking
+    And I see "Method: Phone booking" used to cancel booking
     And I sign out of the service
 
     #
 
     Examples:
-      | userName  | password          | prisonerName    | contactName | phoneNumber | reason        | prisonNumber |
-      | VSIP1_TST | Expired11         | VSIP_PRISONER06 | John        | 07806432054 | Health issues | A6539DZ      |
+      | userName  | password  | prisonerName    | contactName | phoneNumber | reason        | prisonNumber |
+      | VSIP1_TST | Expired11 | VSIP_PRISONER06 | John        | 07806432054 | Health issues | A6539DZ      |

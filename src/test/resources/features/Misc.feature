@@ -16,7 +16,7 @@ Feature: Book/Cancel/Amend a Visit
     Then Im on "Manage prison visits - Visit booking details - <booking_reference>" visit view page
     And I see "Visit booking details" message displayed
     Then I choose Booking history tab
-    And I see "Request method: Phone call" book request method displayed on booking history tab
+    And I see "Method: Phone booking" book request method displayed on booking history tab
     And I sign out of the service
 
     Examples:
