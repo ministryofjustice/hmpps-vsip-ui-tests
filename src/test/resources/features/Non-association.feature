@@ -1,7 +1,7 @@
 Feature: Non-association visit
   As a user, I shouldn't be able to book a visit using VSIP service for a non-association prisoners
 
- # @suite
+  @suite
   Scenario Outline: Non-association
     Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
@@ -54,9 +54,6 @@ Feature: Non-association visit
     Then Im on "Manage prison visits - Select date and time of visit" page
     And I shouldn't be able to select a timeslot that was booked last
     And I sign out of the service
-
-
-
 
     Examples:
       | userName  | password          | prisonNumber | prisonerName    | phoneNumber | reason        |

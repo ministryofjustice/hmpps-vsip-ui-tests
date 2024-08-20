@@ -1,6 +1,7 @@
 Feature: Login
   As a user, I should be able to book a slot
 
+  @suite
   Scenario Outline: Book a opened slot for given cell location
     Given I navigate to VSIP service
     And I want to setup a opened session for "<prison>" for two days time at 9am to 11am for prisoner location of "<location>"
@@ -47,6 +48,7 @@ Feature: Login
       | userName  | password          | prison       | prisonNumber | location  |
       | VSIP4_TST | DigitalServices12 | DHI          | A8899DZ      | I-1-003   |
 
+  @suite
   Scenario Outline: Book a closed slot for given cell location
     Given I navigate to VSIP service
     And I want to setup a closed session for "<prison>" for two days time at 9am to 11am for prisoner location of "<location>"
@@ -93,6 +95,7 @@ Feature: Login
       | userName  | password          | prison       | prisonNumber | location  |
       | VSIP4_TST | DigitalServices12 | DHI          | A8899DZ      | I-1-003   |
 
+  @suite
   Scenario Outline: When a prisoner is not at given location then we cannot book
     Given I navigate to VSIP service
     And I want to setup a opened session for "<prison>" for two days time at 9am to 11am for prisoner location of "<location>"
