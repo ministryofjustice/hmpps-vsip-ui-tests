@@ -54,4 +54,4 @@ Feature: Additional Support
 
     Examples:
       | userName  | password          | prisonNumber | phoneNumber | details     |
-      | VSIP1_TST | Expired11         | A6036DZ      | 07805123900 | wheel chair |
+      | VSIP1_TST | Expired19         | A6036DZ      | 07805123900 | wheel chair |
