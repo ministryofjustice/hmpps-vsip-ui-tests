@@ -35,7 +35,7 @@ Feature: View a Visit
       | userName  | password          | date       |
       | VSIP1_TST | Expired19         | 20/11/2023 |
 
-#  @suite
+  @suite
   Scenario Outline: User able to view Visits by date
     Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page

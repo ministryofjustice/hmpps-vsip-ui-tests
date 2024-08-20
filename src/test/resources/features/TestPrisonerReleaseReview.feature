@@ -1,6 +1,6 @@
 Feature: When a prisoner with a booked visit is release then visit needs review
 
-  @test_suite
+  @test_suite @suite
   Scenario Outline: A prisoner with a booked visit is release then visit needs review
     Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page

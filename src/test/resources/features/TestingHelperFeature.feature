@@ -1,7 +1,7 @@
 Feature: Test new vsip tester helper service
   I should be able to send SQS messages to vsip to start kicking off messages
 
-  @test_suite
+  @test_suite @suite
   Scenario Outline: A prisoner is released
     Given A prisoner "<prisonerCode>" is released from "<prisonCode>" for "RELEASED"
 
@@ -9,7 +9,7 @@ Feature: Test new vsip tester helper service
       | prisonerCode | prisonCode |
       | VSIP1_TST    | CFI        |
 
-  @test_suite
+  @test_suite @suite
   Scenario Outline: A prisoner is received
     Given A prisoner "<prisonerCode>" is received from "<prisonCode>" for "TRANSFERRED"
 
@@ -17,7 +17,7 @@ Feature: Test new vsip tester helper service
       | prisonerCode | prisonCode |
       | VSIP1_TST    | CFI        |
 
-  @test_suite
+  @test_suite @suite
   Scenario Outline: A prisoner has a restriction from and to a date
     Given A prisoner "<prisonerCode>" has a restriction from "<startDate>" to "<endDate>"
 
@@ -25,7 +25,7 @@ Feature: Test new vsip tester helper service
       | prisonerCode | startDate  | endDate    |
       | VSIP1_TST    | 2023-12-03 | 2023-12-27 |
 
-  @test_suite
+  @test_suite @suite
   Scenario Outline: A prisoner has a restriction from a date
     Given A prisoner "<prisonerCode>" has a restriction from "<startDate>"
 
@@ -33,7 +33,7 @@ Feature: Test new vsip tester helper service
       | prisonerCode | startDate  |
       | VSIP1_TST    | 2023-12-03 |
 
-  @test_suite
+  @test_suite @suite
   Scenario Outline: A prisoner has a restriction from to day
     Given A prisoner "<prisonerCode>" has a restriction from today
 
@@ -41,7 +41,7 @@ Feature: Test new vsip tester helper service
       | prisonerCode |
       | VSIP1_TST    |
 
-  @test_suite
+  @test_suite @suite
   Scenario Outline: A visitor has a restriction from and to a date
     Given A visitor "<visitorId>" has a restriction from "<startDate>" to "<endDate>"
 
@@ -49,7 +49,7 @@ Feature: Test new vsip tester helper service
       | visitorId   | startDate  | endDate    |
       | SOMEVISITID | 2023-12-03 | 2023-12-27 |
 
-  @test_suite
+  @test_suite @suite
   Scenario Outline: A visitor has a restriction from a date
     Given A visitor "<visitorId>" has a restriction from "<startDate>"
 
@@ -57,7 +57,7 @@ Feature: Test new vsip tester helper service
       | visitorId   | startDate  |
       | SOMEVISITID | 2023-12-03 |
 
-  @test_suite
+  @test_suite @suite
   Scenario Outline: A prisoner has a non association
     Given A prisoner "<prisonerCode>" has a non association with "<nonAssociationPrisonerCode>"
 

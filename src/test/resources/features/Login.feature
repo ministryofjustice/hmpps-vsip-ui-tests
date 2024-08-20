@@ -1,6 +1,7 @@
 Feature: Login
   As a user, I should be able to login to VSIP service
 
+  @suite
   Scenario Outline: Access VSIP homepage
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
@@ -14,6 +15,7 @@ Feature: Login
       | userName  | password          |
       | VSIP1_TST | Expired19         |
 
+  @suite
   Scenario Outline: Error message - access VSIP homepage
     Given I navigate to VSIP service
     And Im on "HMPPS Digital Services - Sign in" page
