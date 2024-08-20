@@ -17,7 +17,7 @@ Feature: View a Visit
 
     Examples:
       | userName  | password          | prisonerName |
-      | VSIP1_TST | Expired11         | Vsip_prisoner06 |
+      | VSIP1_TST | Expired19         | Vsip_prisoner06 |
 
   @suite
   Scenario Outline: User able to view Visits by date
@@ -33,7 +33,7 @@ Feature: View a Visit
 
     Examples:
       | userName  | password          | date       |
-      | VSIP1_TST | Expired11         | 20/11/2023 |
+      | VSIP1_TST | Expired19         | 20/11/2023 |
 
 #  @suite
   Scenario Outline: User able to view Visits by date
@@ -50,4 +50,4 @@ Feature: View a Visit
 
     Examples:
       | userName  | password          | date       |
-      | VSIP1_TST | Expired11         | 16/03/2024 |
+      | VSIP1_TST | Expired19         | 16/03/2024 |

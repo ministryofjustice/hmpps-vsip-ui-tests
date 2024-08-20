@@ -12,7 +12,7 @@ Feature: Login
 
     Examples:
       | userName  | password          |
-      | VSIP1_TST | Expired11         |
+      | VSIP1_TST | Expired19         |
 
   Scenario Outline: Error message - access VSIP homepage
     Given I navigate to VSIP service

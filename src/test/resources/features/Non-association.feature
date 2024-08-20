@@ -60,4 +60,4 @@ Feature: Non-association visit
 
     Examples:
       | userName  | password          | prisonNumber | prisonerName    | phoneNumber | reason        |
-      | VSIP3_TST | Expired11         | A6038DZ      | VSIP_PRISONER08 | 07805123900 | Health issues |
+      | VSIP3_TST | Expired19         | A6038DZ      | VSIP_PRISONER08 | 07805123900 | Health issues |
