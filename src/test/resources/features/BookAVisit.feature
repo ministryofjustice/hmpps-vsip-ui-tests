@@ -191,7 +191,7 @@ Feature: Book a Visit
 
     Examples:
       | userName  | password  | prisonerName    | phoneNumber | incorrectdetails |
-      | VSIP3_TST | Expired19 | Vsip_prisoner06 | 07806789076 | w                |
+      | VSIP2_TST | Expired19 | Vsip_prisoner06 | 07806789076 | w                |
 
   @suite
   Scenario Outline: Book a visit - Someone else main contact

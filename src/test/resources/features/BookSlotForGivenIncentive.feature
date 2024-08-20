@@ -1,6 +1,7 @@
 Feature: Login
   As a user, I should be able to book a slot with the correct incentive levels
 
+  @suite
   Scenario Outline: Book a opened slot for given incentive level STANDARD
     Given I navigate to VSIP service
     And I want to setup a opened session for "<prison>" for two days time at 9am to 11am for prisoner incentive of "<incentive>"
@@ -47,6 +48,7 @@ Feature: Login
       | userName  | password          | prison | prisonNumber | incentive |
       | VSIP4_TST | DigitalServices12 | DHI    | A8899DZ      | STANDARD  |
 
+  @suite
   Scenario Outline: Book a closed slot for given incentive level STANDARD
     Given I navigate to VSIP service
     And I want to setup a closed session for "<prison>" for two days time at 9am to 11am for prisoner incentive of "<incentive>"
@@ -93,6 +95,7 @@ Feature: Login
       | userName  | password          | prison | prisonNumber | incentive |
       | VSIP4_TST | DigitalServices12 | DHI    | A8899DZ      | STANDARD  |
 
+  @suite
   Scenario Outline: When a prisoner does not have the right incentive level we cannot book
     Given I navigate to VSIP service
     And I want to setup a opened session for "<prison>" for two days time at 9am to 11am for prisoner incentive of "<incentive>"
