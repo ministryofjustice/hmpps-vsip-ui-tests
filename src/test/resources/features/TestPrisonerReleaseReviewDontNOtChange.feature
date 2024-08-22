@@ -1,7 +1,7 @@
 Feature: When a booking get prisoner release notification
   but we do not want to change the visit
 
-  @test_suite
+  @test_suite @suite
   Scenario Outline: mark visit notification for some one who released from prison as do not change and add remark
 
     Given I log in with "<userName>" and "<password>"
@@ -13,7 +13,7 @@ Feature: When a booking get prisoner release notification
     And Im on "Manage prison visits - Search for a booking" page
     And I enter the booking reference
     Given A prisoner "<prisonerCode>" is released from "<prisonCode>" for "RELEASED"
-    And then we wait "5" second for the system to update
+    And I wait for "5" seconds
     And I goto home page
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Need a Review option with a review number flag
@@ -36,7 +36,7 @@ Feature: When a booking get prisoner release notification
           | VSIP2_TST | Expired19         | Vsip_prisoner06 | 07805123900 | HEI        | A6539DZ      |
 
 
-  @test_suite
+  @test_suite @suite
   Scenario Outline: mark visit notification for some one who released from prison as do not change and do not add remark
 
     Given I log in with "<userName>" and "<password>"
@@ -48,7 +48,7 @@ Feature: When a booking get prisoner release notification
     And Im on "Manage prison visits - Search for a booking" page
     And I enter the booking reference
     Given A prisoner "<prisonerCode>" is released from "<prisonCode>" for "RELEASED"
-    And then we wait "5" second for the system to update
+    And I wait for "5" seconds
     And I goto home page
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Need a Review option with a review number flag
@@ -70,7 +70,7 @@ Feature: When a booking get prisoner release notification
       | VSIP2_TST | Expired19         | Vsip_prisoner06 |  HEI        | A6539DZ      |
 
 
-  @test_suite
+  @test_suite @suite
   Scenario Outline: goto visit notification page and press submit with out selecting options
 
     Given I log in with "<userName>" and "<password>"
@@ -82,7 +82,7 @@ Feature: When a booking get prisoner release notification
     And Im on "Manage prison visits - Search for a booking" page
     And I enter the booking reference
     Given A prisoner "<prisonerCode>" is released from "<prisonCode>" for "RELEASED"
-    And then we wait "5" second for the system to update
+    And I wait for "5" seconds
     And I goto home page
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Need a Review option with a review number flag
@@ -102,7 +102,7 @@ Feature: When a booking get prisoner release notification
       | VSIP2_TST | Expired19         | Vsip_prisoner06 | 07805123900 | HEI        | A6539DZ      |
 
 
-  @test_suite
+  @test_suite @suite
   Scenario Outline: goto visit notification page and select no to are you sure the visit does not need to be updated or cancelled
 
     Given I log in with "<userName>" and "<password>"
@@ -114,7 +114,7 @@ Feature: When a booking get prisoner release notification
     And Im on "Manage prison visits - Search for a booking" page
     And I enter the booking reference
     Given A prisoner "<prisonerCode>" is released from "<prisonCode>" for "RELEASED"
-    And then we wait "5" second for the system to update
+    And I wait for "5" seconds
     And I goto home page
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Need a Review option with a review number flag

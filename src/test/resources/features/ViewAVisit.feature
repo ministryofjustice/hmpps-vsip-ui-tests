@@ -19,7 +19,7 @@ Feature: View a Visit
       | userName  | password          | prisonerName |
       | VSIP1_TST | Expired19         | Vsip_prisoner06 |
 
-  @suite
+  # @suite // TODO: find a way to capture booking slot date and time to use when searching for visit by date.
   Scenario Outline: User able to view Visits by date
     Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
@@ -35,7 +35,7 @@ Feature: View a Visit
       | userName  | password          | date       |
       | VSIP1_TST | Expired19         | 20/11/2023 |
 
-#  @suite
+  # @suite // TODO: find a way to capture booking slot date and time to use when searching for visit by date.
   Scenario Outline: User able to view Visits by date
     Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page

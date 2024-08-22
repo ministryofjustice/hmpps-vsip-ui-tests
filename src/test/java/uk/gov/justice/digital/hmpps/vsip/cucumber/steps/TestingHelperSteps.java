@@ -31,7 +31,7 @@ public class TestingHelperSteps {
 
     @Given("A prisoner {string} is received from {string} for {string}")
     public void aPrisonerIsReceived(String prisonerCode, String prisonCode, String reason) {
-        testHelper.startPrisonerReceived(prisonCode, prisonerCode, reason);
+        testHelper.startPrisonerReceived(prisonerCode, prisonCode, reason);
     }
 
     @Given("A prisoner {string} has a restriction from {string} to {string}")

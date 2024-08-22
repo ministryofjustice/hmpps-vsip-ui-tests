@@ -92,5 +92,8 @@ public class CommonSteps {
         basePage.waitAWhile(Integer.parseInt(seconds.trim()));
     }
 
-
+    @And("I wait for {string} seconds")
+    public void iWaitForSeconds(String seconds) throws InterruptedException {
+        Thread.sleep(Long.parseLong(seconds) * 1000); // convert seconds to milliseconds
+    }
 }

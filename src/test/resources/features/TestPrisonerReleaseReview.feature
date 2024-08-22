@@ -1,7 +1,7 @@
-Feature: When a prisoner with a booked visit is release then visit needs review
+Feature: When a prisoner with a booked visit is released then visit needs review
 
-  @test_suite
-  Scenario Outline: A prisoner with a booked visit is release then visit needs review
+  @test_suite @suite
+  Scenario Outline: A prisoner with a booked visit is released then visit needs review
     Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
@@ -33,9 +33,10 @@ Feature: When a prisoner with a booked visit is release then visit needs review
     Then Im on "Manage prison visits - Booking confirmed" page
     And I see "Booking confirmed" message displayed
     And I see a booking reference
+    And I wait for "2" seconds
     # release prisoner
     Given A prisoner "<prisonerCode>" is released from "<prisonCode>" for "RELEASED"
-    And then we wait "5" second for the system to update
+    And I wait for "2" seconds
     And I goto home page
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Need a Review option with a review number flag
