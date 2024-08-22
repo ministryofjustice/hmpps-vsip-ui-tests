@@ -1,6 +1,6 @@
 Feature: When a prisoner with a booked visit  has high priority alerts added then visit needs review
 
-  @test_suite
+  @test_suite @suite
   Scenario: A prisoner with a booked visit has a high priority alert (C1) added then visit needs review
     Given I log in with "VSIP2_TST" and "Expired19"
     Then Im on "Manage prison visits - Manage prison visits" page
@@ -35,7 +35,7 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
     And I see a booking reference
     # add alert event
     Given A prisoner "A6539DZ" has "C1,TEST" alerts updated
-    And then we wait "5" second for the system to update
+    And I wait for "5" seconds
     And I goto home page
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Need a Review option with a review number flag
@@ -51,7 +51,7 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
     And I sign out of the service
 
 
-  @test_suite
+  @test_suite @suite
   Scenario: A prisoner with a booked visit has a alert added that does not impact visits (TEST) then visit does not need review
     Given I log in with "VSIP2_TST" and "Expired19"
     Then Im on "Manage prison visits - Manage prison visits" page
@@ -94,7 +94,7 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
     And I check to see that there are no notifications for review
     And I sign out of the service
 
-  @test_suite
+  @test_suite @suite
   Scenario: A prisoner with a booked visit has only alerts removed then visit does not need review
     Given I log in with "VSIP2_TST" and "Expired19"
     Then Im on "Manage prison visits - Manage prison visits" page

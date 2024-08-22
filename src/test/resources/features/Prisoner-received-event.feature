@@ -1,7 +1,7 @@
-Feature: When a prisoner with a booked visit is release then visit needs review
+Feature: When a prisoner with a booked visit is received then visit needs review
 
-  @test_suite
-  Scenario: A prisoner with a booked visit is release then visit needs review
+  @test_suite @suite
+  Scenario: A prisoner with a booked visit is received then visit needs review
     Given I log in with "VSIP2_TST" and "Expired19"
     Then Im on "Manage prison visits - Manage prison visits" page
     Then I book a visit for "Vsip_prisoner06"

@@ -36,12 +36,12 @@ public class PrisonVisitsTestingHelperService {
 
 
     public void startPrisonerReleased(String prisonCode, String prisonerCode, String reason) {
-        PrisonerReleasedEventDto request = new PrisonerReleasedEventDto(prisonerCode,prisonCode, reason);
+        PrisonerReleasedEventDto request = new PrisonerReleasedEventDto(prisonCode, prisonerCode, reason);
         client.put("/test/prisoner/released", request, client.validateCreateStatusHandler, "Prisoner release not created");
     }
 
-    public void startPrisonerReceived(String prisonCode, String prisonerCode, String reason) {
-        PrisonerReceivedEventDto request = new PrisonerReceivedEventDto(prisonerCode,prisonCode, reason.toUpperCase());
+    public void startPrisonerReceived(String prisonerCode, String prisonCode, String reason) {
+        PrisonerReceivedEventDto request = new PrisonerReceivedEventDto(prisonerCode, prisonCode, reason.toUpperCase());
 
         client.put(SQS_PRISONER_RECEIVED, request, client.validateCreateStatusHandler, "Prisoner received not created");
     }
