@@ -56,6 +56,10 @@ public class HomePage extends BasePage {
         Assert.assertTrue("Count should be greater than 0 value (" + count + ")", isPositiveNumber(count));
     }
 
+    public void hasNoNeedReviewCount() {
+        Assert.assertFalse("Count should be zero",findNeedReviewCount.isDisplayed());
+    }
+
     public static boolean isPositiveNumber(String strNum) {
         if (strNum != null)
             try {

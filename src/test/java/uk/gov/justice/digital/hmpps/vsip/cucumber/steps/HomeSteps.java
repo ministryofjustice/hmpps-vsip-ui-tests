@@ -56,4 +56,9 @@ public class HomeSteps {
     public void iClickOnSearchByNameOrPrisonNumberOption() {
         homePage.clickOptionSearchByPrisonNo();
     }
+
+    @And("the need to Review option is unset")
+    public void theNeedToReviewOptionIsUnset() {
+        homePage.hasNoNeedReviewCount();
+    }
 }
