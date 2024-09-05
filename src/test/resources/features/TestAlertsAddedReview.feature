@@ -35,19 +35,25 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
     And I see a booking reference
     # add alert event
     Given A prisoner "A6539DZ" has "C1,TEST" alerts updated
-    And I wait for "5" seconds
+    And I wait for "8" seconds
     And I goto home page
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Need a Review option with a review number flag
     And Im on "Manage prison visits - Visit bookings that need review" page
     And I click on view link to see details of the booking needs review
     Then Im on "Manage prison visits - Visit booking details - <booking_reference>" visit view page
-    # TODO - introduce this when the front end work is completed.
-    # And I see "This booking should be cancelled as the prisoner has been released." banner
-    And I choose Booking history tab
-    And I see "Needs review" option
-    # TODO - introduce check for message here?
-    # And I see the description text?
+    And I click on Cancel a visit button
+    Then Im on "Manage prison visits - Why is this booking being cancelled?" page
+    And I select because booking details have changed option
+    And I enter cancellation "<reason>" for the visit
+    And click on cancel button
+    Then Im on "Manage prison visits - Booking cancelled" page
+    And I see "Booking cancelled" message displayed
+    And I goto home page
+    Then Im on "Manage prison visits - Manage prison visits" page
+    And I click on Need a Review option
+    And Im on "Manage prison visits - Visit bookings that need review" page
+    And I check to see that there are no notifications for review
     And I sign out of the service
 
 
@@ -86,7 +92,7 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
     And I see a booking reference
     # add alert event
     Given A prisoner "A6539DZ" has "TEST" alerts updated
-    And then we wait "5" second for the system to update
+    And then we wait "8" second for the system to update
     And I goto home page
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Need a Review option
@@ -129,10 +135,11 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
     And I see a booking reference
     # add alert event
     Given A prisoner "A6539DZ" has no alerts added
-    And then we wait "5" second for the system to update
+    And then we wait "8" second for the system to update
     And I goto home page
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Need a Review option
     And Im on "Manage prison visits - Visit bookings that need review" page
     And I check to see that there are no notifications for review
     And I sign out of the service
+

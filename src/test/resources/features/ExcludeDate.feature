@@ -45,7 +45,6 @@ Feature: API based Exclude date
     And I check to see that there are no notifications for review
     And I sign out of the service
     And I want to clean up after the exclude date test at "<prison>"
-
     Examples:
       | userName  | password          | prisonerName         | prison |
       | VSIP1_TST | Expired19         | Vsip_prisoner06      | HEI    |
