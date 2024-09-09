@@ -133,7 +133,7 @@ public class SelectTimeSlotPage extends BasePage {
     public void iSelectASlotInTwoDaysTimeAt9amTo11am() {
         showAllSlotsDates();
 
-        String dataTestValue = testHelper.getSlotDataTestValue(LocalDate.now().plusDays(2),9,11);
+        String dataTestValue = testHelper.getSlotDataTestValue(LocalDate.now().plusDays(2), 9, 11);
         methodsService.click("xpath", getDataTestXPathForTimeSlot(dataTestValue));
     }
 

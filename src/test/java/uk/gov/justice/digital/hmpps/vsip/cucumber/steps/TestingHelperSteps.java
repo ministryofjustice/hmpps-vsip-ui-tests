@@ -123,7 +123,8 @@ public class TestingHelperSteps {
     }
 
     @Given("I want to setup a closed session for {string} for two days time at 9am to 11am for prisoner location of {string}")
-    public void createClosedSessionTemplate(String prison, String location) {
+    public void createClosedSessionTemplate(String prison, String location) throws InterruptedException {
+        Thread.sleep(4000);
         LocalDateTime sessionSlotTime = LocalDate.now().plusDays(2).atStartOfDay().withHour(9);
         testHelper.createSessionTemplate(prison, sessionSlotTime,1,1,0,location,
                 null,null,true);

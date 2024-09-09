@@ -76,7 +76,8 @@ public class SelectTimeSlotSteps {
     }
 
     @And("I select a slot in two days time at 9am to 11am")
-    public void iSelectASlotInTwoDaysTimeAt9amTo11am() {
+    public void iSelectASlotInTwoDaysTimeAt9amTo11am() throws InterruptedException {
+        Thread.sleep(4000);
         selectTimeSlotPage.iSelectASlotInTwoDaysTimeAt9amTo11am();
     }
 

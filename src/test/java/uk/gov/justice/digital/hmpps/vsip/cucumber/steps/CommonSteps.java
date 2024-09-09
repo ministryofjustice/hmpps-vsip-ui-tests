@@ -31,7 +31,8 @@ public class CommonSteps {
     }
 
     @Then("Im on {string} page")
-    public void im_on_vsip_page(String pageTitle) {
+    public void im_on_vsip_page(String pageTitle) throws InterruptedException {
+        Thread.sleep(4000);
         basePage.isPageTitleDisplayed(pageTitle);
     }
 
