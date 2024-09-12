@@ -61,4 +61,10 @@ public class HomeSteps {
     public void theNeedToReviewOptionIsUnset() {
         homePage.hasNoNeedReviewCount();
     }
+
+    @And("I click on Block visit dates option")
+    public void iClickOnBlockVisitDatesOption() {
+        homePage.clickOnBlockVisitDatesOption();
+    }
+
 }

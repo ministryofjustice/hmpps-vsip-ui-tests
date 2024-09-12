@@ -21,6 +21,9 @@ public class HomePage extends BasePage {
     @FindBy(how = How.XPATH, using = "//a[@href='/review']")
     private WebElement findNeedAReviewOption;
 
+    @FindBy(how = How.XPATH, using = "//a[@href='/block-visit-dates']")
+    private WebElement blockVisitDatesOption;
+
     @FindBy(how = How.XPATH, using = "//*[contains(@data-test, 'need-review-count')]")
     private WebElement findNeedReviewCount;
 
@@ -42,6 +45,10 @@ public class HomePage extends BasePage {
         findNeedAReviewOption.click();
     }
 
+    public void clickOnBlockVisitDatesOption() {
+        blockVisitDatesOption.click();
+    }
+
     public void clickOnViewVisitsByDateOption() {
         viewVisitsOption.click();
     }
@@ -57,14 +64,15 @@ public class HomePage extends BasePage {
     }
 
     public void hasNoNeedReviewCount() {
-        Assert.assertFalse("Count should be zero",findNeedReviewCount.isDisplayed());
+        Assert.assertFalse("Count should be zero", findNeedReviewCount.isDisplayed());
     }
 
     public static boolean isPositiveNumber(String strNum) {
         if (strNum != null)
             try {
-                return Integer.parseInt(strNum)>0;
-            } catch (NumberFormatException nfe) {}
+                return Integer.parseInt(strNum) > 0;
+            } catch (NumberFormatException nfe) {
+            }
         return false;
     }
 
