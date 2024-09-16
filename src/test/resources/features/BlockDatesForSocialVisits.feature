@@ -1,3 +1,4 @@
+@suite
 Feature: Block dates for visits
   As a staff user, I want to be able to block or unblock dates for social visits.
 

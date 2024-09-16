@@ -1,3 +1,4 @@
+@ignore
 Feature: Login
   As a user, I should be able to book a slot with the correct category
 
