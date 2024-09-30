@@ -46,8 +46,8 @@ Feature: Login
     And I sign out of the service
 
     Examples:
-      | userName  | password          | prison       | prisonNumber | location  |
-      | VSIP4_TST | DigitalServices12 | DHI          | A8899DZ      | I-1-003   |
+      | userName  | password            | prison | prisonNumber | location |
+      | VSIP4_TST | DigitalServices2024 | DHI    | A8899DZ      | I-1-003  |
 
   @suite
   Scenario Outline: Book a closed slot for given cell location
@@ -93,8 +93,8 @@ Feature: Login
     And I sign out of the service
 
     Examples:
-      | userName  | password          | prison       | prisonNumber | location  |
-      | VSIP4_TST | DigitalServices12 | DHI          | A8899DZ      | I-1-003   |
+      | userName  | password            | prison | prisonNumber | location |
+      | VSIP4_TST | DigitalServices2024 | DHI    | A8899DZ      | I-1-003  |
 
   @suite
   Scenario Outline: When a prisoner is not at given location then we cannot book
@@ -124,5 +124,5 @@ Feature: Login
     And I sign out of the service
 
     Examples:
-      | userName  | password          | prison       | prisonNumber | location      |
-      | VSIP4_TST | DigitalServices12 | DHI          | A8899DZ      | IM-NOT-HERE   |
+      | userName  | password            | prison | prisonNumber | location    |
+      | VSIP4_TST | DigitalServices2024 | DHI    | A8899DZ      | IM-NOT-HERE |
