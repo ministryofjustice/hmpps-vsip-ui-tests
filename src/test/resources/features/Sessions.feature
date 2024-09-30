@@ -24,8 +24,8 @@ Feature: Session template based tests
     And I sign out of the service
 
     Examples:
-      | userName  | password          | prisonNumber |
-      | VSIP4_TST | DigitalServices12 | A8897DZ      |
+      | userName  | password            | prisonNumber |
+      | VSIP4_TST | DigitalServices2024 | A8897DZ      |
 
   @suite
   Scenario Outline: Closed session - User able to book a Closed session for all Prisoners within the establishment
@@ -55,5 +55,5 @@ Feature: Session template based tests
     And I sign out of the service
 
     Examples:
-      | userName  | password          | prisonNumber |
-      | VSIP4_TST | DigitalServices12 | A8899DZ      |
+      | userName  | password            | prisonNumber |
+      | VSIP4_TST | DigitalServices2024 | A8899DZ      |
