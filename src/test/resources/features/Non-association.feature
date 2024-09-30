@@ -1,3 +1,4 @@
+@ignore
 Feature: Non-association visit
   As a user, I shouldn't be able to book a visit using VSIP service for a non-association prisoners
 

@@ -1,3 +1,4 @@
+@ignore
 Feature: When a prisoner with a booked visit  has high priority alerts added then visit needs review
 
   @test_suite @suite

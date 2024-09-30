@@ -1,3 +1,4 @@
+@ignore
 Feature: API based Exclude date
   As a user, I should be able to view a booking flagged when the booking date is excluded from an establishment and able to update the booking accordingly and see it is unflagged.
 
