@@ -43,8 +43,8 @@ Feature: Login
     And I sign out of the service
 
     Examples:
-      | userName  | password          | prison | prisonNumber | category      |
-      | VSIP4_TST | DigitalServices12 | DHI    | A8900DZ      | FEMALE_CLOSED |
+      | userName  | password            | prison | prisonNumber | category      |
+      | VSIP4_TST | DigitalServices2024 | DHI    | A8900DZ      | FEMALE_CLOSED |
 
   @suite
   Scenario Outline: When a prisoner is not in given category then we cannot book
@@ -71,5 +71,5 @@ Feature: Login
     And I sign out of the service
 
     Examples:
-      | userName  | password          | prison | prisonNumber | category |
-      | VSIP4_TST | DigitalServices12 | DHI    | A8900DZ      | A_HIGH   |
+      | userName  | password            | prison | prisonNumber | category |
+      | VSIP4_TST | DigitalServices2024 | DHI    | A8900DZ      | A_HIGH   |

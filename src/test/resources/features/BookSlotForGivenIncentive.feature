@@ -93,8 +93,8 @@ Feature: Login
     And I sign out of the service
 
     Examples:
-      | userName  | password          | prison | prisonNumber | incentive |
-      | VSIP4_TST | DigitalServices12 | DHI    | A8899DZ      | STANDARD  |
+      | userName  | password            | prison | prisonNumber | incentive |
+      | VSIP4_TST | DigitalServices2024 | DHI    | A8899DZ      | STANDARD  |
 
   @suite
   Scenario Outline: When a prisoner does not have the right incentive level we cannot book
@@ -124,5 +124,5 @@ Feature: Login
     And I sign out of the service
 
     Examples:
-      | userName  | password          | prison | prisonNumber | incentive |
-      | VSIP4_TST | DigitalServices12 | DHI    | A8899DZ      | ENHANCED  |
+      | userName  | password            | prison | prisonNumber | incentive |
+      | VSIP4_TST | DigitalServices2024 | DHI    | A8899DZ      | ENHANCED  |
