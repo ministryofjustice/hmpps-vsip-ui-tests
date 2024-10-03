@@ -81,4 +81,11 @@ public class PrisonerDetailsSteps {
     public void iCheckPrisonerLocationForDrakeHall(String location) {
         prisonerDetailsPage.checkPrisonerLocationDrakeHall();
     }
+
+    @And("{string} can visit someone at {string} information is displayed on the page")
+    public void canVisitSomeoneAtInformationIsDisplayedOnThePage(String visitors, String prisonName) {
+        prisonerDetailsPage.totalNumberOfVisitorsAllowed(visitors);
+        prisonerDetailsPage.getPrisonName(prisonName);
+    }
+
 }
