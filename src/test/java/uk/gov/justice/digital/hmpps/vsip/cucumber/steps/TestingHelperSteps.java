@@ -160,8 +160,14 @@ public class TestingHelperSteps {
     @Given("I want to setup a closed session for {string} for two days time at 9am to 11am for prisoner category of {string}")
     public void createClosedSessionTemplateForCategory(String prison, String category) {
         LocalDateTime sessionSlotTime = LocalDate.now().plusDays(2).atStartOfDay().withHour(9);
-        testHelper.createSessionTemplate(prison, sessionSlotTime,1,1,0,null,
-                null,category,true);
+        testHelper.createSessionTemplate(prison, sessionSlotTime, 1, 1, 0, null,
+                null, category, true);
     }
 
+    @And("I set an open session for {string} to one")
+    public void iSetAnOpenSessionForToOne(String prison) {
+        LocalDateTime sessionSlotTime = LocalDate.now().plusDays(2).atStartOfDay().withHour(9);
+        testHelper.createSessionTemplate(prison, sessionSlotTime, 1, 0, 1, null,
+                null, null, true);
+    }
 }
