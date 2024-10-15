@@ -134,7 +134,7 @@ public class BookingDetailsStepDefinitions {
         searchPage.enterPrisonerDetails(prisonerNo);
         searchPage.clickOnSearchBtn();
         searchPage.selectPrisoner();
-        bookingDetailsPage.isPageTitleDisplayed("Manage prison visits - "+prisonerNo+", Do Not Use");
+        bookingDetailsPage.isPageTitleDisplayed("Manage prison visits - " + prisonerNo + ", Do Not Use");
         prisonerDetailsPage.clickOnBookAVisitBtn();
         bookingDetailsPage.isPageTitleDisplayed("Manage prison visits - Select visitors from the prisoner’s approved visitor list");
         selectVisitorsPage.choosePrisoners();
@@ -159,5 +159,10 @@ public class BookingDetailsStepDefinitions {
         confirmationPage.checkBookingHeading("Booking confirmed");
         String bookingReference = confirmationPage.getBookingReference();
         testContextService.setBookingReference(bookingReference);
+    }
+
+    @Then("the update booking button is not displayed")
+    public void theUpdateBookingButtonIsNotDisplayed() {
+        bookingDetailsPage.checkUpdateDetailsOptions();
     }
 }

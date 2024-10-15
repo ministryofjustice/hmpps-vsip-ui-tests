@@ -1,5 +1,6 @@
 package uk.gov.justice.digital.hmpps.vsip.pages;
 
+import org.junit.Assert;
 import uk.gov.justice.digital.hmpps.vsip.annotation.ComponentWithWebDriver;
 
 @ComponentWithWebDriver
@@ -59,4 +60,6 @@ public class BookingDetailsPage extends BasePage {
         methodsService.isElementDisplayed("xpath", "//span[text()='wheel chair']");
     }
 
+    public  void checkUpdateDetailsOptions(){
+        Assert.assertFalse(methodsService.isElementPresent("xpath", "//button[contains(@data-test,'update-visit')]"));}
 }
