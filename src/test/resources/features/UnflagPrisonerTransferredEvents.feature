@@ -1,3 +1,4 @@
+@suite
 Feature: Un-flag an event when booking is updated, cancelled or marked as 'Do not change'
 
   Background:
@@ -19,7 +20,6 @@ Feature: Un-flag an event when booking is updated, cancelled or marked as 'Do no
     And I click on view link to see details of the booking needs review
     Then Im on "Manage prison visits - Visit booking details - <booking_reference>" visit view page
 
-  @suite
   Scenario: An event is un-flagged when marked as 'Do not change'
     And click on do not change button
     Then Im on "Manage prison visits - Are you sure the visit does not need to be updated or cancelled?" page
@@ -32,7 +32,6 @@ Feature: Un-flag an event when booking is updated, cancelled or marked as 'Do no
     And the need to Review option is unset
     And I sign out of the service
 
-  @suite
   Scenario:  An event is un-flagged when booking is cancelled
     And I click on Cancel a visit button
     Then Im on "Manage prison visits - Why is this booking being cancelled?" page
@@ -46,9 +45,6 @@ Feature: Un-flag an event when booking is updated, cancelled or marked as 'Do no
     And the need to Review option is unset
     And I sign out of the service
 
-
-#  Enable this tests after we decide how we handle 'Update' option for a prisoner transfer
-  @ignore
   Scenario:  An event is un-flagged when the booking is Updated.
     Then the update booking button is not displayed
     And I sign out of the service
