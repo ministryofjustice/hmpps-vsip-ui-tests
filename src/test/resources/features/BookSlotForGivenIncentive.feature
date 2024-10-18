@@ -47,7 +47,7 @@ Feature: Login
 
     Examples:
       | userName  | password          | prison | prisonNumber | incentive |
-      | VSIP4_TST | DigitalServices12 | DHI    | A8899DZ      | STANDARD  |
+      | VSIP4_TST | DigitalServices2024 | DHI    | A8899DZ      | STANDARD  |
 
 
   Scenario Outline: Book a closed slot for given incentive level STANDARD
