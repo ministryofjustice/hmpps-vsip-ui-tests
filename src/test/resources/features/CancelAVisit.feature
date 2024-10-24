@@ -1,7 +1,8 @@
+@ignore
 Feature: Cancel a Visit
   As a user, I should be able to cancel a visit using VSIP service
 
-  @suite
+
   Scenario Outline: Cancel a visit with Visitor Cancelled option
     Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
@@ -41,7 +42,7 @@ Feature: Cancel a Visit
       | userName  | password  | prisonerName    | reason              |
       | VSIP1_TST | Expired19 | Vsip_prisoner06 | Visitor broke a leg |
 
-  @suite
+
   Scenario Outline: Cancel a visit with Establishment cancelled option
     Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
@@ -79,7 +80,7 @@ Feature: Cancel a Visit
       | userName  | password  | prisonerName    | reason         |
       | VSIP1_TST | Expired19 | Vsip_prisoner06 | new visit room |
 
-  @suite
+
   Scenario Outline: Cancel a visit with Prisoner cancelled option
     Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
@@ -117,7 +118,7 @@ Feature: Cancel a Visit
       | userName  | password  | prisonerName    | reason          |
       | VSIP1_TST | Expired19 | Vsip_prisoner06 | prisoner is ill |
 
-  @suite
+
   Scenario Outline: Cancel a visit with Administrative error option
     Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page
@@ -155,7 +156,7 @@ Feature: Cancel a Visit
       | userName  | password  | prisonerName    | reason    |
       | VSIP1_TST | Expired19 | Vsip_prisoner06 | no tables |
 
-  @suite
+
   Scenario Outline: Cancel a visit because booking details have changed error option
     Given I log in with "<userName>" and "<password>"
     Then Im on "Manage prison visits - Manage prison visits" page

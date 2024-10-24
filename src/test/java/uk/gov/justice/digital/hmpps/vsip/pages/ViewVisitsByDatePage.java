@@ -22,7 +22,9 @@ public class ViewVisitsByDatePage extends BasePage {
     }
 
     public void selectViewOption() {
-        methodsService.click("xpath", "//a[contains(text(), 'View')]");
+//        methodsService.click("xpath", "//a[contains(text(), 'View')]");
+        methodsService.click("xpath", "//a[contains(@data-test, 'view-visit-link')]");
+
     }
 
     public void checkTextOnVisit(String text) {
