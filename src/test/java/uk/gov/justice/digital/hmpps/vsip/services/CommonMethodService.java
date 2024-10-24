@@ -206,11 +206,12 @@ public class CommonMethodService {
     }
 
     public void clickOnManagePrisonOption() {
-        click("xpath", "//a[contains(@class, 'hmpps-header__link hmpps-header__title__service-name')]");
+        click("xpath", "//a[contains(@data-test, 'go-to-home')]");
     }
 
-    public void clickOnSignOut() {
-        click("xpath", "/html/body/header/div/nav/ul/li[2]/a");
+    public void clickOnSignOut() throws InterruptedException {
+      click("class", "connect-dps-common-header__user-menu-toggle");
+      click("xpath","//a[@href='/sign-out']");
     }
 
     public void errorMsgDisplayed(String errorMsg) {
