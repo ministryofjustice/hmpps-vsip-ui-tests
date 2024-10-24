@@ -58,7 +58,7 @@ public class CommonSteps {
     }
 
     @And("I sign out of the service")
-    public void iSignOutOfTheService() {
+    public void iSignOutOfTheService() throws InterruptedException {
         methodsService.clickOnSignOut();
     }
 
