@@ -206,11 +206,12 @@ public class CommonMethodService {
     }
 
     public void clickOnManagePrisonOption() {
-        click("xpath", "//a[contains(@class, 'hmpps-header__link hmpps-header__title__service-name')]");
+        click("xpath", "//a[contains(@data-test, 'go-to-home')]");
     }
 
-    public void clickOnSignOut() {
-        click("xpath", "/html/body/header/div/nav/ul/li[2]/a");
+    public void clickOnSignOut() throws InterruptedException {
+      click("class", "connect-dps-common-header__user-menu-toggle");
+      click("xpath","//a[@href='/sign-out']");
     }
 
     public void errorMsgDisplayed(String errorMsg) {
@@ -226,12 +227,15 @@ public class CommonMethodService {
         isElementNotVisible("xpath", "//*[@id='BLI']");
     }
 
-    public void chooseDrakeHall() {
-        selectRadioButton("xpath","//p[text()='Drake Hall (HMP & YOI)']");
+    public void changeEstablishment() {
+        click("xpath", "//a[contains(@data-test, 'change-case-load-link')]");
     }
 
-    public void changeEstablishment() {
-        click("xpath", "//a[contains(@data-test, 'change-establishment')]");
+    public void selectEstablishment(String establishment) {
+        Select se = new Select(driver.findElement(By.id("changeCaseloadSelect")));
+        se.selectByVisibleText(establishment);
+        clickOnButton("class", "govuk-button");
+        clickOnButton("linkText","Manage prison visits");
     }
 
 }

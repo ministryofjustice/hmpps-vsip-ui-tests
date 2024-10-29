@@ -58,7 +58,7 @@ public class CommonSteps {
     }
 
     @And("I sign out of the service")
-    public void iSignOutOfTheService() {
+    public void iSignOutOfTheService() throws InterruptedException {
         methodsService.clickOnSignOut();
     }
 
@@ -72,10 +72,10 @@ public class CommonSteps {
         methodsService.chooseBristol();
     }
 
-    @And("I change the establishment to Drake Hall")
-    public void iChangeTheEstablishmentToDrakeHall() {
-        methodsService.chooseDrakeHall();
-    }
+//    @And("I change the establishment to Drake Hall")
+//    public void iChangeTheEstablishmentToDrakeHall() {
+//        methodsService.chooseDrakeHall();
+//    }
 
     @And("I should not be able to select Bristol establishment")
     public void iShouldNotBeAbleToSelectBristolEstablishment() {
@@ -95,5 +95,15 @@ public class CommonSteps {
     @And("I wait for {string} seconds")
     public void iWaitForSeconds(String seconds) throws InterruptedException {
         Thread.sleep(Long.parseLong(seconds) * 1000); // convert seconds to milliseconds
+    }
+
+    @And("I change the establishment to Drake Hall")
+    public void iChangeTheEstablishmentToDrakeHall() {
+        methodsService.selectEstablishment("Bristol (HMP)");
+    }
+
+    @And("I change the establishment to {string}")
+    public void iChangeTheEstablishmentTo(String establishmentName) {
+        methodsService.selectEstablishment(establishmentName);
     }
 }
