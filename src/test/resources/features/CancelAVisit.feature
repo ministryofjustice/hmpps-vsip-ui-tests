@@ -1,4 +1,4 @@
-@ignore
+@suite
 Feature: Cancel a Visit
   As a user, I should be able to cancel a visit using VSIP service
 
@@ -32,7 +32,7 @@ Feature: Cancel a Visit
     And click on search button
     Then I choose prisoner from search results
     Then Im on "Manage prison visits - Visit booking details - <booking_reference>" visit view page
-    And I see "This visit was cancelled by the visitor." message displayed on Booking details page
+    And I see "This visit was cancelled by a visitor." message displayed on Booking details page
     Then I choose Booking history tab
     And  I see "Reason: <reason>" reason message displayed on booking history tab
     And I see "Method: Phone booking" cancel request method displayed on booking history tab
