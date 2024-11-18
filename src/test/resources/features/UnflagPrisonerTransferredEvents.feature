@@ -2,7 +2,7 @@
 Feature: Un-flag an event when booking is updated, cancelled or marked as 'Do not change'
 
   Background:
-    Given I log in with "VSIP2_TST" and "Expired19"
+    Given I log in with "VSIP2_TST" and "DigitalServices2024"
     Then Im on "Manage prison visits - Manage prison visits" page
     Then I book a visit for "Vsip_prisoner06"
     # We do this to simulate a visit from an old prison
@@ -12,7 +12,7 @@ Feature: Un-flag an event when booking is updated, cancelled or marked as 'Do no
     And then we wait "5" second for the system to update
     And I sign out of the service
     # VSIP3_TST has bristol as default prison
-    Then I log in with "VSIP3_TST" and "Expired19"
+    Then I log in with "VSIP3_TST" and "DigitalServices2024"
     And I goto home page
     Then Im on "Manage prison visits - Manage prison visits" page
     And I see need a Review option with a review number flag

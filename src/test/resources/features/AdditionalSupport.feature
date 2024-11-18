@@ -50,8 +50,6 @@ Feature: Additional Support
     Then I check additional support is displayed
     And I sign out of the service
 
-
-
     Examples:
-      | userName  | password          | prisonNumber | phoneNumber | details     |
-      | VSIP2_TST | Expired19         | A6036DZ      | 07805123900 | wheel chair |
+      | userName  | password            | prisonNumber | phoneNumber | details     |
+      | VSIP2_TST | DigitalServices2024 | A6036DZ      | 07805123900 | wheel chair |

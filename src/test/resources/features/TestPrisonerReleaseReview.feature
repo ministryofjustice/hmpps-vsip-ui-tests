@@ -48,10 +48,6 @@ Feature: When a prisoner with a booked visit is released then visit needs review
     And I see "Needs review" option
     And I sign out of the service
 
-
-
-
-
     Examples:
-      | userName  | password          | prisonerName    | phoneNumber | prisonCode | prisonerCode |
-      | VSIP2_TST | Expired19         | VSIP_PRISONER06 | 07805123900 | HEI        | A6539DZ      |
+      | userName  | password            | prisonerName    | phoneNumber | prisonCode | prisonerCode |
+      | VSIP2_TST | DigitalServices2024 | VSIP_PRISONER06 | 07805123900 | HEI        | A6539DZ      |

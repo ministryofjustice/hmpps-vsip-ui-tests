@@ -12,8 +12,8 @@ Feature: Login
     And I sign out of the service
 
     Examples:
-      | userName  | password          |
-      | VSIP1_TST | Expired19         |
+      | userName  | password            |
+      | VSIP1_TST | DigitalServices2024 |
 
   @suite
   Scenario Outline: Error message - access VSIP homepage
@@ -25,5 +25,5 @@ Feature: Login
     Then I see "Enter a valid username and password. You will be locked out if you enter the wrong details 10 times." page
 
     Examples:
-      | userName   | password  |
-      | VSIP1d_TST | Expired10 |
+      | userName   | password            |
+      | VSIP1d_TST | DigitalServices2024 |

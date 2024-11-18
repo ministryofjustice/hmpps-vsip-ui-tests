@@ -11,5 +11,5 @@ Feature: Need a review
     And I sign out of the service
 
     Examples:
-      | userName  | password          |
-      | VSIP1_TST | Expired19         |
+      | userName  | password            |
+      | VSIP1_TST | DigitalServices2024 |
