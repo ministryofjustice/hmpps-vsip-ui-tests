@@ -16,8 +16,8 @@ Feature: View a Visit
     And I sign out of the service
 
     Examples:
-      | userName  | password          | prisonerName |
-      | VSIP1_TST | Expired19         | Vsip_prisoner06 |
+      | userName  | password            | prisonerName    |
+      | VSIP1_TST | DigitalServices2024 | Vsip_prisoner06 |
 
   # @suite // TODO: find a way to capture booking slot date and time to use when searching for visit by date.
   Scenario Outline: User able to view Visits by date
@@ -32,8 +32,8 @@ Feature: View a Visit
     And I sign out of the service
 
     Examples:
-      | userName  | password          | date       |
-      | VSIP1_TST | Expired19         | 20/11/2023 |
+      | userName  | password            | date       |
+      | VSIP1_TST | DigitalServices2024 | 20/11/2023 |
 
   # @suite // TODO: find a way to capture booking slot date and time to use when searching for visit by date.
   Scenario Outline: User able to view Visits by date
@@ -49,5 +49,5 @@ Feature: View a Visit
     And I sign out of the service
 
     Examples:
-      | userName  | password          | date       |
-      | VSIP1_TST | Expired19         | 16/03/2024 |
+      | userName  | password            | date       |
+      | VSIP1_TST | DigitalServices2024 | 16/03/2024 |

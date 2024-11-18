@@ -32,8 +32,8 @@ Feature: When a booking get prisoner release notification
     And I sign out of the service
 
     Examples:
-          | userName  | password          | prisonerName    | phoneNumber | prisonCode | prisonerCode |
-          | VSIP2_TST | Expired19         | Vsip_prisoner06 | 07805123900 | HEI        | A6539DZ      |
+      | userName  | password            | prisonerName    | phoneNumber | prisonCode | prisonerCode |
+      | VSIP2_TST | DigitalServices2024 | Vsip_prisoner06 | 07805123900 | HEI        | A6539DZ      |
 
 
   @test_suite @suite
@@ -66,8 +66,8 @@ Feature: When a booking get prisoner release notification
     And I sign out of the service
 
     Examples:
-      | userName  | password          | prisonerName    |  prisonCode | prisonerCode |
-      | VSIP2_TST | Expired19         | Vsip_prisoner06 |  HEI        | A6539DZ      |
+      | userName  | password            | prisonerName    | prisonCode | prisonerCode |
+      | VSIP2_TST | DigitalServices2024 | Vsip_prisoner06 | HEI        | A6539DZ      |
 
 
   @test_suite @suite
@@ -98,8 +98,8 @@ Feature: When a booking get prisoner release notification
     And I sign out of the service
 
     Examples:
-      | userName  | password          | prisonerName    | phoneNumber | prisonCode | prisonerCode |
-      | VSIP2_TST | Expired19         | Vsip_prisoner06 | 07805123900 | HEI        | A6539DZ      |
+      | userName  | password            | prisonerName    | phoneNumber | prisonCode | prisonerCode |
+      | VSIP2_TST | DigitalServices2024 | Vsip_prisoner06 | 07805123900 | HEI        | A6539DZ      |
 
 
   @test_suite @suite
@@ -132,5 +132,5 @@ Feature: When a booking get prisoner release notification
     And I sign out of the service
 
     Examples:
-      | userName  | password          | prisonerName    | phoneNumber | prisonCode | prisonerCode |
-      | VSIP2_TST | Expired19         | Vsip_prisoner06 | 07805123900 | HEI        | A6539DZ      |
+      | userName  | password            | prisonerName    | phoneNumber | prisonCode | prisonerCode |
+      | VSIP2_TST | DigitalServices2024 | Vsip_prisoner06 | 07805123900 | HEI        | A6539DZ      |

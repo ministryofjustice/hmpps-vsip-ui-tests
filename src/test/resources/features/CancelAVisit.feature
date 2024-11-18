@@ -39,8 +39,8 @@ Feature: Cancel a Visit
     And I sign out of the service
 
     Examples:
-      | userName  | password  | prisonerName    | reason              |
-      | VSIP1_TST | Expired19 | Vsip_prisoner06 | Visitor broke a leg |
+      | userName  | password            | prisonerName    | reason              |
+      | VSIP1_TST | DigitalServices2024 | Vsip_prisoner06 | Visitor broke a leg |
 
 
   Scenario Outline: Cancel a visit with Establishment cancelled option
@@ -77,8 +77,8 @@ Feature: Cancel a Visit
     And I sign out of the service
 
     Examples:
-      | userName  | password  | prisonerName    | reason         |
-      | VSIP1_TST | Expired19 | Vsip_prisoner06 | new visit room |
+      | userName  | password            | prisonerName    | reason         |
+      | VSIP1_TST | DigitalServices2024 | Vsip_prisoner06 | new visit room |
 
 
   Scenario Outline: Cancel a visit with Prisoner cancelled option
@@ -115,8 +115,8 @@ Feature: Cancel a Visit
     And I sign out of the service
 
     Examples:
-      | userName  | password  | prisonerName    | reason          |
-      | VSIP1_TST | Expired19 | Vsip_prisoner06 | prisoner is ill |
+      | userName  | password            | prisonerName    | reason          |
+      | VSIP1_TST | DigitalServices2024 | Vsip_prisoner06 | prisoner is ill |
 
 
   Scenario Outline: Cancel a visit with Administrative error option
@@ -153,8 +153,8 @@ Feature: Cancel a Visit
     And I sign out of the service
 
     Examples:
-      | userName  | password  | prisonerName    | reason    |
-      | VSIP1_TST | Expired19 | Vsip_prisoner06 | no tables |
+      | userName  | password            | prisonerName    | reason    |
+      | VSIP1_TST | DigitalServices2024 | Vsip_prisoner06 | no tables |
 
 
   Scenario Outline: Cancel a visit because booking details have changed error option
@@ -191,6 +191,6 @@ Feature: Cancel a Visit
     And I sign out of the service
 
     Examples:
-      | userName  | password  | prisonerName    | reason                |
-      | VSIP1_TST | Expired19 | Vsip_prisoner06 | non ass not permitted |
+      | userName  | password            | prisonerName    | reason                |
+      | VSIP1_TST | DigitalServices2024 | Vsip_prisoner06 | non ass not permitted |
 

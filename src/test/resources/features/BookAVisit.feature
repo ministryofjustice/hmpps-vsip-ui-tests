@@ -37,12 +37,12 @@ Feature: Book a Visit
     And I sign out of the service
 
     Examples:
-      | userName  | password  | prisonNumber |
-      | VSIP2_TST | Expired19 | A6036DZ      |
+      | userName  | password            | prisonNumber |
+      | VSIP2_TST | DigitalServices2024 | A6036DZ      |
 
   @suite
   Scenario: Book a visit capacity is refilled after 10minutes
-    Given I log in with "VSIP2_TST" and "Expired19"
+    Given I log in with "VSIP2_TST" and "DigitalServices2024"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
@@ -61,7 +61,7 @@ Feature: Book a Visit
     And I take note of the hidden application reference
     Then I sign out of the service
     Then I update the last modified time in the database to be "11" minutes in the past
-    Then I log in with "VSIP2_TST" and "Expired19"
+    Then I log in with "VSIP2_TST" and "DigitalServices2024"
     Then Im on "Manage prison visits - Manage prison visits" page
     And I click on Book a visit option
     And Im on "Manage prison visits - Search for a prisoner" page
@@ -122,8 +122,8 @@ Feature: Book a Visit
     And I sign out of the service
 
     Examples:
-      | userName  | password  | prisonerName    |
-      | VSIP2_TST | Expired19 | VSIP_PRISONER06 |
+      | userName  | password            | prisonerName    |
+      | VSIP2_TST | DigitalServices2024 | VSIP_PRISONER06 |
 
   @smoke_tests_os @suite @error_messages
   Scenario Outline: Book a visit - Additional support needed
@@ -187,8 +187,8 @@ Feature: Book a Visit
     And I sign out of the service
 
     Examples:
-      | userName  | password  | prisonerName    | phoneNumber | incorrectdetails |
-      | VSIP2_TST | Expired19 | Vsip_prisoner06 | 07806789076 | w                |
+      | userName  | password            | prisonerName    | phoneNumber | incorrectdetails |
+      | VSIP2_TST | DigitalServices2024 | Vsip_prisoner06 | 07806789076 | w                |
 
   @ignore
   Scenario Outline: Book a visit - Someone else main contact
@@ -253,12 +253,13 @@ Feature: Book a Visit
     Then I choose prisoner from search results
     Then Im on "Manage prison visits - Vsip_prisoner06, Do Not Use" page
     And I select last booked visit reference
-    And I see "This visit was cancelled by the visitor." banner
+    And I see "This visit was cancelled by a visitor." banner
     And I choose Booking history tab
     And I see "Reason: Health issues" reason used to Book a visit
     And I see "Method: Phone booking" used to cancel booking
     And I sign out of the service
 
     Examples:
-      | userName  | password  | prisonerName    | contactName | phoneNumber | reason        | prisonNumber |
-      | VSIP2_TST | Expired19 | VSIP_PRISONER06 | John        | 07806432054 | Health issues | A6539DZ      |
+      | userName  | password            | prisonerName    | contactName | phoneNumber | reason        | prisonNumber |
+      | VSIP2_TST | DigitalServices2024 | VSIP_PRISONER06 | John        | 07806432054 | Health issues | A6539DZ      |
+
