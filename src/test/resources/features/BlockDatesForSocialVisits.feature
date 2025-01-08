@@ -4,17 +4,17 @@ Feature: Block dates for visits
 
   Background:
     Given I log in with "VSIP3_TST" and "DigitalServices2024"
-    Then Im on "Manage prison visits - Manage prison visits" page
+    Then Im on "Manage prison visits - DPS" page
     And I click on Block visit dates option
-    Then Im on "Manage prison visits - Block visit dates" page
+    Then Im on "Block visit dates - Manage prison visits - DPS" page
 
   Scenario Outline: Block visit dates
     And I enter a "<date>" to block the visit
     And click on continue button
-    Then Im on "Manage prison visits - Are you sure you want to block visits on Saturday 25 October 2025?" page
+    Then Im on "Are you sure you want to block visits on Saturday 25 October 2025? - Manage prison visits - DPS" page
     And I confirm the date to block
     And click on continue button
-    Then Im on "Manage prison visits - Block visit dates" page
+    Then Im on "Block visit dates - Manage prison visits - DPS" page
     And the page has the confirmation message "Visits are blocked for Saturday 25 October 2025."
     And I sign out of the service
 
