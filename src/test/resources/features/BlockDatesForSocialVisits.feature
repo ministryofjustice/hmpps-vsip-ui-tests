@@ -3,7 +3,7 @@ Feature: Block dates for visits
   As a staff user, I want to be able to block or unblock dates for social visits.
 
   Background:
-    Given I log in with "VSIP3_TST" and "DigitalServices2024"
+    Given I log in with "VSIP3_TST" and "DigitalServices2025"
     Then Im on "Manage prison visits - DPS" page
     And I click on Block visit dates option
     Then Im on "Block visit dates - Manage prison visits - DPS" page

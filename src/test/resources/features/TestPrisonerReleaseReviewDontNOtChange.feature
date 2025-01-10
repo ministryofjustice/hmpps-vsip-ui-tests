@@ -33,7 +33,7 @@ Feature: When a booking get prisoner release notification
 
     Examples:
       | userName  | password            | prisonerName    | phoneNumber | prisonCode | prisonerCode |
-      | VSIP2_TST | DigitalServices2024 | Vsip_prisoner06 | 07805123900 | HEI        | A6539DZ      |
+      | VSIP2_TST |DigitalServices2025 | Vsip_prisoner06 | 07805123900 | HEI        | A6539DZ      |
 
 
   @test_suite @suite
@@ -67,7 +67,7 @@ Feature: When a booking get prisoner release notification
 
     Examples:
       | userName  | password            | prisonerName    | prisonCode | prisonerCode |
-      | VSIP2_TST | DigitalServices2024 | Vsip_prisoner06 | HEI        | A6539DZ      |
+      | VSIP2_TST |DigitalServices2025 | Vsip_prisoner06 | HEI        | A6539DZ      |
 
 
   @test_suite @suite
@@ -99,7 +99,7 @@ Feature: When a booking get prisoner release notification
 
     Examples:
       | userName  | password            | prisonerName    | phoneNumber | prisonCode | prisonerCode |
-      | VSIP2_TST | DigitalServices2024 | Vsip_prisoner06 | 07805123900 | HEI        | A6539DZ      |
+      | VSIP2_TST |DigitalServices2025 | Vsip_prisoner06 | 07805123900 | HEI        | A6539DZ      |
 
 
   @test_suite @suite
@@ -133,4 +133,4 @@ Feature: When a booking get prisoner release notification
 
     Examples:
       | userName  | password            | prisonerName    | phoneNumber | prisonCode | prisonerCode |
-      | VSIP2_TST | DigitalServices2024 | Vsip_prisoner06 | 07805123900 | HEI        | A6539DZ      |
+      | VSIP2_TST |DigitalServices2025 | Vsip_prisoner06 | 07805123900 | HEI        | A6539DZ      |

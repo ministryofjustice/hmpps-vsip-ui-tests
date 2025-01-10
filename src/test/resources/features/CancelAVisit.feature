@@ -40,7 +40,7 @@ Feature: Cancel a Visit
 
     Examples:
       | userName  | password            | prisonerName    | reason              |
-      | VSIP1_TST | DigitalServices2024 | Vsip_prisoner06 | Visitor broke a leg |
+      | VSIP1_TST | DigitalServices2025 | Vsip_prisoner06 | Visitor broke a leg |
 
 
   Scenario Outline: Cancel a visit with Establishment cancelled option
@@ -78,7 +78,7 @@ Feature: Cancel a Visit
 
     Examples:
       | userName  | password            | prisonerName    | reason         |
-      | VSIP1_TST | DigitalServices2024 | Vsip_prisoner06 | new visit room |
+      | VSIP1_TST | DigitalServices2025 | Vsip_prisoner06 | new visit room |
 
 
   Scenario Outline: Cancel a visit with Prisoner cancelled option
@@ -116,7 +116,7 @@ Feature: Cancel a Visit
 
     Examples:
       | userName  | password            | prisonerName    | reason          |
-      | VSIP1_TST | DigitalServices2024 | Vsip_prisoner06 | prisoner is ill |
+      | VSIP1_TST | DigitalServices2025 | Vsip_prisoner06 | prisoner is ill |
 
 
   Scenario Outline: Cancel a visit with Administrative error option
@@ -154,7 +154,7 @@ Feature: Cancel a Visit
 
     Examples:
       | userName  | password            | prisonerName    | reason    |
-      | VSIP1_TST | DigitalServices2024 | Vsip_prisoner06 | no tables |
+      | VSIP1_TST | DigitalServices2025 | Vsip_prisoner06 | no tables |
 
 
   Scenario Outline: Cancel a visit because booking details have changed error option
@@ -192,5 +192,5 @@ Feature: Cancel a Visit
 
     Examples:
       | userName  | password            | prisonerName    | reason                |
-      | VSIP1_TST | DigitalServices2024 | Vsip_prisoner06 | non ass not permitted |
+      | VSIP1_TST | DigitalServices2025 | Vsip_prisoner06 | non ass not permitted |
 

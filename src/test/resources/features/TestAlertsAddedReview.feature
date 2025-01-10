@@ -3,7 +3,7 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
 
   @test_suite @suite
   Scenario: A prisoner with a booked visit has a high priority alert (C1) added then visit needs review
-    Given I log in with "VSIP2_TST" and "DigitalServices2024"
+    Given I log in with "VSIP2_TST" and "DigitalServices2025"
     Then Im on "Manage prison visits - DPS" page
     And I click on Book a visit option
     And Im on "Search for a prisoner - Manage prison visits - DPS" page
@@ -60,7 +60,7 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
 
   @test_suite @suite
   Scenario: A prisoner with a booked visit has a alert added that does not impact visits (TEST) then visit does not need review
-    Given I log in with "VSIP2_TST" and "DigitalServices2024"
+    Given I log in with "VSIP2_TST" and "DigitalServices2025"
     Then Im on "Manage prison visits - DPS" page
     And I click on Book a visit option
     And Im on "Search for a prisoner - Manage prison visits - DPS" page
@@ -103,7 +103,7 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
 
   @test_suite @suite
   Scenario: A prisoner with a booked visit has only alerts removed then visit does not need review
-    Given I log in with "VSIP2_TST" and "DigitalServices2024"
+    Given I log in with "VSIP2_TST" and "DigitalServices2025"
     Then Im on "Manage prison visits - DPS" page
     And I click on Book a visit option
     And Im on "Search for a prisoner - Manage prison visits - DPS" page

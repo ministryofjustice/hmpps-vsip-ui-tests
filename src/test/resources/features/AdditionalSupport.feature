@@ -52,4 +52,4 @@ Feature: Additional Support
 
     Examples:
       | userName  | password            | prisonNumber | phoneNumber | details     |
-      | VSIP2_TST | DigitalServices2024 | A6036DZ      | 07805123900 | wheel chair |
+      | VSIP2_TST | DigitalServices2025 | A6036DZ      | 07805123900 | wheel chair |

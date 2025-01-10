@@ -3,7 +3,7 @@ Feature: Non-association visit
   As a user, I shouldn't be able to book a visit using VSIP service for a non-association prisoners
 
   Scenario: Non-association
-    Given I log in with "VSIP3_TST" and "DigitalServices2024"
+    Given I log in with "VSIP3_TST" and "DigitalServices2025"
     Then Im on "Manage prison visits - DPS" page
     And I select change establishment
     And I change the establishment to "Bristol (HMP)"
