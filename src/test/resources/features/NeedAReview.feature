@@ -12,4 +12,4 @@ Feature: Need a review
 
     Examples:
       | userName  | password            |
-      | VSIP1_TST | DigitalServices2024 |
+      | VSIP1_TST | DigitalServices2025|

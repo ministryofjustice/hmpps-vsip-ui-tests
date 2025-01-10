@@ -38,11 +38,11 @@ Feature: Book a Visit
 
     Examples:
       | userName  | password            | prisonNumber |
-      | VSIP2_TST | DigitalServices2024 | A6036DZ      |
+      | VSIP2_TST | DigitalServices2025 | A6036DZ      |
 
   @suite
   Scenario: Book a visit capacity is refilled after 10minutes
-    Given I log in with "VSIP2_TST" and "DigitalServices2024"
+    Given I log in with "VSIP2_TST" and "DigitalServices2025"
     Then Im on "Manage prison visits - DPS" page
     And I click on Book a visit option
     And Im on "Search for a prisoner - Manage prison visits - DPS" page
@@ -61,7 +61,7 @@ Feature: Book a Visit
     And I take note of the hidden application reference
     Then I sign out of the service
     Then I update the last modified time in the database to be "11" minutes in the past
-    Then I log in with "VSIP2_TST" and "DigitalServices2024"
+    Then I log in with "VSIP2_TST" and "DigitalServices2025"
     Then Im on "Manage prison visits - DPS" page
     And I click on Book a visit option
     And Im on "Search for a prisoner - Manage prison visits - DPS" page
@@ -123,7 +123,7 @@ Feature: Book a Visit
 
     Examples:
       | userName  | password            | prisonerName    |
-      | VSIP2_TST | DigitalServices2024 | VSIP_PRISONER06 |
+      | VSIP2_TST | DigitalServices2025 | VSIP_PRISONER06 |
 
   @smoke_tests_os @suite @error_messages
   Scenario Outline: Book a visit - Additional support needed
@@ -188,7 +188,7 @@ Feature: Book a Visit
 
     Examples:
       | userName  | password            | prisonerName    | phoneNumber | incorrectdetails |
-      | VSIP2_TST | DigitalServices2024 | Vsip_prisoner06 | 07806789076 | w                |
+      | VSIP2_TST | DigitalServices2025 | Vsip_prisoner06 | 07806789076 | w                |
 
   @ignore
   Scenario Outline: Book a visit - Someone else main contact
@@ -261,5 +261,5 @@ Feature: Book a Visit
 
     Examples:
       | userName  | password            | prisonerName    | contactName | phoneNumber | reason        | prisonNumber |
-      | VSIP2_TST | DigitalServices2024 | VSIP_PRISONER06 | John        | 07806432054 | Health issues | A6539DZ      |
+      | VSIP2_TST | DigitalServices2025 | VSIP_PRISONER06 | John        | 07806432054 | Health issues | A6539DZ      |
 

@@ -94,7 +94,7 @@ Feature: Login
 
     Examples:
       | userName  | password            | prison | prisonNumber | incentive |
-      | VSIP4_TST | DigitalServices2024 | DHI    | A8899DZ      | STANDARD  |
+      | VSIP4_TST | DigitalServices2025 | DHI    | A8899DZ      | STANDARD  |
 
   @suite
   Scenario Outline: When a prisoner does not have the right incentive level we cannot book
@@ -125,4 +125,4 @@ Feature: Login
 
     Examples:
       | userName  | password            | prison | prisonNumber | incentive |
-      | VSIP4_TST | DigitalServices2024 | DHI    | A8899DZ      | ENHANCED  |
+      | VSIP4_TST | DigitalServices2025 | DHI    | A8899DZ      | ENHANCED  |

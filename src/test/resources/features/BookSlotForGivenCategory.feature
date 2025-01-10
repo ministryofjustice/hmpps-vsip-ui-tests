@@ -43,7 +43,7 @@ Feature: Login
 
     Examples:
       | userName  | password            | prison | prisonNumber | category      |
-      | VSIP4_TST | DigitalServices2024 | DHI    | A8900DZ      | FEMALE_CLOSED |
+      | VSIP4_TST | DigitalServices2025 | DHI    | A8900DZ      | FEMALE_CLOSED |
 
   @suite
   Scenario Outline: When a prisoner is not in given category then we cannot book
@@ -70,4 +70,4 @@ Feature: Login
 
     Examples:
       | userName  | password            | prison | prisonNumber | category |
-      | VSIP4_TST | DigitalServices2024 | DHI    | A8900DZ      | A_HIGH   |
+      | VSIP4_TST | DigitalServices2025 | DHI    | A8900DZ      | A_HIGH   |

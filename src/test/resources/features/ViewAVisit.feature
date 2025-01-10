@@ -17,7 +17,7 @@ Feature: View a Visit
 
     Examples:
       | userName  | password            | prisonerName    |
-      | VSIP1_TST | DigitalServices2024 | Vsip_prisoner06 |
+      | VSIP1_TST |DigitalServices2025 | Vsip_prisoner06 |
 
   # @suite // TODO: find a way to capture booking slot date and time to use when searching for visit by date.
   Scenario Outline: User able to view Visits by date
@@ -33,7 +33,7 @@ Feature: View a Visit
 
     Examples:
       | userName  | password            | date       |
-      | VSIP1_TST | DigitalServices2024 | 20/11/2023 |
+      | VSIP1_TST |DigitalServices2025 | 20/11/2023 |
 
   # @suite // TODO: find a way to capture booking slot date and time to use when searching for visit by date.
   Scenario Outline: User able to view Visits by date
@@ -50,4 +50,4 @@ Feature: View a Visit
 
     Examples:
       | userName  | password            | date       |
-      | VSIP1_TST | DigitalServices2024 | 16/03/2024 |
+      | VSIP1_TST |DigitalServices2025 | 16/03/2024 |

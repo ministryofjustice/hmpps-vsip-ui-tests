@@ -50,4 +50,4 @@ Feature: When a prisoner with a booked visit is released then visit needs review
 
     Examples:
       | userName  | password            | prisonerName    | phoneNumber | prisonCode | prisonerCode |
-      | VSIP2_TST | DigitalServices2024 | VSIP_PRISONER06 | 07805123900 | HEI        | A6539DZ      |
+      | VSIP2_TST | DigitalServices2025 | VSIP_PRISONER06 | 07805123900 | HEI        | A6539DZ      |

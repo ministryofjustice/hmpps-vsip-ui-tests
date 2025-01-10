@@ -13,7 +13,7 @@ Feature: Login
 
     Examples:
       | userName  | password            |
-      | VSIP1_TST | DigitalServices2024 |
+      | VSIP1_TST | DigitalServices2025|
 
 
   Scenario Outline: Error message - access VSIP homepage
@@ -26,4 +26,4 @@ Feature: Login
 
     Examples:
       | userName   | password            |
-      | VSIP1d_TST | DigitalServices2024 |
+      | VSIP1d_TST | DigitalServices2025 |
