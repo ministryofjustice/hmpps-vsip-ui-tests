@@ -136,7 +136,7 @@ public class BookingDetailsStepDefinitions {
         searchPage.selectPrisoner();
         bookingDetailsPage.isPageTitleDisplayed( prisonerNo + ", Do Not Use - Manage prison visits - DPS");
         prisonerDetailsPage.clickOnBookAVisitBtn();
-        bookingDetailsPage.isPageTitleDisplayed("Select visitors from the prisoner’s approved visitor list - Manage prison visits - DPS");
+        bookingDetailsPage.isPageTitleDisplayed("Select visitors - Manage prison visits - DPS");
         selectVisitorsPage.choosePrisoners();
         methodsService.clickOnContinueBtn();
         bookingDetailsPage.isPageTitleDisplayed("Select date and time of visit - Manage prison visits - DPS");

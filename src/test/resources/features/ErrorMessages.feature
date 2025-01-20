@@ -41,7 +41,7 @@ Feature: Book a Visit Error messages
     Then I choose prisoner from search results
     Then Im on "Vsip_prisoner09, Do Not Use - Manage prison visits - DPS" page
     And I click on Book a visit button
-    Then Im on "Select visitors from the prisoner’s approved visitor list - Manage prison visits - DPS" page
+    Then Im on "Select visitors - Manage prison visits - DPS" page
     And I select another visitor form the list
     And click on continue button
     Then Im on "Select date and time of visit - Manage prison visits - DPS" page
@@ -94,7 +94,7 @@ Feature: Book a Visit Error messages
     Then I choose prisoner from search results
     Then Im on "Vsip_prisoner11, Do Not Use - Manage prison visits - DPS" page
     And I click on Book a visit button
-    Then Im on "Select visitors from the prisoner’s approved visitor list - Manage prison visits - DPS" page
+    Then Im on "Select visitors - Manage prison visits - DPS" page
     And I select a visitor form the list from Drake hall establishment
     And click on continue button
     Then Im on "Check the prisoner's closed visit restrictions - Manage prison visits - DPS" page
