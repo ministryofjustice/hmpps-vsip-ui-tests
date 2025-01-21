@@ -12,7 +12,7 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
     Then I choose prisoner from search results
     Then Im on "Vsip_prisoner06, Do Not Use - Manage prison visits - DPS" page
     And I click on Book a visit button
-    Then Im on "Select visitors from the prisoner’s approved visitor list - Manage prison visits - DPS" page
+    Then Im on "Select visitors - Manage prison visits - DPS" page
     And I select a visitor form the lists
     And click on continue button
     Then Im on "Select date and time of visit - Manage prison visits - DPS" page
@@ -69,7 +69,7 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
     Then I choose prisoner from search results
     Then Im on "Vsip_prisoner06, Do Not Use - Manage prison visits - DPS" page
     And I click on Book a visit button
-    Then Im on "Select visitors from the prisoner’s approved visitor list - Manage prison visits - DPS" page
+    Then Im on "Select visitors - Manage prison visits - DPS" page
     And I select a visitor form the lists
     And click on continue button
     Then Im on "Select date and time of visit - Manage prison visits - DPS" page
@@ -112,7 +112,7 @@ Feature: When a prisoner with a booked visit  has high priority alerts added the
     Then I choose prisoner from search results
     Then Im on "Vsip_prisoner06, Do Not Use - Manage prison visits - DPS" page
     And I click on Book a visit button
-    Then Im on "Select visitors from the prisoner’s approved visitor list - Manage prison visits - DPS" page
+    Then Im on "Select visitors - Manage prison visits - DPS" page
     And I select a visitor form the lists
     And click on continue button
     Then Im on "Select date and time of visit - Manage prison visits - DPS" page

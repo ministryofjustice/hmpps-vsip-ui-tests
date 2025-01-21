@@ -12,7 +12,7 @@ Feature: Book a Visit
     Then I choose prisoner from search results
     Then Im on "Vsip_prisoner01, Do Not Use - Manage prison visits - DPS" page
     And I click on Book a visit button
-    Then Im on "Select visitors from the prisoner’s approved visitor list - Manage prison visits - DPS" page
+    Then Im on "Select visitors - Manage prison visits - DPS" page
     And "2 people" can visit someone at "Hewell (HMP)" information is displayed on the page
     And I select a visitor form the list
     And click on continue button
@@ -51,7 +51,7 @@ Feature: Book a Visit
     Then I choose prisoner from search results
     Then Im on "Vsip_prisoner01, Do Not Use - Manage prison visits - DPS" page
     And I click on Book a visit button
-    Then Im on "Select visitors from the prisoner’s approved visitor list - Manage prison visits - DPS" page
+    Then Im on "Select visitors - Manage prison visits - DPS" page
     And I select a visitor form the list
     And click on continue button
     Then Im on "Select date and time of visit - Manage prison visits - DPS" page
@@ -70,7 +70,7 @@ Feature: Book a Visit
     Then I choose prisoner from search results
     Then Im on "Vsip_prisoner02, Do Not Use - Manage prison visits - DPS" page
     And I click on Book a visit button
-    Then Im on "Select visitors from the prisoner’s approved visitor list - Manage prison visits - DPS" page
+    Then Im on "Select visitors - Manage prison visits - DPS" page
     And I select other prisoner visitor form the list
     And click on continue button
     Then Im on "Select date and time of visit - Manage prison visits - DPS" page
@@ -88,7 +88,7 @@ Feature: Book a Visit
     Then I choose prisoner from search results
     Then Im on "Vsip_prisoner06, Do Not Use - Manage prison visits - DPS" page
     And I click on Book a visit button
-    Then Im on "Select visitors from the prisoner’s approved visitor list - Manage prison visits - DPS" page
+    Then Im on "Select visitors - Manage prison visits - DPS" page
     And I select a visitor form the lists
     And click on continue button
     Then Im on "Select date and time of visit - Manage prison visits - DPS" page
@@ -136,7 +136,7 @@ Feature: Book a Visit
     Then I choose prisoner from search results
     Then Im on "Vsip_prisoner06, Do Not Use - Manage prison visits - DPS" page
     And I click on Book a visit button
-    Then Im on "Select visitors from the prisoner’s approved visitor list - Manage prison visits - DPS" page
+    Then Im on "Select visitors - Manage prison visits - DPS" page
     And click on continue button
     # checking error message
     Then I see "No visitors selected" on select visitors page
@@ -201,7 +201,7 @@ Feature: Book a Visit
     Then I choose prisoner from search results
     Then Im on "Vsip_prisoner06, Do Not Use - Manage prison visits - DPS" page
     And I click on Book a visit button
-    Then Im on "Select visitors from the prisoner’s approved visitor list - Manage prison visits - DPS" page
+    Then Im on "Select visitors - Manage prison visits - DPS" page
     And I select a visitor form the lists
     And click on continue button
     Then Im on "Select date and time of visit - Manage prison visits - DPS" page

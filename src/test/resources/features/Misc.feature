@@ -55,7 +55,7 @@ Feature: Book/Cancel/Amend a Visit
     Then I choose prisoner from search results
     Then Im on "Vsip_prisoner04, Do Not Use - Manage prison visits - DPS" page
     And I click on Book a visit button
-    Then Im on "Select visitors from the prisoner’s approved visitor list - Manage prison visits - DPS" page
+    Then Im on "Select visitors - Manage prison visits - DPS" page
     And I check if the message is displayed no booking can be booked for this prisoner
     And I sign out of the service
 
@@ -74,7 +74,7 @@ Feature: Book/Cancel/Amend a Visit
     Then I choose prisoner from search results
     Then Im on "Vsip_prisoner09, Do Not Use - Manage prison visits - DPS" page
     And I click on Book a visit button
-    Then Im on "Select visitors from the prisoner’s approved visitor list - Manage prison visits - DPS" page
+    Then Im on "Select visitors - Manage prison visits - DPS" page
     And I check Banned status for the visitor
     And I check the Banned visitor is not selectable
     And I sign out of the service
