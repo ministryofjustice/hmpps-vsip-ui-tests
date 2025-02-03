@@ -18,7 +18,7 @@ Feature: Login
     Then Im on "Vsip_prisoner14, Do Not Use - Manage prison visits - DPS" page
     And I check Female category for that prisoner
     And I click on Book a visit button
-    Then Im on "Select visitors from the prisoner’s approved visitor list - Manage prison visits - DPS" page
+    Then Im on "Select visitors - Manage prison visits - DPS" page
     And I select a visitor form the list from Drake hall establishment
     And click on continue button
     Then Im on "Select date and time of visit - Manage prison visits - DPS" page
