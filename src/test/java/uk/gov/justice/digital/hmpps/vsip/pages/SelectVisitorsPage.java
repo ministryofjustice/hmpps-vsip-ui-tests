@@ -42,7 +42,7 @@ public class SelectVisitorsPage extends BasePage {
 
     public void chooseAVisitorFromDrakeHall() { methodsService.click("xpath","//*[@id='visitor-4729692']"); }
 
-    public void checkMessage() { methodsService.isElementDisplayed("xpath","//p[@data-test='no-suitable-visitors']");}
+    public void checkMessage() { methodsService.isElementDisplayed("xpath","//p[@data-test='no-suitable-visitors' and text()='There are no approved visitors for this prisoner. A booking cannot be made at this time.']");}
 
     public void checkBannedStatus() {
         methodsService.isElementDisplayed("xpath","//span[text()='Banned']");
