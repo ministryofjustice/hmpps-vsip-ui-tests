@@ -24,7 +24,7 @@ public class BookingDetailsPage extends BasePage {
     }
 
     public void checkHistoryTabBookRequestMethod(String text) {
-        methodsService.isElementDisplayed("xpath", "//p[starts-with(@data-test,'visit-request-method') and text()='" + text + "']");
+        methodsService.isElementDisplayed("xpath", "//div[@class='moj-timeline__description' and text() = '" + text + "']");
     }
 
 
@@ -37,7 +37,7 @@ public class BookingDetailsPage extends BasePage {
     }
 
     public void checkReasonFlagged(String reason) {
-        methodsService.isElementDisplayed("xpath", "//p[text() = '" + reason + "']");
+        methodsService.isElementDisplayed("xpath", "//div[@class='moj-timeline__description' and text() = '" + reason + "']");
     }
 
     public void clickOnUpdateBooking() {
